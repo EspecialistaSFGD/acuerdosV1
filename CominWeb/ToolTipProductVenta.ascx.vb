@@ -1,0 +1,30 @@
+﻿Imports CominWeb.SW_coneccionDB
+Imports System.IO
+
+Public Class ToolTipProductVenta
+    Inherits System.Web.UI.UserControl
+
+    Public Property productoID() As String
+        Get
+            If ViewState("productoID") Is Nothing Then
+                Return ""
+            End If
+            Return DirectCast(ViewState("productoID"), String)
+        End Get
+        Set(ByVal value As String)
+
+            ViewState("productoID") = value
+        End Set
+    End Property
+
+
+    Protected Overrides Sub OnPreRender(ByVal e As EventArgs)
+        MyBase.OnPreRender(e)
+        Me.SDS_P_selectOrdenesServicio.SelectParameters("productoID").DefaultValue = Me.productoID
+        Me.DataBind()
+    End Sub
+
+    Private Sub Page_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
+        SDS_P_selectOrdenesServicio.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
+    End Sub
+End Class

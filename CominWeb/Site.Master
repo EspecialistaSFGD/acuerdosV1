@@ -1,0 +1,624 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Site.master.vb" Inherits="CominWeb.Site" %>
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    
+    <link href="http://162.248.52.148/REFERENCIASBASE/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <script type = "text/javascript" >
+        var default1 = "SISCOMP 15.1";
+        var text1 = "© Copyright 2023";
+        var text2 = "LIMA - PERU";
+        var text3 = "SISCOMP 15.1";
+        var changeRate = 2000; // 1000 = 1 second
+        var messageNumber = 0;
+
+        function changeStatus() {
+            if (messageNumber == 0) {
+                window.status = default1;
+                document.title = default1;
+            }
+            else if (messageNumber == 1) {
+                window.status = text1;
+                document.title = text1;
+            }
+            else if (messageNumber == 2) {
+                window.status = text2;
+                document.title = text2;
+            }
+            else if (messageNumber == 3) {
+                window.status = text3;
+                document.title = text3;
+            }
+            messageNumber++;
+            setTimeout("changeStatus();", changeRate);
+        }
+
+        changeStatus();
+
+        window.setInterval("renewSession();", 30000);
+
+        function renewSession() {
+            console.log("Renovando session...");
+            document.getElementById('renewSession').src = '/SISSEGQ/SessionActiva.aspx?par=' + Math.random();
+        }
+
+        var myMessages = ['info', 'warning', 'error', 'success']; // define the messages types		 
+        function hideAllMessages() {
+            var messagesHeights = new Array(); // this array will store height for each
+
+            for (i = 0; i < myMessages.length; i++) {
+                messagesHeights[i] = $('.' + myMessages[i]).outerHeight();
+                $('.' + myMessages[i]).css('top', -messagesHeights[i]); //move element outside viewport	  
+            }
+        }
+
+        function showMessage(type) {
+            hideAllMessages();
+            $('.' + type).show();
+            $('.' + type).animate({ top: "0" }, 500);
+        }
+
+        $(document).ready(function () {
+            hideAllMessages();
+        });
+
+        function mensaje(tipo, texto) {
+            var n = noty({
+                text: texto,
+                type: tipo,
+                dismissQueue: true,
+                layout: 'center',
+                theme: 'defaultTheme',
+                modal: true
+            });
+            console.log('html: ' + n.options.id);
+        }
+
+        function mecanicoJS() {
+            var capa = document.getElementById("mecanicoB");
+            capa.click();
+        }
+
+        function superadminJS() {
+            var capa = document.getElementById("superAdminB");
+            capa.click();
+        }
+        
+        function cerrarsesionJS() {
+            var capa = document.getElementById("btn_desconectarme");
+            capa.click();
+        }
+</script>
+<style type="text/css">
+.message
+{
+		-webkit-background-size: 40px 40px;
+		-moz-background-size: 40px 40px;
+		background-size: 40px 40px;			
+		background-image: -webkit-gradient(linear, left top, right bottom,
+								color-stop(.25, rgba(255, 255, 255, .05)), color-stop(.25, transparent),
+								color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .05)),
+								color-stop(.75, rgba(255, 255, 255, .05)), color-stop(.75, transparent),
+								to(transparent));
+		background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+							transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+							transparent 75%, transparent);
+		background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+							transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+							transparent 75%, transparent);
+		background-image: -ms-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+							transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+							transparent 75%, transparent);
+		background-image: -o-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+							transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+							transparent 75%, transparent);
+		background-image: linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+							transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+							transparent 75%, transparent);
+								
+		 -moz-box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);
+		 -webkit-box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);		
+		 box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);
+		 /*width: 100%;*/
+		 border: 1px solid;
+		 color: #fff;
+		 padding: 5px;
+		 /*position: fixed;*/
+		 _position: absolute;
+		 text-shadow: 0 1px 0 rgba(0,0,0,.5);
+		 -webkit-animation: animate-bg 5s linear infinite;
+		 -moz-animation: animate-bg 5s linear infinite;
+}
+
+.info
+{
+		 background-color: #4ea5cd;
+		 border-color: #3b8eb5;
+}
+
+.error
+{
+		 background-color: #de4343;
+		 border-color: #c43d3d;
+}
+		 
+.warning
+{
+		 background-color: #eaaf51;
+		 border-color: #d99a36;
+}
+
+.success
+{
+		 background-color: #61b832;
+		 border-color: #55a12c;
+}
+
+.message h3
+{
+		 margin: 0 0 5px 0;													 
+}
+
+.message p
+{
+		 margin: 0;													 
+}
+</style>         
+    <link type="text/css" href="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link type="text/css" href="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.css" rel="stylesheet" />
+    <link type="text/css" href="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet" />
+    <link type="text/css" href="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/build/css/custom.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="http://162.248.52.148/REFERENCIASBASE/Scripts/login2019/css/main.css" />
+
+
+</head>
+<body class="nav-md">
+        
+    <div class="error message" style="display:none">
+        <p>NO EXISTE TIPO DE CAMBIO PARA EL DIA DE HOY.</p>
+    </div>
+    <form runat="server">
+
+                 
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+             
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <%--<a href="http://192.190.43.77/SISSEGQ/Bienvenida.aspx?gjXtIkEroS=eninbWFudWNjaQ==" class="site_title"><img src="http://162.248.52.148/REFERENCIASBASE/Resources/casa_grande.png" width="190px"> <span><asp:Label ID="tituloLB2" runat="server" Text=""></asp:Label></span></a>--%>
+                  <%--<a href="http://192.190.43.77/SISSEGQ/Bienvenida.aspx?gjXtIkEroS=eninbWFudWNjaQ==" class="site_title"><img src="http://162.248.52.148/REFERENCIASBASE/Resources/LogoMantenimiento.png" width="55px"> <span><asp:Label ID="tituloLB2" runat="server" Text=""></asp:Label></span></a>--%>
+                <a href="http://192.190.43.77/SISSEGQ/Bienvenida.aspx?gjXtIkEroS=eninbWFudWNjaQ==" class="site_title"><img src="http://162.248.52.148/REFERENCIASBASE/Resources/P_E_Soluciones_JPG.jpg" width="190px"> <span><asp:Label ID="tituloLB2" runat="server" Text="" Visible="false" ></asp:Label></span></a>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="http://162.248.52.148/REFERENCIASBASE/trabajador/FotosTrabajadores/usuario.png" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Bienvenido,</span>
+                <h2><asp:Label ID="nomUsuarioLeft" runat="server" Text="NO USER" style="color:#fff"></asp:Label></h2>
+              </div>
+            </div>
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <%--MENU CLIENTES--%>
+                <%--MANUCCI--%>
+                    <div class="menu_section">
+                        <ul class="nav side-menu">
+                          <li><a id="equipoMLink" runat="server" visible="false"><i class="fa fa-automobile"></i> Equipos <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li><a id="Form_EquiposLink" runat="server" visible="false">Equipos</a></li>
+                                <li><a id="Form_modeloEquipoLink" runat="server" visible="false">Modelo</a></li>
+                                <li><a id="Form_familiaELink" runat="server" visible="false">Familia Equipos</a></li>
+                                <li><a id="Form_tipoEquipoLink" runat="server" visible="false">Tipo Equipos</a></li>                                
+                                <li><a id="Form_tipoSistemaLink" runat="server" visible="false">Tipo Sistema</a></li>
+                                <li><a id="Form_tiempoestandartrabajoLink" runat="server" visible="false">Actividades/Tareas</a></li>
+                            </ul>
+                          </li>
+                          <li><a id="procesosMLink" runat="server" visible="false" ><i class="fa fa-gears"></i> Procesos <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li><a id="Form_planManttoLink" runat="server" visible="false">Planes de Mantto</a></li>
+                                <li><a id="Form_correctivosListLink" runat="server" visible="false">Mantto Correctivo</a></li>
+                                <li><a id="Form_regFallasListLink" runat="server" visible="false">Registro Fallas</a></li>
+                                <li><a id="asignaLink" runat="server" visible="false">Asignaciones</a>
+                                    <ul class="nav child_menu">
+                                        <li class="sub_menu"><a id="Form_planificaEquipoLink" runat="server" visible="false">Mantto. Preventivo</a>
+                                        </li>
+                                        <li class="sub_menu"><a id="Form_checkListLink" runat="server" visible="false">CheckList</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a id="Form_AsigCalendarioLink" runat="server" visible="false">Planificacion</a></li>
+                                <li><a id="Form_OrdenesLink" runat="server" visible="false">Ejecucion OT</a></li>
+                                <li><a id="Form_ReporteDiarioLink" runat="server" visible="false">Reporte Diario</a></li>
+                                <li><a id="Form_OrdenesCotLink" runat="server" visible="false">Cotizaciones</a></li>
+                                <li><a id="Form_TrabajosEquipoLink" runat="server" visible="false">Registro de Horas</a></li>
+                                <li><a id="Form_ValoracionesLink" runat="server" visible="false">Valorizaciones</a></li>
+                            </ul>
+                          </li>
+                          <li><a id="productosMLink" runat="server" visible="false"><i class="fa fa-wrench"></i> Productos <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                              <li><a id="Form_ProductosLink" runat="server" visible="false">Repuestos</a></li>
+                                <li><a id="Form_ProductosLinkCON" runat="server" visible="false">CONSULTAR</a></li>
+                              <li><a id="Form_ProductosActivosLink" runat="server" visible="false">Activos</a></li>
+                              <li><a id="Form_ubicacionProductoLink" runat="server" visible="false">Ubicacion Prod.</a></li>
+                              <li><a id="Form_grupoProductoLink" runat="server" visible="false">Grupos</a></li>
+                              <li><a id="Form_subgrupoProductoLink" runat="server" visible="false">Sub-Grupos</a></li>
+                              <li><a id="Form_grupoFuncionLink" runat="server" visible="false">Grupo Funcion</a></li>
+                              <li><a id="Form_unidadMedidaLink" runat="server" visible="false">Unidad de Medida</a></li>
+                              <li><a id="Form_ajusteStockLink" runat="server" visible="false">Ajuste Stock</a></li>
+                            </ul>
+                          </li>
+                          <li><a id="salidasMLink" runat="server" visible="false"><i class="fa fa-shopping-cart"></i> Logistica <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li><a id="Form_ListaComprasLink" runat="server" visible="false">Compras</a></li>
+                                <li><a id="Form_ListaSalidaAlmacenLink" runat="server" visible="false">Almacen</a></li>
+                                <li><a id="Form_ListaVentasLink" runat="server" visible="false">Ventas</a></li>
+                                <li><a id="Form_ListaVentasOLink" runat="server" visible="false">Orden Venta</a></li>
+                                <li><a id="Form_ListaGuiasLink" runat="server" visible="false">Guia Remision</a></li>
+                                <li><a id="Form_OrdenesComprasLink" runat="server" visible="false">Ordenes de Compra</a></li>
+                                <li><a id="Form_OrdenesCotEXLink" runat="server" visible="false">Ordenes de Servicio</a></li>
+                                <li><a id="Form_ListaTransferenciasLink" runat="server" visible="false">Transferencias</a></li>
+                                <li><a id="Form_AlimentacionLink" runat="server" visible="false">Alimentacion</a></li>
+                                <li><a id="Form_IngresoConsumoDLink" runat="server" visible="false">Combustible Dscto.</a></li>
+                                <li><a id="Form_IngresoConsumoFLink" runat="server" visible="false">Combustible Fact.</a></li>
+                                <li><a id="Form_AsignacionPListLink" runat="server" visible="false" href="newRest/Form_AsignacionPList.aspx">Dotaciones</a></li>
+                            </ul>
+                          </li>
+                          <li><a id="cuentasMLink" runat="server" visible="false"><i class="fa fa-users"></i> Cuentas <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li><a id="Form_TrabajadoresLink" runat="server" visible="false">Trabajadores</a></li>
+                                <li><a id="Form_ClientesLink" runat="server" visible="false">Clientes</a></li>
+                                <li><a id="Form_PropietariosLink" runat="server" visible="false">Propietarios</a></li>
+                                <li><a id="Form_ProveedoresLink" runat="server" visible="false">Proveedores</a></li>
+                                <li><a id="Form_UsuariosLink" runat="server" visible="false">Usuarios</a></li>
+                                <li><a id="Form_tipoProveedorLink" runat="server" visible="false">Tipo Proveedor</a></li>
+                                <li><a id="Form_SubcontratistaLink" runat="server" visible="false">SubContratista</a></li>
+                                <li><a id="Form_tipoClienteLink" runat="server" visible="false">Tipo Cliente</a></li>
+                                <li><a id="Form_tipoPagoLink" runat="server" visible="false">Tipo Pago</a></li>
+                            </ul>
+                          </li>
+                          <li><a id="asignacionMLink" runat="server" visible="false"><i class="fa fa-gears"></i> Asignaciones <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a id="Form_EPPLink" runat="server" visible="false">EPP</a></li>
+                                    <li><a id="Form_EHerramientasLink" runat="server" visible="false">Herramientas</a></li>
+                                    <li><a id="Form_EProductoLink" runat="server" visible="false">Articulos</a></li>
+                                </ul>
+                          </li>                          
+                          <li><a id="mantenimientoMLink" runat="server" visible="false"><i class="fa fa-edit"></i> Parametros <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li><a id="Form_tipoCambioLink" runat="server" visible="false">Tipo Cambio</a></li>
+                                <li><a id="Form_marcaELink" runat="server" visible="false">Marcas</a></li>
+                                <li><a id="Form_tipoDocumentoLink" runat="server" visible="false">Tipo Doc.</a></li>
+                                <li><a id="Form_almacenesLink" runat="server" visible="false">Almacenes</a></li>
+                                <li><a id="Form_lugarTrabajoLink" runat="server" visible="false">Lugares Trabajo</a></li>
+                                <li><a id="Form_tipoServicioLink" runat="server" visible="false">Tipo Servicio</a></li>
+                                <li><a id="Form_areaLink" runat="server" visible="false">Areas</a></li>
+                                
+                                <li><a id="Form_cargoLink" runat="server" visible="false">Cargos</a></li>
+                                <li><a id="Form_centroCostoLink" runat="server" visible="false">Centro Costo</a></li>
+                                <li><a id="Form_PartidasLink" runat="server" visible="false">Partidas</a></li>
+                                <li><a id="Form_motivoAjusteLink" runat="server" visible="false">Motivos Ajuste</a></li>
+                                <li><a id="Form_cuentaCorrienteLink" runat="server" visible="false">Cuenta Corriente</a></li>
+                                <li><a id="Form_bancoLink" runat="server" visible="false">Bancos</a></li>
+                                
+                            </ul>
+                          </li>
+                          <li><a id="reportesMLink" runat="server"  visible="false"><i class="fa fa-bar-chart-o"></i> Reportes <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li><a>Productos<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li class="sub_menu"><a id="Form_ProductoStockMinLink" runat="server" visible="false">Stock Min.</a>
+                                        </li>
+                                        <li><a id="Form_ProductosFecCorteLink" runat="server" >Fec.Corte</a>
+                                        </li>
+                                        <li><a id="Form_OrdenesCotAusentesLink" runat="server" visible="false">Por Cotiz.</a>
+                                        </li>
+                                        <li><a id="Form_ProveedoresByProductosLink" runat="server" visible="false">Por Prov.</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a  id="reportesCotiLink" runat="server" visible="false">Cotización<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li class="sub_menu"><a id="Form_CotizaHoraEquipoLink" runat="server">Hora Equipo</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a id="reportesAsigLink" runat="server" visible="false">Asignaciones<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li class="sub_menu"><a id="Form_EppByProductoIntegradoLink" runat="server">Articulos Int</a>
+                                        </li>
+                                        <li class="sub_menu"><a id="Form_EppByTrabajadorIntegradoLink" runat="server">EPP Int</a>
+                                        </li>
+                                        <li class="sub_menu"><a id="Form_EppByProductoLink" runat="server">Articulos</a>
+                                        </li>
+                                        <li class="sub_menu"><a id="Form_EppByTrabajadorLink" runat="server">EPP</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                          </li>
+                        <li><a id="administradorMLink" runat="server" visible="false"><i class="fa fa-edit"></i> Administrador <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li><a id="Form_parametrosLink" runat="server" visible="false">Parametros</a></li>
+                                <li><a id="Form_sucursalLink" runat="server" visible="false">Sucursales</a></li>
+                                <li><a id="Form_TransferenciaSucursalLink" runat="server" visible="false">Transf. Trab.</a></li>
+                                <li><a id="Form_TransferenciaSucursalEqLink" runat="server" visible="false">Transf. Eq.</a></li>
+                            </ul>
+                        </li>
+                        <li><a id="ingresosMLink" runat="server" visible="false"></a>
+                          </li>
+                          <li><a id="trabajosMLink" runat="server" visible="false"></a>
+                          </li>
+                        </ul>
+                      </div>  
+
+                <%--OTROS CLIENTES--%>
+             <%-- <div class="menu_section">
+                <ul class="nav side-menu">
+                <li><a id="newRestCab" runat="server" visible="false" ><i class="fa fa-users"></i> New Rest <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a id="Form_AsignacionPListLink" runat="server" visible="false" href="newRest/Form_AsignacionPList.aspx">Dotaciones</a></li>
+                        <li><a id="dotacionLink" runat="server" visible="false" href="newRest/Form_ReportOcupabilidadR1.aspx">Reportes</a></li>
+                    </ul>
+                  </li>
+                  <li><a id="cuentasMLink" runat="server" visible="false"><i class="fa fa-users"></i> Cuentas <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a id="Form_TrabajadoresLink" runat="server" visible="false">Trabajadores</a></li>
+                        <li><a id="Form_ProveedoresLink" runat="server" visible="false">Proveedores</a></li>
+                        <li><a id="Form_PropietariosLink" runat="server" visible="false">Propietarios</a></li>
+                        <li><a id="Form_ClientesLink" runat="server" visible="false">Clientes</a></li>
+                        <li><a id="Form_SubcontratistaLink" runat="server" visible="false">SubContratista</a></li>
+                        <li><a id="Form_UsuariosLink" runat="server" visible="false">Usuarios</a></li>
+                        <li><a id="Form_tipoClienteLink" runat="server" visible="false">Tipo Cliente</a></li>
+                        <li><a id="Form_tipoProveedorLink" runat="server" visible="false">Tipo Proveedor</a></li>
+                        <li><a id="Form_tipoPagoLink" runat="server" visible="false">Tipo Pago</a></li>
+                    </ul>
+                  </li>
+                  <li><a id="productosMLink" runat="server" visible="false"><i class="fa fa-wrench"></i> Productos <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a id="Form_ProductosLink" runat="server" visible="false">Articulos</a></li>
+                        <li><a id="Form_ProductosLinkCON" runat="server" visible="false">CONSULTAR</a></li>
+                      <li><a id="Form_ProductosActivosLink" runat="server" visible="false">Activos</a></li>
+                      <li><a id="Form_ubicacionProductoLink" runat="server" visible="false">Ubicacion Prod.</a></li>
+                      <li><a id="Form_grupoProductoLink" runat="server" visible="false">Grupos</a></li>
+                      <li><a id="Form_subgrupoProductoLink" runat="server" visible="false">Sub-Grupos</a></li>
+                      <li><a id="Form_grupoFuncionLink" runat="server" visible="false">Grupo Funcion</a></li>
+                      <li><a id="Form_unidadMedidaLink" runat="server" visible="false">Unidad de Medida</a></li>
+                      <li><a id="Form_ajusteStockLink" runat="server" visible="false">Ajuste Stock</a></li>
+                    </ul>
+                  </li>
+                  <li><a id="equipoMLink" runat="server" visible="false"><i class="fa fa-automobile"></i> Equipos <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a id="Form_EquiposLink" runat="server" visible="false">Equipos</a></li>
+                        <li><a id="Form_modeloEquipoLink" runat="server" visible="false">Modelo</a></li>
+                        <li><a id="Form_familiaELink" runat="server" visible="false">Familia Equipos</a></li>
+                        <li><a id="Form_tipoEquipoLink" runat="server" visible="false">Tipo Equipos</a></li>
+                        <li><a id="Form_tipoSistemaLink" runat="server" visible="false">Tipo Sistema</a></li>
+                    </ul>
+                  </li>
+                  <li><a id="ingresosMLink" runat="server" visible="false"><i class="fa fa-briefcase"></i> Ingresos <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a id="Form_ListaComprasLink" runat="server" visible="false">Compras</a></li>
+                      <li><a id="Form_OrdenesComprasLink" runat="server" visible="false">Ordenes de Compra</a></li>
+                      <li><a id="Form_OrdenesCotEXLink" runat="server" visible="false">Ordenes de Servicio</a></li>
+                        <li><a id="Form_ListaTransferenciasLink" runat="server" visible="false">Transferencias</a></li>
+                        <li><a id="Form_AlimentacionLink" runat="server" visible="false">Alimentacion</a></li>
+                        <li><a id="Form_IngresoConsumoDLink" runat="server" visible="false">Combustible Dscto.</a></li>
+                        <li><a id="Form_IngresoConsumoFLink" runat="server" visible="false">Combustible Fact.</a></li>
+                    </ul>
+                  </li>
+                  <li><a id="trabajosMLink" runat="server" visible="false"><i class="fa fa-gears"></i> Trabajos <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a id="Form_OrdenesLink" runat="server" visible="false">Ordenes de Trabajo</a></li>
+                            <li><a id="Form_OrdenesCotLink" runat="server" visible="false">Cotizaciones</a></li>
+                            <li><a id="Form_TrabajosEquipoLink" runat="server" visible="false">Registro de Horas</a></li>
+
+
+                            <li><a id="Form_planManttoLink" runat="server" visible="false">Planes de Mantto</a></li>
+                            <li><a id="Form_correctivosListLink" runat="server" visible="false">Mantto Correctivo</a></li>
+                            <li><a id="Form_regFallasListLink" runat="server" visible="false">Registro Fallas</a></li>
+                            <li><a id="asignaLink" runat="server" visible="false">Asignaciones</a>
+                                <ul class="nav child_menu">
+                                    <li class="sub_menu"><a id="Form_planificaEquipoLink" runat="server" visible="false">Mantto. Preventivo</a>
+                                    </li>
+                                    <li class="sub_menu"><a id="Form_checkListLink" runat="server" visible="false">CheckList</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a id="Form_AsigCalendarioLink" runat="server" visible="false">Planificacion</a></li>
+                            <li><a id="Form_ValoracionesLink" runat="server" visible="false">Valorizaciones</a></li>
+                            <li><a id="procesosMLink" runat="server" visible="false" ><i class="fa fa-gears"></i> Procesos <span class="fa fa-chevron-down"></span></a></li>
+
+                        </ul>
+                  </li>
+                  <li><a id="salidasMLink" runat="server" visible="false"><i class="fa fa-shopping-cart"></i> Salidas <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a id="Form_ListaVentasLink" runat="server" visible="false">Ventas</a></li>
+                        <li><a id="Form_ListaVentasOLink" runat="server" visible="false">Orden Venta</a></li>
+                        <li><a id="Form_ListaSalidaAlmacenLink" runat="server" visible="false">Almacen</a></li>
+                        <li><a id="Form_ListaGuiasLink" runat="server" visible="false">Guia Remision</a></li>
+                    </ul>
+                  </li>
+                  <li><a id="asignacionMLink" runat="server" visible="false"><i class="fa fa-gears"></i> Asignaciones <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a id="Form_EPPLink" runat="server" visible="false">EPP</a></li>
+                            <li><a id="Form_EHerramientasLink" runat="server" visible="false">Herramientas</a></li>
+                            <li><a id="Form_EProductoLink" runat="server" visible="false">Articulos</a></li>
+                        </ul>
+                  </li>
+                  <li><a id="reportesMLink" runat="server" visible="false"><i class="fa fa-bar-chart-o"></i> Reportes <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a>Productos<span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li class="sub_menu"><a id="Form_ProductoStockMinLink" runat="server" visible="false">Stock Min.</a>
+                                </li>
+                                <li><a id="Form_ProductosFecCorteLink" runat="server" visible="false">Fec.Corte</a>
+                                </li>
+                                <li><a id="form_ordenescotausenteslink" runat="server" visible="false">por cotiz.</a>
+                                </li>
+                                <li><a id="form_proveedoresbyproductoslink" runat="server" visible="false">por prov.</a>
+                                </li>
+
+                                <li><a id="Form_ReporteDiarioLink" runat="server" visible="false">Reporte Diario</a></li>
+                                <li><a id="Form_tipoServicioLink" runat="server" visible="false">Tipo Servicio</a></li>
+                                <li><a id="Form_areaLink" runat="server" visible="false">Areas</a></li>
+                            </ul>
+                        </li>
+                        <li><a>cotización<span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li class="sub_menu"><a id="form_cotizahoraequipolink" runat="server">hora equipo</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a id="reportesasiglink" runat="server" visible="false">asignaciones<span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li class="sub_menu"><a id="form_eppbyproductointegradolink" runat="server">articulos int</a>
+                                </li>
+                                <li class="sub_menu"><a id="form_eppbytrabajadorintegradolink" runat="server">epp int</a>
+                                </li>
+                                <li class="sub_menu"><a id="form_eppbyproductolink" runat="server">articulos</a>
+                                </li>
+                                <li class="sub_menu"><a id="form_eppbytrabajadorlink" runat="server">epp</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                  </li>
+                  <li><a id="mantenimientomlink" runat="server" visible="false"><i class="fa fa-edit"></i> mantenim. <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a id="Form_tipoCambioLink" runat="server" visible="false">Tipo Cambio</a></li>
+                        <li><a id="Form_marcaELink" runat="server" visible="false">Marcas</a></li>
+                        <li><a id="Form_cargoLink" runat="server" visible="false">Cargos</a></li>
+                        <li><a id="Form_tipoDocumentoLink" runat="server" visible="false">Tipo Doc.</a></li>
+                        <li><a id="Form_tiempoestandartrabajoLink" runat="server" visible="false">Tareas</a></li>
+                        <li><a id="Form_centroCostoLink" runat="server" visible="false">Centro Costo</a></li>
+                        <li><a id="Form_PartidasLink" runat="server" visible="false">Partidas</a></li>
+                        <li><a id="Form_motivoAjusteLink" runat="server" visible="false">Motivos Ajuste</a></li>
+                        <li><a id="Form_cuentaCorrienteLink" runat="server" visible="false">Cuenta Corriente</a></li>
+                        <li><a id="Form_bancoLink" runat="server" visible="false">Bancos</a></li>
+                        <li><a id="Form_almacenesLink" runat="server" visible="false">Almacenes</a></li>
+                        <li><a id="Form_lugarTrabajoLink" runat="server" visible="false">Lugares Trabajo</a></li>
+                    </ul>
+                  </li>
+
+                    <li><a id="administradorMLink" runat="server" visible="false"><i class="fa fa-edit"></i> Administrador <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a id="Form_parametrosLink" runat="server" visible="false">Parametros</a></li>
+                        <li><a id="Form_sucursalLink" runat="server" visible="false">Sucursales</a></li>
+                        <li><a id="Form_TransferenciaSucursalLink" runat="server" visible="false">Transf. Trab.</a></li>
+                        <li><a id="Form_TransferenciaSucursalEqLink" runat="server" visible="false">Transf. Eq.</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>   --%>
+            <%--FIN MENU CLIENTES--%>
+            </div>
+          </div>
+        </div>
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+              <div class="nav toggleXX">
+                  <table width="100%" border="0">
+                      <tr>
+                          <td>
+                                <center>
+                                        <table width="100%" style="height:25px" border="0">
+                                            <tr>
+                                                <td style="width:35%; 
+                                                    font-size: 15px; font-weight:bold; vertical-align:middle; text-align:left; padding-right:3px;">
+                                                    <asp:Label ID="tituloLB" runat="server" Text=""></asp:Label>
+                                                </td>
+                                                <td style="width:15%; border-right:1px solid #313E53; font-family: Arial, Helvetica, sans-serif; 
+                                                    font-size: 11px; font-weight:bold; vertical-align:middle; text-align:right; padding-right:3px;">
+                                                    Venta&nbsp;<asp:Label ID="tipoCambioVenta" runat="server" Text=""></asp:Label>
+                                                </td>
+                                                <td style="width:15%;  border-right:1px solid #313E53; font-family: Arial, Helvetica, sans-serif; 
+                                                    font-size: 11px; font-weight:bold; vertical-align:middle; text-align:right; padding-right:3px;">
+                                                    Compra&nbsp;<asp:Label ID="tipoCambioCompra" runat="server" Text=""></asp:Label>
+                                                </td>
+                                                <td style="width:35%; border-right:1px solid #313E53; font-family: Arial, Helvetica, sans-serif; 
+                                                    font-size: 11px; font-weight:bold; vertical-align:middle; text-align:right; padding-right:3px;">
+                                                    Hora&nbsp;<asp:Label ID="fechaActualLB" runat="server" Text=""></asp:Label>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                </center>
+                          </td>
+                      </tr>
+                  </table>
+              </div>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="http://162.248.52.148/REFERENCIASBASE/trabajador/FotosTrabajadores/usuario.png" alt="">
+                      <asp:Label ID="nomUsuario" runat="server" Text="NO USER"></asp:Label>
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                      <li>
+                          <a id="j_idt57:j_idt59" href="#" class="ui-commandlink ui-widget" onclick="cerrarsesionJS();return false;">
+                            <i class="fa fa-fw fa-user"></i>
+                            <span>Cerrar Sesión</span>
+                          </a>
+                      </li>
+                      <li>
+                          <a id="mecanicaLiB" href="#" class="ui-commandlink ui-widget" onclick="mecanicoJS();return false;">
+                            <i class="fa fa-fw fa-wrench"></i>
+                            <span>EJECUTOR</span>
+                          </a>
+                      </li>
+                      <li>
+                          <a id="superAdminLiB" href="#" class="" onclick="superadminJS();return false;">
+                            <i class="fa fa-fw fa-gears"></i>
+                            <span>Super Admin</span>
+                          </a>
+                      </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div runat="server" class="right_col" role="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/fastclick/lib/fastclick.js"></script>
+    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.js"></script>
+    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/dropzone/dist/min/dropzone.min.js"></script>
+    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/build/js/custom.min.js"></script>
+    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.js"></script>
+    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/Chart.js/dist/Chart.min.js"></script>
+    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/echarts/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/echarts/map/js/world.js"></script>
+    
+        <img src="/SISSEGQ/SessionActiva.aspx" name="renewSession" id="renewSession" width="1px" height="1px"/>
+        <asp:LinkButton ID="mecanicoB" runat="server" style="display:none">EJECUTOR</asp:LinkButton>
+        <asp:LinkButton ID="superAdminB" runat="server" style="display:none">SUPER ADMIN.</asp:LinkButton>
+        <asp:LinkButton ID="btn_desconectarme" runat="server" style="display:none">Cerrar Sesión</asp:LinkButton>                                                                                                                                                                                           
+
+    <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" runat="server" Skin="Office2007"
+       IsSticky="true" style="position:absolute; top:0; left:0; height:100%; width:100%;z-index:9999" >
+       Cargando...
+    </telerik:RadAjaxLoadingPanel>
+    </form>
+</body>
+</html>

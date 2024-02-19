@@ -1,0 +1,192 @@
+insert into tblParametros values ( '1', 'porcentaje para el precio de venta Dolares', '1', 0.2, 'Formulario Productos', 0)
+insert into tblParametros values ( '2', 'Habilitar Seguridad', '1', 1, 'Activa la seguridad para el Sistema', 1)
+insert into tblParametros values ( '3', 'Cantidad Caracteres RUC', '1', 11, 'para validar RUC', 1)
+insert into tblParametros values ( '4', 'Cantidad Caracteres DNI', '1', 8, 'para validar DNI', 1)
+insert into tblParametros values ( '5', 'incluyeIGV', '0', 0, 'Valor: 1 incluye, 0 no incluye', 0)
+insert into tblParametros values ( '6', 'incluyeIGV Compra', '0', 0, 'Valor: 1 incluye, 0 no incluye', 0)
+insert into tblParametros values ( '7', 'Extra1', '0', 0, 'Modulo de Alimentos', 0)
+insert into tblParametros values ( '8', 'Extra2', '0', 0, 'Modulo de Alimentos', 0)
+insert into tblParametros values ( '9', 'Extra3', '0', 0, 'Modulo de Alimentos', 0)
+insert into tblParametros values ( '10', 'Extra4', '0', 0, 'Modulo de Alimentos', 0)
+insert into tblParametros values ( '11', 'RanchoFrio', '0', 0, 'Modulo de Alimentos', 0)
+insert into tblParametros values ( '12', 'grupoCombustible', '0', 15, 'Modulo de consumo de combustibles', 0)
+insert into tblParametros values ( '13', 'Seleccion de equipo en Detalla de entrega de productos', '0', 0, 'Solo para entrega de productos', 1)
+insert into tblParametros values ( '14', 'Grilla Emergente busca el texto digitado', '0', 0, 'Componente listas emergentes', 1)
+insert into tblParametros values ( '15', 'Oculta Panel Detalle - Proveedores', '0', 0, 'Mantenimiento de Proveedores', 1)
+insert into tblParametros values ( '16', 'Titulo Bienvenida', '0', 'COMIN SAC', '0', 666)
+insert into tblParametros values ( '17', 'Subtitulo1 Bienvenida', '0', 'Misión', '0', 666)
+insert into tblParametros values ( '18', 'Subtitulo2 Bienvenida', '0', 'Visión', 0, 666)
+insert into tblParametros values ( '19', 'Contenido Subtitulo 1 Bienvenida', '0', 'Promover la sostenibilidad ambiental del país conservando, protegiendo, recuperando y asegurando las condiciones ambientales, los ecosistemas y los recursos naturales.', 0, 666)
+insert into tblParametros values ( '20', 'Contenido Subtitulo 2 Bienvenida', '0', 'Las personas viven en un ambiente sano y saludable.', 0, 666)
+insert into tblParametros values ( '21', 'Direccion de Empresa', '0', 0, 'JR. LOS FRESNOS Nro. 268', 666)
+insert into tblParametros values ( '22', 'RUC de Empresa', '0', 0, '20453668984', 666)
+insert into tblParametros values ( '23', 'Activar paginas amarillas coorporativas', '0', 0, '', 1)
+insert into tblParametros values ( '24', 'Imagen de la Empresa', '0', 0, 'papeleriaChiqui.jpg', 666)
+insert into tblParametros values ( '25', 'Tipo Moneda 1 soles, 2 dolares, 3 ambos', '1', 3, 'primero soles 1, primero dolares 2', 666)
+insert into tblParametros values ( '26', 'Porcentaje venta decena', '0', 12, '', 0);
+insert into tblParametros values ( '27', 'Porcentaje venta centena', '0', 10, '', 0)
+insert into tblParametros values ( '28', 'Detalle Venta con decena y centena 1 activo', '1', 0, '', 666)
+insert into tblParametros values ( '29', 'Ver descuento de producto al realizar compra', '1', 0, '', 666)
+insert into tblParametros values ( '30', 'Ver descuento de venta por producto al realizar compra', '1', 0, '', 666)
+insert into tblParametros values ( '31', 'Agregar detalle en orden de trabajo creada', '1', 0, '', 666)
+insert into tblParametros values ( '32', 'Venta a credito - modulo pagos', '1', 0, '', 666)
+insert into tblParametros values ( '33', 'alquiler de equipos en Venta', '1', 0, '', 666)
+insert into tblParametros values ( '34', 'Guia de Remision 1 activo, 0 inactivo, tipoProveedorID', '1', 22, '', 666)
+insert into tblParametros values ( '35', 'Guia de Remision', '1', 21, '', 666)
+insert into tblParametros values ( '36', 'Departamento', '1', 14, 'LIMA', 666)
+insert into tblParametros values ( '37', 'Provincia', '1', 134, 'LIMA', 666)
+insert into tblParametros values ( '38', 'Distrito', '1', 125414113, 'LURIN', 666)
+insert into tblParametros values ( '39', 'Activar percepción en compras', '1', 0.02, '', 666)
+insert into tblParametros values ( '40', 'Activar agregar detalle de compras', '1', 0, '', 666)
+insert into tblParametros values ( '41', 'Activar agregar detalle de ventas', '1', 0, '', 666)
+insert into tblParametros values ( '42', 'Activar tipo cliente porcentaje descuento', '1', 0, '', 666)
+insert into tblParametros values ( '43', 'Precio Preferencia y Standar', '1', 0, '', 666)
+insert into tblParametros values ( '44', 'Trabajar obligatorio en OT 1 si 0 no  -- EL VALOR ES EL ID DEL TRABAJADOR', '0', 7, '', 666)
+insert into tblParametros values ( '45', 'Precio obligatorio en OT 1 si 0 no', '0', 0, '', 666)
+insert into tblParametros values ( '46', 'Ver Sucursal en Grillas', '0', 0, '', 666)
+insert into tblParametros values ( '47', 'Cotizacion obligatorio venta', '0', 0, '', 666)
+insert into tblParametros values ( '48', 'Detalle de Compras - PLE', '0', 0, '', 666)
+insert into tblParametros values ( '49', 'Salida de Almacen - TipoDocID', '1', 22, '', 666)
+insert into tblParametros values ( '50', 'Entrada de Almacen - TipoDocID', '1', 23, '', 666)
+insert into tblParametros values ( '51', 'Imprime documentos en venta', '1', 0, '', 666)
+insert into tblParametros values ( '52', 'Venta PLE', '1', 0, 'D:\PLE\', 0)
+insert into tblParametros values ( '53', 'Compras PLE', '1', 0, 'D:\PLE\', 0)
+insert into tblParametros values ( '54', 'Factura', '1', 20, '.', 666)
+insert into tblParametros values ( '55', 'Boleta', '1', 21, 'R_ventaJamariBoleta', 666)
+insert into tblParametros values ( '56', 'Productos Venta y listado productos', '1', 0, '1 con marca (LOGISTICOS) :: 0 Sin Marca (OTROS)', 666)
+insert into tblParametros values ( '57', 'Ticket', '1', 22, 'R_ventaJamariBoleta', 666)
+insert into tblParametros values ( '58', 'Orden Compra', '1', 0, 'R_ordenCompraByID', 666)
+insert into tblParametros values ( '59', 'Generacion de Codigos automatico', '0', 0, '0 no, 1 si', 666)
+insert into tblParametros values ( '60', 'Venta sin Stock', '1', 0, 'ESTADO:: 1 solo con stock, 0 sin stock', 666)
+insert into tblParametros values ( '61', 'OT print', '1', 0, 'R_ordenTrabajoByID', 666)
+insert into tblParametros values ( '62', 'Cotización Logistica', '1', 0, 'En el modulo de cotizacion se activara el boton de cotizacion para empresas logisticas', 666)
+insert into tblParametros values ( '63', 'Cotización Detallada', '1', 0, 'R_cotizacion_Jamary', 666)
+insert into tblParametros values ( '64', 'Link Sistema', '1', 0, 'enin4DYeb/GNm5Xn9cCcztgEiA==', 666)
+insert into tblParametros values ( '65', 'Unidad Medida - Unidad', '2', 0, 'UNIDAD	- UND', 666)
+insert into tblParametros values ( '66', 'tipo empresa', '0', '1', '1 logistico, 2 maquinaria', 666)
+insert into tblParametros values ( '67', 'Cotización Resumida', '1', 0, 'R_cotizacionResumidoRemsa', 666)
+insert into tblParametros values ( '68', 'Cotización OT', '1', 0, 'R_cotizacionOTRemsa', 666)
+insert into tblParametros values ( '69', 'Valida Producto', '1', 0, 'La validación incluye al codigo de fabricante', 666)
+insert into tblParametros values ( '70', 'Cliente por defecto', '1', 0, 'El cliente por defecto es para notas de ventas, vales, etc.', 666)
+insert into tblParametros values ( '71', 'Venta Sin Dscto Stock', '0', 0, '0 descuenta, 1 no descuenta.', 666)
+insert into tblParametros values ( '72', 'Unidad Medida - KM', '0', 3, 'para la funcion F_ValActualEquipoID.', 666)
+insert into tblParametros values ( '73', 'Unidad Medida - HR', '0', 2, 'para la funcion F_ValActualEquipoID.', 666)
+insert into tblParametros values ( '74', 'grupo Herramienta', '0', 4, 'Modulo de Planes de Mantto.', 666)
+insert into tblParametros values ( '75', 'Cambiar tipo de Equipo por Familia', '0', 0, 'De tipoSistema a Familia. 1 activo, 0 no activo', 666)
+insert into tblParametros values ( '76', 'Ver producto rapido', '1', 0, '0 activo, 1 inactivo', 666)
+insert into tblParametros values ( '77', 'Porpietario por defecto', '0', 0, '0 activo, 1 inactivo - valor ID de propietario', 666)
+insert into tblParametros values ( '78', 'Cargos de ejecucion', '0', '6,10', '0 activo, 1 inactivo - valor ID de mecanico e inspector', 666)
+insert into tblParametros values ( '79', 'Envia y recepción Mail', '0', 'MANNUCCI.YANACOCHA@GMAIL.COM', 'Email que se utiliza en checkList para envio al operador', 0)
+insert into tblParametros values ( '80', 'Mail con copia', '0', 'michael.edwin83@gmail.com', 'Email de reciclaje de correo', 0)
+insert into tblParametros values ( '81', 'Envia y recepción Mail', '0', '20495647324', 'CLAVE de Email de reciclaje de correo', 0)
+insert into tblParametros values ( '82', 'Limita Cotizacion', '0', '0', 'estado: Al editar coti, al listado de coti', 666)
+insert into tblParametros values ( '83', 'Valorizacion', '1', '0', 'R_Valoraciones', 666)
+insert into tblParametros values ( '84', 'Exportado de transferencias', '1', '0', 'R_TransfId_8', 666)
+insert into tblParametros values ( '85', 'Paranetro Registro Falla APP', '1', '27K==B3ZCW.', '', 666)
+insert into tblParametros values ( '86', 'URL Adjuntos', '1', 'http://192.190.43.77/adjuntos/', '', 666)
+insert into tblParametros values ( '87', 'URL Evidencias', '1', 'http://192.190.43.77/Evidencias/', '', 666)
+
+
+ EXEC P_crearUpdateUsuario '1', '1', 'admin', '123', 'saul_sab@hotmail.com', '','','1',0, '3', '1', True  EXEC P_crearUpdatePermisosSeguridad 46,'1',False  
+ EXEC P_crearUpdatePermisosSeguridad 47,'1',True  EXEC P_crearUpdatePermisosSeguridad 48,'1',True  EXEC P_crearUpdatePermisosSeguridad 49,'1',True  
+ EXEC P_crearUpdatePermisosSeguridad 50,'1',True  EXEC P_crearUpdatePermisosSeguridad 41,'1',True  EXEC P_crearUpdatePermisosSeguridad 42,'1',True  
+ EXEC P_crearUpdatePermisosSeguridad 43,'1',True  EXEC P_crearUpdatePermisosSeguridad 44,'1',True  EXEC P_crearUpdatePermisosSeguridad 45,'1',True  
+ EXEC P_crearUpdatePermisosSeguridad 36,'1',True  EXEC P_crearUpdatePermisosSeguridad 37,'1',True  EXEC P_crearUpdatePermisosSeguridad 38,'1',True  
+ EXEC P_crearUpdatePermisosSeguridad 39,'1',True  EXEC P_crearUpdatePermisosSeguridad 40,'1',True  EXEC P_crearUpdatePermisosSeguridad 31,'1',True  
+ EXEC P_crearUpdatePermisosSeguridad 32,'1',True  EXEC P_crearUpdatePermisosSeguridad 33,'1',True  EXEC P_crearUpdatePermisosSeguridad 34,'1',True  
+ EXEC P_crearUpdatePermisosSeguridad 35,'1',True  EXEC P_crearUpdatePermisosSeguridad 51,'1',True  EXEC P_crearUpdatePermisosSeguridad 52,'1',True  
+ EXEC P_crearUpdatePermisosSeguridad 53,'1',True  EXEC P_crearUpdatePermisosSeguridad 54,'1',True  EXEC P_crearUpdatePermisosSeguridad 55,'1',True  
+ EXEC P_crearUpdatePermisosSeguridad 56,'1',True  EXEC P_crearUpdatePermisosSeguridad 57,'1',True  EXEC P_crearUpdatePermisosSeguridad 58,'1',True  
+ EXEC P_crearUpdatePermisosSeguridad 59,'1',True  EXEC P_crearUpdatePermisosSeguridad 60,'1',True  EXEC P_crearUpdatePermisosSeguridad 101,'1',True  
+ EXEC P_crearUpdatePermisosSeguridad 102,'1',True  EXEC P_crearUpdatePermisosSeguridad 103,'1',True  EXEC P_crearUpdatePermisosSeguridad 104,'1',True  
+ EXEC P_crearUpdatePermisosSeguridad 105,'1',True  EXEC P_crearUpdatePermisosSeguridad 106,'1',True  EXEC P_crearUpdatePermisosSeguridad 107,'1',True  
+ EXEC P_crearUpdatePermisosSeguridad 108,'1',True  EXEC P_crearUpdatePermisosSeguridad 109,'1',True  EXEC P_crearUpdatePermisosSeguridad 110,'1',True  
+ 
+ EXEC P_crearUpdatePermisosSeguridad 111,'1',True  EXEC P_crearUpdatePermisosSeguridad 112,'1',True  EXEC P_crearUpdatePermisosSeguridad 113,'1',True
+ EXEC P_crearUpdatePermisosSeguridad 114,'1',True
+
+ EXEC P_crearUpdatePermisosSeguridad 116,'1',True  EXEC P_crearUpdatePermisosSeguridad 117,'1',True  EXEC P_crearUpdatePermisosSeguridad 118,'1',True  
+ EXEC P_crearUpdatePermisosSeguridad 119,'1',True  EXEC P_crearUpdatePermisosSeguridad 120,'1',True  EXEC P_crearUpdatePermisosSeguridad 121,'1',True  
+ EXEC P_crearUpdatePermisosSeguridad 122,'1',True  EXEC P_crearUpdatePermisosSeguridad 123,'1',True  EXEC P_crearUpdatePermisosSeguridad 124,'1',True  
+ EXEC P_crearUpdatePermisosSeguridad 125,'1',True  EXEC P_crearUpdatePermisosSeguridad 126,'1',True  EXEC P_crearUpdatePermisosSeguridad 127,'1',True  
+ EXEC P_crearUpdatePermisosSeguridad 128,'1',True  EXEC P_crearUpdatePermisosSeguridad 129,'1',True  EXEC P_crearUpdatePermisosSeguridad 130,'1',True  
+ EXEC P_crearUpdatePermisosSeguridad 71,'1',True  EXEC P_crearUpdatePermisosSeguridad 72,'1',True  EXEC P_crearUpdatePermisosSeguridad 73,'1',True  
+ EXEC P_crearUpdatePermisosSeguridad 74,'1',True  EXEC P_crearUpdatePermisosSeguridad 75,'1',True  EXEC P_crearUpdatePermisosSeguridad 76,'1',True  
+ EXEC P_crearUpdatePermisosSeguridad 77,'1',True  EXEC P_crearUpdatePermisosSeguridad 78,'1',True  EXEC P_crearUpdatePermisosSeguridad 79,'1',True  
+ EXEC P_crearUpdatePermisosSeguridad 80,'1',True  EXEC P_crearUpdatePermisosSeguridad 81,'1',True  EXEC P_crearUpdatePermisosSeguridad 82,'1',True  
+ EXEC P_crearUpdatePermisosSeguridad 83,'1',True  EXEC P_crearUpdatePermisosSeguridad 84,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 85,'1',True  EXEC P_crearUpdatePermisosSeguridad 86,'1',True  EXEC P_crearUpdatePermisosSeguridad 87,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 88,'1',True  EXEC P_crearUpdatePermisosSeguridad 89,'1',True  EXEC P_crearUpdatePermisosSeguridad 90,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 91,'1',True  EXEC P_crearUpdatePermisosSeguridad 92,'1',True  EXEC P_crearUpdatePermisosSeguridad 93,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 94,'1',True  EXEC P_crearUpdatePermisosSeguridad 95,'1',True  EXEC P_crearUpdatePermisosSeguridad 96,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 97,'1',True  EXEC P_crearUpdatePermisosSeguridad 98,'1',True  EXEC P_crearUpdatePermisosSeguridad 99,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 100,'1',True  EXEC P_crearUpdatePermisosSeguridad 61,'1',True  EXEC P_crearUpdatePermisosSeguridad 62,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 63,'1',True  EXEC P_crearUpdatePermisosSeguridad 64,'1',True  EXEC P_crearUpdatePermisosSeguridad 65,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 66,'1',True  EXEC P_crearUpdatePermisosSeguridad 67,'1',True  EXEC P_crearUpdatePermisosSeguridad 68,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 69,'1',True  EXEC P_crearUpdatePermisosSeguridad 70,'1',True  EXEC P_crearUpdatePermisosSeguridad 1,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 2,'1',True  EXEC P_crearUpdatePermisosSeguridad 4,'1',True  EXEC P_crearUpdatePermisosSeguridad 5,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 6,'1',True  EXEC P_crearUpdatePermisosSeguridad 7,'1',True  EXEC P_crearUpdatePermisosSeguridad 8,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 10,'1',True  EXEC P_crearUpdatePermisosSeguridad 11,'1',True  EXEC P_crearUpdatePermisosSeguridad 12,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 14,'1',True  EXEC P_crearUpdatePermisosSeguridad 15,'1',True  EXEC P_crearUpdatePermisosSeguridad 16,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 17,'1',True  EXEC P_crearUpdatePermisosSeguridad 18,'1',True  EXEC P_crearUpdatePermisosSeguridad 19,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 20,'1',True  EXEC P_crearUpdatePermisosSeguridad 21,'1',True  EXEC P_crearUpdatePermisosSeguridad 22,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 23,'1',True  EXEC P_crearUpdatePermisosSeguridad 24,'1',True  EXEC P_crearUpdatePermisosSeguridad 25,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 26,'1',True  EXEC P_crearUpdatePermisosSeguridad 27,'1',True  EXEC P_crearUpdatePermisosSeguridad 28,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 29,'1',True  EXEC P_crearUpdatePermisosSeguridad 30,'1',True  EXEC P_crearUpdatePermisosSeguridad 156,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 157,'1',True  EXEC P_crearUpdatePermisosSeguridad 158,'1',True  EXEC P_crearUpdatePermisosSeguridad 159,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 160,'1',True  EXEC P_crearUpdatePermisosSeguridad 171,'1',True  EXEC P_crearUpdatePermisosSeguridad 172,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 173,'1',True  EXEC P_crearUpdatePermisosSeguridad 174,'1',True  EXEC P_crearUpdatePermisosSeguridad 175,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 136,'1',True  EXEC P_crearUpdatePermisosSeguridad 137,'1',True  EXEC P_crearUpdatePermisosSeguridad 138,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 139,'1',True  EXEC P_crearUpdatePermisosSeguridad 140,'1',True  EXEC P_crearUpdatePermisosSeguridad 176,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 177,'1',True  EXEC P_crearUpdatePermisosSeguridad 178,'1',True  EXEC P_crearUpdatePermisosSeguridad 179,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 180,'1',True  EXEC P_crearUpdatePermisosSeguridad 141,'1',True  EXEC P_crearUpdatePermisosSeguridad 142,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 143,'1',True  EXEC P_crearUpdatePermisosSeguridad 144,'1',True  EXEC P_crearUpdatePermisosSeguridad 145,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 131,'1',True  EXEC P_crearUpdatePermisosSeguridad 132,'1',True  EXEC P_crearUpdatePermisosSeguridad 133,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 134,'1',True  EXEC P_crearUpdatePermisosSeguridad 135,'1',True  EXEC P_crearUpdatePermisosSeguridad 181,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 182,'1',True  EXEC P_crearUpdatePermisosSeguridad 183,'1',True  EXEC P_crearUpdatePermisosSeguridad 184,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 185,'1',True  EXEC P_crearUpdatePermisosSeguridad 166,'1',True  EXEC P_crearUpdatePermisosSeguridad 167,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 168,'1',True  EXEC P_crearUpdatePermisosSeguridad 169,'1',True  EXEC P_crearUpdatePermisosSeguridad 170,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 151,'1',True  EXEC P_crearUpdatePermisosSeguridad 152,'1',True  EXEC P_crearUpdatePermisosSeguridad 153,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 154,'1',True  EXEC P_crearUpdatePermisosSeguridad 155,'1',True  EXEC P_crearUpdatePermisosSeguridad 146,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 147,'1',True  EXEC P_crearUpdatePermisosSeguridad 148,'1',True  EXEC P_crearUpdatePermisosSeguridad 149,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 150,'1',True  EXEC P_crearUpdatePermisosSeguridad 191,'1',True  EXEC P_crearUpdatePermisosSeguridad 192,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 193,'1',True  EXEC P_crearUpdatePermisosSeguridad 194,'1',True  EXEC P_crearUpdatePermisosSeguridad 195,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 186,'1',True  EXEC P_crearUpdatePermisosSeguridad 187,'1',True  EXEC P_crearUpdatePermisosSeguridad 188,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 189,'1',True  EXEC P_crearUpdatePermisosSeguridad 190,'1',True  EXEC P_crearUpdatePermisosSeguridad 161,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 162,'1',True  EXEC P_crearUpdatePermisosSeguridad 163,'1',True  EXEC P_crearUpdatePermisosSeguridad 164,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 165,'1',True  EXEC P_crearUpdatePermisosSeguridad 201,'1',True  EXEC P_crearUpdatePermisosSeguridad 202,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 203,'1',True  EXEC P_crearUpdatePermisosSeguridad 204,'1',True  EXEC P_crearUpdatePermisosSeguridad 205,'1',True 
+EXEC P_crearUpdatePermisosSeguridad 206,'1',True  EXEC P_crearUpdatePermisosSeguridad 207,'1',True  
+
+EXEC P_crearUpdatePermisosSeguridad 208,'1',True  
+
+EXEC P_crearUpdatePermisosSeguridad 209,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 210,'1',True  EXEC P_crearUpdatePermisosSeguridad 211,'1',True  EXEC P_crearUpdatePermisosSeguridad 212,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 213,'1',True  EXEC P_crearUpdatePermisosSeguridad 214,'1',True  EXEC P_crearUpdatePermisosSeguridad 215,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 216,'1',True  EXEC P_crearUpdatePermisosSeguridad 217,'1',True  EXEC P_crearUpdatePermisosSeguridad 218,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 219,'1',True  EXEC P_crearUpdatePermisosSeguridad 220,'1',True  EXEC P_crearUpdatePermisosSeguridad 221,'1',True
+EXEC P_crearUpdatePermisosSeguridad 222,'1',True  EXEC P_crearUpdatePermisosSeguridad 223,'1',True  EXEC P_crearUpdatePermisosSeguridad 224,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 225,'1',True  EXEC P_crearUpdatePermisosSeguridad 226,'1',True  EXEC P_crearUpdatePermisosSeguridad 227,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 228,'1',True  EXEC P_crearUpdatePermisosSeguridad 229,'1',True  EXEC P_crearUpdatePermisosSeguridad 230,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 231,'1',True  EXEC P_crearUpdatePermisosSeguridad 232,'1',True  EXEC P_crearUpdatePermisosSeguridad 233,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 234,'1',True  EXEC P_crearUpdatePermisosSeguridad 235,'1',True  EXEC P_crearUpdatePermisosSeguridad 236,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 237,'1',True  EXEC P_crearUpdatePermisosSeguridad 238,'1',True  EXEC P_crearUpdatePermisosSeguridad 239,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 240,'1',True  EXEC P_crearUpdatePermisosSeguridad 241,'1',True  EXEC P_crearUpdatePermisosSeguridad 242,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 243,'1',True  EXEC P_crearUpdatePermisosSeguridad 244,'1',True  EXEC P_crearUpdatePermisosSeguridad 245,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 246,'1',True  EXEC P_crearUpdatePermisosSeguridad 247,'1',True  EXEC P_crearUpdatePermisosSeguridad 248,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 249,'1',True  EXEC P_crearUpdatePermisosSeguridad 250,'1',True  EXEC P_crearUpdatePermisosSeguridad 251,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 252,'1',True  EXEC P_crearUpdatePermisosSeguridad 253,'1',True  EXEC P_crearUpdatePermisosSeguridad 254,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 255,'1',True  EXEC P_crearUpdatePermisosSeguridad 256,'1',True  EXEC P_crearUpdatePermisosSeguridad 257,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 258,'1',True  EXEC P_crearUpdatePermisosSeguridad 259,'1',True  EXEC P_crearUpdatePermisosSeguridad 260,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 261,'1',True  EXEC P_crearUpdatePermisosSeguridad 262,'1',True  EXEC P_crearUpdatePermisosSeguridad 263,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 264,'1',True  EXEC P_crearUpdatePermisosSeguridad 265,'1',True  EXEC P_crearUpdatePermisosSeguridad 266,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 267,'1',True  EXEC P_crearUpdatePermisosSeguridad 268,'1',True  EXEC P_crearUpdatePermisosSeguridad 269,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 270,'1',True  EXEC P_crearUpdatePermisosSeguridad 271,'1',True  EXEC P_crearUpdatePermisosSeguridad 272,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 273,'1',True  EXEC P_crearUpdatePermisosSeguridad 274,'1',True  EXEC P_crearUpdatePermisosSeguridad 275,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 276,'1',True  EXEC P_crearUpdatePermisosSeguridad 277,'1',True  EXEC P_crearUpdatePermisosSeguridad 278,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 279,'1',True  EXEC P_crearUpdatePermisosSeguridad 280,'1',True  EXEC P_crearUpdatePermisosSeguridad 281,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 282,'1',True  EXEC P_crearUpdatePermisosSeguridad 283,'1',True  EXEC P_crearUpdatePermisosSeguridad 284,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 285,'1',True  EXEC P_crearUpdatePermisosSeguridad 286,'1',True  EXEC P_crearUpdatePermisosSeguridad 287,'1',True  
+EXEC P_crearUpdatePermisosSeguridad 288,'1',True  EXEC P_crearUpdatePermisosSeguridad 289,'1',True  EXEC P_crearUpdatePermisosSeguridad 290,'1',True  
+
+

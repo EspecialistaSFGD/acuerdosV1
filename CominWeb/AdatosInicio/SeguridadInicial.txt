@@ -1,0 +1,431 @@
+Insert into dbo.tblOpcionSeguridad values (1, 'Ver','Form_EPP.aspx', 'Entrega EPP', 1, 0, '',1)
+Insert into dbo.tblOpcionSeguridad values (2, 'Crear','Form_EPP.aspx', 'Entrega EPP', 1, 0, '',1)
+Insert into dbo.tblOpcionSeguridad values (3, 'Editar','Form_EPP.aspx', 'Entrega EPP', 1, 0, '',1)
+Insert into dbo.tblOpcionSeguridad values (4, 'Eliminar','Form_EPP.aspx', 'Entrega EPP', 1, 0, '',1)
+Insert into dbo.tblOpcionSeguridad values (5, 'Exportar','Form_EPP.aspx', 'Entrega EPP', 1, 0, '',1)
+Insert into dbo.tblOpcionSeguridad values (6, 'Ver','Form_EHerramientas.aspx', 'Entrega Herramientas', 1, 0, '',2)
+Insert into dbo.tblOpcionSeguridad values (7, 'Crear','Form_EHerramientas.aspx', 'Entrega Herramientas', 1, 0, '',2)
+Insert into dbo.tblOpcionSeguridad values (8, 'Editar','Form_EHerramientas.aspx', 'Entrega Herramientas', 1, 0, '',2)
+Insert into dbo.tblOpcionSeguridad values (9, 'Eliminar','Form_EHerramientas.aspx', 'Entrega Herramientas', 1, 0, '',2)
+Insert into dbo.tblOpcionSeguridad values (10, 'Exportar','Form_EHerramientas.aspx', 'Entrega Herramientas', 1, 0, '',2)
+Insert into dbo.tblOpcionSeguridad values (11, 'Ver','Form_EProducto.aspx', 'Entrega Productos', 1, 0, '',3)
+Insert into dbo.tblOpcionSeguridad values (12, 'Crear','Form_EProducto.aspx', 'Entrega Productos', 1, 0, '',3)
+Insert into dbo.tblOpcionSeguridad values (13, 'Editar','Form_EProducto.aspx', 'Entrega Productos', 1, 0, '',3)
+Insert into dbo.tblOpcionSeguridad values (14, 'Eliminar','Form_EProducto.aspx', 'Entrega Productos', 1, 0, '',3)
+Insert into dbo.tblOpcionSeguridad values (15, 'Exportar','Form_EProducto.aspx', 'Entrega Productos', 1, 0, '',3)
+Insert into dbo.tblOpcionSeguridad values (16, 'Ver','Form_Equipos.aspx', 'Equipos', 1, 0, '',4)
+Insert into dbo.tblOpcionSeguridad values (17, 'Crear','Form_Equipos.aspx', 'Equipos', 1, 0, '',4)
+Insert into dbo.tblOpcionSeguridad values (18, 'Editar','Form_Equipos.aspx', 'Equipos', 1, 0, '',4)
+Insert into dbo.tblOpcionSeguridad values (19, 'Eliminar','Form_Equipos.aspx', 'Equipos', 1, 0, '',4)
+Insert into dbo.tblOpcionSeguridad values (20, 'Exportar','Form_Equipos.aspx', 'Equipos', 1, 0, '',4)
+Insert into dbo.tblOpcionSeguridad values (21, 'Ver','Form_tipoEquipo.aspx', 'Tipo de Equipo', 1, 0, '',5)
+Insert into dbo.tblOpcionSeguridad values (22, 'Crear','Form_tipoEquipo.aspx', 'Tipo de Equipo', 1, 0, '',5)
+Insert into dbo.tblOpcionSeguridad values (23, 'Editar','Form_tipoEquipo.aspx', 'Tipo de Equipo', 1, 0, '',5)
+Insert into dbo.tblOpcionSeguridad values (24, 'Eliminar','Form_tipoEquipo.aspx', 'Tipo de Equipo', 1, 0, '',5)
+Insert into dbo.tblOpcionSeguridad values (25, 'Exportar','Form_tipoEquipo.aspx', 'Tipo de Equipo', 1, 0, '',5)
+Insert into dbo.tblOpcionSeguridad values (26, 'Ver','Form_modeloEquipo.aspx', 'Modelo de Equipos', 1, 0, '',6)
+Insert into dbo.tblOpcionSeguridad values (27, 'Crear','Form_modeloEquipo.aspx', 'Modelo de Equipos', 1, 0, '',6)
+Insert into dbo.tblOpcionSeguridad values (28, 'Editar','Form_modeloEquipo.aspx', 'Modelo de Equipos', 1, 0, '',6)
+Insert into dbo.tblOpcionSeguridad values (29, 'Eliminar','Form_modeloEquipo.aspx', 'Modelo de Equipos', 1, 0, '',6)
+Insert into dbo.tblOpcionSeguridad values (30, 'Exportar','Form_modeloEquipo.aspx', 'Modelo de Equipos', 1, 0, '',6)
+Insert into dbo.tblOpcionSeguridad values (31, 'Ver','Form_Trabajadores.aspx', 'Trabajadores', 1, 0, '',7)
+Insert into dbo.tblOpcionSeguridad values (32, 'Crear','Form_Trabajadores.aspx', 'Trabajadores', 1, 0, '',7)
+Insert into dbo.tblOpcionSeguridad values (33, 'Editar','Form_Trabajadores.aspx', 'Trabajadores', 1, 0, '',7)
+Insert into dbo.tblOpcionSeguridad values (34, 'Eliminar','Form_Trabajadores.aspx', 'Trabajadores', 1, 0, '',7)
+Insert into dbo.tblOpcionSeguridad values (35, 'Exportar','Form_Trabajadores.aspx', 'Trabajadores', 1, 0, '',7)
+Insert into dbo.tblOpcionSeguridad values (36, 'Ver','Form_Proveedores.aspx', 'Proveedores', 1, 0, '',8)
+Insert into dbo.tblOpcionSeguridad values (37, 'Crear','Form_Proveedores.aspx', 'Proveedores', 1, 0, '',8)
+Insert into dbo.tblOpcionSeguridad values (38, 'Editar','Form_Proveedores.aspx', 'Proveedores', 1, 0, '',8)
+Insert into dbo.tblOpcionSeguridad values (39, 'Eliminar','Form_Proveedores.aspx', 'Proveedores', 1, 0, '',8)
+Insert into dbo.tblOpcionSeguridad values (40, 'Exportar','Form_Proveedores.aspx', 'Proveedores', 1, 0, '',8)
+Insert into dbo.tblOpcionSeguridad values (41, 'Ver','Form_Propietarios.aspx', 'Propietarios', 1, 0, '',9)
+Insert into dbo.tblOpcionSeguridad values (42, 'Crear','Form_Propietarios.aspx', 'Propietarios', 1, 0, '',9)
+Insert into dbo.tblOpcionSeguridad values (43, 'Editar','Form_Propietarios.aspx', 'Propietarios', 1, 0, '',9)
+Insert into dbo.tblOpcionSeguridad values (44, 'Eliminar','Form_Propietarios.aspx', 'Propietarios', 1, 0, '',9)
+Insert into dbo.tblOpcionSeguridad values (45, 'Exportar','Form_Propietarios.aspx', 'Propietarios', 1, 0, '',9)
+Insert into dbo.tblOpcionSeguridad values (46, 'Ver','Form_Clientes.aspx', 'Clientes', 1, 0, '',10)
+Insert into dbo.tblOpcionSeguridad values (47, 'Crear','Form_Clientes.aspx', 'Clientes', 1, 0, '',10)
+Insert into dbo.tblOpcionSeguridad values (48, 'Editar','Form_Clientes.aspx', 'Clientes', 1, 0, '',10)
+Insert into dbo.tblOpcionSeguridad values (49, 'Eliminar','Form_Clientes.aspx', 'Clientes', 1, 0, '',10)
+Insert into dbo.tblOpcionSeguridad values (50, 'Exportar','Form_Clientes.aspx', 'Clientes', 1, 0, '',10)
+Insert into dbo.tblOpcionSeguridad values (51, 'Ver','Form_Subcontratista.aspx', 'Subcontratistas', 1, 0, '',11)
+Insert into dbo.tblOpcionSeguridad values (52, 'Crear','Form_Subcontratista.aspx', 'Subcontratistas', 1, 0, '',11)
+Insert into dbo.tblOpcionSeguridad values (53, 'Editar','Form_Subcontratista.aspx', 'Subcontratistas', 1, 0, '',11)
+Insert into dbo.tblOpcionSeguridad values (54, 'Eliminar','Form_Subcontratista.aspx', 'Subcontratistas', 1, 0, '',11)
+Insert into dbo.tblOpcionSeguridad values (55, 'Exportar','Form_Subcontratista.aspx', 'Subcontratistas', 1, 0, '',11)
+Insert into dbo.tblOpcionSeguridad values (56, 'Ver','Form_Usuarios.aspx', 'Usuarios', 1, 0, '',12)
+Insert into dbo.tblOpcionSeguridad values (57, 'Crear','Form_Usuarios.aspx', 'Usuarios', 1, 0, '',12)
+Insert into dbo.tblOpcionSeguridad values (58, 'Editar','Form_Usuarios.aspx', 'Usuarios', 1, 0, '',12)
+Insert into dbo.tblOpcionSeguridad values (59, 'Eliminar','Form_Usuarios.aspx', 'Usuarios', 1, 0, '',12)
+Insert into dbo.tblOpcionSeguridad values (60, 'Exportar','Form_Usuarios.aspx', 'Usuarios', 1, 0, '',12)
+Insert into dbo.tblOpcionSeguridad values (61, 'Ver','Form_TrabajosEquipo.aspx', 'Tareo de equipos', 1, 0, '',13)
+Insert into dbo.tblOpcionSeguridad values (62, 'Crear','Form_TrabajosEquipo.aspx', 'Tareo de equipos', 1, 0, '',13)
+Insert into dbo.tblOpcionSeguridad values (63, 'Editar','Form_TrabajosEquipo.aspx', 'Tareo de equipos', 1, 0, '',13)
+Insert into dbo.tblOpcionSeguridad values (64, 'Eliminar','Form_TrabajosEquipo.aspx', 'Tareo de equipos', 1, 0, '',13)
+Insert into dbo.tblOpcionSeguridad values (65, 'Exportar','Form_TrabajosEquipo.aspx', 'Tareo de equipos', 1, 0, '',13)
+Insert into dbo.tblOpcionSeguridad values (66, 'Ver','Form_Ordenes.aspx', 'Ordenes de trabajo', 1, 0, '',14)
+Insert into dbo.tblOpcionSeguridad values (67, 'Crear','Form_Ordenes.aspx', 'Ordenes de trabajo', 1, 0, '',14)
+Insert into dbo.tblOpcionSeguridad values (68, 'Editar','Form_Ordenes.aspx', 'Ordenes de trabajo', 1, 0, '',14)
+Insert into dbo.tblOpcionSeguridad values (69, 'Eliminar','Form_Ordenes.aspx', 'Ordenes de trabajo', 1, 0, '',14)
+Insert into dbo.tblOpcionSeguridad values (70, 'Exportar','Form_Ordenes.aspx', 'Ordenes de trabajo', 1, 0, '',14)
+Insert into dbo.tblOpcionSeguridad values (71, 'Ver','Form_Productos.aspx', 'Productos', 1, 0, '',15)
+Insert into dbo.tblOpcionSeguridad values (72, 'Crear','Form_Productos.aspx', 'Productos', 1, 0, '',15)
+Insert into dbo.tblOpcionSeguridad values (73, 'Editar','Form_Productos.aspx', 'Productos', 1, 0, '',15)
+Insert into dbo.tblOpcionSeguridad values (74, 'Eliminar','Form_Productos.aspx', 'Productos', 1, 0, '',15)
+Insert into dbo.tblOpcionSeguridad values (75, 'Exportar','Form_Productos.aspx', 'Productos', 1, 0, '',15)
+Insert into dbo.tblOpcionSeguridad values (76, 'Ver','Form_grupoProducto.aspx', 'Grupos de Productos', 1, 0, '',16)
+Insert into dbo.tblOpcionSeguridad values (77, 'Crear','Form_grupoProducto.aspx', 'Grupos de Productos', 1, 0, '',16)
+Insert into dbo.tblOpcionSeguridad values (78, 'Editar','Form_grupoProducto.aspx', 'Grupos de Productos', 1, 0, '',16)
+Insert into dbo.tblOpcionSeguridad values (79, 'Eliminar','Form_grupoProducto.aspx', 'Grupos de Productos', 1, 0, '',16)
+Insert into dbo.tblOpcionSeguridad values (80, 'Exportar','Form_grupoProducto.aspx', 'Grupos de Productos', 1, 0, '',16)
+Insert into dbo.tblOpcionSeguridad values (81, 'Ver','Form_grupoFuncion.aspx', 'Grupos de funcion de Productos', 1, 0, '',17)
+Insert into dbo.tblOpcionSeguridad values (82, 'Crear','Form_grupoFuncion.aspx', 'Grupos de funcion de Productos', 1, 0, '',17)
+Insert into dbo.tblOpcionSeguridad values (83, 'Editar','Form_grupoFuncion.aspx', 'Grupos de funcion de Productos', 1, 0, '',17)
+Insert into dbo.tblOpcionSeguridad values (84, 'Eliminar','Form_grupoFuncion.aspx', 'Grupos de funcion de Productos', 1, 0, '',17)
+Insert into dbo.tblOpcionSeguridad values (85, 'Exportar','Form_grupoFuncion.aspx', 'Grupos de funcion de Productos', 1, 0, '',17)
+Insert into dbo.tblOpcionSeguridad values (86, 'Ver','Form_unidadMedida.aspx', 'Unidad de Medida', 1, 0, '',18)
+Insert into dbo.tblOpcionSeguridad values (87, 'Crear','Form_unidadMedida.aspx', 'Unidad de Medida', 1, 0, '',18)
+Insert into dbo.tblOpcionSeguridad values (88, 'Editar','Form_unidadMedida.aspx', 'Unidad de Medida', 1, 0, '',18)
+Insert into dbo.tblOpcionSeguridad values (89, 'Eliminar','Form_unidadMedida.aspx', 'Unidad de Medida', 1, 0, '',18)
+Insert into dbo.tblOpcionSeguridad values (90, 'Exportar','Form_unidadMedida.aspx', 'Unidad de Medida', 1, 0, '',18)
+Insert into dbo.tblOpcionSeguridad values (91, 'Ver','Form_ubicacionProducto.aspx', 'Ubicación de productos', 1, 0, '',19)
+Insert into dbo.tblOpcionSeguridad values (92, 'Crear','Form_ubicacionProducto.aspx', 'Ubicación de productos', 1, 0, '',19)
+Insert into dbo.tblOpcionSeguridad values (93, 'Editar','Form_ubicacionProducto.aspx', 'Ubicación de productos', 1, 0, '',19)
+Insert into dbo.tblOpcionSeguridad values (94, 'Eliminar','Form_ubicacionProducto.aspx', 'Ubicación de productos', 1, 0, '',19)
+Insert into dbo.tblOpcionSeguridad values (95, 'Exportar','Form_ubicacionProducto.aspx', 'Ubicación de productos', 1, 0, '',19)
+Insert into dbo.tblOpcionSeguridad values (96, 'Ver','Form_ajusteStock.aspx', 'Ajusto de stock de productos', 1, 0, '',20)
+Insert into dbo.tblOpcionSeguridad values (97, 'Crear','Form_ajusteStock.aspx', 'Ajusto de stock de productos', 1, 0, '',20)
+Insert into dbo.tblOpcionSeguridad values (98, 'Editar','Form_ajusteStock.aspx', 'Ajusto de stock de productos', 1, 0, '',20)
+Insert into dbo.tblOpcionSeguridad values (99, 'Eliminar','Form_ajusteStock.aspx', 'Ajusto de stock de productos', 1, 0, '',20)
+Insert into dbo.tblOpcionSeguridad values (100, 'Exportar','Form_ajusteStock.aspx', 'Ajusto de stock de productos', 1, 0, '',20)
+Insert into dbo.tblOpcionSeguridad values (101, 'Ver','Form_Alimentacion.aspx', 'Alimentación', 1, 0, '',21)
+Insert into dbo.tblOpcionSeguridad values (102, 'Crear','Form_Alimentacion.aspx', 'Alimentación', 1, 0, '',21)
+Insert into dbo.tblOpcionSeguridad values (103, 'Editar','Form_Alimentacion.aspx', 'Alimentación', 1, 0, '',21)
+Insert into dbo.tblOpcionSeguridad values (104, 'Eliminar','Form_Alimentacion.aspx', 'Alimentación', 1, 0, '',21)
+Insert into dbo.tblOpcionSeguridad values (105, 'Exportar','Form_Alimentacion.aspx', 'Alimentación', 1, 0, '',21)
+Insert into dbo.tblOpcionSeguridad values (106, 'Ver','Form_IngresoConsumo.aspx', 'Combustibles por factura', 1, 0, '',22)
+Insert into dbo.tblOpcionSeguridad values (107, 'Crear','Form_IngresoConsumo.aspx', 'Combustibles por factura', 1, 0, '',22)
+Insert into dbo.tblOpcionSeguridad values (108, 'Editar','Form_IngresoConsumo.aspx', 'Combustibles por factura', 1, 0, '',22)
+Insert into dbo.tblOpcionSeguridad values (109, 'Eliminar','Form_IngresoConsumo.aspx', 'Combustibles por factura', 1, 0, '',22)
+Insert into dbo.tblOpcionSeguridad values (110, 'Exportar','Form_IngresoConsumo.aspx', 'Combustibles por factura', 1, 0, '',22)
+Insert into dbo.tblOpcionSeguridad values (111, 'Ver','Form_IngresoConsumo.aspx', 'Combustibles por stock', 1, 0, '',23)
+Insert into dbo.tblOpcionSeguridad values (112, 'Crear','Form_IngresoConsumo.aspx', 'Combustibles por stock', 1, 0, '',23)
+Insert into dbo.tblOpcionSeguridad values (113, 'Editar','Form_IngresoConsumo.aspx', 'Combustibles por stock', 1, 0, '',23)
+Insert into dbo.tblOpcionSeguridad values (114, 'Eliminar','Form_IngresoConsumo.aspx', 'Combustibles por stock', 1, 0, '',23)
+Insert into dbo.tblOpcionSeguridad values (115, 'Exportar','Form_IngresoConsumo.aspx', 'Combustibles por stock', 1, 0, '',23)
+Insert into dbo.tblOpcionSeguridad values (116, 'Ver','Form_ListaCompras.aspx', 'Compras', 1, 0, '',24)
+Insert into dbo.tblOpcionSeguridad values (117, 'Crear','Form_ListaCompras.aspx', 'Compras', 1, 0, '',24)
+Insert into dbo.tblOpcionSeguridad values (118, 'Editar','Form_ListaCompras.aspx', 'Compras', 1, 0, '',24)
+Insert into dbo.tblOpcionSeguridad values (119, 'Eliminar','Form_ListaCompras.aspx', 'Compras', 1, 0, '',24)
+Insert into dbo.tblOpcionSeguridad values (120, 'Exportar','Form_ListaCompras.aspx', 'Compras', 1, 0, '',24)
+Insert into dbo.tblOpcionSeguridad values (121, 'Ver','Form_OrdenesCompras.aspx', 'Ordenes de compras', 1, 0, '',25)
+Insert into dbo.tblOpcionSeguridad values (122, 'Crear','Form_OrdenesCompras.aspx', 'Ordenes de compras', 1, 0, '',25)
+Insert into dbo.tblOpcionSeguridad values (123, 'Editar','Form_OrdenesCompras.aspx', 'Ordenes de compras', 1, 0, '',25)
+Insert into dbo.tblOpcionSeguridad values (124, 'Eliminar','Form_OrdenesCompras.aspx', 'Ordenes de compras', 1, 0, '',25)
+Insert into dbo.tblOpcionSeguridad values (125, 'Exportar','Form_OrdenesCompras.aspx', 'Ordenes de compras', 1, 0, '',25)
+Insert into dbo.tblOpcionSeguridad values (126, 'Ver','Form_ListaTransferencias.aspx', 'Transferencias de productos', 1, 0, '',26)
+Insert into dbo.tblOpcionSeguridad values (127, 'Crear','Form_ListaTransferencias.aspx', 'Transferencias de productos', 1, 0, '',26)
+Insert into dbo.tblOpcionSeguridad values (128, 'Editar','Form_ListaTransferencias.aspx', 'Transferencias de productos', 1, 0, '',26)
+Insert into dbo.tblOpcionSeguridad values (129, 'Eliminar','Form_ListaTransferencias.aspx', 'Transferencias de productos', 1, 0, '',26)
+Insert into dbo.tblOpcionSeguridad values (130, 'Exportar','Form_ListaTransferencias.aspx', 'Transferencias de productos', 1, 0, '',26)
+Insert into dbo.tblOpcionSeguridad values (131, 'Ver','Form_marcaE.aspx', 'Marcas', 1, 0, '',27)
+Insert into dbo.tblOpcionSeguridad values (132, 'Crear','Form_marcaE.aspx', 'Marcas', 1, 0, '',27)
+Insert into dbo.tblOpcionSeguridad values (133, 'Editar','Form_marcaE.aspx', 'Marcas', 1, 0, '',27)
+Insert into dbo.tblOpcionSeguridad values (134, 'Eliminar','Form_marcaE.aspx', 'Marcas', 1, 0, '',27)
+Insert into dbo.tblOpcionSeguridad values (135, 'Exportar','Form_marcaE.aspx', 'Marcas', 1, 0, '',27)
+Insert into dbo.tblOpcionSeguridad values (136, 'Ver','Form_cargo.aspx', 'Cargos', 1, 0, '',28)
+Insert into dbo.tblOpcionSeguridad values (137, 'Crear','Form_cargo.aspx', 'Cargos', 1, 0, '',28)
+Insert into dbo.tblOpcionSeguridad values (138, 'Editar','Form_cargo.aspx', 'Cargos', 1, 0, '',28)
+Insert into dbo.tblOpcionSeguridad values (139, 'Eliminar','Form_cargo.aspx', 'Cargos', 1, 0, '',28)
+Insert into dbo.tblOpcionSeguridad values (140, 'Exportar','Form_cargo.aspx', 'Cargos', 1, 0, '',28)
+Insert into dbo.tblOpcionSeguridad values (141, 'Ver','Form_lugarTrabajo.aspx', 'Lugares de trabajo', 1, 0, '',29)
+Insert into dbo.tblOpcionSeguridad values (142, 'Crear','Form_lugarTrabajo.aspx', 'Lugares de trabajo', 1, 0, '',29)
+Insert into dbo.tblOpcionSeguridad values (143, 'Editar','Form_lugarTrabajo.aspx', 'Lugares de trabajo', 1, 0, '',29)
+Insert into dbo.tblOpcionSeguridad values (144, 'Eliminar','Form_lugarTrabajo.aspx', 'Lugares de trabajo', 1, 0, '',29)
+Insert into dbo.tblOpcionSeguridad values (145, 'Exportar','Form_lugarTrabajo.aspx', 'Lugares de trabajo', 1, 0, '',29)
+Insert into dbo.tblOpcionSeguridad values (146, 'Ver','Form_tipoDocumento.aspx', 'Tipos de documentos', 1, 0, '',30)
+Insert into dbo.tblOpcionSeguridad values (147, 'Crear','Form_tipoDocumento.aspx', 'Tipos de documentos', 1, 0, '',30)
+Insert into dbo.tblOpcionSeguridad values (148, 'Editar','Form_tipoDocumento.aspx', 'Tipos de documentos', 1, 0, '',30)
+Insert into dbo.tblOpcionSeguridad values (149, 'Eliminar','Form_tipoDocumento.aspx', 'Tipos de documentos', 1, 0, '',30)
+Insert into dbo.tblOpcionSeguridad values (150, 'Exportar','Form_tipoDocumento.aspx', 'Tipos de documentos', 1, 0, '',30)
+Insert into dbo.tblOpcionSeguridad values (151, 'Ver','Form_tipoCategoriaLicencia.aspx', 'Tipo categoria de licencia', 1, 0, '',31)
+Insert into dbo.tblOpcionSeguridad values (152, 'Crear','Form_tipoCategoriaLicencia.aspx', 'Tipo categoria de licencia', 1, 0, '',31)
+Insert into dbo.tblOpcionSeguridad values (153, 'Editar','Form_tipoCategoriaLicencia.aspx', 'Tipo categoria de licencia', 1, 0, '',31)
+Insert into dbo.tblOpcionSeguridad values (154, 'Eliminar','Form_tipoCategoriaLicencia.aspx', 'Tipo categoria de licencia', 1, 0, '',31)
+Insert into dbo.tblOpcionSeguridad values (155, 'Exportar','Form_tipoCategoriaLicencia.aspx', 'Tipo categoria de licencia', 1, 0, '',31)
+Insert into dbo.tblOpcionSeguridad values (156, 'Ver','Form_almacenes.aspx', 'Almacenes', 1, 0, '',32)
+Insert into dbo.tblOpcionSeguridad values (157, 'Crear','Form_almacenes.aspx', 'Almacenes', 1, 0, '',32)
+Insert into dbo.tblOpcionSeguridad values (158, 'Editar','Form_almacenes.aspx', 'Almacenes', 1, 0, '',32)
+Insert into dbo.tblOpcionSeguridad values (159, 'Eliminar','Form_almacenes.aspx', 'Almacenes', 1, 0, '',32)
+Insert into dbo.tblOpcionSeguridad values (160, 'Exportar','Form_almacenes.aspx', 'Almacenes', 1, 0, '',32)
+Insert into dbo.tblOpcionSeguridad values (161, 'Ver','Form_tipoCambio.aspx', 'Tipo de Cambio', 1, 0, '',33)
+Insert into dbo.tblOpcionSeguridad values (162, 'Crear','Form_tipoCambio.aspx', 'Tipo de Cambio', 1, 0, '',33)
+Insert into dbo.tblOpcionSeguridad values (163, 'Editar','Form_tipoCambio.aspx', 'Tipo de Cambio', 1, 0, '',33)
+Insert into dbo.tblOpcionSeguridad values (164, 'Eliminar','Form_tipoCambio.aspx', 'Tipo de Cambio', 1, 0, '',33)
+Insert into dbo.tblOpcionSeguridad values (165, 'Exportar','Form_tipoCambio.aspx', 'Tipo de Cambio', 1, 0, '',33)
+Insert into dbo.tblOpcionSeguridad values (166, 'Ver','Form_tiempoestandartrabajo.aspx', 'Tiempo estandar de trabajo', 1, 0, '',34)
+Insert into dbo.tblOpcionSeguridad values (167, 'Crear','Form_tiempoestandartrabajo.aspx', 'Tiempo estandar de trabajo', 1, 0, '',34)
+Insert into dbo.tblOpcionSeguridad values (168, 'Editar','Form_tiempoestandartrabajo.aspx', 'Tiempo estandar de trabajo', 1, 0, '',34)
+Insert into dbo.tblOpcionSeguridad values (169, 'Eliminar','Form_tiempoestandartrabajo.aspx', 'Tiempo estandar de trabajo', 1, 0, '',34)
+Insert into dbo.tblOpcionSeguridad values (170, 'Exportar','Form_tiempoestandartrabajo.aspx', 'Tiempo estandar de trabajo', 1, 0, '',34)
+Insert into dbo.tblOpcionSeguridad values (171, 'Ver','Form_banco.aspx', 'Bancos', 1, 0, '',35)
+Insert into dbo.tblOpcionSeguridad values (172, 'Crear','Form_banco.aspx', 'Bancos', 1, 0, '',35)
+Insert into dbo.tblOpcionSeguridad values (173, 'Editar','Form_banco.aspx', 'Bancos', 1, 0, '',35)
+Insert into dbo.tblOpcionSeguridad values (174, 'Eliminar','Form_banco.aspx', 'Bancos', 1, 0, '',35)
+Insert into dbo.tblOpcionSeguridad values (175, 'Exportar','Form_banco.aspx', 'Bancos', 1, 0, '',35)
+Insert into dbo.tblOpcionSeguridad values (176, 'Ver','Form_centroCosto.aspx', 'Centro de costo', 1, 0, '',36)
+Insert into dbo.tblOpcionSeguridad values (177, 'Crear','Form_centroCosto.aspx', 'Centro de costo', 1, 0, '',36)
+Insert into dbo.tblOpcionSeguridad values (178, 'Editar','Form_centroCosto.aspx', 'Centro de costo', 1, 0, '',36)
+Insert into dbo.tblOpcionSeguridad values (179, 'Eliminar','Form_centroCosto.aspx', 'Centro de costo', 1, 0, '',36)
+Insert into dbo.tblOpcionSeguridad values (180, 'Exportar','Form_centroCosto.aspx', 'Centro de costo', 1, 0, '',36)
+Insert into dbo.tblOpcionSeguridad values (181, 'Ver','Form_Partidas.aspx', 'Partidas', 1, 0, '',37)
+Insert into dbo.tblOpcionSeguridad values (182, 'Crear','Form_Partidas.aspx', 'Partidas', 1, 0, '',37)
+Insert into dbo.tblOpcionSeguridad values (183, 'Editar','Form_Partidas.aspx', 'Partidas', 1, 0, '',37)
+Insert into dbo.tblOpcionSeguridad values (184, 'Eliminar','Form_Partidas.aspx', 'Partidas', 1, 0, '',37)
+Insert into dbo.tblOpcionSeguridad values (185, 'Exportar','Form_Partidas.aspx', 'Partidas', 1, 0, '',37)
+Insert into dbo.tblOpcionSeguridad values (186, 'Ver','Form_tipoProveedor.aspx', 'Tipos de proveedores', 1, 0, '',38)
+Insert into dbo.tblOpcionSeguridad values (187, 'Crear','Form_tipoProveedor.aspx', 'Tipos de proveedores', 1, 0, '',38)
+Insert into dbo.tblOpcionSeguridad values (188, 'Editar','Form_tipoProveedor.aspx', 'Tipos de proveedores', 1, 0, '',38)
+Insert into dbo.tblOpcionSeguridad values (189, 'Eliminar','Form_tipoProveedor.aspx', 'Tipos de proveedores', 1, 0, '',38)
+Insert into dbo.tblOpcionSeguridad values (190, 'Exportar','Form_tipoProveedor.aspx', 'Tipos de proveedores', 1, 0, '',38)
+Insert into dbo.tblOpcionSeguridad values (191, 'Ver','Form_tipoPago.aspx', 'Tipos de pagos de proveedores', 1, 0, '',39)
+Insert into dbo.tblOpcionSeguridad values (192, 'Crear','Form_tipoPago.aspx', 'Tipos de pagos de proveedores', 1, 0, '',39)
+Insert into dbo.tblOpcionSeguridad values (193, 'Editar','Form_tipoPago.aspx', 'Tipos de pagos de proveedores', 1, 0, '',39)
+Insert into dbo.tblOpcionSeguridad values (194, 'Eliminar','Form_tipoPago.aspx', 'Tipos de pagos de proveedores', 1, 0, '',39)
+Insert into dbo.tblOpcionSeguridad values (195, 'Exportar','Form_tipoPago.aspx', 'Tipos de pagos de proveedores', 1, 0, '',39)
+Insert into dbo.tblOpcionSeguridad values (196, '','', 'Reporte EPP', 1, 0, '',40)
+Insert into dbo.tblOpcionSeguridad values (201, 'Ver','Form_motivoAjuste.aspx', 'Motivos de Ajuste de Stock', 1, 0, '',41)
+Insert into dbo.tblOpcionSeguridad values (202, 'Crear','Form_motivoAjuste.aspx', 'Motivos de Ajuste de Stock', 1, 0, '',41)
+Insert into dbo.tblOpcionSeguridad values (203, 'Editar','Form_motivoAjuste.aspx', 'Motivos de Ajuste de Stock', 1, 0, '',41)
+Insert into dbo.tblOpcionSeguridad values (204, 'Eliminar','Form_motivoAjuste.aspx', 'Motivos de Ajuste de Stock', 1, 0, '',41)
+Insert into dbo.tblOpcionSeguridad values (205, 'Exportar','Form_motivoAjuste.aspx', 'Motivos de Ajuste de Stock', 1, 0, '',41)
+Insert into dbo.tblOpcionSeguridad values (206, 'Ver','Form_ControlSalida.aspx', 'Control de Salida de Productos', 1, 0, '',42)
+Insert into dbo.tblOpcionSeguridad values (207, 'Crear','Form_ControlSalida.aspx', 'Control de Salida de Productos', 1, 0, '',42)
+Insert into dbo.tblOpcionSeguridad values (208, 'Editar','Form_ControlSalida.aspx', 'Control de Salida de Productos', 1, 0, '',42)
+Insert into dbo.tblOpcionSeguridad values (209, 'Eliminar','Form_ControlSalida.aspx', 'Control de Salida de Productos', 1, 0, '',42)
+Insert into dbo.tblOpcionSeguridad values (210, 'Exportar','Form_ControlSalida.aspx', 'Control de Salida de Productos', 1, 0, '',42)
+Insert into dbo.tblOpcionSeguridad values (211, 'Ver','Form_SeguimientoSalida.aspx', 'Seguimiento de Salida de Productos', 1, 0, '',43)
+Insert into dbo.tblOpcionSeguridad values (212, 'Crear','Form_SeguimientoSalida.aspx', 'Seguimiento de Salida de Productos', 1, 0, '',43)
+Insert into dbo.tblOpcionSeguridad values (213, 'Editar','Form_SeguimientoSalida.aspx', 'Seguimiento de Salida de Productos', 1, 0, '',43)
+Insert into dbo.tblOpcionSeguridad values (214, 'Eliminar','Form_SeguimientoSalida.aspx', 'Seguimiento de Salida de Productos', 1, 0, '',43)
+Insert into dbo.tblOpcionSeguridad values (215, 'Exportar','Form_SeguimientoSalida.aspx', 'Seguimiento de Salida de Productos', 1, 0, '',43)
+Insert into dbo.tblOpcionSeguridad values (216, 'Ver','Form_ListaVentas.aspx', 'Venta de Productos', 1, 0, '',44)
+Insert into dbo.tblOpcionSeguridad values (217, 'Crear','Form_ListaVentas.aspx', 'Venta de Productos', 1, 0, '',44)
+Insert into dbo.tblOpcionSeguridad values (218, 'Editar','Form_ListaVentas.aspx', 'Venta de Productos', 1, 0, '',44)
+Insert into dbo.tblOpcionSeguridad values (219, 'Eliminar','Form_ListaVentas.aspx', 'Venta de Productos', 1, 0, '',44)
+Insert into dbo.tblOpcionSeguridad values (220, 'Exportar','Form_ListaVentas.aspx', 'Venta de Productos', 1, 0, '',44)
+Insert into dbo.tblOpcionSeguridad values (221, 'Ver','Form_tipoSistema.aspx', 'Tipo de Sistema', 1, 0, '',45)
+Insert into dbo.tblOpcionSeguridad values (222, 'Crear','Form_tipoSistema.aspx', 'Tipo de Sistema', 1, 0, '',45)
+Insert into dbo.tblOpcionSeguridad values (223, 'Editar','Form_tipoSistema.aspx', 'Tipo de Sistema', 1, 0, '',45)
+Insert into dbo.tblOpcionSeguridad values (224, 'Eliminar','Form_tipoSistema.aspx', 'Tipo de Sistema', 1, 0, '',45)
+Insert into dbo.tblOpcionSeguridad values (225, 'Exportar','Form_tipoSistema.aspx', 'Tipo de Sistema', 1, 0, '',45)
+Insert into dbo.tblOpcionSeguridad values (226, 'Ver','Form_cuentaCorriente.aspx', 'Cuenta Corriente', 1, 0, '',46)
+Insert into dbo.tblOpcionSeguridad values (227, 'Crear','Form_cuentaCorriente.aspx', 'Cuenta Corriente', 1, 0, '',46)
+Insert into dbo.tblOpcionSeguridad values (228, 'Editar','Form_cuentaCorriente.aspx', 'Cuenta Corriente', 1, 0, '',46)
+Insert into dbo.tblOpcionSeguridad values (229, 'Eliminar','Form_cuentaCorriente.aspx', 'Cuenta Corriente', 1, 0, '',46)
+Insert into dbo.tblOpcionSeguridad values (230, 'Exportar','Form_cuentaCorriente.aspx', 'Cuenta Corriente', 1, 0, '',46)
+Insert into dbo.tblOpcionSeguridad values (231, 'Ver','Form_tipoCliente.aspx', 'Tipo de Cliente', 1, 0, '',47)
+Insert into dbo.tblOpcionSeguridad values (232, 'Crear','Form_tipoCliente.aspx', 'Tipo de Cliente', 1, 0, '',47)
+Insert into dbo.tblOpcionSeguridad values (233, 'Editar','Form_tipoCliente.aspx', 'Tipo de Cliente', 1, 0, '',47)
+Insert into dbo.tblOpcionSeguridad values (234, 'Eliminar','Form_tipoCliente.aspx', 'Tipo de Cliente', 1, 0, '',47)
+Insert into dbo.tblOpcionSeguridad values (235, 'Exportar','Form_tipoCliente.aspx', 'Tipo de Cliente', 1, 0, '',47)
+Insert into dbo.tblOpcionSeguridad values (236, 'Ver','Form_ListaGuias.aspx', 'Guia Remision', 1, 0, '',48)
+Insert into dbo.tblOpcionSeguridad values (237, 'Crear','Form_ListaGuias.aspx', 'Guia Remision', 1, 0, '',48)
+Insert into dbo.tblOpcionSeguridad values (238, 'Editar','Form_ListaGuias.aspx', 'Guia Remision', 1, 0, '',48)
+Insert into dbo.tblOpcionSeguridad values (239, 'Eliminar','Form_ListaGuias.aspx', 'Guia Remision', 1, 0, '',48)
+Insert into dbo.tblOpcionSeguridad values (240, 'Exportar','Form_ListaGuias.aspx', 'Guia Remision', 1, 0, '',48)
+Insert into dbo.tblOpcionSeguridad values (241, 'Ver','Form_ListaVentasO.aspx', 'Orden Venta', 1, 0, '',49)
+Insert into dbo.tblOpcionSeguridad values (242, 'Crear','Form_ListaVentasO.aspx', 'Orden Venta', 1, 0, '',49)
+Insert into dbo.tblOpcionSeguridad values (243, 'Editar','Form_ListaVentasO.aspx', 'Orden Venta', 1, 0, '',49)
+Insert into dbo.tblOpcionSeguridad values (244, 'Eliminar','Form_ListaVentasO.aspx', 'Orden Venta', 1, 0, '',49)
+Insert into dbo.tblOpcionSeguridad values (245, 'Exportar','Form_ListaVentasO.aspx', 'Orden Venta', 1, 0, '',49)
+Insert into dbo.tblOpcionSeguridad values (246, 'Ver','Form_OrdenesCot.aspx', 'Cotizaciones', 1, 0, '',50)
+Insert into dbo.tblOpcionSeguridad values (247, 'Crear','Form_OrdenesCot.aspx', 'Cotizaciones', 1, 0, '',50)
+Insert into dbo.tblOpcionSeguridad values (248, 'Editar','Form_OrdenesCot.aspx', 'Cotizaciones', 1, 0, '',50)
+Insert into dbo.tblOpcionSeguridad values (249, 'Eliminar','Form_OrdenesCot.aspx', 'Cotizaciones', 1, 0, '',50)
+Insert into dbo.tblOpcionSeguridad values (250, 'Exportar','Form_OrdenesCot.aspx', 'Cotizaciones', 1, 0, '',50)
+Insert into dbo.tblOpcionSeguridad values (251, 'Ver','Form_ListaSalidaAlmacen.aspx', 'Salida Almacen', 1, 0, '',51)
+Insert into dbo.tblOpcionSeguridad values (252, 'Crear','Form_ListaSalidaAlmacen.aspx', 'Salida Almacen', 1, 0, '',51)
+Insert into dbo.tblOpcionSeguridad values (253, 'Editar','Form_ListaSalidaAlmacen.aspx', 'Salida Almacen', 1, 0, '',51)
+Insert into dbo.tblOpcionSeguridad values (254, 'Eliminar','Form_ListaSalidaAlmacen.aspx', 'Salida Almacen', 1, 0, '',51)
+Insert into dbo.tblOpcionSeguridad values (255, 'Exportar','Form_ListaSalidaAlmacen.aspx', 'Salida Almacen', 1, 0, '',51)
+******************* MANNUCCI *********************
+Insert into dbo.tblOpcionSeguridad values (256, 'Ver','Form_familiaE.aspx', 'Familia Equipo', 1, 0, '',52)
+Insert into dbo.tblOpcionSeguridad values (257, 'Crear','Form_familiaE.aspx', 'Familia Equipo', 1, 0, '',52)
+Insert into dbo.tblOpcionSeguridad values (258, 'Editar','Form_familiaE.aspx', 'Familia Equipo', 1, 0, '',52)
+Insert into dbo.tblOpcionSeguridad values (259, 'Eliminar','Form_familiaE.aspx', 'Familia Equipo', 1, 0, '',52)
+Insert into dbo.tblOpcionSeguridad values (260, 'Exportar','Form_familiaE.aspx', 'Familia Equipo', 1, 0, '',52)
+Insert into dbo.tblOpcionSeguridad values (261, 'Ver','Form_planMantto.aspx', 'Mtto. Rutinario', 1, 0, '',53)
+Insert into dbo.tblOpcionSeguridad values (262, 'Crear','Form_planMantto.aspx', 'Mtto. Rutinario', 1, 0, '',53)
+Insert into dbo.tblOpcionSeguridad values (263, 'Editar','Form_planMantto.aspx', 'Mtto. Rutinario', 1, 0, '',53)
+Insert into dbo.tblOpcionSeguridad values (264, 'Eliminar','Form_planMantto.aspx', 'Mtto. Rutinario', 1, 0, '',53)
+Insert into dbo.tblOpcionSeguridad values (265, 'Exportar','Form_planMantto.aspx', 'Mtto. Rutinario', 1, 0, '',53)
+Insert into dbo.tblOpcionSeguridad values (266, 'Ver','Form_correctivosList.aspx', 'Mtto. Correctivo', 1, 0, '',54)
+Insert into dbo.tblOpcionSeguridad values (267, 'Crear','Form_correctivosList.aspx', 'Mtto. Correctivo', 1, 0, '',54)
+Insert into dbo.tblOpcionSeguridad values (268, 'Editar','Form_correctivosList.aspx', 'Mtto. Correctivo', 1, 0, '',54)
+Insert into dbo.tblOpcionSeguridad values (269, 'Eliminar','Form_correctivosList.aspx', 'Mtto. Correctivo', 1, 0, '',54)
+Insert into dbo.tblOpcionSeguridad values (270, 'Exportar','Form_correctivosList.aspx', 'Mtto. Correctivo', 1, 0, '',54)
+Insert into dbo.tblOpcionSeguridad values (271, 'Ver','Form_regFallasList.aspx', 'Reg. Fallas', 1, 0, '',55)
+Insert into dbo.tblOpcionSeguridad values (272, 'Crear','Form_regFallasList.aspx', 'Reg. Fallas', 1, 0, '',55)
+Insert into dbo.tblOpcionSeguridad values (273, 'Editar','Form_regFallasList.aspx', 'Reg. Fallas', 1, 0, '',55)
+Insert into dbo.tblOpcionSeguridad values (274, 'Eliminar','Form_regFallasList.aspx', 'Reg. Fallas', 1, 0, '',55)
+Insert into dbo.tblOpcionSeguridad values (275, 'Exportar','Form_regFallasList.aspx', 'Reg. Fallas', 1, 0, '',55)
+Insert into dbo.tblOpcionSeguridad values (276, 'Ver','Form_planificaEquipo.aspx', 'Asig. Preventivo', 1, 0, '',56)
+Insert into dbo.tblOpcionSeguridad values (277, 'Crear','Form_planificaEquipo.aspx', 'Asig. Preventivo', 1, 0, '',56)
+Insert into dbo.tblOpcionSeguridad values (278, 'Editar','Form_planificaEquipo.aspx', 'Asig. Preventivo', 1, 0, '',56)
+Insert into dbo.tblOpcionSeguridad values (279, 'Eliminar','Form_planificaEquipo.aspx', 'Asig. Preventivo', 1, 0, '',56)
+Insert into dbo.tblOpcionSeguridad values (280, 'Exportar','Form_planificaEquipo.aspx', 'Asig. Preventivo', 1, 0, '',56)
+Insert into dbo.tblOpcionSeguridad values (281, 'Ver','Form_checkList.aspx', 'CheckList E/R/Q', 1, 0, '',57)
+Insert into dbo.tblOpcionSeguridad values (282, 'Crear','Form_checkList.aspx', 'CheckList E/R/Q', 1, 0, '',57)
+Insert into dbo.tblOpcionSeguridad values (283, 'Editar','Form_checkList.aspx', 'CheckList E/R/Q', 1, 0, '',57)
+Insert into dbo.tblOpcionSeguridad values (284, 'Eliminar','Form_checkList.aspx', 'CheckList E/R/Q', 1, 0, '',57)
+Insert into dbo.tblOpcionSeguridad values (285, 'Exportar','Form_checkList.aspx', 'CheckList E/R/Q', 1, 0, '',57)
+Insert into dbo.tblOpcionSeguridad values (286, 'Ver','Form_AsigCalendario.aspx', 'Planificación', 1, 0, '',58)
+Insert into dbo.tblOpcionSeguridad values (287, 'Crear','Form_AsigCalendario.aspx', 'Planificación', 1, 0, '',58)
+Insert into dbo.tblOpcionSeguridad values (288, 'Editar','Form_AsigCalendario.aspx', 'Planificación', 1, 0, '',58)
+Insert into dbo.tblOpcionSeguridad values (289, 'Eliminar','Form_AsigCalendario.aspx', 'Planificación', 1, 0, '',58)
+Insert into dbo.tblOpcionSeguridad values (290, 'Exportar','Form_AsigCalendario.aspx', 'Planificación', 1, 0, '',58)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Insert into dbo.tblOpcionSeguridad values (1001, '','WavaoAxVE3qGENS0P/cBlA==', 'Entregas', 1, 1, '',0)
+Insert into dbo.tblOpcionSeguridad values (1002, '','Uzp5YKqBojw=', 'Equipos', 1, 1, '',0)
+Insert into dbo.tblOpcionSeguridad values (1003, '','R1GAMofSwz8=', 'Cuentas', 1, 1, '',0)
+Insert into dbo.tblOpcionSeguridad values (1004, '','HY6Uy/wRhNmno6+ouQPDYg==', 'Trabajos', 1, 1, '',0)
+Insert into dbo.tblOpcionSeguridad values (1005, '','SywPtEIaNq/0RiSjfbGOOg==', 'Productos', 1, 1, '',0)
+Insert into dbo.tblOpcionSeguridad values (1006, '','ihyfS1/OYU4HbFSUfX3uog==', 'Ingresos', 1, 1, '',0)
+Insert into dbo.tblOpcionSeguridad values (1007, '','OwLWqzmIte2SfHScqD41HQ==', 'Tablas Maestras', 1, 1, '',0)
+Insert into dbo.tblOpcionSeguridad values (1008, '','OtBgW2lrz114TQ46fuG06A==', 'Reportes', 1, 1, '',0)
+Insert into dbo.tblOpcionSeguridad values (1009, '','t5Pgy1N9Zaw=', 'Salidas', 1, 1, '',0)
+
+update tblOpcionSeguridad SET nombreForm = 'WavaoAxVE3qGENS0P/cBlA==' WHERE opcionSeguridadID = 1001
+update tblOpcionSeguridad SET nombreForm = 'Uzp5YKqBojw=' WHERE opcionSeguridadID = 1002
+update tblOpcionSeguridad SET nombreForm = 'R1GAMofSwz8=' WHERE opcionSeguridadID = 1003
+update tblOpcionSeguridad SET nombreForm = 'HY6Uy/wRhNmno6+ouQPDYg==' WHERE opcionSeguridadID = 1004
+update tblOpcionSeguridad SET nombreForm = 'SywPtEIaNq/0RiSjfbGOOg==' WHERE opcionSeguridadID = 1005
+update tblOpcionSeguridad SET nombreForm = 'ihyfS1/OYU4HbFSUfX3uog==' WHERE opcionSeguridadID = 1006
+update tblOpcionSeguridad SET nombreForm = 'OwLWqzmIte2SfHScqD41HQ==' WHERE opcionSeguridadID = 1007
+update tblOpcionSeguridad SET nombreForm = 'OtBgW2lrz114TQ46fuG06A==' WHERE opcionSeguridadID = 1008
+update tblOpcionSeguridad SET nombreForm = 't5Pgy1N9Zaw=' WHERE opcionSeguridadID = 1009
+
+
+
+update tblOpcionSeguridad SET nombreForm = 'wYkMSgEYVOeXOWlYwnpATw==' WHERE opcionSeguridadID = 1
+update tblOpcionSeguridad SET nombreForm = 'wYkMSgEYVOcjigUY7KWHLt5QgN7QkZgg' WHERE opcionSeguridadID = 6
+update tblOpcionSeguridad SET nombreForm = 'wYkMSgEYVOe3YgP01lPCX019WQ9Tg9q1' WHERE opcionSeguridadID = 11
+update tblOpcionSeguridad SET nombreForm = 'Uzp5YKqBojw=' WHERE opcionSeguridadID = 16
+update tblOpcionSeguridad SET nombreForm = 'VKwrUYcuqSLIeFP7aZS0Gg==' WHERE opcionSeguridadID = 21
+update tblOpcionSeguridad SET nombreForm = '9YnoZfvOhUrIoB7kKjJu0cAJlY6pI7Bw' WHERE opcionSeguridadID = 26
+update tblOpcionSeguridad SET nombreForm = 'aPueJ+Y6TXMpCbdWJjeetg==' WHERE opcionSeguridadID = 31
+update tblOpcionSeguridad SET nombreForm = 'RCgHMCC5v/P9sIV7kIeNGQ==' WHERE opcionSeguridadID = 36
+update tblOpcionSeguridad SET nombreForm = 'u/DDfU6Ph7YobqZs8aKIww==' WHERE opcionSeguridadID = 41
+update tblOpcionSeguridad SET nombreForm = 'YHEJaGm3/oWjpEw9DRjHbA==' WHERE opcionSeguridadID = 46
+update tblOpcionSeguridad SET nombreForm = 'VxfaC+wrypX2BBKBKjWSoQ==' WHERE opcionSeguridadID = 51
+update tblOpcionSeguridad SET nombreForm = 'etjW5VGUEDabF1VF0K5BwA==' WHERE opcionSeguridadID = 56
+update tblOpcionSeguridad SET nombreForm = 'T6Xos2nfkZ+SYOXJT0xgEpPR2quokHbK' WHERE opcionSeguridadID = 61
+update tblOpcionSeguridad SET nombreForm = '4Popc1Uoeg2Zynl0UuYHt+EnwCjR3iXb' WHERE opcionSeguridadID = 66
+update tblOpcionSeguridad SET nombreForm = 'SywPtEIaNq/0RiSjfbGOOg==' WHERE opcionSeguridadID = 71
+update tblOpcionSeguridad SET nombreForm = '9RcPtLBDuKAoq9kRaF5Ov0bQfNRjujF6' WHERE opcionSeguridadID = 76
+update tblOpcionSeguridad SET nombreForm = '9RcPtLBDuKB8XKjFnVWkv+s569Tys9nAF6Wl+YSzXLA=' WHERE opcionSeguridadID = 81
+update tblOpcionSeguridad SET nombreForm = 'LPK6jsPWe1IxoxHuqdrFWbU4Xt5NueN9' WHERE opcionSeguridadID = 86
+update tblOpcionSeguridad SET nombreForm = '7Y8X7HRT3RxQ5SdflnzVXGlbi0yc3Xrt' WHERE opcionSeguridadID = 91
+update tblOpcionSeguridad SET nombreForm = '9nIkzTqmM0su+z/CRD5khvf9as4DpBXNStZM9mq+Bqk=' WHERE opcionSeguridadID = 96
+update tblOpcionSeguridad SET nombreForm = 'kkvyBdNhZriT9YMGK4irmQ==' WHERE opcionSeguridadID = 101
+update tblOpcionSeguridad SET nombreForm = 'b6yOennUhgjC5GQcUA+yxxsyCxAw7MIIzd3RAABIO4M=' WHERE opcionSeguridadID = 106
+update tblOpcionSeguridad SET nombreForm = 'b6yOennUhgjC5GQcUA+yx9K/OAv+lR0l' WHERE opcionSeguridadID = 111
+update tblOpcionSeguridad SET nombreForm = 'YQrAV6Y2R68=' WHERE opcionSeguridadID = 116
+update tblOpcionSeguridad SET nombreForm = '4Popc1Uoeg31VfRvY7ryMDJUzKVopgRu' WHERE opcionSeguridadID = 121
+update tblOpcionSeguridad SET nombreForm = 'JA7XYk6/usvP5lHhiLJempFC/2us7sEvg5N5MbOVRsA=' WHERE opcionSeguridadID = 126
+update tblOpcionSeguridad SET nombreForm = 'lAZmDX9wY4U=' WHERE opcionSeguridadID = 131
+update tblOpcionSeguridad SET nombreForm = 'BbEneus8OVk=' WHERE opcionSeguridadID = 136
+update tblOpcionSeguridad SET nombreForm = '7gM3MuZ3CMwspL7yAfW5BfCZW59iOkGh' WHERE opcionSeguridadID = 141
+update tblOpcionSeguridad SET nombreForm = 'Vb6RptVwzlT/koZ9JTWdba3kIQ2pW6FT' WHERE opcionSeguridadID = 146
+update tblOpcionSeguridad SET nombreForm = 'fAD3zUeL5nvFQLKQvpVwhiEIeb3VHzho1ChS32elRYU=' WHERE opcionSeguridadID = 151
+update tblOpcionSeguridad SET nombreForm = 'LFAyLKswIQm72/PhRN8bCg==' WHERE opcionSeguridadID = 156
+update tblOpcionSeguridad SET nombreForm = 'VKwrUYcuqSJ1aIU1PomAPw==' WHERE opcionSeguridadID = 161
+update tblOpcionSeguridad SET nombreForm = '8KIHLYVfb14NID4n9ZDRXJoDbMAJmM5dr6Wfq5ylzL8=' WHERE opcionSeguridadID = 166
+update tblOpcionSeguridad SET nombreForm = 'fSm2brM4WVQ=' WHERE opcionSeguridadID = 171
+update tblOpcionSeguridad SET nombreForm = 'lFXUwnJdRgL0ewovpClT/A==' WHERE opcionSeguridadID = 176
+update tblOpcionSeguridad SET nombreForm = 'j+rf4Q17R4OynCq2SkQZRQ==' WHERE opcionSeguridadID = 181
+update tblOpcionSeguridad SET nombreForm = 'Vb6RptVwzlTklRJD9Or3LCwCX8v4dxjU' WHERE opcionSeguridadID = 186
+update tblOpcionSeguridad SET nombreForm = 'Vb6RptVwzlSXbMPWc/iEyZD6JE0budFMgqJCS12JCKQ=' WHERE opcionSeguridadID = 191
+update tblOpcionSeguridad SET nombreForm = 'OVp+D58yP/N3HfqyrO5lw9FkcTzvVwsyA454rdEkSkU=' WHERE opcionSeguridadID = 201
+update tblOpcionSeguridad SET nombreForm = '+fdvLPUeYj/TOPfMqB3FyR+jNOdGkZ9hEw1mME+ajC0=' WHERE opcionSeguridadID = 206
+update tblOpcionSeguridad SET nombreForm = 'ZEt2L0fb4u+EpSeXLpiD/xHglVF134tz0Tn5SXNs09KgFPeukb8Nzw==' WHERE opcionSeguridadID = 211
+update tblOpcionSeguridad SET nombreForm = 'gpSqmIGR+SuOQoaQkRbm63CRfXEmzLB4' WHERE opcionSeguridadID = 216
+update tblOpcionSeguridad SET nombreForm = 'VKwrUYcuqSKh8y+q4YQ4aQ==' WHERE opcionSeguridadID = 221
+update tblOpcionSeguridad SET nombreForm = 'N7p/ygrZselOtwtHZrcusHWjJ0lGDZCB' WHERE opcionSeguridadID = 226
+update tblOpcionSeguridad SET nombreForm = 'VKwrUYcuqSKGXZG3VRzlHA==' WHERE opcionSeguridadID = 231
+update tblOpcionSeguridad SET nombreForm = 'EVWzc/zzrtYh8dBvH6civw==' WHERE opcionSeguridadID = 236
+update tblOpcionSeguridad SET nombreForm = 'UwTYihuiH6civw==' WHERE opcionSeguridadID = 241
+update tblOpcionSeguridad SET nombreForm = 'YDOQLIF68Fe279FwTw/lqA==' WHERE opcionSeguridadID = 246
+update tblOpcionSeguridad SET nombreForm = 'yCsgexArN1DC8ig7+YlcrQ==' WHERE opcionSeguridadID = 251
+
+update tblOpcionSeguridad SET nombreForm = 'Rm9ybV9mYW1pbGlhRQ==' WHERE opcionSeguridadID = 256
+update tblOpcionSeguridad SET nombreForm = 'Rm9ybV9wbGFuTWFudHRv==' WHERE opcionSeguridadID = 261
+update tblOpcionSeguridad SET nombreForm = 'Y29ycmVjdGl2b3NMaXN0' WHERE opcionSeguridadID = 266
+update tblOpcionSeguridad SET nombreForm = 'cmVnRmFsbGFzTGlzdA==' WHERE opcionSeguridadID = 271
+update tblOpcionSeguridad SET nombreForm = 'cGxhbmlmaWNhRXF1aXBv' WHERE opcionSeguridadID = 276
+update tblOpcionSeguridad SET nombreForm = 'Y2hlY2tMaXN0' WHERE opcionSeguridadID = 281
+update tblOpcionSeguridad SET nombreForm = 'QXNpZ0NhbGVuZGFyaW8=' WHERE opcionSeguridadID = 286
+
+PROFAKTO
+update tblOpcionSeguridad set nombreForm = nombreModulo where opcionSeguridadID = 61
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LIMPIEZA DE BASE DE DATOS
+
+
+select * from tblusuarios
+--delete from tblusuarios where usuarioid <> 1
+select * from tbltrabajador
+--delete from tbltrabajador where trabajadorid <> 1
+select * from tblPermisosSeguridad
+--delete from tblPermisosSeguridad where usuarioid <> 1
+select * from [dbo].[tblOpcionSeguridad]
+select * from [dbo].[tblGrupoSeguridad]
+select * from tblUsuarioByGrupoSeguridad 
+--delete from tblUsuarioByGrupoSeguridad where usuarioid <> 1
+
+
+
+
+
+
+
+
