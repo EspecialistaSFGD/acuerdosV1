@@ -171,11 +171,15 @@
       <DependentUpon>Mantto_DS.xsd</DependentUpon>
     </Content>
     <None Include="My Project\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="SD\AcuerdosListHitoV.aspx" />
     <Content Include="SD\Form_acreditadoList.aspx" />
     <Content Include="SD\Form_asistenciaCargaMasivaDB.aspx" />
     <Content Include="SD\Form_asistenciaCargaMasiva.aspx" />
     <Content Include="SD\AcuerdosListV.aspx" />
+    <Content Include="SD\registroAva.aspx" />
+    <Content Include="SD\registroHi.aspx" />
     <Content Include="SD\registroAc.aspx" />
+    <Content Include="SD\registroHitoV.aspx" />
     <Content Include="SD\registroAcuerdosV.aspx" />
     <Content Include="SD\prioridadesAcuerdosV.aspx" />
     <Content Include="SD\Form_asistenciaValidaAcreditado.aspx" />
@@ -415,6 +419,13 @@
     <Compile Include="App_Code\SW_newRest_DA.vb" />
     <Compile Include="App_Code\SW_ordenServExterno_DA.vb" />
     <Compile Include="App_Code\SW_reporteDiario_DA.vb" />
+    <Compile Include="SD\AcuerdosListHitoV.aspx.designer.vb">
+      <DependentUpon>AcuerdosListHitoV.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\AcuerdosListHitoV.aspx.vb">
+      <DependentUpon>AcuerdosListHitoV.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="SD\Form_acreditadoList.aspx.designer.vb">
       <DependentUpon>Form_acreditadoList.aspx</DependentUpon>
     </Compile>
@@ -443,11 +454,32 @@
       <DependentUpon>AcuerdosListV.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="SD\registroAva.aspx.designer.vb">
+      <DependentUpon>registroAva.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\registroAva.aspx.vb">
+      <DependentUpon>registroAva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SD\registroHi.aspx.designer.vb">
+      <DependentUpon>registroHi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\registroHi.aspx.vb">
+      <DependentUpon>registroHi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="SD\registroAc.aspx.designer.vb">
       <DependentUpon>registroAc.aspx</DependentUpon>
     </Compile>
     <Compile Include="SD\registroAc.aspx.vb">
       <DependentUpon>registroAc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SD\registroHitoV.aspx.designer.vb">
+      <DependentUpon>registroHitoV.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\registroHitoV.aspx.vb">
+      <DependentUpon>registroHitoV.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SD\registroAcuerdosV.aspx.designer.vb">
@@ -629,6 +661,7 @@
     <Compile Include="App_Code\SW_valorizacion_DA.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -664,6 +697,7 @@
     <Folder Include="Models\" />
     <Folder Include="Resources\" />
     <Folder Include="Scripts\" />
+    <Folder Include="SD\evidencia\" />
     <Folder Include="Styles\" />
   </ItemGroup>
   <ItemGroup>
@@ -752,6 +786,7 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Telerik.Web.Design, Version=2019.2.514.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">

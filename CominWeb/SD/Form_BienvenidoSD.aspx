@@ -85,6 +85,9 @@
             <asp:Button ID="acuerdoB" runat="server" class="styleMe" Text="LISTA DE ACUERDOS" Width="100%" Height="100px" Font-Size="20" />
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="padding-top:30px">
+            <asp:Button ID="hitoB" runat="server" class="styleMe" Text="LISTA DE HITOS" Width="100%" Height="100px" Font-Size="20" />
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="padding-top:30px">
             <asp:Button ID="validaB" runat="server" class="styleMe1" Text="VALIDA ACREDITADO" Width="100%" Height="100px" Font-Size="20" Visible="false"/>
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12 form-group">

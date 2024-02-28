@@ -52,6 +52,13 @@ Public Class Form_BienvenidoSD
         Response.Redirect("~/SD/AcuerdosListV.aspx?lkjasdliwupqwinasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh" +
                                 "&gjXtIkEroS=SD_SSFD")
     End Sub
+
+
+    Protected Sub hitoB_Click(sender As Object, e As EventArgs) Handles hitoB.Click
+        Response.Redirect("~/SD/AcuerdosListHitoV.aspx?lkjasdliwupqwinasndlkkjasKASNDDDWILADdASKJSdwuewue=lksajdasdwWDwdwDdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh" +
+                                "&gjXtIkEroS=SD_SSFD")
+    End Sub
+
     'Protected Sub btn_desconectarme_Click(sender As Object, e As EventArgs) Handles btn_desconectarme.Click
     '    Session("usuarioLoginID") = Nothing
     '    Session("NombreUsuarioLogin") = Nothing

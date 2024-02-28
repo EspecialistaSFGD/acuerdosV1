@@ -104,4 +104,19 @@ Friend Class SW_pedido_DA
         Return ds.Tables(0)
     End Function
 
+
+    Public Function SD_P_selectListHitos(ByVal hitdoId As Integer, acuerdoID As Integer, ByVal responsableID As Integer,
+                                  ByVal estado As String) As DataTable
+        Dim db As Database = DatabaseFactory.CreateDatabase(variableGlobalConexion.nombreCadenaCnx)
+        Dim cmd As DbCommand = db.GetStoredProcCommand("SD_P_selectListHitos")
+        db.AddInParameter(cmd, "@hitdoId", DbType.Int32, hitdoId)
+        db.AddInParameter(cmd, "@acuerdoID", DbType.Int32, acuerdoID)
+        db.AddInParameter(cmd, "@responsableID", DbType.Int32, responsableID)
+        db.AddInParameter(cmd, "@estado", DbType.String, estado)
+
+        Dim ds As DataSet
+        ds = db.ExecuteDataSet(cmd)
+        Return ds.Tables(0)
+    End Function
+
 End Class

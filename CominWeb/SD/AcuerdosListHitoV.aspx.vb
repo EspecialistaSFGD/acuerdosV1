@@ -12,13 +12,13 @@ Imports SpreadsheetLight
 Imports DocumentFormat.OpenXml
 
 
-Public Class AcuerdosListV
+Public Class AcuerdosListHitoV
     Inherits System.Web.UI.Page
 
     Dim SW_pedidoDT As New DataTable
     Dim SW_pedidoDA As New SW_pedido_DA
 
-    Private Sub AcuerdosListV_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
+    Private Sub AcuerdosListHitoV_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
         'If Session("usuarioLoginID") = Nothing Then
         '    Response.Redirect("~/SD/Form_asistenciaListOp.aspx?gjXtIkEroS=SD_SSFD")
         'End If
@@ -42,7 +42,7 @@ Public Class AcuerdosListV
             SDS_P_SelectEventos.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
             SDS_SD_P_selectGrupos.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
             SDS_SD_P_selectClasifica.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
-            SDS_SD_P_selectListAcuerdo.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
+            SDS_SD_SD_P_selectListAcuerdoHito.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
 
         Else
             variableGlobalConexion.nombreCadenaCnx = ""
@@ -63,21 +63,26 @@ Public Class AcuerdosListV
         For Each item As GridDataItem In RadGrid1.Items
             Dim acuerdoID As Integer = item("acuerdoID").Text
             Dim estadoRegistro As Integer = item("estadoRegistro").Text
+            Dim estadoHi As Integer = item("estadoHi").Text
+            Dim hitdoId As Integer = item("hitdoId").Text
+            Dim evidenciaurl As String = item("evidencia").Text
+            Dim avanceId As Integer = item("avanceId").Text
 
             Dim currentRow As DataRowView = DirectCast(item.DataItem, DataRowView)
             Dim Link As HyperLink = item.FindControl("Link")
-            'Dim LinkCant As HyperLink = item.FindControl("LinkCant")
+            Dim avance As ImageButton = item.FindControl("TCAvance")
+            Dim evidencia As ImageButton = item.FindControl("TCEvidencia")
 
+            avance.Attributes.Add("onClick", "return frmAvanceN('" + acuerdoID.ToString + "','" + hitdoId.ToString + "','" + estadoHi.ToString + "'); return true;")
 
             Link.Text = currentRow.Row("codigo").ToString
             Link.Font.Bold = True
             Link.NavigateUrl = "#"
             Link.Attributes.Add("OnClick", "verHitos('" & acuerdoID.ToString.Trim & "','" & estadoRegistro.ToString & "');")
 
-            'LinkCant.Text = currentRow.Row("cantidadAcuerdos").ToString
-            'LinkCant.Font.Bold = True
-            'LinkCant.NavigateUrl = "#"
-            'LinkCant.Attributes.Add("OnClick", "verOrdenServicioLog('" & prioridadID.ToString.Trim & "','" & eventoId & "','" & sectorid & "','" & sector & "');")
+            If evidenciaurl.Length <> 0 Then
+                evidencia.Attributes.Add("onClick", "return frmEvidencia('" + avanceId.ToString + "','" + estadoHi.ToString + "','evidencia/" + evidenciaurl.ToString + "'); return true;")
+            End If
         Next
     End Sub
 

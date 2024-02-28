@@ -59,6 +59,15 @@ Partial Public Class Form_BienvenidoSD
     Protected WithEvents acuerdoB As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''hitoB control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hitoB As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''validaB control.
     '''</summary>
     '''<remarks>

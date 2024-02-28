@@ -90,6 +90,7 @@ Public Class registroAc
             mensajeJSS("Ingrese Plazo")
         Else
             guardar(Me.Request.QueryString("codac").ToString, Me.Request.QueryString("codped").ToString, acuerdoTB.Text.ToString.Trim, clasificaCB.SelectedValue, responsableCB.SelectedValue, plazoRDP.SelectedDate.Value.ToString("dd/MM/yyyy"))
+
         End If
 
     End Sub
