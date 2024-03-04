@@ -43,19 +43,30 @@ Public Class AcuerdosListHitoV
             SDS_SD_P_selectGrupos.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
             SDS_SD_P_selectClasifica.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
             SDS_SD_SD_P_selectListAcuerdoHito.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
-
+            'SDS_SD_P_selectEstadoTipo.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
         Else
             variableGlobalConexion.nombreCadenaCnx = ""
             Response.Redirect("~/Error/Oops.aspx?Ljbq7iMESelhIUIxzrV7j78eJD/0EFUR=INTRUSO")
         End If
 
-        'If Page.IsPostBack = False Then
-        '    desdeRDP.SelectedDate = Date.Now.ToString("dd/MM/yyyy")
-        '    hastaRDP.SelectedDate = Date.Now.ToString("dd/MM/yyyy")
-        'End If
+        If Page.IsPostBack = False Then
+            'Session("estadoFiltroAcuHito") = "0"
+        End If
     End Sub
 
     Protected Sub buscar2_Click(sender As Object, e As EventArgs) Handles buscar2.Click
+        'Session("estadoFiltroAcuHito") = ""
+        'Dim collection As IList(Of RadComboBoxItem) = estadoCB.CheckedItems
+        'If (collection.Count <> 0) Then
+        '    For Each item As RadComboBoxItem In collection
+        '        Session("estadoFiltroAcuHito") = Session("estadoFiltroAcuHito") & item.Value & ","
+        '    Next
+        'End If
+        'If Session("estadoFiltroAcuHito").ToString.Trim.Length > 0 Then
+        '    Session("estadoFiltroAcuHito") = Mid(Session("estadoFiltroAcuHito"), 1, Len(Session("estadoFiltroAcuHito")) - 1)
+        'Else
+        '    Session("estadoFiltroAcuHito") = "0"
+        'End If
         Me.RadGrid1.Rebind()
     End Sub
 

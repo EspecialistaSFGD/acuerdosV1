@@ -53,6 +53,14 @@ Public Class registroHi
                 SW_pedidoDT = SW_pedidoDA.SD_P_selectAcuerdosV2(Me.Request.QueryString("codigoid").ToString, 0, "", 0, 0)
                 Me.plazoRDP.MaxDate = SW_pedidoDT.Rows(0).Item(8)
 
+                'SW_pedidoDT = SW_pedidoDA.SD_P_selectAcuerdosV2(Me.Request.QueryString("codigoid").ToString, 0, "", 0, 0)
+                'If SW_pedidoDT.Rows(0).Item(8) < Date.Now Then
+                '    mensajeJSS("Acuerdo Vencido")
+                'Else
+                '    Me.plazoRDP.MinDate = Date.Now
+                '    Me.plazoRDP.MaxDate = SW_pedidoDT.Rows(0).Item(8)
+                'End If
+
             End If
         End If
     End Sub

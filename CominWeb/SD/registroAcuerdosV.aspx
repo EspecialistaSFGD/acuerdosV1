@@ -275,7 +275,7 @@
                                     <asp:Button ID="retornarB" runat="server" Text="RETORNA A LISTA" class="styleMe" Width="100%" Height="40px" Font-Size="11pt" />
                                 </td>
                                 <td style="padding-top:5px;padding-left:5px;" >
-                                    <button class="styleMe1" style="Width:100%; Height:40px; font:16pt" onclick="frmacuerdoNuevo(); return false;">REGISTRAR ACUERDO</button>
+                                    <button class="styleMe1" style="Width:100%; Height:40px; font:16pt" onclick="frmacuerdoNuevo(); return false;">CREAR ACUERDO</button>
                                 </td>
                             </tr>
                             <tr>

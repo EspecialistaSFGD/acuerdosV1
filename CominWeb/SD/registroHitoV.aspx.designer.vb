@@ -194,6 +194,15 @@ Partial Public Class registroHitoV
     Protected WithEvents RadGrid1 As Global.Telerik.Web.UI.RadGrid
 
     '''<summary>
+    '''RadGridImagen control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadGridImagen As Global.Telerik.Web.UI.RadGrid
+
+    '''<summary>
     '''SDS_SD_P_selectListHitos control.
     '''</summary>
     '''<remarks>
@@ -201,6 +210,15 @@ Partial Public Class registroHitoV
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents SDS_SD_P_selectListHitos As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''SDS_SD_P_selectListAvance control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SDS_SD_P_selectListAvance As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
     '''ScriptManager1 control.

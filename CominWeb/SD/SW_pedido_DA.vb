@@ -119,4 +119,15 @@ Friend Class SW_pedido_DA
         Return ds.Tables(0)
     End Function
 
+    Public Function SD_P_selectGrupos(ByVal grupoId As Integer, tipo As Integer) As DataTable
+        Dim db As Database = DatabaseFactory.CreateDatabase(variableGlobalConexion.nombreCadenaCnx)
+        Dim cmd As DbCommand = db.GetStoredProcCommand("SD_P_selectGrupos")
+        db.AddInParameter(cmd, "@grupoId", DbType.Int32, grupoId)
+        db.AddInParameter(cmd, "@tipo", DbType.Int32, tipo)
+
+        Dim ds As DataSet
+        ds = db.ExecuteDataSet(cmd)
+        Return ds.Tables(0)
+    End Function
+
 End Class

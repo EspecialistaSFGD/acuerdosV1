@@ -1,4 +1,5 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="registroAva.aspx.vb" Inherits="CominWeb.registroAva" %>
+﻿
+<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="registroAva.aspx.vb" Inherits="CominWeb.registroAva" %>
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -209,6 +210,18 @@
                             <tr>
                                 <td style="padding:5px; Font-Size:14px; font-weight:500" colspan="2">
                                     <img id="imgPreview" runat="server" style="height:70px;"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:15%; padding:5px; Font-Size:14px; font-weight:500">
+                                    Estado Hito
+                                </td>
+                                <td style="padding:5px">
+                                        <asp:DropDownList ID="estadoCBv" runat="server" Width="100%" Font-Size="10pt" Height="40px"
+                                            class="form-control" TabIndex="3" AppendDataBoundItems="True">
+                                            <asp:ListItem Value="0" > PENDIENTE </asp:ListItem>
+                                            <asp:ListItem Value="1" > CULMINADO </asp:ListItem>
+                                        </asp:DropDownList>
                                 </td>
                             </tr>
                             <tr>

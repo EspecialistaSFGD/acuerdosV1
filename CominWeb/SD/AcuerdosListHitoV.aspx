@@ -99,7 +99,7 @@
             }
 
             function verHitos(codigoid, estReg) {
-                location.href = "registroHitoV.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codigoid=" + codigoid + "&estReg=" + estReg;
+                location.href = "registroHitoV.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codigoid=" + codigoid + "&estReg=" + estReg + "&view=1";
                 return false;
             }
 
@@ -114,9 +114,8 @@
             }
 
             function frmAvanceN(id, hi, est) {
-                debugger;
                 if (hi == 0) {
-                    mensaje('information', 'Debe registrar un hito.');
+                    mensaje('information', 'Debe crear un hito.');
                     return false;
                 }
                 else {
@@ -138,17 +137,14 @@
 
 
             function frmEvidencia(id, est, link) {
-
-                if (est == 0) {
-                    mensaje('information', 'El Hito PENDIENTE.');
-                    //return false;
+                if (link == 'evidencia/&nbsp;') {
+                    mensaje('information', 'No existe evidencia.');
                 }
                 else {
                     var win = window.open(link, '_blank');
                     win.focus();
-                    /*return false;*/
                 }
-
+                return false;
             }
         </script>
     </telerik:RadCodeBlock>
@@ -220,10 +216,25 @@
                     <table width="100%">
                         <tr>
                             <td style="width:30%">
-                                
+                                HITOS&nbsp;
                             </td>
                             <td style="width:70%">
-                                
+                                    <asp:DropDownList ID="estadoCBv" runat="server" Width="100%" Font-Size="10pt" Height="40px"
+                                        class="form-control" TabIndex="3" AppendDataBoundItems="True">
+                                        <asp:ListItem Selected="True" Value="99" > - Seleccione - </asp:ListItem>
+                                        <asp:ListItem Value="0" > PENDIENTES </asp:ListItem>
+                                        <asp:ListItem Value="1" > CULMINADOS </asp:ListItem>
+                                    </asp:DropDownList>
+                                    <%--<telerik:RadComboBox ID="estadoCB" Runat="server" 
+                                        Culture="es-ES" DataSourceID="SDS_SD_P_selectEstadoTipo" 
+                                        DataTextField="nombre" Skin="Vista" Font-Size="10pt"
+                                        DataValueField="ID" style="margin-bottom: 0" Width="100%" 
+                                        CheckBoxes="True" EnableCheckAllItemsCheckBox="true" 
+                                        OnClientLoad="clientLoadHandler" LoadingMessage="Cargando..." >
+                                        <Localization AllItemsCheckedString="Todos Seleccionados" 
+                                            CheckAllString="TODOS" ItemsCheckedString="Elementos Seleccionados" 
+                                            NoMatches="No hay Coincidencias" />
+                                    </telerik:RadComboBox>--%>
                             </td>
                         </tr>
                     </table>
@@ -506,11 +517,11 @@
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="evidencia" FilterControlAltText="Filter evidencia column" 
                             HeaderText="evidencia" SortExpression="evidencia" UniqueName="evidencia" AutoPostBackOnFilter="true" 
-                            FilterControlWidth="100%" ShowFilterIcon="false">
+                            FilterControlWidth="100%" ShowFilterIcon="false" Display="false">
                         </telerik:GridBoundColumn>
                          <telerik:GridBoundColumn DataField="avanceId" FilterControlAltText="Filter avanceId column" 
                             HeaderText="avanceId" SortExpression="avanceId" UniqueName="avanceId" AutoPostBackOnFilter="true" 
-                            FilterControlWidth="100%" ShowFilterIcon="false">
+                            FilterControlWidth="100%" ShowFilterIcon="false" Display="false">
                         </telerik:GridBoundColumn>
                         <telerik:gridboundcolumn DataField="fecha" DataType="System.DateTime" 
                             FilterControlAltText="Filter fecha column" HeaderText="fecha" 
@@ -525,10 +536,19 @@
                             <HeaderStyle HorizontalAlign="Center" Font-Bold="true" />
                             <ItemStyle HorizontalAlign="Left" />
                         </telerik:GridBoundColumn>
-                        <telerik:GridTemplateColumn FilterControlAltText="Filter TCAvance column" HeaderTooltip="Registrar Avance"
+                        <telerik:GridTemplateColumn FilterControlAltText="Filter TCComentario column" HeaderTooltip="Crear Comentario"
+                            HeaderText="PCM" UniqueName="TCComentario" AllowFiltering="false" >
+                            <ItemTemplate>
+                                    <asp:ImageButton ID="TCComentario" runat="server" CssClass="cursor" ToolTip="Crear Comentario"
+                                        ImageUrl="http://162.248.52.148/REFERENCIASBASE/Resources/PCM_32.png"/>
+                            </ItemTemplate>
+                            <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" />
+                            <ItemStyle HorizontalAlign="Center" />
+                        </telerik:GridTemplateColumn>
+                        <telerik:GridTemplateColumn FilterControlAltText="Filter TCAvance column" HeaderTooltip="Crear Avance"
                             HeaderText="AV" UniqueName="TCAvance" AllowFiltering="false" >
                             <ItemTemplate>
-                                    <asp:ImageButton ID="TCavance" runat="server" CssClass="cursor" ToolTip="Registrar Avance"
+                                    <asp:ImageButton ID="TCavance" runat="server" CssClass="cursor" ToolTip="Crear Avance"
                                         ImageUrl="http://162.248.52.148/REFERENCIASBASE/Resources/refresh_1.png"/>
                             </ItemTemplate>
                             <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" />
@@ -568,6 +588,7 @@
             <asp:ControlParameter ControlID="clasificaCB" DefaultValue="" Name="clasificacion" PropertyName="SelectedValue" Type="Int32" />
             <asp:ControlParameter ControlID="responsableCB" DefaultValue="" Name="responsable" PropertyName="SelectedValue" Type="Int32" />
             <asp:Parameter DefaultValue="0" Name="acuerdoID" Type="Int32" />
+            <asp:ControlParameter ControlID="estadoCBv" DefaultValue="99" Name="estadoRegistro" PropertyName="Text" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDS_P_SelectEventos" runat="server" 
@@ -603,6 +624,12 @@
             <asp:Parameter DefaultValue="3" Name="tipo" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
+    <%--<asp:SqlDataSource ID="SDS_SD_P_selectEstadoTipo" runat="server" 
+        SelectCommand="SD_P_selectEstadoTipo" SelectCommandType="StoredProcedure">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="1" Name="tipo" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>--%>
             <telerik:radwindowmanager ID="RadWindowManager1" runat="server" Skin="WebBlue">
                 <Windows>
                     <telerik:RadWindow ID="RadWindow2" runat="server" Behavior="Move, Close" Behaviors="Move, Close" 

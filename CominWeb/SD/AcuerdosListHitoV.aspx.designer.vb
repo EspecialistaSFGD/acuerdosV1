@@ -59,6 +59,15 @@ Partial Public Class AcuerdosListHitoV
     Protected WithEvents responsableCB As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
+    '''estadoCBv control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents estadoCBv As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
     '''cbo_evento control.
     '''</summary>
     '''<remarks>

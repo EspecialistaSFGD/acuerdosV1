@@ -36,46 +36,42 @@ Public Class registroAva
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
             Thread.CurrentThread.CurrentCulture = New CultureInfo("es-PE")
             Thread.CurrentThread.CurrentUICulture = New CultureInfo("es-PE")
-            'If Me.Request.QueryString("codh").ToString > 0 Then
-            '    SW_pedidoDT = SW_pedidoDA.SD_P_selectListHitos(Me.Request.QueryString("codh").ToString, 0, 0, "999")
-            '    If SW_pedidoDT.Rows.Count > 0 Then
+            If Me.Request.QueryString("codigoid").ToString > 0 Then
+                SW_pedidoDT = SW_pedidoDA.SD_P_selectAcuerdosV2(Me.Request.QueryString("codigoid").ToString, 0, "", 0, 0)
+                If SW_pedidoDT.Rows.Count > 0 Then
 
-            '        hitoTB.Text = SW_pedidoDT.Rows(0).Item(0)
+                    plazoRDP.MinDate = SW_pedidoDT.Rows(0).Item(18).ToString.Trim
+                    plazoRDP.MaxDate = SW_pedidoDT.Rows(0).Item(19).ToString.Trim
 
-            '        responsableCB.SelectedValue = SW_pedidoDT.Rows(0).Item(8)
-            '        responsableCB.DataBind()
+                    'Me.ultimaActualizacionLB.Text = SW_ordenesTrabajoDT.Rows(0).Item(44)
+                    'Me.txtot.Text = SW_ordenesTrabajoDT.Rows(0).Item(1).ToString.Trim
 
-            '        plazoRDP.SelectedDate = SW_pedidoDT.Rows(0).Item(2).ToString.Trim
+                    'Me.cbo_turno.Selecte dValue = SW_ordenesTrabajoDT.Rows(0).Item(37).ToString
+                    'Me.cbo_turno.DataBind()
+                    'Me.fechacreacionRDP.SelectedDate = SW_ordenesTrabajoDT(0).Item(3).ToString.Trim
+                    'monedaCB.SelectedValue = SW_ordenesTrabajoDT(0).Item(58)
+                    'monedaCB.DataBind()
+                    'tipoCambio()
+                    'Me.txtnotas.Text = SW_ordenesTrabajoDT.Rows(0).Item(27).ToString.Trim
 
-            '        'Me.ultimaActualizacionLB.Text = SW_ordenesTrabajoDT.Rows(0).Item(44)
-            '        'Me.txtot.Text = SW_ordenesTrabajoDT.Rows(0).Item(1).ToString.Trim
-
-            '        'Me.cbo_turno.Selecte dValue = SW_ordenesTrabajoDT.Rows(0).Item(37).ToString
-            '        'Me.cbo_turno.DataBind()
-            '        'Me.fechacreacionRDP.SelectedDate = SW_ordenesTrabajoDT(0).Item(3).ToString.Trim
-            '        'monedaCB.SelectedValue = SW_ordenesTrabajoDT(0).Item(58)
-            '        'monedaCB.DataBind()
-            '        'tipoCambio()
-            '        'Me.txtnotas.Text = SW_ordenesTrabajoDT.Rows(0).Item(27).ToString.Trim
-
-            '    End If
-            'Else
-            '    Me.plazoRDP.MinDate = Date.Now
-            '    SW_pedidoDT = SW_pedidoDA.SD_P_selectAcuerdosV2(Me.Request.QueryString("codigoid").ToString, 0, "", 0, 0)
-            '    Me.plazoRDP.MaxDate = SW_pedidoDT.Rows(0).Item(8)
-            '    'Me.ultimaActualizacionLB.Text = Date.Now.ToString("dd/MM/yyyy")
-            '    'Me.fechacreacionRDP.SelectedDate = Date.Now
-            '    'tipoCambioTB.Text = "1"
-            '    'valorTC3.Value = Session("tipoCambioVentaSession")
-            '    'Me.horaTP.SelectedTime = Date.Now.TimeOfDay
-            '    'generaCodigoDT = sw_ejecutaSQL.P_GeneradorCodigos(1, "COT")
-            '    'txtot.Text = generaCodigoDT.Rows(0).Item(0)
-            '    'clienteDefault = sw_ejecutaSQL.P_selectParametroByID(70)
-            '    'If clienteDefault.Rows(0).Item(2) = 1 Then
-            '    '    txtRazonSocialID.Text = clienteDefault.Rows(0).Item(3)
-            '    '    DatosCliente()
-            '    'End If
-            'End If
+                End If
+                'Else
+                '    Me.plazoRDP.MinDate = Date.Now
+                '    SW_pedidoDT = SW_pedidoDA.SD_P_selectAcuerdosV2(Me.Request.QueryString("codigoid").ToString, 0, "", 0, 0)
+                '    Me.plazoRDP.MaxDate = SW_pedidoDT.Rows(0).Item(8)
+                '    'Me.ultimaActualizacionLB.Text = Date.Now.ToString("dd/MM/yyyy")
+                '    'Me.fechacreacionRDP.SelectedDate = Date.Now
+                '    'tipoCambioTB.Text = "1"
+                '    'valorTC3.Value = Session("tipoCambioVentaSession")
+                '    'Me.horaTP.SelectedTime = Date.Now.TimeOfDay
+                '    'generaCodigoDT = sw_ejecutaSQL.P_GeneradorCodigos(1, "COT")
+                '    'txtot.Text = generaCodigoDT.Rows(0).Item(0)
+                '    'clienteDefault = sw_ejecutaSQL.P_selectParametroByID(70)
+                '    'If clienteDefault.Rows(0).Item(2) = 1 Then
+                '    '    txtRazonSocialID.Text = clienteDefault.Rows(0).Item(3)
+                '    '    DatosCliente()
+                '    'End If
+            End If
         End If
     End Sub
 
@@ -122,7 +118,7 @@ Public Class registroAva
                 If fileOK Then
                     Try
                         FileUpload1.PostedFile.SaveAs(path & FileUpload1.FileName)
-                        guardar(Me.Request.QueryString("codAv").ToString, Me.Request.QueryString("codh").ToString, Me.Request.QueryString("codigoid").ToString, plazoRDP.SelectedDate.Value.ToString("dd/MM/yyyy"), avanceTB.Text.ToString.Trim, FileUpload1.FileName.ToString, "", Me.Request.QueryString("tipo").ToString)
+                        guardar(Me.Request.QueryString("codAv").ToString, Me.Request.QueryString("codh").ToString, Me.Request.QueryString("codigoid").ToString, plazoRDP.SelectedDate.Value.ToString("dd/MM/yyyy"), avanceTB.Text.ToString.Trim, FileUpload1.FileName.ToString, "", Me.Request.QueryString("tipo").ToString, estadoCBv.SelectedValue)
                     Catch ex As Exception
                         mensajeJSS("No se puede cargar el archivo.")
                     End Try
@@ -130,16 +126,16 @@ Public Class registroAva
                     mensajeJSS("No se acepta este tipo de archivos.")
                 End If
             Else
-                guardar(Me.Request.QueryString("codAv").ToString, Me.Request.QueryString("codh").ToString, Me.Request.QueryString("codigoid").ToString, plazoRDP.SelectedDate.Value.ToString("dd/MM/yyyy"), avanceTB.Text.ToString.Trim, "", "", Me.Request.QueryString("tipo").ToString)
+                guardar(Me.Request.QueryString("codAv").ToString, Me.Request.QueryString("codh").ToString, Me.Request.QueryString("codigoid").ToString, plazoRDP.SelectedDate.Value.ToString("dd/MM/yyyy"), avanceTB.Text.ToString.Trim, "", "", Me.Request.QueryString("tipo").ToString, estadoCBv.SelectedValue)
             End If
         End If
     End Sub
 
 
-    Private Sub guardar(ByVal avanceId As Integer, hitdoId As Integer, acuerdoID As Integer, fecha As String, avance As String, evidencia As String, comentario As String, tipo As Integer)
+    Private Sub guardar(ByVal avanceId As Integer, hitdoId As Integer, acuerdoID As Integer, fecha As String, avance As String, evidencia As String, comentario As String, tipo As Integer, estadoHi As Integer)
 
         Dim cad As String = ""
-        cad = " exec SD_P_crearUpdateAvance " & avanceId.ToString & ", " & hitdoId.ToString & ", " & acuerdoID.ToString & ", '" & fecha.ToString & "', '" & avance.ToString & "','" & evidencia.ToString & "','" & comentario.ToString & "'," & tipo.ToString
+        cad = " exec SD_P_crearUpdateAvance " & avanceId.ToString & ", " & hitdoId.ToString & ", " & acuerdoID.ToString & ", '" & fecha.ToString & "', '" & avance.ToString & "','" & evidencia.ToString & "','" & comentario.ToString & "'," & tipo.ToString & "," & estadoHi.ToString
 
         If cad.Length > 0 Then
             Try

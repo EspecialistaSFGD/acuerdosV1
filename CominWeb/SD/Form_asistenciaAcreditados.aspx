@@ -173,7 +173,7 @@
                 </telerik:RadComboBox>
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                <asp:Button ID="nuevoB" runat="server" Text="REGISTRAR ACREDITADO" class="styleMe" Width="90%" 
+                <asp:Button ID="nuevoB" runat="server" Text="CREAR ACREDITADO" class="styleMe" Width="90%" 
                     Height="50px" Font-Size="14" />
             </div>
         </div>

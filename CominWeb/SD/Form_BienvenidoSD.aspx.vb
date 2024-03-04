@@ -50,7 +50,7 @@ Public Class Form_BienvenidoSD
 
     Protected Sub acuerdoB_Click(sender As Object, e As EventArgs) Handles acuerdoB.Click
         Response.Redirect("~/SD/AcuerdosListV.aspx?lkjasdliwupqwinasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh" +
-                                "&gjXtIkEroS=SD_SSFD")
+                                "&gjXtIkEroS=SD_SSFD&ksjcmj=0")
     End Sub
 
 

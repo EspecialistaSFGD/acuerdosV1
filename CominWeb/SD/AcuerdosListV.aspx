@@ -85,8 +85,8 @@
                 document.getElementById('renewSession').src = 'http://162.248.52.148/PROFAKTOWEB/SessionActiva.aspx?par=' + Math.random();
             }
 
-            function verHitos(codigoid, estReg) {
-                location.href = "registroHitoV.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codigoid=" + codigoid + "&estReg=" + estReg;
+            function verHitos(codigoid, estReg, pla) {
+                location.href = "registroHitoV.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codigoid=" + codigoid + "&estReg=" + estReg + "&view=0&pla=" + pla + "&ksjcmj=" + '<%= Me.Request.QueryString("ksjcmj")%>';;
                 return false;
             }
 
@@ -404,9 +404,21 @@
                             HeaderText="estadoRegistro" ReadOnly="True" SortExpression="estadoRegistro" UniqueName="estadoRegistro"
                             Display="false">
                         </telerik:GridBoundColumn>
+
+                        <telerik:GridTemplateColumn DataField="NomEstadoRegistro" HeaderText="Estado" SortExpression="NomEstadoRegistro"
+                            UniqueName="NomEstadoRegistro" AllowFiltering="False">
+                            <ItemTemplate>
+                                <asp:Label ID="nomEstado1Label" runat="server" Font-Bold="True" ForeColor='<%# GetColor(Eval("NomEstadoRegistro")) %>' 
+                                    Text='<%# Eval("NomEstadoRegistro") %>'></asp:Label>
+                            </ItemTemplate>
+                            <HeaderStyle HorizontalAlign="Center" Width="60px" />
+                            <ItemStyle HorizontalAlign="Left" />
+                        </telerik:GridTemplateColumn>
+
+
                         <telerik:GridBoundColumn DataField="NomEstadoRegistro" FilterControlAltText="Filter NomEstadoRegistro column" 
                             HeaderText="Estado" ReadOnly="True" SortExpression="NomEstadoRegistro" UniqueName="NomEstadoRegistro"
-                            Display="true">
+                            Display="false" >
                             <HeaderStyle HorizontalAlign="Center" Font-Bold="true" />
                             <ItemStyle HorizontalAlign="Left" Font-Bold="true" ForeColor="Red" />
                         </telerik:GridBoundColumn>

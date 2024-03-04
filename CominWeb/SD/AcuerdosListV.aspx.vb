@@ -2,15 +2,11 @@
 Imports Telerik.Web.UI
 Imports System.Globalization
 Imports System.Threading
-Imports System.Drawing
+Imports System
 Imports System.IO
 Imports System.Net
-Imports System.Net.Mail
-Imports System.Data
-Imports System.Data.SqlClient
 Imports SpreadsheetLight
 Imports DocumentFormat.OpenXml
-
 
 Public Class AcuerdosListV
     Inherits System.Web.UI.Page
@@ -49,10 +45,15 @@ Public Class AcuerdosListV
             Response.Redirect("~/Error/Oops.aspx?Ljbq7iMESelhIUIxzrV7j78eJD/0EFUR=INTRUSO")
         End If
 
-        'If Page.IsPostBack = False Then
-        '    desdeRDP.SelectedDate = Date.Now.ToString("dd/MM/yyyy")
-        '    hastaRDP.SelectedDate = Date.Now.ToString("dd/MM/yyyy")
-        'End If
+        If Page.IsPostBack = False Then
+            If Me.Request.QueryString("ksjcmj").ToString <> 0 Then
+                SW_pedidoDT = SW_pedidoDA.SD_P_selectGrupos(Request.QueryString("ksjcmj").ToString, 0)
+                grupoCB.SelectedValue = SW_pedidoDT.Rows(0).Item(0).ToString
+                grupoCB.Enabled = False
+            Else
+                grupoCB.Enabled = True
+            End If
+        End If
     End Sub
 
     Protected Sub buscar2_Click(sender As Object, e As EventArgs) Handles buscar2.Click
@@ -60,19 +61,26 @@ Public Class AcuerdosListV
     End Sub
 
     Private Sub RadGrid1_ItemDataBound(ByVal sender As Object, e As GridItemEventArgs) Handles RadGrid1.ItemDataBound
+        Dim hoy As Date = Date.Now
         For Each item As GridDataItem In RadGrid1.Items
             Dim acuerdoID As Integer = item("acuerdoID").Text
             Dim estadoRegistro As Integer = item("estadoRegistro").Text
+            Dim plazo As Date = item("plazo").Text
 
             Dim currentRow As DataRowView = DirectCast(item.DataItem, DataRowView)
             Dim Link As HyperLink = item.FindControl("Link")
             'Dim LinkCant As HyperLink = item.FindControl("LinkCant")
-
+            Dim ve As Integer
+            If hoy.ToString("dd/MM/yyyy") > plazo Then
+                ve = 1
+            Else
+                ve = 0
+            End If
 
             Link.Text = currentRow.Row("codigo").ToString
             Link.Font.Bold = True
             Link.NavigateUrl = "#"
-            Link.Attributes.Add("OnClick", "verHitos('" & acuerdoID.ToString.Trim & "','" & estadoRegistro.ToString & "');")
+            Link.Attributes.Add("OnClick", "verHitos('" & acuerdoID.ToString.Trim & "','" & estadoRegistro.ToString & "','" & ve.ToString & "');")
 
             'LinkCant.Text = currentRow.Row("cantidadAcuerdos").ToString
             'LinkCant.Font.Bold = True
@@ -149,4 +157,17 @@ Public Class AcuerdosListV
         cbo_provincia1.DataBind()
     End Sub
 
+    Public Function GetColor(ByVal est As String) As Drawing.Color
+        Dim col As Drawing.Color
+        If est = "PENDIENTE" Then
+            col = Drawing.Color.Green
+        ElseIf est = "VENCIDO" Then
+            col = Drawing.Color.Red
+        ElseIf est = "CULMINADO" Then
+            col = Drawing.Color.Black
+            'ElseIf est = "CERRADO" Then
+            '    col = Drawing.Color.DarkBlue
+        End If
+        Return col
+    End Function
 End Class
