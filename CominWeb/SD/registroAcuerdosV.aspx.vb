@@ -21,7 +21,10 @@ Public Class registroAcuerdosV
     Private Sub registroAcuerdosV_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
         If Request.QueryString("gjXtIkEroS").ToString = "SD_SSFD" Then
             variableGlobalConexion.nombreCadenaCnx = "SD_CS"
-            SDS_SD_P_selectGrupos.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
+            'SDS_SD_P_selectGrupos.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
+            SDS_SD_P_selectTipoInt.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
+            SDS_SD_P_selectEje.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
+            SDS_P_selectDistrito.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
             SDS_P_selectProvincia.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
             SDS_P_selectDepartamento.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
             SDS_SD_P_selectAcuerdos.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
@@ -35,38 +38,71 @@ Public Class registroAcuerdosV
         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         Thread.CurrentThread.CurrentCulture = New CultureInfo("es-PE")
         Thread.CurrentThread.CurrentUICulture = New CultureInfo("es-PE")
-        'sectorTB.Text = Me.Request.QueryString("secto").ToString
-        'Me.fechaActualLB.Text = Date.Now.ToString("dd/MM/yyyy hh:mm tt")
-        'tituloLB.Text = Request.QueryString("nosucp").ToString
 
         If Page.IsPostBack = False Then
+
+            SW_pedidoDT = SW_pedidoDA.SD_P_selectEventos(Me.Request.QueryString("codevento").ToString, 0)
+
+            ViewState("tipoEvento") = SW_pedidoDT.Rows(0).Item(4)
+
+            If SW_pedidoDT.Rows(0).Item(4) = "R" Then
+                cbo_departamento1.Enabled = True
+                cbo_provincia1.Enabled = False
+                distritoCB.Enabled = False
+            ElseIf SW_pedidoDT.Rows(0).Item(4) = "P" Then
+                cbo_departamento1.Enabled = True
+                cbo_provincia1.Enabled = True
+                distritoCB.Enabled = False
+            ElseIf SW_pedidoDT.Rows(0).Item(4) = "D" Then
+                cbo_departamento1.Enabled = True
+                cbo_provincia1.Enabled = True
+                distritoCB.Enabled = True
+            End If
+
             If Me.Request.QueryString("codigoid").ToString > 0 Then
                 Session("pedido") = Me.Request.QueryString("codigoid").ToString()
                 SW_pedidoDT = SW_pedidoDA.SD_P_selectPrioridadAcuerdo(Me.Request.QueryString("codigoid").ToString, 0, 0, 0, 0)
                 If SW_pedidoDT.Rows.Count > 0 Then
 
-                    grupoCB.SelectedValue = SW_pedidoDT.Rows(0).Item(3)
-                    grupoCB.DataBind()
+                    'grupoCB.SelectedValue = SW_pedidoDT.Rows(0).Item(3)
+                    'grupoCB.DataBind()
 
-                    cbo_departamento1.SelectedValue = SW_pedidoDT.Rows(0).Item(12)
-                    cbo_departamento1.DataBind()
+                    If ViewState("tipoEvento").ToString = "R" Then
+                        cbo_departamento1.SelectedValue = SW_pedidoDT.Rows(0).Item(12)
+                        cbo_departamento1.DataBind()
+                        cbo_departamento1.Enabled = True
+                        cbo_provincia1.Enabled = False
+                        distritoCB.Enabled = False
+                    ElseIf ViewState("tipoEvento").ToString = "P" Then
+                        cbo_departamento1.SelectedValue = SW_pedidoDT.Rows(0).Item(12)
+                        cbo_departamento1.DataBind()
+                        cbo_provincia1.SelectedValue = SW_pedidoDT.Rows(0).Item(13)
+                        cbo_provincia1.DataBind()
+                        cbo_departamento1.Enabled = True
+                        cbo_provincia1.Enabled = True
+                        distritoCB.Enabled = False
+                    ElseIf ViewState("tipoEvento").ToString = "D" Then
+                        cbo_departamento1.Enabled = True
+                        cbo_provincia1.Enabled = True
+                        distritoCB.Enabled = True
+                    End If
 
-                    cbo_provincia1.SelectedValue = SW_pedidoDT.Rows(0).Item(13)
-                    cbo_provincia1.DataBind()
-
-                    Me.prioridadTerritorialTB.Text = SW_pedidoDT.Rows(0).Item(8)
-                    Me.objetivoTB.Text = SW_pedidoDT.Rows(0).Item(9)
-                    Me.intervencionTB.Text = SW_pedidoDT.Rows(0).Item(10)
+                    ejeCB.SelectedValue = SW_pedidoDT.Rows(0).Item(18)
+                    ejeCB.DataBind()
+                    'Me.intervencionTB.Text = SW_pedidoDT.Rows(0).Item(10)
                     Me.aspectoTB.Text = SW_pedidoDT.Rows(0).Item(11)
                     Me.cuisTB.Text = SW_pedidoDT.Rows(0).Item(14)
 
-                    grupoCB.Enabled = False
+                    intervencionCB.SelectedValue = SW_pedidoDT.Rows(0).Item(16)
+                    intervencionCB.DataBind()
+
+                    'grupoCB.Enabled = False
                     cbo_departamento1.Enabled = False
                     cbo_provincia1.Enabled = False
-                    prioridadTerritorialTB.Enabled = False
-                    objetivoTB.Enabled = False
-                    intervencionTB.Enabled = False
-                    'aspectoTB.Enabled = False
+                    ejeCB.Enabled = False
+                    intervencionCB.Enabled = False
+                    cuisTB.Enabled = False
+                    aspectoTB.Enabled = False
 
                     'Me.ultimaActualizacionLB.Text = SW_ordenesTrabajoDT.Rows(0).Item(44)
                     'Me.txtot.Text = SW_ordenesTrabajoDT.Rows(0).Item(1).ToString.Trim
@@ -82,19 +118,18 @@ Public Class registroAcuerdosV
                 End If
             Else
                 Session("pedido") = 0
-                If Me.Request.QueryString("codsector").ToString > 0 Then
-                    grupoCB.SelectedValue = Me.Request.QueryString("codsector").ToString
-                    grupoCB.DataBind()
-                    grupoCB.Enabled = False
-                Else
-                    grupoCB.Enabled = True
-                End If
+                'If Me.Request.QueryString("codsector").ToString > 0 Then
+                '    grupoCB.SelectedValue = Me.Request.QueryString("codsector").ToString
+                '    grupoCB.DataBind()
+                '    grupoCB.Enabled = False
+                'Else
+                '    grupoCB.Enabled = True
+                'End If
 
-                cbo_departamento1.Enabled = True
-                cbo_provincia1.Enabled = True
-                prioridadTerritorialTB.Enabled = True
-                objetivoTB.Enabled = True
-                intervencionTB.Enabled = True
+
+                ejeCB.Enabled = True
+                intervencionCB.Enabled = True
+                cuisTB.Enabled = True
                 'aspectoTB.Enabled = True
 
                 'Me.fechacreacionRDP.SelectedDate = Date.Now
@@ -113,32 +148,32 @@ Public Class registroAcuerdosV
     End Sub
 
     Protected Sub retornarB_Click(sender As Object, e As EventArgs) Handles retornarB.Click
-        If Session("pedido") = 0 Then
-            Response.Redirect("~/SD/prioridadesAcuerdosV.aspx?lkjasdliwupqwinasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh" +
-                                    "&gjXtIkEroS=SD_SSFD&codsector=" & Me.Request.QueryString("codsector").ToString)
-        Else
-            Dim codigoid As String = SW_pedidoDA.SD_P_crearUpdatePrioridadAcuerdo(Session("pedido"), Me.Request.QueryString("codevento").ToString,
-grupoCB.SelectedValue, cbo_provincia1.SelectedValue, prioridadTerritorialTB.Text.ToString.Trim, objetivoTB.Text.ToString.Trim, intervencionTB.Text.ToString.Trim, aspectoTB.Text.ToString.Trim, cuisTB.Text.ToString.Trim)
-            Response.Redirect("~/SD/prioridadesAcuerdosV.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh" +
-                                    "&gjXtIkEroS=SD_SSFD&codsector=" & Me.Request.QueryString("codsector").ToString)
-            'If Session("pedido") = 0 Then
-            '    Session("pedido") = codigoid
-            'End If
-        End If
-        Try
+        'If Session("pedido") = 0 Then
+        Response.Redirect("~/SD/prioridadesAcuerdosV.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh" +
+                                "&gjXtIkEroS=SD_SSFD&tipo=" & Me.Request.QueryString("tipo").ToString & "&ubig=" & Me.Request.QueryString("ubig").ToString +
+                                "&de=" & Me.Request.QueryString("de").ToString + "&en=" & Me.Request.QueryString("en").ToString + "&sup=" & Me.Request.QueryString("sup").ToString +
+                                "&enti=" & Me.Request.QueryString("enti").ToString + "&codsector=" & Me.Request.QueryString("codsector").ToString & "&iacp=" & Request.QueryString("iacp").ToString & "&preacuerdo=" & Request.QueryString("preacuerdo").ToString)
+
+        'Else
+        '            Dim codigoid As String = SW_pedidoDA.SD_P_crearUpdatePrioridadAcuerdo(Session("pedido"), Me.Request.QueryString("codevento").ToString,
+        'grupoCB.SelectedValue, cbo_provincia1.SelectedValue, prioridadTerritorialTB.Text.ToString.Trim, objetivoTB.Text.ToString.Trim, intervencionTB.Text.ToString.Trim, aspectoTB.Text.ToString.Trim, cuisTB.Text.ToString.Trim)
+        '            Response.Redirect("~/SD/prioridadesAcuerdosV.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh" +
+        '                                    "&gjXtIkEroS=SD_SSFD&codsector=" & Me.Request.QueryString("codsector").ToString & "&enti=" & Me.Request.QueryString("enti").ToString)
+        'End If
+        'Try
 
 
-        Catch ex As Exception
-        End Try
+        'Catch ex As Exception
+        'End Try
     End Sub
 
 
     Private Sub RadAjaxManager1_AjaxRequest(ByVal sender As Object, ByVal e As Telerik.Web.UI.AjaxRequestEventArgs) Handles RadAjaxManager1.AjaxRequest
-        If e.Argument.ToString = "frmacuerdo" Then
-            frmacuerdo()
+        If e.Argument.ToString = "ninguno" Then
+
         Else
             Dim i As Integer
-            Dim idAcuerdo As Integer
+            Dim idAcuerdo As String
             Dim param As String = ""
             Dim a() As String = e.Argument.Split(",")
             Dim cadJS As String = ""
@@ -153,103 +188,83 @@ grupoCB.SelectedValue, cbo_provincia1.SelectedValue, prioridadTerritorialTB.Text
                 cadJS = " UPDATE SD_tblAcuerdos SET estado = 0 WHERE acuerdoID = " & idAcuerdo.ToString
                 Me.sw_ejecutaSQL.querySQL(cadJS)
                 Me.RadGrid1.Rebind()
+            ElseIf idAcuerdo = "A" Then
+                frmacuerdo()
+            ElseIf idAcuerdo = "R" Then
+                retornar()
             End If
+        End If
+    End Sub
+
+    Private Sub retornar()
+        Dim ubi As Integer = 0
+
+        If ViewState("tipoEvento").ToString = "R" Then
+            ubi = cbo_departamento1.SelectedValue
+        ElseIf ViewState("tipoEvento").ToString = "P" Then
+            ubi = cbo_provincia1.SelectedValue
+        ElseIf ViewState("tipoEvento").ToString = "D" Then
+            ubi = distritoCB.SelectedValue
+        End If
+
+        Dim codigoid As String = SW_pedidoDA.SD_P_crearUpdatePrioridadAcuerdo(Session("pedido"), Me.Request.QueryString("codevento").ToString,
+        Request.QueryString("codsector"), ubi.ToString, "", ejeCB.SelectedValue.ToString, intervencionCB.SelectedValue.ToString, aspectoTB.Text.ToString.Trim, cuisTB.Text.ToString.Trim, Request.QueryString("iacp").ToString)
+        'Session("pedido") = codigoid
+        If codigoid <> 0 Then
+
+            Dim cad As String = ""
+            cad = " UPDATE SD_tblPrioridadAcuerdo set validado = 1, comentarioPCM = '' where prioridadID = " & codigoid
+            If cad.Length > 0 Then
+                Try
+                    Me.sw_ejecutaSQL.querySQL(cad)
+                Catch ex As Exception
+                End Try
+            End If
+
+
+            Response.Redirect("~/SD/prioridadesAcuerdosV.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh" +
+                                "&gjXtIkEroS=SD_SSFD&tipo=" & Me.Request.QueryString("tipo").ToString & "&ubig=" & Me.Request.QueryString("ubig").ToString +
+                                "&de=" & Me.Request.QueryString("de").ToString + "&en=" & Me.Request.QueryString("en").ToString + "&sup=" & Me.Request.QueryString("sup").ToString +
+                                "&enti=" & Me.Request.QueryString("enti").ToString + "&codsector=" & Me.Request.QueryString("codsector").ToString & "&iacp=" & Request.QueryString("iacp").ToString & "&preacuerdo=" & Request.QueryString("preacuerdo").ToString)
+        Else
+            mensajeJSS("No se guardo, comunicarse con la Secretaría de Descentralización de la PCM")
         End If
     End Sub
 
     Private Sub frmacuerdo()
-        If grupoCB.SelectedValue = 0 Then
-            mensajeJSS("Seleccione SECTOR")
-        ElseIf cbo_provincia1.SelectedValue = 0 Then
-            mensajeJSS("Seleccione PROVINCIA")
-        ElseIf intervencionTB.Text.ToString.Trim.Length < 5 Then
-            mensajeJSS("Ingrese INTERVENCIÓN ESTRATÉGICA")
-        ElseIf aspectoTB.Text.ToString.Trim.Length < 5 Then
-            mensajeJSS("Ingrese ASPECTO CRÍTICO")
-        Else
-            Dim codigoid As String = SW_pedidoDA.SD_P_crearUpdatePrioridadAcuerdo(Session("pedido"), Me.Request.QueryString("codevento").ToString,
-            grupoCB.SelectedValue, cbo_provincia1.SelectedValue, prioridadTerritorialTB.Text.ToString.Trim, objetivoTB.Text.ToString.Trim, intervencionTB.Text.ToString.Trim, aspectoTB.Text.ToString.Trim, cuisTB.Text.ToString.Trim)
-            Session("pedido") = codigoid
-            If codigoid <> 0 Then
-                Dim cadena_java As String
-                cadena_java = "<script type='text/javascript'> " &
+        Dim ubi As Integer = 0
+
+        If ViewState("tipoEvento").ToString = "R" Then
+            ubi = cbo_departamento1.SelectedValue
+        ElseIf ViewState("tipoEvento").ToString = "P" Then
+            ubi = cbo_provincia1.SelectedValue
+        ElseIf ViewState("tipoEvento").ToString = "D" Then
+            ubi = distritoCB.SelectedValue
+        End If
+
+        Dim codigoid As String = SW_pedidoDA.SD_P_crearUpdatePrioridadAcuerdo(Session("pedido"), Me.Request.QueryString("codevento").ToString,
+        Request.QueryString("codsector"), ubi.ToString, "", ejeCB.SelectedValue.ToString, intervencionCB.SelectedValue.ToString, aspectoTB.Text.ToString.Trim, cuisTB.Text.ToString.Trim, Request.QueryString("iacp").ToString)
+        Session("pedido") = codigoid
+        If codigoid <> 0 Then
+
+            Dim cad As String = ""
+            cad = " UPDATE SD_tblPrioridadAcuerdo set validado = 1, comentarioPCM = '' where prioridadID = " & codigoid
+            If cad.Length > 0 Then
+                Try
+                    Me.sw_ejecutaSQL.querySQL(cad)
+                Catch ex As Exception
+                End Try
+            End If
+
+            Dim cadena_java As String
+            cadena_java = "<script type='text/javascript'> " &
                                   " frmacuerdoN('" & codigoid.ToString & "'); " &
                                   Chr(60) & "/script>"
-                ScriptManager.RegisterStartupScript(Page, GetType(Page), "frmacuerdoN", cadena_java.ToString, False)
-            End If
+            ScriptManager.RegisterStartupScript(Page, GetType(Page), "frmacuerdoN", cadena_java.ToString, False)
         End If
     End Sub
-    'Protected Sub exportarB_Click(sender As Object, e As EventArgs) Handles exportarB.Click
-    '    CreateExcelFile()
-    'End Sub
-    '*************************** EXPORTAR **************************************************
-    '***************************************************************************************
-    Private Sub CreateExcelFile()
-        'Dim sl As New SLDocument()
-        'sl.SetCellValue(1, 1, "EVENTO")
-        'sl.SetCellValue(1, 2, "DNI")
-        'sl.SetCellValue(1, 3, "PATERNO")
-        'sl.SetCellValue(1, 4, "MATERNO")
-        'sl.SetCellValue(1, 5, "NOMBRES")
-        'sl.SetCellValue(1, 6, "FECHA")
-        'sl.SetCellValue(1, 7, "MANCOMUNIDAD")
-        'sl.SetCellValue(1, 8, "TELEFONO")
-        'sl.SetCellValue(1, 9, "EMAIL")
 
-        'Dim stilo As SLStyle = sl.CreateStyle()
-        'stilo.Font.FontName = "Calibri"
-        'stilo.Font.FontSize = 9
-        'stilo.Font.Bold = True
-        'stilo.FormatCode = "12345.678909"
-        'stilo.SetHorizontalAlignment(Spreadsheet.HorizontalAlignmentValues.Center)
-
-        'sl.SetColumnWidth(1, 9, 15)
-
-        ''Dim styleNum As SLStyle = sl.CreateStyle()
-        ''styleNum.SetHorizontalAlignment(Spreadsheet.HorizontalAlignmentValues.Right)
-        ''styleNum.FormatCode = "#,##0.00"
-        ''sl.SetColumnStyle(12, 16, styleNum)
-
-        'Dim styleCon As SLStyle = sl.CreateStyle()
-        'styleCon.Font.FontSize = 9
-        'sl.SetColumnStyle(1, 9, styleCon)
-
-        'sl.SetRowStyle(1, 1, stilo)
-
-        'Dim rowIndex As Integer = 2
-        'Dim columnIndex As Integer = 1
-
-
-        'sw_asistente_DT = sw_asistente.SD_P_selectAsistentesListExport("01/01/2000", "01/01/2000", 0, "", "", cbo_evento.SelectedValue)
-
-        'If sw_asistente_DT.Rows.Count > 0 Then
-        '    For fil As Integer = 0 To sw_asistente_DT.Rows.Count - 1
-        '        For i As Integer = 0 To sw_asistente_DT.Columns.Count - 1
-        '            If i > 10 Then
-        '                sl.SetCellValue(rowIndex, columnIndex, Convert.ToDecimal(sw_asistente_DT.Rows(fil)(i)))
-        '            Else
-        '                sl.SetCellValue(rowIndex, columnIndex, Convert.ToString(sw_asistente_DT.Rows(fil)(i).ToString()))
-        '            End If
-        '            columnIndex += 1
-        '        Next
-        '        rowIndex += 1
-        '        columnIndex = 1
-        '    Next
-        '    sl.SaveAs("C:/fichas/asistentes.xlsx")
-        '    Dim file As New FileInfo("C:/fichas/asistentes.xlsx")
-
-        '    ' guarda
-        '    If (file.Exists) Then
-        '        Response.Clear()
-        '        Response.AddHeader("Content-disposition", "attachment; filename=asistentes.xlsx")
-        '        Response.ContentType = "application/vnd.ms-excel"
-        '        Response.WriteFile(file.ToString())
-        '        Response.End()
-        '    End If
-
-        'End If
-    End Sub
-
+    'funcion publia para la visualización de alerta
     Private Sub mensajeJSS(ByVal varIn As String)
         Dim cadena_java As String
 
@@ -261,15 +276,48 @@ grupoCB.SelectedValue, cbo_provincia1.SelectedValue, prioridadTerritorialTB.Text
     End Sub
 
 
-    Private Sub RadGrid1_ItemDataBound(ByVal sender As Object, ByVal e As Telerik.Web.UI.GridItemEventArgs) Handles RadGrid1.ItemDataBound
+    'Private Sub RadGrid1_ItemDataBound(ByVal sender As Object, ByVal e As Telerik.Web.UI.GridItemEventArgs) Handles RadGrid1.ItemDataBound
+    Private Sub RadGrid1_DataBound(ByVal sender As Object, ByVal e As Telerik.Web.UI.GridItemEventArgs) Handles RadGrid1.ItemDataBound
+
+
         For Each item As GridDataItem In RadGrid1.Items
             Dim acuerdoIDg As Integer = item("acuerdoID").Text
             Dim prioridadID As Integer = item("prioridadID").Text
+            Dim acuerdo As String = item("acuerdo").Text.ToString
             Dim estado_img As ImageButton = item.FindControl("estadoAcuerdob")
             Dim edita_img As ImageButton = item.FindControl("edita")
+            Dim Link As HyperLink = item.FindControl("LinkTexto")
+            Dim currentRow As DataRowView = DirectCast(item.DataItem, DataRowView)
+            Link.Font.Bold = True
+            Link.Text = currentRow.Row("texto").ToString
+            Link.NavigateUrl = "#"
 
             estado_img.Attributes.Add("onClick", "return desactivarProducto('" + acuerdoIDg.ToString + "');")
-            edita_img.Attributes.Add("onClick", "return editaAcuerdo('" + acuerdoIDg.ToString + "','" + prioridadID.ToString + "');")
+            Dim con_valor As Integer
+            If acuerdo.ToString.Length < 7 Then
+                con_valor = 0
+                Link.Attributes.Add("OnClick", "generaAcuerdo('" + acuerdoIDg.ToString + "','" + prioridadID.ToString + "','" + Request.QueryString("preacuerdo") + "');")
+            Else
+                con_valor = 1
+                Link.Attributes.Add("onClick", "return mensaje('error', 'El ACUERDO ya fue generado'); return false;")
+            End If
+            edita_img.Attributes.Add("onClick", "return editaAcuerdo('" + acuerdoIDg.ToString + "','" + prioridadID.ToString + "','" + Request.QueryString("preacuerdo") + "'," + con_valor.ToString + ");")
         Next
     End Sub
+
+    Protected Sub cbo_departamento1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles cbo_departamento1.SelectedIndexChanged
+        cbo_provincia1.Items.Clear()
+        cbo_provincia1.DataBind()
+
+        distritoCB.Items.Clear()
+        distritoCB.DataBind()
+
+    End Sub
+
+    Protected Sub cbo_provincia1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles cbo_provincia1.SelectedIndexChanged
+        distritoCB.Items.Clear()
+        distritoCB.DataBind()
+
+    End Sub
+
 End Class

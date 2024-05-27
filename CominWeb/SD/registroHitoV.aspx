@@ -1,16 +1,15 @@
 ﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="registroHitoV.aspx.vb" Inherits="CominWeb.registroHitoV" %>
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <script src="http://162.248.52.148/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
-    <link href="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.css" rel="stylesheet" type="text/css" />
-    <link href="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/build/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://sesigue.com/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/build/css/custom.min.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .divtableInterior {
 	        border:1px solid #8db2e3;
@@ -69,135 +68,286 @@
     <telerik:RadCodeBlock ID="RadCodeBlock1" runat="server">
         <script type="text/javascript">
 
-            function GetRadWindow() {
-                var oWindow = null;
-                if (window.radWindow) oWindow = window.radWindow;
-                else if (window.frameElement.radWindow) oWindow = window.frameElement.radWindow;
-                return oWindow;
+            var default1 = "SESIGUE 1.1.2";
+            var text1 = "© Copyright 2024";
+            var text2 = "LIMA - PERU";
+            var text3 = "SESIGUE 1.1.2";
+            var changeRate = 2000; // 1000 = 1 second
+            var messageNumber = 0;
+
+
+            function changeStatus() {
+                if (messageNumber == 0) {
+                    window.status = default1;
+                    document.title = default1;
+                }
+                else if (messageNumber == 1) {
+                    window.status = text1;
+                    document.title = text1;
+                }
+                else if (messageNumber == 2) {
+                    window.status = text2;
+                    document.title = text2;
+                }
+                else if (messageNumber == 3) {
+                    window.status = text3;
+                    document.title = text3;
+                }
+                messageNumber++;
+                setTimeout("changeStatus();", changeRate);
             }
 
-            //function clientLoadHandler(sender) {
-            //    var combo = sender;
-            //    var items = combo.get_items();
-            //    var itemCount = items.get_count()
-            //    for (var counter = 0; counter < itemCount; counter++) {
-            //        var item = items.getItem(counter);
-            //        item.set_checked(false);
-            //    }
-            //}
+            changeStatus();
 
             window.setInterval("renewSession();", 30000);
 
             function renewSession() {
                 console.log("Renovando session...");
-                document.getElementById('renewSession').src = 'http://162.248.52.148/PROFAKTOWEB/SessionActiva.aspx?par=' + Math.random();
+                document.getElementById('renewSession').src = 'https://sesigue.com/PROFAKTOWEB/SessionActiva.aspx?par=' + Math.random();
             }
 
 
             function OnClientClose1(oWnd, eventArgs) {
+                document.getElementById('<%= hiddenField.ClientID%>').value = eventArgs.get_argument().indicador;
                 var masterTable1 = $find("<%= RadGrid1.ClientID %>").get_masterTableView();
                 masterTable1.rebind();
                 oWnd.remove_close(OnClientClose1);
             }
 
-            function frmHitoN(id) {
-                debugger;
-                var est = '<%= Me.Request.QueryString("estReg")%>'; 
-                var pla = '<%= Me.Request.QueryString("pla")%>';
+            function reactivaHito(id) {
+                /*mensaje('error', 'procede la reactivación.' + id);*/
+                ajaxManager.ajaxRequest("reactivaHito,0," + id);
+            }
 
-                if (pla == 1) {
-                    mensaje('information', 'Acuerdo VENCIDO, no se puede agregar nuevos hitos.');
+            function frmHitoN(id) {
+                var est = '<%= Me.Request.QueryString("estReg")%>';
+                var pla = '<%= Me.Request.QueryString("pla")%>';
+                var ubig = '<%= Me.Request.QueryString("ubig")%>';
+                var sup = '<%= Me.Request.QueryString("sup")%>';
+                var codigAcu = document.getElementById("codigoLB").innerHTML;
+                
+                if (ubig > 0) {
+                    mensaje('error', 'Acceso solo para el sector.');
+                }
+                else if (sup == 2) {
+                    mensaje('error', 'Acceso solo para el Ministerio.');
+                }
+                else if (sup == 0) {
+                    mensaje('error', 'Acceso solo para el Ministerio.');
                 }
                 else {
+
+                    //if (pla == 1) {
+                    //    mensaje('information', 'Acuerdo VENCIDO, no se puede agregar nuevos hitos.');
+                    //}
+                    //else {
 
                     if (est == 1) {
                         mensaje('information', 'Acuerdo cumplido, no se puede agregar nuevos hitos.');
                         return true;
                     }
+                    else if (est == 3) {
+                        mensaje('information', 'Acuerdo VENCIDO, no se puede agregar nuevos hitos.');
+                        return true;
+                    }
+                    else if (est == 4) {
+                        mensaje('information', 'Acuerdo DESESTIMADO, no se puede agregar nuevos hitos.');
+                        return true;
+                    }
                     else {
+                        if (est == 4) {
+                            mensaje('information', 'Acuerdo desestimado.');
+                            return true;
+                        }
+                        else {
+                            var oWnd = $find("<%= RadWindow2.ClientID %>");
+                            var ruta_ventana_empresas = "registroHi.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codh=" + id + "&codigoid=" + '<%= Me.Request.QueryString("codigoid")%>' + "&tipo=" + '<%= Me.Request.QueryString("tipo")%>' + "&ubig=" + '<%= Me.Request.QueryString("ubig")%>' + "&de=" + '<%= Me.Request.QueryString("de")%>' + "&ksjcmj=" + '<%= Me.Request.QueryString("ksjcmj")%>' + "&en=" + '<%= Me.Request.QueryString("en")%>' + "&codigAcu=" + codigAcu + "&iacp=" + '<%= Me.Request.QueryString("iacp")%>';
+                            oWnd.setUrl(ruta_ventana_empresas);
+                            oWnd.add_close(OnClientClose1);
+                            oWnd.show();
+                            return false;
+                        }
+
+                    }
+                    //}-------
+
+                }
+                <%--else if (sup == 0) {
+                    mensaje('error', 'Acceso solo para el sector.');
+                }
+                else if (sup == 2) {
+
+                    if (est == 1) {
+                        mensaje('information', 'Acuerdo cumplido, no se puede agregar nuevos hitos.');
+                        return true;
+                    }
+                    else if (est == 3) {
+                        mensaje('information', 'Acuerdo VENCIDO, no se puede agregar nuevos hitos.');
+                        return true;
+                    }
+                    else if (est == 4) {
+                        mensaje('information', 'Acuerdo DESESTIMADO, no se puede agregar nuevos hitos.');
+                        return true;
+                    }
+                    else {
+
                         var oWnd = $find("<%= RadWindow2.ClientID %>");
-                        var ruta_ventana_empresas = "registroHi.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codh=" + id + "&codigoid=" + '<%= Me.Request.QueryString("codigoid")%>';
+                        var ruta_ventana_empresas = "registroHi.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codh=" + id + "&codigoid=" + '<%= Me.Request.QueryString("codigoid")%>' + "&tipo=" + '<%= Me.Request.QueryString("tipo")%>' + "&ubig=" + '<%= Me.Request.QueryString("ubig")%>' + "&de=" + '<%= Me.Request.QueryString("de")%>' + "&ksjcmj=" + '<%= Me.Request.QueryString("ksjcmj")%>' + "&en=" + '<%= Me.Request.QueryString("en")%>';
                         oWnd.setUrl(ruta_ventana_empresas);
                         oWnd.add_close(OnClientClose1);
                         oWnd.show();
                         return false;
                     }
                 }
-            } 
+                else {
+                    
+                    var mensaje = confirm("¿Desea desestimar el acuerdo?");
+                    if (mensaje) {
+                        mensaje('warning', 'Se ha enviando un email a la Secretaría de Descentralización.');
+                        $find("<%= RadAjaxManager1.ClientID%>").ajaxRequest("desestima");
+                        return false;
+                    }
+                    
+                    //if (pla == 1) {
+                    //    mensaje('information', 'Acuerdo VENCIDO, no se puede agregar nuevos hitos.');
+                    //}
+                    //else {
+                }--%>
+                //}-------
+
+            }
+            
 
             function OnClientCloseAv(oWnd, eventArgs) {
-                location.href = "AcuerdosListV.aspx?lkjasdliwupqwinasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&ksjcmj=" + '<%= Me.Request.QueryString("ksjcmj")%>';
+                location.href = "AcuerdosListV.aspx?7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=" + '<%= Me.Request.QueryString("7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0")%>' + "&gjXtIkEroS=SD_SSFD&ksjcmj=" + '<%= Me.Request.QueryString("ksjcmj")%>' + "&hsndktumg=" + '<%= Me.Request.QueryString("hsndktumg")%>' + "&tipo=" + '<%= Me.Request.QueryString("tipo")%>' + "&ubig=" + '<%= Me.Request.QueryString("ubig")%>' + "&de=" + '<%= Me.Request.QueryString("de")%>' + "&en=" + '<%= Me.Request.QueryString("en")%>' + "&sup=" + '<%= Me.Request.QueryString("sup")%>' + "&enti=" + '<%= Me.Request.QueryString("enti")%>' + "&iacp=" + '<%= Me.Request.QueryString("iacp")%>';
                 oWnd.remove_close(OnClientCloseAv);
             }
 
             function OnClientCloseA2(oWnd, eventArgs) {
-                <%--var masterTable2 = $find("<%= RadGrid1.ClientID %>").get_masterTableView();
-                masterTable2.rebind();
-                var masterTable1 = $find("<%= RadGridImagen.ClientID %>").get_masterTableView();
-                masterTable1.rebind();--%>
-
                 var ajaxManager = $find("<%= RadAjaxManager1.ClientID %>");
                 ajaxManager.ajaxRequest("actualiza");
                 oWnd.remove_close(OnClientCloseA2);
             }
 
             function frmAvanceN(id) {
-
+                var codac = document.getElementById("codigoLB").innerHTML;
                 var est = '<%= Me.Request.QueryString("estReg")%>';
                 var pla = '<%= Me.Request.QueryString("pla")%>';
+                var ubig = '<%= Me.Request.QueryString("ubig")%>';
+                var sup = '<%= Me.Request.QueryString("sup")%>';
 
-                if (pla == 1) {
-                    mensaje('information', 'Acuerdo VENCIDO, no se puede agregar nuevos hitos.');
+                if (ubig > 0) {
+                    mensaje('error', 'Acceso solo para el sector.');
                 }
-                else {
-                    if (est == 1) {
-                        mensaje('information', 'Acuerdo cumplido, no se puede agregar nuevos avances.');
-                        return true;
+                else if (sup == 0) {
+                    mensaje('error', 'Acceso solo para el sector.');
+                }
+                else if (sup == 2) {
+                    if (pla == 1) {
+                        mensaje('information', 'Acuerdo VENCIDO.');
                     }
                     else {
-                        var canth = document.getElementById('<%= hiddenField.ClientID%>').value;
-                        if (canth == 0) {
+                        if (est == 1) {
+                            mensaje('information', 'Acuerdo cumplido, no se puede agregar nuevos avances.');
+                            return true;
+                        }
+                        else if (est == 4) {
+                            mensaje('information', 'Acuerdo Desestimado');
+                            return true;
+                        }
+                        else {
+
                             var oWnd = $find("<%= RadWindow2.ClientID %>");
-                            var ruta_ventana_empresas = "registroAva.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codAv=" + id + "&codh=0&codigoid=" + '<%= Me.Request.QueryString("codigoid")%>' + "&tipo=1";
+                            var ruta_ventana_empresas = "registroAva.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codAv=" + id + "&codh=0&codigoid=" + '<%= Me.Request.QueryString("codigoid")%>' + "&tipo=1&en=" + '<%= Me.Request.QueryString("en")%>' + "&iacp=" + '<%= Me.Request.QueryString("iacp")%>';
                             oWnd.setUrl(ruta_ventana_empresas);
                             oWnd.add_close(OnClientCloseAv);
                             oWnd.show();
                             return true;
                         }
-                        else {
-                            mensaje('information', 'Para usar esta opción, NO debe tener hitos registrados');
-                            return true;
-                        }
+
+                    }
+                }
+                else {
+                    var mensajex = confirm("¿Desea solicitar desestimar el acuerdo?");
+                    if (mensajex) {
+                        var oWnd = $find("<%= RadWindow2.ClientID %>");
+                        var ruta_ventana_empresas = "registroComenDes.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codAv=" + id + "&codh=0&codigoid=" + '<%= Me.Request.QueryString("codigoid")%>' + "&tipo=1&en=" + '<%= Me.Request.QueryString("en")%>' + "&codac=" + codac + "&enti=" + '<%= Me.Request.QueryString("enti")%>' + "&iacp=" + '<%= Me.Request.QueryString("iacp")%>';
+                        oWnd.setUrl(ruta_ventana_empresas);
+                        oWnd.add_close(OnClientCloseAv);
+                        oWnd.show();
+                        return true;
+                        <%--mensaje('warning', 'Se ha enviando un email a la Secretaría de Descentralización.');
+                        $find("<%= RadAjaxManager1.ClientID%>").ajaxRequest("desestima");--%>
                     }
                 }
             }
 
             function frmAvanceN2(id, hi, est) {
-                if (est == 1) {
-                    mensaje('information', 'Hito cumplido, no se puede agregar nuevos avances.');
-                    return false;
+               <%-- var ubig = '< % = Me.Request.QueryString("ubig")%>';
+               //var sup = '< % = Me.Request.QueryString("sup")%>';
+
+                if (ubig > 0) {
+                    mensaje('error', 'Acceso solo para el sector.');
                 }
-                else {
-                    var oWnd = $find("<%= RadWindow2.ClientID %>");
-                    var ruta_ventana_empresas = "registroAva.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codAv=0&codh=" + hi + "&codigoid=" + '<%= Me.Request.QueryString("codigoid")%>' + "&tipo=2";
-                    oWnd.setUrl(ruta_ventana_empresas);
-                    oWnd.add_close(OnClientCloseA2);
-                    oWnd.show();
-                    return false;
-                }
+                //else if (sup == 0) {
+                //    mensaje('error', 'Acceso solo para el sector.');
+                //}
+
+                else {--%>
+                    if (est == 1) {
+                        mensaje('information', 'Hito cumplido, no se puede agregar nuevos avances.');
+                        return false;
+                    }
+                    else {
+                        var oWnd = $find("<%= RadWindow2.ClientID %>");
+                        var ruta_ventana_empresas = "registroAva.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codAv=0&codh=" + hi + "&codigoid=" + '<%= Me.Request.QueryString("codigoid")%>' + "&tipo=2" + "&iacp=" + '<%= Me.Request.QueryString("iacp")%>';
+                        oWnd.setUrl(ruta_ventana_empresas);
+                        oWnd.add_close(OnClientCloseA2);
+                        oWnd.show();
+                        return false;
+                    }
+                //}
 
             }
 
-            function deleteAvan(id, est) {
-                if (est == 1) {
-                    mensaje('information', 'Hito cumplido, no se puede eliminar.');
+            function eliminaAvance(id, est, ent) {
+                var en = '<%= Me.Request.QueryString("en")%>';
+
+                if (en != ent) {
+                    mensaje('error', 'No corresponde a la entidad.');
                 }
                 else {
-                    var ajaxManager = $find("<%= RadAjaxManager1.ClientID %>");
-                    ajaxManager.ajaxRequest("deleteAvan," + id);
+                    if (est == 1) {
+                        mensaje('information', 'Avance cumplido, no se puede eliminar.');
+                    }
+                    else {
+                        var ajaxManager = $find("<%= RadAjaxManager1.ClientID %>");
+                        ajaxManager.ajaxRequest("eliminaAvance," + id + ",0");
+                    }
+                    return false;
                 }
+            }
+
+            function frmValidacion(id, tic) {
+                var ajaxManager = $find("<%= RadAjaxManager1.ClientID %>");
+                ajaxManager.ajaxRequest("validacion," + id + "," + tic);
+                mensaje('warning', "Se validó el avance")
+                mensaje('warning', "El GL podrá realizar comentarios, así el avance esté VALIDADO")
+                <%--var masterTable1 = $find("<%= RadGrid1.ClientID %>").get_masterTableView();
+                masterTable1.rebind();--%>
                 return false;
             }
+
+            function frmValidacionHito(id, tic) {
+                var ajaxManager = $find("<%= RadAjaxManager1.ClientID %>");
+                ajaxManager.ajaxRequest("validacionHito," + id + "," + tic);
+                mensaje('warning', "Se validó el Hito")
+                mensaje('warning', "Para modificar la validación debe comunicarse con la Secretaría de Descentralización")
+                return false;
+                <%--var masterTable1 = $find("<%= RadGrid1.ClientID %>").get_masterTableView();
+                masterTable1.rebind();--%>
+            }
+
 
             function mensaje(tipo, texto) {
 
@@ -241,8 +391,8 @@
             }
 
             function RadGrid1_OnRowSelected(sender, args) {
-                var hitdoId = args.getDataKeyValue("hitdoId");
-                $find("<%= RadAjaxManager1.ClientID%>").ajaxRequest("actualizaDet" + "," + hitdoId);
+                var hitdoId = args.getDataKeyValue("hitdoId"); 
+                $find("<%= RadAjaxManager1.ClientID%>").ajaxRequest("actualizaDet" + "," + hitdoId + ",0");
                 return false;
             }
 
@@ -256,19 +406,39 @@
                 }
                 return false;
             }
+
+
+            function frmComentario(id, tic) {
+                var oWnd = $find("<%= RadWindow2.ClientID %>");
+                var ruta_ventana_empresas = "registroComentario.aspx?gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codAv=" + id + "&tic=" + tic + "&iacp=" + '<%= Me.Request.QueryString("iacp")%>' + "&tipo=HI";
+                oWnd.setUrl(ruta_ventana_empresas);
+                oWnd.add_close(OnClientCloseA2);
+                oWnd.show();
+                return false;
+            }
+
+
         </script>
     </telerik:RadCodeBlock>
 </head>
 <body>
     <form id="form1" runat="server" style="width:95%">
+        <div class="top_nav">
+            <img id="Img2" runat="server" src="https://sesigue.com/REFERENCIASBASE/Resources/sd_cabecera_web.png" style="width:105%" />
+        </div>
+
         <center>
+
         <div class="top_nav">
           <div class="nav_menu">
-              <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center; font-weight:bold;font-size:24px; padding-top:10px">
-                      REGISTRO DE HITOS
+              <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center; margin-top:10px; font-weight:bold;font-size:24px">
+                  <%--<br />--%>
+                      <asp:Label ID="titulo2LB" runat="server" Font-Bold="False" Font-Size="17pt" Text="" style="font-weight: 600;">GESTIÓN DE HITOS</asp:Label>
                 </div>
           </div>
         </div>
+
+
 
         <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center; margin-right:120px; margin-left:2%; padding-top:5px; padding-bottom:3px; border-right: #578533 1px solid; border-top: #578533 1px solid; border-left: #578533 1px solid; border-bottom: #578533 1px solid; background-color: white;">
             <div class="col-md-1 col-sm-2 col-xs-4 " style="text-align:left; font-weight:bold">
@@ -368,23 +538,19 @@
                     </asp:Label>
                 </div>
                 <div class="col-md-1 col-sm-2 col-xs-4 " style="text-align:left; font-weight:bold">
-                    
-                </div>
-                <div class="col-md-2 col-sm-4 col-xs-8 " style="text-align:center; ">
-                    <asp:Label ID="Label2" runat="server" Font-Bold="False" Font-Size="10pt" Text="" >
-                    </asp:Label>
-                </div>
-                <div class="col-md-1 col-sm-2 col-xs-4 " style="text-align:left; font-weight:bold">
-                    
-                </div>
-                <div class="col-md-2 col-sm-4 col-xs-8 " style="text-align:center; ">
-                    <input id="hiddenField" runat="server" type="hidden" value="" /> <%-----------------------------------------------------%>
-                </div>
-                <div class="col-md-1 col-sm-2 col-xs-4 " style="text-align:left; font-weight:bold">
                     FECHA
                 </div>
                 <div class="col-md-2 col-sm-4 col-xs-8 " style="text-align:center; ">
                     <asp:Label ID="fechaLB" runat="server" Font-Bold="true" Font-Size="14pt" Text="" ForeColor="Red" >
+                    </asp:Label><input id="hiddenField" runat="server" type="hidden" value="" /> <%-----------------------------------------------------%>
+                    <%--<asp:Label ID="Label2" runat="server" Font-Bold="False" Font-Size="10pt" Text="" >
+                    </asp:Label>--%>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-4 " style="text-align:left; font-weight:bold">
+                    MOTIVO DE DESESTIMACIÓN
+                </div>
+                <div class="col-md-3 col-sm-8 col-xs-12 " style="text-align:center; ">
+                    <asp:Label ID="motivoDesLB" runat="server" Font-Bold="true" Font-Size="14pt" Text="" ForeColor="Red" >
                     </asp:Label>
                 </div>
         </div>
@@ -393,12 +559,11 @@
                     <asp:Button ID="retornarB" runat="server" Text="RETORNA A LISTA" class="styleMe" Width="100%" Height="40px" Font-Size="10pt" ToolTip="Retorna a Lista de acuerdos" />
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12" style="text-align:center; font-weight:bold; padding-bottom:3px; padding-top:3px;">
-                    <button id="registraH" class="styleMe1" style="Width:100%; Height:40px; font:16pt" onclick="frmHitoN(0); return false;">CREAR HITO</button>
+                    <button id="registraA" runat="server" class="styleMe1" style="Width:100%; Height:40px; font:16pt" onclick="frmAvanceN(0); return false;" >SOLICITUD PARA DESESTIMAR ACUERDO</button>
                  </div>
                 <div class="col-md-4 col-sm-6 col-xs-12" style="text-align:center; font-weight:bold; padding-bottom:3px; padding-top:3px;">
-                    <button id="registraA" runat="server" class="styleMe" style="Width:100%; Height:40px; font:16pt" onclick="frmAvanceN(0); return false;" >CREAR AVANCE PARA CIERRE DE ACUERDO</button>
-
-                 </div>
+                    <button id="registraH" runat="server" class="styleMe" style="Width:100%; Height:40px; font:16pt;"  onclick="frmHitoN(0); return false;">CREAR HITO</button>
+                </div>
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12" style="text-align:center; margin-left:2%;">
             <telerik:radgrid ID="RadGrid1" runat="server" Width="100%" Culture="es-ES" DataSourceID="SDS_SD_P_selectListHitos" Skin="Bootstrap" 
@@ -409,7 +574,7 @@
                     <ClientEvents OnRowSelected="RadGrid1_OnRowSelected" />
                 </ClientSettings>
                 <MasterTableView DataSourceID="SDS_SD_P_selectListHitos" NoMasterRecordsText="No existen registros." PageSize="10"
-                    DataKeyNames="hitdoId" ClientDataKeyNames="hitdoId" >
+                    DataKeyNames="hitdoId, hito" ClientDataKeyNames="hitdoId" >
                 <CommandItemSettings ExportToPdfText="Export to PDF"></CommandItemSettings>
                 <RowIndicatorColumn FilterControlAltText="Filter RowIndicator column" Visible="False">
                 </RowIndicatorColumn>
@@ -422,11 +587,24 @@
                         HeaderText="Edit" UniqueName="TemplateColumnEstado" AllowFiltering="false" >
                         <ItemTemplate>
                                 <asp:ImageButton ID="edita" runat="server" CssClass="cursor" ToolTip="Editar Hito"
-                                    ImageUrl="http://162.248.52.148/REFERENCIASBASE/Resources/UpdateG.png"/>
+                                    ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/UpdateG.png"/>
                         </ItemTemplate>
                         <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" />
                         <ItemStyle HorizontalAlign="Center" />
                     </telerik:GridTemplateColumn>
+
+                    <telerik:GridTemplateColumn FilterControlAltText="Filter Llave column" HeaderTooltip="Validar Hito"
+                        HeaderText="Validar" UniqueName="TCValida" AllowFiltering="false" >
+                        <ItemTemplate>
+                                <asp:ImageButton ID="TCValida" runat="server" CssClass="cursor" 
+                                    ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/peligro_20.png"
+                                    UseSubmitBehavior="False"
+                                    OnClientClick="javascript: if(!confirm('¿Desea validar el HITO, una vez validado no podrá modificarse?')){return false;}"/>
+                        </ItemTemplate>
+                        <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" />
+                        <ItemStyle HorizontalAlign="Center" />
+                    </telerik:GridTemplateColumn>
+
                     <telerik:GridBoundColumn DataField="hitdoId" FilterControlAltText="Filter hitdoId column" 
                         HeaderText="hitdoId" ReadOnly="True" SortExpression="hitdoId" UniqueName="hitdoId"
                         Display="false">
@@ -453,8 +631,14 @@
                     </telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="responsable" FilterControlAltText="Filter responsable column" 
                         HeaderText="RESPONSABLE" SortExpression="responsable" UniqueName="hito" AutoPostBackOnFilter="true" 
-                        FilterControlWidth="100%" ShowFilterIcon="false">
+                        FilterControlWidth="100%" ShowFilterIcon="false" Display="false">
                         <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small"/>
+                        <ItemStyle HorizontalAlign="Left" Font-Size="Small" />
+                    </telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn DataField="entidad" FilterControlAltText="Filter entidad column" 
+                        HeaderText="ENTIDAD RESPONSABLE" SortExpression="entidad" UniqueName="entidad" AutoPostBackOnFilter="true" 
+                        FilterControlWidth="100%" ShowFilterIcon="false">
+                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small" Width="30%"/>
                         <ItemStyle HorizontalAlign="Left" Font-Size="Small" />
                     </telerik:GridBoundColumn>
                     <telerik:gridboundcolumn DataField="plazo" DataType="System.DateTime" 
@@ -474,11 +658,22 @@
                         <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small"/>
                         <ItemStyle HorizontalAlign="Left" Font-Size="Small" />
                     </telerik:GridBoundColumn> 
+                    <telerik:gridboundcolumn DataField="validado" 
+                        FilterControlAltText="Filter validado column" HeaderText="validado" 
+                        SortExpression="validado" UniqueName="validado"
+                        AllowFiltering="false" Display="false">
+                    </telerik:gridboundcolumn>
+                    <telerik:GridBoundColumn DataField="entidadId" FilterControlAltText="Filter entidadId column" 
+                        HeaderText="entidadId" SortExpression="entidadId" UniqueName="entidadId" AutoPostBackOnFilter="true" 
+                        FilterControlWidth="100%" ShowFilterIcon="false" Display="false">
+                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small"/>
+                        <ItemStyle HorizontalAlign="Left" Font-Size="Small" />
+                    </telerik:GridBoundColumn> 
                     <telerik:GridTemplateColumn FilterControlAltText="Filter TCAvance column" HeaderTooltip="Crear Avance"
                         HeaderText="AV" UniqueName="TCAvance" AllowFiltering="false" >
                         <ItemTemplate>
                                 <asp:ImageButton ID="TCavance" runat="server" CssClass="cursor" ToolTip="Crear Avance"
-                                    ImageUrl="http://162.248.52.148/REFERENCIASBASE/Resources/refresh_1.png"/>
+                                    ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/refresh_1.png"/>
                         </ItemTemplate>
                         <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" />
                         <ItemStyle HorizontalAlign="Center" />
@@ -487,11 +682,22 @@
                         HeaderText="Eli" UniqueName="TemplateColumnDelete" AllowFiltering="false" >
                         <ItemTemplate>
                                 <asp:ImageButton ID="eliminaHito" runat="server" CssClass="cursor" 
-                                    ImageUrl="http://162.248.52.148/REFERENCIASBASE/Resources/CancelG.png"
-                                    ToolTip="Eliminar Acuerdo" UseSubmitBehavior="False"
+                                    ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/CancelG.png"
+                                    ToolTip="Eliminar Hito" UseSubmitBehavior="False"
                                     OnClientClick="javascript: if(!confirm('¿Desea Eliminar el HITO?')){return false;}"/>
                         </ItemTemplate>
-                        <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Medium" />
+                        <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" />
+                        <ItemStyle HorizontalAlign="Center" Width="2%" />
+                    </telerik:GridTemplateColumn>
+                    <telerik:GridTemplateColumn FilterControlAltText="Filter TemplateColumnEstado column" 
+                        HeaderText="REActiva" UniqueName="TemplateColumnDelete" AllowFiltering="false" >
+                        <ItemTemplate>
+                                <asp:ImageButton ID="reactivaHito" runat="server" CssClass="cursor" 
+                                    ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/activo_0.png"
+                                    ToolTip="Estado del Hito" UseSubmitBehavior="False"
+                                    OnClientClick="javascript: if(!confirm('¿Desea retornar el estado del hito a: EN PROCESO?')){return false;}"/>
+                        </ItemTemplate>
+                        <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" />
                         <ItemStyle HorizontalAlign="Center" Width="2%" />
                     </telerik:GridTemplateColumn>
                 </Columns>
@@ -502,6 +708,9 @@
             </telerik:radgrid>
 
         </div>
+            <div class="col-md-12 col-sm-12 col-xs-12" style="text-align:left; margin-left:2%; margin-top:20px">
+                <asp:Label ID="descripcionTB" runat="server" Font-Bold="False" Font-Size="12pt" Text="AVANCES del hito: " style="font-weight: 600; color:brown"></asp:Label>
+            </div>
         <div class="col-md-12 col-sm-12 col-xs-12" style="text-align:center; margin-left:2%;">
             <br />
                 <telerik:radgrid ID="RadGridImagen" runat="server" Skin="Bootstrap" 
@@ -552,11 +761,26 @@
                                 HeaderText="Evi" UniqueName="TCEvidencia" AllowFiltering="false" >
                                 <ItemTemplate>
                                         <asp:ImageButton ID="TCevidencia" runat="server" CssClass="cursor" ToolTip="Descargar Evidencia"
-                                            ImageUrl="http://162.248.52.148/REFERENCIASBASE/Resources/tormenta_001.png"/>
+                                            ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/tormenta_001.png"/>
                                 </ItemTemplate>
                                 <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" BackColor="DarkBlue" ForeColor="White"/>
                                 <ItemStyle HorizontalAlign="Left" Font-Size="Small" />
                             </telerik:GridTemplateColumn>
+                            
+                            <telerik:gridboundcolumn DataField="comentarioSector" 
+                                FilterControlAltText="Filter comentarioSector column" HeaderText="COMENTARIO SECTOR" 
+                                SortExpression="comentarioSector" UniqueName="comentarioSector"
+                                AllowFiltering="false" Display="true">
+                                <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small" BackColor="DarkBlue" ForeColor="White" />
+                                <ItemStyle HorizontalAlign="Left" Font-Size="Small" />
+                            </telerik:gridboundcolumn>
+                            <telerik:gridboundcolumn DataField="comentario" 
+                                FilterControlAltText="Filter comentario column" HeaderText="COMENTARIO UE O GL" 
+                                SortExpression="comentario" UniqueName="comentario"
+                                AllowFiltering="false" Display="true">
+                                <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small" BackColor="DarkBlue" ForeColor="White" />
+                                <ItemStyle HorizontalAlign="Left" Font-Size="Small" />
+                            </telerik:gridboundcolumn>
                             <telerik:gridboundcolumn DataField="comentarioSD" 
                                 FilterControlAltText="Filter comentarioSD column" HeaderText="COMENTARIO PCM" 
                                 SortExpression="comentarioSD" UniqueName="comentarioSD"
@@ -564,6 +788,67 @@
                                 <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small" BackColor="DarkBlue" ForeColor="White" />
                                 <ItemStyle HorizontalAlign="Left" Font-Size="Small" />
                             </telerik:gridboundcolumn>
+                            <telerik:gridboundcolumn DataField="entidadID" 
+                                FilterControlAltText="Filter entidadID column" HeaderText="entidadID" 
+                                SortExpression="entidadID" UniqueName="entidadID"
+                                AllowFiltering="false" Display="false">
+                            </telerik:gridboundcolumn>
+                            <telerik:gridboundcolumn DataField="validado" 
+                                FilterControlAltText="Filter validado column" HeaderText="validado" 
+                                SortExpression="validado" UniqueName="validado"
+                                AllowFiltering="false" Display="false">
+                            </telerik:gridboundcolumn>
+                            <telerik:gridboundcolumn DataField="estado" 
+                                FilterControlAltText="Filter estado column" HeaderText="estado" 
+                                SortExpression="estado" UniqueName="estado"
+                                AllowFiltering="false" Display="false">
+                            </telerik:gridboundcolumn>
+                            <telerik:GridTemplateColumn FilterControlAltText="Filter TCsector column" HeaderTooltip="Comentario del Sector"
+                                HeaderText="Sector" UniqueName="TCsector" AllowFiltering="false" >
+                                <ItemTemplate>
+                                        <asp:ImageButton ID="TCsector" runat="server" CssClass="cursor" ToolTip="Comentario del Sector"
+                                            ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/report.png"/>
+                                </ItemTemplate>
+                                <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" BackColor="DarkBlue" ForeColor="White" />
+                                <ItemStyle HorizontalAlign="Center" />
+                            </telerik:GridTemplateColumn>
+                            <telerik:GridTemplateColumn FilterControlAltText="Filter TCComentario column" HeaderTooltip="Crear Comentario"
+                                HeaderText="Comentario" UniqueName="TCComentario" AllowFiltering="false" >
+                                <ItemTemplate>
+                                        <asp:ImageButton ID="TCComentario" runat="server" CssClass="cursor" ToolTip="Crear Comentario"
+                                            ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/report_edit.png"/>
+                                </ItemTemplate>
+                                <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" BackColor="DarkBlue" ForeColor="White" />
+                                <ItemStyle HorizontalAlign="Center" />
+                            </telerik:GridTemplateColumn>
+                            <telerik:GridTemplateColumn FilterControlAltText="Filter Llave column" HeaderTooltip="Validar Acción"
+                                HeaderText="Validar" UniqueName="TCValida" AllowFiltering="false" >
+                                <ItemTemplate>
+                                        <asp:ImageButton ID="TCValida" runat="server" CssClass="cursor" 
+                                            ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/peligro_20.png"
+                                            ToolTip="Validar Acción" UseSubmitBehavior="False"
+                                            OnClientClick="javascript: if(!confirm('¿Desea validar el avance?')){return false;}"/>
+                                </ItemTemplate>
+
+
+                                <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" BackColor="DarkBlue" ForeColor="White" />
+                                <ItemStyle HorizontalAlign="Center" />
+                            </telerik:GridTemplateColumn>
+
+
+                            <telerik:GridTemplateColumn FilterControlAltText="Filter TemplateColumnEstado column"
+                                HeaderText="Eli" UniqueName="TemplateColumnDelete" AllowFiltering="false" >
+                                <ItemTemplate>
+                                        <asp:ImageButton ID="eliminaHito" runat="server" CssClass="cursor" 
+                                            ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/CancelG.png"
+                                            ToolTip="Eliminar Avance" UseSubmitBehavior="False"
+                                            OnClientClick="javascript: if(!confirm('¿Desea Eliminar el avance?')){return false;}"/>
+                                </ItemTemplate>
+                                <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" BackColor="DarkBlue" ForeColor="White" />
+                                <ItemStyle HorizontalAlign="Center" Width="2%" />
+                            </telerik:GridTemplateColumn>
+
+
                         </Columns>
                         <EditFormSettings>
                         <EditColumn FilterControlAltText="Filter EditCommandColumn column"></EditColumn>
@@ -576,6 +861,9 @@
 
 
         </div>
+<%--            <input id="cantHitosHI" runat="server" type="hidden" value="0" />--%>
+
+
             <asp:SqlDataSource ID="SDS_SD_P_selectListHitos" runat="server"  
                 SelectCommand="SD_P_selectListHitos" 
                 SelectCommandType="StoredProcedure" >
@@ -595,29 +883,38 @@
                     <asp:SessionParameter DefaultValue="-1" Name="hitdoId" SessionField="sessionHitoId" Type="Int32" />
                 </SelectParameters>
             </asp:SqlDataSource>
-<asp:ScriptManager ID="ScriptManager1" runat="server">
+
+            <asp:ScriptManager ID="ScriptManager1" runat="server">
 </asp:ScriptManager>
+
+
     <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" DefaultLoadingPanelID="">
         <AjaxSettings>
             <telerik:AjaxSetting AjaxControlID="RadAjaxManager1">
                 <UpdatedControls>
-                    <telerik:AjaxUpdatedControl ControlID="hiddenField" LoadingPanelID="" />
                     <telerik:AjaxUpdatedControl ControlID="RadGrid1" LoadingPanelID="" />
                     <telerik:AjaxUpdatedControl ControlID="RadGridImagen" LoadingPanelID="" />
+                    <telerik:AjaxUpdatedControl ControlID="hiddenField" LoadingPanelID="" />
                     <telerik:AjaxUpdatedControl ControlID="estadoLB" LoadingPanelID="" />
                     <telerik:AjaxUpdatedControl ControlID="fechaLB" LoadingPanelID="" />
+                    <telerik:AjaxUpdatedControl ControlID="descripcionTB" LoadingPanelID="" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
             <telerik:AjaxSetting AjaxControlID="RadGrid1">
                 <UpdatedControls>
+                    <%--<telerik:AjaxUpdatedControl ControlID="RadGrid1" LoadingPanelID="" />--%>
                     <telerik:AjaxUpdatedControl ControlID="RadGridImagen" LoadingPanelID="" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
+            <%--<telerik:AjaxSetting AjaxControlID="RadGridImagen">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="RadGridImagen" LoadingPanelID="" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>--%>
         </AjaxSettings>
     </telerik:RadAjaxManager>
 
-
-<img src="http://162.248.52.148/PROFAKTOWEB/SessionActiva.aspx" name="renewSession" id="renewSession" width="1px" height="1px"/>
+<img src="https://sesigue.com/PROFAKTOWEB/SessionActiva.aspx" name="renewSession" id="renewSession" width="1px" height="1px"/>
 
             <telerik:radwindowmanager ID="RadWindowManager1" runat="server" Skin="WebBlue">
                 <Windows>
@@ -635,12 +932,12 @@
 
         </center>
     </form>
-    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/fastclick/lib/fastclick.js"></script>
-    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.js"></script>
-    <script src="http://162.248.52.148/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/fastclick/lib/fastclick.js"></script>
+    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.js"></script>
+    <script src="https://sesigue.com/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
 
 </body>
 </html>

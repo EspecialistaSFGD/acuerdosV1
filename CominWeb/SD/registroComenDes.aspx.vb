@@ -12,17 +12,16 @@ Imports SpreadsheetLight
 Imports DocumentFormat.OpenXml
 
 
-Public Class registroAc
+Public Class registroComenDes
     Inherits System.Web.UI.Page
 
     Dim SW_pedidoDT As New DataTable
     Dim SW_pedidoDA As New SW_pedido_DA
     Dim sw_ejecutaSQL As New SW_EjecutaSQL_DA
 
-    Private Sub registroAc_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
+    Private Sub registroComenDes_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
         If Request.QueryString("gjXtIkEroS").ToString = "SD_SSFD" Then
             variableGlobalConexion.nombreCadenaCnx = "SD_CS"
-            SDS_SD_P_selectGrupos.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
         Else
             variableGlobalConexion.nombreCadenaCnx = ""
             Response.Redirect("~/Error/Oops.aspx?Ljbq7iMESelhIUIxzrV7j78eJD/0EFUR=INTRUSO")
@@ -36,95 +35,97 @@ Public Class registroAc
 
         If Page.IsPostBack = False Then
 
-
-            If Request.QueryString("preacuerdo") = 1 Then
-                tituloLB.Text = "GENERAR ACUERDO"
-                buscar2.Text = "GUARDAR ACUERDO"
-            Else
-                tituloLB.Text = "CREAR / EDITAR PRE-ACUERDO"
-                buscar2.Text = "GUARDAR"
-            End If
-
-            If Me.Request.QueryString("codac").ToString > 0 Then
-                SW_pedidoDT = SW_pedidoDA.SD_P_selectAcuerdosV2(Me.Request.QueryString("codac").ToString, 0, "", 0, 0)
-                If SW_pedidoDT.Rows.Count > 0 Then
-
-                    acuerdoTB.Text = SW_pedidoDT.Rows(0).Item(3)
-
-                    clasificaCB.SelectedValue = SW_pedidoDT.Rows(0).Item(4)
-                    clasificaCB.DataBind()
-
-                    responsableCB.SelectedValue = SW_pedidoDT.Rows(0).Item(6)
-                    responsableCB.DataBind()
-
-                    plazoRDP.SelectedDate = SW_pedidoDT.Rows(0).Item(8).ToString.Trim
-
-                    'Me.ultimaActualizacionLB.Text = SW_ordenesTrabajoDT.Rows(0).Item(44)
-                    'Me.txtot.Text = SW_ordenesTrabajoDT.Rows(0).Item(1).ToString.Trim
-
-                    'Me.cbo_turno.Selecte dValue = SW_ordenesTrabajoDT.Rows(0).Item(37).ToString
-                    'Me.cbo_turno.DataBind()
-                    'Me.fechacreacionRDP.SelectedDate = SW_ordenesTrabajoDT(0).Item(3).ToString.Trim
-                    'monedaCB.SelectedValue = SW_ordenesTrabajoDT(0).Item(58)
-                    'monedaCB.DataBind()
-                    'tipoCambio()
-                    'Me.txtnotas.Text = SW_ordenesTrabajoDT.Rows(0).Item(27).ToString.Trim
-
-                End If
-            Else
-                Me.plazoRDP.MinDate = Date.Now
-                If Request.QueryString("preacuerdo") = 1 Then
-                    preAcuerdoLB.Text = "ACUERDO"
-                Else
-                    preAcuerdoLB.Text = "PRE-ACUERDO"
-                End If
-                'Me.ultimaActualizacionLB.Text = Date.Now.ToString("dd/MM/yyyy")
-                'Me.fechacreacionRDP.SelectedDate = Date.Now
-                'tipoCambioTB.Text = "1"
-                'valorTC3.Value = Session("tipoCambioVentaSession")
-                'Me.horaTP.SelectedTime = Date.Now.TimeOfDay
-                'generaCodigoDT = sw_ejecutaSQL.P_GeneradorCodigos(1, "COT")
-                'txtot.Text = generaCodigoDT.Rows(0).Item(0)
-                'clienteDefault = sw_ejecutaSQL.P_selectParametroByID(70)
-                'If clienteDefault.Rows(0).Item(2) = 1 Then
-                '    txtRazonSocialID.Text = clienteDefault.Rows(0).Item(3)
-                '    DatosCliente()
-                'End If
-            End If
         End If
     End Sub
 
-    Protected Sub buscar2_Click(sender As Object, e As EventArgs) Handles buscar2.Click
+    Protected Sub guardaB_Click(sender As Object, e As EventArgs) Handles guardaB.Click
         If acuerdoTB.Text.ToString.Trim.Length < 5 Then
-            mensajeJSS("Ingrese Acuerdo")
-        ElseIf clasificaCB.SelectedValue = 0 Then
-            mensajeJSS("Debe Clasificar el acuerdo.")
-        ElseIf responsableCB.SelectedValue = 0 Then
-            mensajeJSS("¿Quien es el responsable?")
-        ElseIf plazoRDP.SelectedDate.ToString.Length = 0 Then
-            mensajeJSS("Ingrese Plazo")
+            mensajeJSS("Ingrese Comentario")
+        ElseIf acuerdoTB.Text.ToString.Trim.Length > 300 Then
+            mensajeJSS("El comentario no puede tener mas de 300 caracteres")
         Else
-            guardar(Me.Request.QueryString("codac").ToString, Me.Request.QueryString("codped").ToString, acuerdoTB.Text.ToString.Trim, clasificaCB.SelectedValue, responsableCB.SelectedValue, plazoRDP.SelectedDate.Value.ToString("dd/MM/yyyy"), Me.Request.QueryString("iacp").ToString, Me.Request.QueryString("preacuerdo").ToString)
+            Dim path As String = Server.MapPath("~/SD/evidencia/")
+            Dim fileOK As Boolean = False
+            If FileUpload1.HasFile Then
+                Dim fileExtension As String
+                fileExtension = System.IO.Path.GetExtension(FileUpload1.FileName).ToLower()
+                Dim allowedExtensions As String() = {".jpg", ".jpeg", ".png", ".bmp", ".pdf"}
+                For i As Integer = 0 To allowedExtensions.Length - 1
+                    If fileExtension = allowedExtensions(i) Then
+                        fileOK = True
+                    End If
+                Next
+
+                If fileOK Then
+                    Try
+                        FileUpload1.PostedFile.SaveAs(path & FileUpload1.FileName)
+                        guardar(acuerdoTB.Text.ToString.Trim, FileUpload1.FileName.ToString, Me.Request.QueryString("codigoid"))
+                    Catch ex As Exception
+                        mensajeJSS("Error de Sistema, Comunicarse con el administrador")
+                    End Try
+                Else
+                    mensajeJSS("No se acepta este tipo de archivos.")
+                End If
+            Else
+                mensajeJSS("La evidencia es obligatoria.")
+            End If
+
+
 
         End If
 
     End Sub
 
 
-    Private Sub guardar(ByVal acuerdoid As Integer, pedidoid As Integer, acuerdo As String, clasifica As Integer, responsable As Integer, plazo As String, acceso As Integer, preacuerdo As String)
+    Private Sub guardar(ByVal motivo As String, evidencia As String, acuerdo As Integer)
 
         Dim cad As String = ""
-        cad = " exec SD_P_crearUpdateAcuerdo " & acuerdoid.ToString & ", " & pedidoid.ToString & ", '" & acuerdo.ToString & "', " & clasifica.ToString & ", " & responsable.ToString & ", '" & plazo & "', '" & acceso & "'," & preacuerdo
+        cad = " UPDATE SD_tblAcuerdos SET fechaPedidoDesestimacion = getdate(), motivoDesestimacion = '" & motivo.ToString & "', evidenciaDesestimacion ='" & evidencia.ToString & "' where acuerdoID = " & acuerdo.ToString
 
         If cad.Length > 0 Then
             Try
                 Me.sw_ejecutaSQL.querySQL(cad)
+                sendMailA(acuerdo.ToString)
                 cierraVentana()
             Catch ex As Exception
             End Try
         End If
 
     End Sub
+
+
+
+    Private Sub sendMailA(acuid)
+        Dim emailDT As New DataTable
+        'Dim claveDT As New DataTable
+        'Dim tituloDT As New DataTable
+        emailDT = SW_pedidoDA.SD_P_selectParametroByID(0, 2)
+        'claveDT = SW_pedidoDA.SD_P_selectParametroByID(7)
+        'tituloDT = SW_pedidoDA.SD_P_selectParametroByID(10)
+
+
+        Using mm As New MailMessage(emailDT.Rows(0).Item(2).ToString(), emailDT.Rows(4).Item(2).ToString())
+            Dim copy As MailAddress = New MailAddress(emailDT.Rows(3).Item(2).ToString())
+            mm.CC.Add(copy)
+            mm.Subject = emailDT.Rows(2).Item(2).ToString()
+
+            mm.Body = "<h3>" & emailDT.Rows(2).Item(2).ToString() & "</h3>" &
+            "<p>El " & Request.QueryString("enti").ToString() & " solicita <b>desestimar</b> el acuerdo " & Request.QueryString("codac").ToString() & ".</p>" &
+            "<p>El sistema de correo electr&oacute;nico de la Secretaría de Descentralización de la Presidencia del Consejo de Ministros est&aacute; destinado &uacute;nicamente para fines informativos. Toda la informaci&oacute;n contenida en este mensaje es confidencial y de uso exclusivo. Su divulgaci&oacute;n, copia y/o adulteraci&oacute;n est&aacute;n prohibidas y solo debe ser conocida por la persona a quien se dirige este mensaje.</p>"
+
+            mm.IsBodyHtml = True
+            Dim smtp As New SmtpClient()
+            smtp.Host = "smtp.gmail.com"
+            smtp.EnableSsl = True
+            Dim networkcred As New NetworkCredential(emailDT.Rows(0).Item(2).ToString(), emailDT.Rows(1).Item(2).ToString())
+            smtp.UseDefaultCredentials = True
+            smtp.Credentials = networkcred
+            smtp.Port = 587
+            smtp.Send(mm)
+        End Using
+    End Sub
+
+
 
     Private Sub cierraVentana()
         Dim cadena_java As String

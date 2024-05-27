@@ -32,6 +32,24 @@ Partial Public Class prioridadesAcuerdosV
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
+    '''Img2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Img2 As Global.System.Web.UI.HtmlControls.HtmlImage
+
+    '''<summary>
+    '''titulo2LB control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents titulo2LB As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''cbo_evento control.
     '''</summary>
     '''<remarks>
@@ -149,6 +167,24 @@ Partial Public Class prioridadesAcuerdosV
     Protected WithEvents SDS_P_selectProvincia As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
+    '''RadWindowManager1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadWindowManager1 As Global.Telerik.Web.UI.RadWindowManager
+
+    '''<summary>
+    '''RadWindow2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadWindow2 As Global.Telerik.Web.UI.RadWindow
+
+    '''<summary>
     '''ScriptManager1 control.
     '''</summary>
     '''<remarks>
@@ -156,15 +192,6 @@ Partial Public Class prioridadesAcuerdosV
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ScriptManager1 As Global.System.Web.UI.ScriptManager
-
-    '''<summary>
-    '''RadAjaxLoadingPanel1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RadAjaxLoadingPanel1 As Global.Telerik.Web.UI.RadAjaxLoadingPanel
 
     '''<summary>
     '''RadAjaxManager1 control.

@@ -34,7 +34,7 @@ Public Class Form_ReportAcuerdoIDDescarga
 
         If Me.Request.QueryString("eventoId").ToString.Trim.Length > 0 Then
             'SW_ordenesPagoDT = SW_ordenesPagoDA.SWP_selectOrdenPagos(Me.Request.QueryString("OrdenPagoID").ToString.Trim, 0, "01/01/2000", "01/01/2000", 0, "0,1,2,3", 0, 0, 0, 0)
-            sw_asistente_DT = sw_acuerdo.SD_P_selectListAcuerdoExport(0, Me.Request.QueryString("eventoId").ToString, Me.Request.QueryString("grupoId").ToString, Me.Request.QueryString("departamento").ToString, Me.Request.QueryString("ubigeo").ToString, "", 0, 0, 0)
+            sw_asistente_DT = sw_acuerdo.SD_P_selectListAcuerdoExport(0, Me.Request.QueryString("eventoId").ToString, Me.Request.QueryString("grupoId").ToString, Me.Request.QueryString("departamento").ToString, Me.Request.QueryString("ubigeo").ToString, "", 0, 0, 0, "99")
 
             If Not sw_asistente_DT Is Nothing AndAlso Not sw_asistente_DT.Rows.Count = 0 Then
 

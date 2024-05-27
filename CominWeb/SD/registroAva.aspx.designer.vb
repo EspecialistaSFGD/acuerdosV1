@@ -68,6 +68,15 @@ Partial Public Class registroAva
     Protected WithEvents imgPreview As Global.System.Web.UI.HtmlControls.HtmlImage
 
     '''<summary>
+    '''labelEstadoLB control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents labelEstadoLB As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''estadoCBv control.
     '''</summary>
     '''<remarks>

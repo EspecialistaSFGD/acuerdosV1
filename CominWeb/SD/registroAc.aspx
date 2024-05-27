@@ -4,12 +4,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <script src="http://162.248.52.148/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
-    <link href="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.css" rel="stylesheet" type="text/css" />
-    <link href="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/build/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://sesigue.com/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/build/css/custom.min.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .divtableInterior {
 	        border:1px solid #8db2e3;
@@ -98,7 +98,7 @@
 
             function renewSession() {
                 console.log("Renovando session...");
-                document.getElementById('renewSession').src = 'http://162.248.52.148/PROFAKTOWEB/SessionActiva.aspx?par=' + Math.random();
+                document.getElementById('renewSession').src = 'https://sesigue.com/PROFAKTOWEB/SessionActiva.aspx?par=' + Math.random();
             }
 
             function GetRadWindow() {
@@ -137,7 +137,7 @@
           <div class="nav_menu">
               <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center; font-weight:bold;font-size:24px; padding-top:10px">
                   <%--<br />--%>
-                      ACUERDOS
+                    <asp:Label ID="tituloLB" runat="server" Font-Size="16pt" Text="" Font-Bold="true"> </asp:Label>
                 </div>
           </div>
         </div>
@@ -147,7 +147,7 @@
                         <table style="width:95%" border="0">
                             <tr>
                                 <td style="width:15%; padding:5px; Font-Size:14px; font-weight:500">
-                                    ACUERDO
+                                    <asp:Label ID="preAcuerdoLB" runat="server" Font-Size="11pt" Text=""> </asp:Label>
                                 </td>
                                 <td style="padding:5px" colspan="3">
                                         <asp:TextBox ID="acuerdoTB" Font-Size="12" runat="server" Width="100%" autocomplete="on" TabIndex="1"
@@ -174,7 +174,7 @@
                                         <asp:DropDownList ID="responsableCB" runat="server" Width="100%" Font-Size="11pt" Height="40px"
                                             class="form-control" TabIndex="3" AppendDataBoundItems="True">
                                             <asp:ListItem Selected="True" Value="0" > - Seleccione - </asp:ListItem>
-                                            <asp:ListItem Value="25" > GL </asp:ListItem>
+                                            <asp:ListItem Value="25" > GR / GL </asp:ListItem>
                                             <asp:ListItem Value="26" > GN </asp:ListItem>
                                         </asp:DropDownList>
                                 </td>
@@ -194,7 +194,7 @@
                             <tr>
                                 <td  colspan="4">
                                     <br />
-                                    <asp:Button ID="buscar2" runat="server" Text="GUARDAR" class="styleMe1" Width="100%" Height="40px" Font-Size="13" />
+                                    <asp:Button ID="buscar2" runat="server" Text="" class="styleMe1" Width="100%" Height="40px" Font-Size="13" />
                                 </td>
                             </tr>
                         </table>
@@ -211,16 +211,16 @@
 
     <asp:ScriptManager ID="ScriptManager1" runat="server">
 </asp:ScriptManager>
-<img src="http://162.248.52.148/PROFAKTOWEB/SessionActiva.aspx" name="renewSession" id="renewSession" width="1px" height="1px"/>
+<img src="https://sesigue.com/PROFAKTOWEB/SessionActiva.aspx" name="renewSession" id="renewSession" width="1px" height="1px"/>
 
 
         </form>
-    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/fastclick/lib/fastclick.js"></script>
-    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.js"></script>
-    <script src="http://162.248.52.148/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/fastclick/lib/fastclick.js"></script>
+    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.js"></script>
+    <script src="https://sesigue.com/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
 
 </body>
 </html>

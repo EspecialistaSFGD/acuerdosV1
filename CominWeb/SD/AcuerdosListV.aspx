@@ -4,12 +4,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <script src="http://162.248.52.148/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
-    <link href="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.css" rel="stylesheet" type="text/css" />
-    <link href="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/build/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://sesigue.com/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/build/css/custom.min.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .divtableInterior {
 	        border:1px solid #8db2e3;
@@ -67,6 +67,43 @@
     </style>
     <telerik:RadCodeBlock ID="RadCodeBlock1" runat="server">
         <script type="text/javascript">
+            var default1 = "SESIGUE 1.1.2";
+            var text1 = "© Copyright 2024";
+            var text2 = "LIMA - PERU";
+            var text3 = "SESIGUE 1.1.2";
+            var changeRate = 2000; // 1000 = 1 second
+            var messageNumber = 0;
+
+
+            function changeStatus() {
+                if (messageNumber == 0) {
+                    window.status = default1;
+                    document.title = default1;
+                }
+                else if (messageNumber == 1) {
+                    window.status = text1;
+                    document.title = text1;
+                }
+                else if (messageNumber == 2) {
+                    window.status = text2;
+                    document.title = text2;
+                }
+                else if (messageNumber == 3) {
+                    window.status = text3;
+                    document.title = text3;
+                }
+                messageNumber++;
+                setTimeout("changeStatus();", changeRate);
+            }
+
+            changeStatus();
+
+            $(document).keydown(function (e) {
+                if (e.keyCode == 13) {
+                    refreshGrid();
+                    return false;
+                }
+            });
 
             function clientLoadHandler(sender) {
                 var combo = sender;
@@ -82,42 +119,49 @@
 
             function renewSession() {
                 console.log("Renovando session...");
-                document.getElementById('renewSession').src = 'http://162.248.52.148/PROFAKTOWEB/SessionActiva.aspx?par=' + Math.random();
+                document.getElementById('renewSession').src = 'https://sesigue.com/PROFAKTOWEB/SessionActiva.aspx?par=' + Math.random();
             }
 
-            function verHitos(codigoid, estReg, pla) {
-                location.href = "registroHitoV.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codigoid=" + codigoid + "&estReg=" + estReg + "&view=0&pla=" + pla + "&ksjcmj=" + '<%= Me.Request.QueryString("ksjcmj")%>';;
+            function verHitos(codigoid, estReg, estRegInt) {
+                location.href = "registroHitoV.aspx?7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=" + '<%= Me.Request.QueryString("7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0")%>' + "&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codigoid=" + codigoid + "&estReg=" + estReg + "&view=0&pla=0&ksjcmj=" + '<%= Me.Request.QueryString("ksjcmj")%>' + "&tipo=" + '<%= Me.Request.QueryString("tipo")%>' + "&ubig=" + '<%= Me.Request.QueryString("ubig")%>' + "&de=" + '<%= Me.Request.QueryString("de")%>' + "&hsndktumg=" + '<%= Me.Request.QueryString("hsndktumg")%>' + "&en=" + '<%= Me.Request.QueryString("en")%>' + "&sup=" + '<%= Me.Request.QueryString("sup")%>' + "&enti=" + '<%= Me.Request.QueryString("enti")%>' + "&iacp=" + '<%= Me.Request.QueryString("iacp")%>';
                 return false;
             }
 
+            function actua() {
+                $find("<%= RadAjaxManager1.ClientID%>").ajaxRequest("actualiza");
+                refreshGrid();
+            }
+
+            function refreshGrid() {
+                var masterTable = $find("<%=radGrid1.clientId%>").get_masterTableView();
+                masterTable.rebind();
+            }
 
         </script>
     </telerik:RadCodeBlock>
 </head>
 <body>
     <form id="form1" runat="server">
-
         <div class="top_nav">
-          <div class="nav_menu">
-              <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center; font-weight:bold;font-size:24px">
-                  <%--<br />--%>
-                      LISTA DE ACUERDOS
-                </div>
-          </div>
+            <img id="Img2" runat="server" src="https://sesigue.com/REFERENCIASBASE/Resources/sd_cabecera_web.png" style="width:100%" />
         </div>
 
 
-
-
-
-
+        <div class="top_nav">
+          <div class="nav_menu">
+              <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center; margin-top:10px; font-weight:bold;font-size:24px">
+                  <%--<br />--%>
+                      <asp:Label ID="titulo2LB" runat="server" Font-Bold="False" Font-Size="17pt" Text="" style="font-weight: 600;"></asp:Label>
+                </div>
+          </div>
+        </div>
 
         <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center; padding-top:10px">
                 <div class="col-md-3 col-sm-12 col-xs-12 form-group">
                     <table width="100%">
                         <tr>
-                            <td style="width:30%">
-                                CODIGO&nbsp;
+                            <td style="width:30%;">
+                                CODIGO ACUERDO o CUI&nbsp;
                             </td>
                             <td style="width:70%">
                                     <asp:TextBox ID="codigoTB" runat="server" Width="100%" autocomplete="off" class="form-control" Height="40px"></asp:TextBox>
@@ -147,14 +191,14 @@
                     <table width="100%">
                         <tr>
                             <td style="width:30%">
-                                RESPONSABLE&nbsp;
+                                TIPO&nbsp;
                             </td>
                             <td style="width:70%">
                                     <asp:DropDownList ID="responsableCB" runat="server" Width="100%" Font-Size="11pt" Height="40px"
                                         class="form-control" TabIndex="3" AppendDataBoundItems="True">
                                         <asp:ListItem Selected="True" Value="0" > - Seleccione - </asp:ListItem>
-                                        <asp:ListItem Value="25" > GL </asp:ListItem>
-                                        <asp:ListItem Value="26" > GN </asp:ListItem>
+                                        <asp:ListItem Value="1" > ACUERDO </asp:ListItem>
+                                        <asp:ListItem Value="2" > COMPROMISO </asp:ListItem>
                                     </asp:DropDownList>
                                 
                             </td>
@@ -166,26 +210,24 @@
                     <table width="100%">
                         <tr>
                             <td style="width:30%">
-                                
+                                ESTADO ACUERDO&nbsp;
                             </td>
                             <td style="width:70%">
-                                
+                                <telerik:RadComboBox ID="estadoCB" Runat="server" RenderMode="Lightweight"
+                                        Culture="es-ES" DataSourceID="SDS_SD_P_selectEstadoTipo" 
+                                        DataTextField="nombre" Font-Size="10pt"
+                                        DataValueField="ID" style="margin-bottom: 0" Width="100%" 
+                                        CheckBoxes="True" EnableCheckAllItemsCheckBox="true" 
+                                        OnClientLoad="clientLoadHandler" LoadingMessage="Cargando..." >
+                                        <Localization AllItemsCheckedString="Todos Seleccionados"  
+                                            CheckAllString="TODOS" ItemsCheckedString="Elementos Seleccionados" 
+                                            NoMatches="No hay Coincidencias" />                                    
+                                    </telerik:RadComboBox>
                             </td>
                         </tr>
                     </table>
                 </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
         <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center; ">
@@ -199,7 +241,7 @@
 
                                 <asp:DropDownList ID="cbo_evento" runat="server" Width="100%" Font-Size="11"
                                     DataSourceID="SDS_P_SelectEventos" DataTextField="nombre" class="form-control"
-                                    DataValueField="eventoID" TabIndex="1" Enabled="false">
+                                    DataValueField="eventoID" TabIndex="1" >
                                 </asp:DropDownList>
                             </td>
                         </tr>
@@ -257,11 +299,14 @@
                 </div>
         </div>
 
-        <div class="col-md-6 col-sm-12 col-xs-12 form-group" style="text-align:center">
+        <div class="col-md-4 col-sm-4 col-xs-12 form-group" style="text-align:center">
             <asp:Button ID="buscar2" runat="server" Text="BUSCAR" class="styleMe" Width="100%" Height="50px" Font-Size="13" />
         </div>
-        <div class="col-md-6 col-sm-12 col-xs-12 form-group" style="text-align:center">
+        <div class="col-md-4 col-sm-4 col-xs-12 form-group" style="text-align:center">
             <asp:Button ID="exportarB" runat="server" Text="EXPORTAR" class="styleMe1" Width="100%" Height="50px" Font-Size="14" />
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12 form-group" style="text-align:center">
+            <asp:Button ID="expHitoB" runat="server" Text="EXPORTAR HITOS" class="styleMe1" Width="100%" Height="50px" Font-Size="11" TabIndex="11" />
         </div>
         <%--Bootstrap Glow    MetroTouch  --%>
         <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center">
@@ -317,17 +362,22 @@
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="REGION" FilterControlAltText="Filter REGION column" 
                             HeaderText="Departamento" SortExpression="REGION" UniqueName="REGION" AutoPostBackOnFilter="true" 
-                            FilterControlWidth="100%" ShowFilterIcon="false" >
+                            FilterControlWidth="100%" ShowFilterIcon="false" Display="false" >
                             <HeaderStyle HorizontalAlign="Center" Font-Bold="true" />
                             <ItemStyle HorizontalAlign="Left" />
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="PROVINCIA" FilterControlAltText="Filter PROVINCIA column" 
                             HeaderText="Provincia" SortExpression="PROVINCIA" UniqueName="PROVINCIA" AutoPostBackOnFilter="true" 
+                            FilterControlWidth="100%" ShowFilterIcon="false" Display="false" >
+                            <HeaderStyle HorizontalAlign="Center" Font-Bold="true"/>
+                            <ItemStyle HorizontalAlign="Left" />
+                        </telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="ubica" FilterControlAltText="Filter ubica column" 
+                            HeaderText="Ubica" SortExpression="ubica" UniqueName="ubica" AutoPostBackOnFilter="true" 
                             FilterControlWidth="100%" ShowFilterIcon="false" >
                             <HeaderStyle HorizontalAlign="Center" Font-Bold="true"/>
                             <ItemStyle HorizontalAlign="Left" />
                         </telerik:GridBoundColumn>
-
                         <telerik:GridBoundColumn DataField="prioridadTerritorial" FilterControlAltText="Filter prioridadTerritorial column" 
                             HeaderText="Prioridad Territorial" SortExpression="prioridadTerritorial" UniqueName="prioridadTerritorial" AutoPostBackOnFilter="true" 
                             FilterControlWidth="100%" ShowFilterIcon="false" Display="false" >
@@ -335,19 +385,19 @@
                             <ItemStyle HorizontalAlign="Left" />
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="objetivoEstrategicoTerritorial" FilterControlAltText="Filter objetivoEstrategicoTerritorial column" 
-                            HeaderText="Objetivo Estrategico Territorial" SortExpression="objetivoEstrategicoTerritorial" UniqueName="objetivoEstrategicoTerritorial" AutoPostBackOnFilter="true" 
-                            FilterControlWidth="100%" ShowFilterIcon="false" Display="false">
-                            <HeaderStyle HorizontalAlign="Center" />
+                            HeaderText="Eje Estrategico" SortExpression="objetivoEstrategicoTerritorial" UniqueName="objetivoEstrategicoTerritorial" AutoPostBackOnFilter="true" 
+                            FilterControlWidth="100%" ShowFilterIcon="false" Display="true">
+                            <HeaderStyle HorizontalAlign="Left" Font-Bold="true"/>
                             <ItemStyle HorizontalAlign="Left" />
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="intervencionesEstrategicas" FilterControlAltText="Filter intervencionesEstrategicas column" 
-                            HeaderText="Intervenciones Estrategicas" SortExpression="intervencionesEstrategicas" UniqueName="intervencionesEstrategicas" AutoPostBackOnFilter="true" 
+                            HeaderText="Tipo Intervenciones" SortExpression="intervencionesEstrategicas" UniqueName="intervencionesEstrategicas" AutoPostBackOnFilter="true" 
                             FilterControlWidth="100%" ShowFilterIcon="false" >
                             <HeaderStyle HorizontalAlign="Left" Font-Bold="true"/>
                             <ItemStyle HorizontalAlign="Left" />
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="aspectoCriticoResolver" FilterControlAltText="Filter aspectoCriticoResolver column" 
-                            HeaderText="Aspecto Crítico a Resolver" SortExpression="aspectoCriticoResolver" UniqueName="aspectoCriticoResolver" AutoPostBackOnFilter="true" 
+                            HeaderText="Pedido" SortExpression="aspectoCriticoResolver" UniqueName="aspectoCriticoResolver" AutoPostBackOnFilter="true" 
                             FilterControlWidth="100%" ShowFilterIcon="false" >
                             <HeaderStyle HorizontalAlign="Center" Font-Bold="true"/>
                             <ItemStyle HorizontalAlign="Left" />
@@ -384,13 +434,13 @@
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="Clasificacion" FilterControlAltText="Filter Clasificacion column" 
                             HeaderText="Clasificacion" SortExpression="Clasificacion" UniqueName="Clasificacion" AutoPostBackOnFilter="true" 
-                            FilterControlWidth="100%" ShowFilterIcon="false">
+                            FilterControlWidth="100%" ShowFilterIcon="false" Display="false">
                             <HeaderStyle HorizontalAlign="Center" Font-Bold="true" />
                             <ItemStyle HorizontalAlign="Left" />
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="responsable" FilterControlAltText="Filter responsable column" 
                             HeaderText="Resp." SortExpression="responsable" UniqueName="responsable" AutoPostBackOnFilter="true" 
-                            FilterControlWidth="100%" ShowFilterIcon="false">
+                            FilterControlWidth="100%" ShowFilterIcon="false" Display="false">
                             <HeaderStyle HorizontalAlign="Center" Font-Bold="true" />
                             <ItemStyle HorizontalAlign="Left" />
                         </telerik:GridBoundColumn>
@@ -404,20 +454,23 @@
                             HeaderText="estadoRegistro" ReadOnly="True" SortExpression="estadoRegistro" UniqueName="estadoRegistro"
                             Display="false">
                         </telerik:GridBoundColumn>
-
+                        <telerik:GridBoundColumn DataField="estadoRegistroInterno" FilterControlAltText="Filter estadoRegistroInterno column" 
+                            HeaderText="estadoRegistroInterno" ReadOnly="True" SortExpression="estadoRegistroInterno" UniqueName="estadoRegistroInterno"
+                            Display="false">
+                        </telerik:GridBoundColumn>
                         <telerik:GridTemplateColumn DataField="NomEstadoRegistro" HeaderText="Estado" SortExpression="NomEstadoRegistro"
                             UniqueName="NomEstadoRegistro" AllowFiltering="False">
                             <ItemTemplate>
                                 <asp:Label ID="nomEstado1Label" runat="server" Font-Bold="True" ForeColor='<%# GetColor(Eval("NomEstadoRegistro")) %>' 
                                     Text='<%# Eval("NomEstadoRegistro") %>'></asp:Label>
                             </ItemTemplate>
-                            <HeaderStyle HorizontalAlign="Center" Width="60px" />
+                            <HeaderStyle HorizontalAlign="Center" Width="60px" Font-Bold="true" />
                             <ItemStyle HorizontalAlign="Left" />
                         </telerik:GridTemplateColumn>
 
 
                         <telerik:GridBoundColumn DataField="NomEstadoRegistro" FilterControlAltText="Filter NomEstadoRegistro column" 
-                            HeaderText="Estado" ReadOnly="True" SortExpression="NomEstadoRegistro" UniqueName="NomEstadoRegistro"
+                            HeaderText="Estado" ReadOnly="True" SortExpression="NomEstadoRegistro" UniqueName="NomEstadoRegistro_2"
                             Display="false" >
                             <HeaderStyle HorizontalAlign="Center" Font-Bold="true" />
                             <ItemStyle HorizontalAlign="Left" Font-Bold="true" ForeColor="Red" />
@@ -434,6 +487,13 @@
                 </telerik:radgrid>
         </div>
     
+    <asp:SqlDataSource ID="SDS_SD_P_selectEstadoTipo" runat="server" 
+        SelectCommand="SD_P_selectEstadoTipo" SelectCommandType="StoredProcedure">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="1" Name="tipo" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+
     <asp:SqlDataSource ID="SDS_SD_P_selectListAcuerdo" runat="server"  
         SelectCommand="SD_P_selectListAcuerdo" 
         SelectCommandType="StoredProcedure" >
@@ -445,8 +505,12 @@
             <asp:ControlParameter ControlID="cbo_provincia1" DefaultValue="" Name="ubigeo" PropertyName="SelectedValue" Type="Int32" />
              <asp:ControlParameter ControlID="codigoTB" DefaultValue="0" Name="codigo" PropertyName="Text" Type="String" />
             <asp:ControlParameter ControlID="clasificaCB" DefaultValue="" Name="clasificacion" PropertyName="SelectedValue" Type="Int32" />
-            <asp:ControlParameter ControlID="responsableCB" DefaultValue="" Name="responsable" PropertyName="SelectedValue" Type="Int32" />
+            <asp:Parameter DefaultValue="0" Name="responsable" Type="Int32" />
             <asp:Parameter DefaultValue="0" Name="acuerdoID" Type="Int32" />
+            <asp:QueryStringParameter DefaultValue="0" Name="super" QueryStringField="sup" Type="Int32" />
+            <asp:QueryStringParameter DefaultValue="0" Name="entidadId" QueryStringField="en" Type="Int32" />
+            <asp:SessionParameter Name="estadoRegistro" SessionField="estadoFiltroAcuerdo" Type="String" DefaultValue="0,1,2,3,4," />
+            <asp:ControlParameter ControlID="responsableCB" DefaultValue="" Name="tipoId" PropertyName="SelectedValue" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDS_P_SelectEventos" runat="server" 
@@ -496,23 +560,30 @@
         <AjaxSettings>
             <telerik:AjaxSetting AjaxControlID="cbo_departamento1">
                 <UpdatedControls>
-                    <telerik:AjaxUpdatedControl ControlID="cbo_provincia1" 
-                        LoadingPanelID="RadAjaxLoadingPanel1" />
+                    <telerik:AjaxUpdatedControl ControlID="cbo_provincia1" LoadingPanelID="RadAjaxLoadingPanel1" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
+            <%--<telerik:AjaxSetting AjaxControlID="buscar2">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="RadGrid1" LoadingPanelID="RadAjaxLoadingPanel1" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>--%>
         </AjaxSettings>
     </telerik:RadAjaxManager>
 
 
-<img src="http://162.248.52.148/PROFAKTOWEB/SessionActiva.aspx" name="renewSession" id="renewSession" width="1px" height="1px"/>
+<img src="https://sesigue.com/PROFAKTOWEB/SessionActiva.aspx" name="renewSession" id="renewSession" width="1px" height="1px"/>
 
         </form>
-    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/fastclick/lib/fastclick.js"></script>
-    <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.js"></script>
-    <script src="http://162.248.52.148/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/fastclick/lib/fastclick.js"></script>
+    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.js"></script>
+    <script src="https://sesigue.com/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
 
 </body>
+<footer>
+    <img src="https://sesigue.com/REFERENCIASBASE/Resources/sd_inferior_web.png" style="width:100%" />
+</footer>
 </html>

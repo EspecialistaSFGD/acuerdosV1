@@ -176,7 +176,11 @@
     <Content Include="SD\Form_asistenciaCargaMasivaDB.aspx" />
     <Content Include="SD\Form_asistenciaCargaMasiva.aspx" />
     <Content Include="SD\AcuerdosListV.aspx" />
+    <Content Include="SD\Form_menuSD.aspx" />
+    <Content Include="SD\registroAcTipo.aspx" />
     <Content Include="SD\registroAva.aspx" />
+    <Content Include="SD\registroComenDes.aspx" />
+    <Content Include="SD\registroComentario.aspx" />
     <Content Include="SD\registroHi.aspx" />
     <Content Include="SD\registroAc.aspx" />
     <Content Include="SD\registroHitoV.aspx" />
@@ -188,6 +192,8 @@
     <Content Include="SD\Form_asistenciaEventos.aspx" />
     <Content Include="SD\Form_asistenciaListOp.aspx" />
     <Content Include="SD\Form_BienvenidoSD.aspx" />
+    <Content Include="SD\registroPedidoV.aspx" />
+    <Content Include="SD\registroPedidoV22.aspx" />
     <Content Include="SD\Reportes\Form_ReportAcuerdoIDDescarga.aspx" />
     <Content Include="SessionActiva.aspx" />
     <Content Include="SqlServerTypes\Loader.cs" />
@@ -454,12 +460,36 @@
       <DependentUpon>AcuerdosListV.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="SD\Form_menuSD.aspx.designer.vb">
+      <DependentUpon>Form_menuSD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\Form_menuSD.aspx.vb">
+      <DependentUpon>Form_menuSD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\registroAcTipo.aspx.designer.vb">
+      <DependentUpon>registroAcTipo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\registroAcTipo.aspx.vb">
+      <DependentUpon>registroAcTipo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SD\registroAva.aspx.designer.vb">
       <DependentUpon>registroAva.aspx</DependentUpon>
     </Compile>
     <Compile Include="SD\registroAva.aspx.vb">
       <DependentUpon>registroAva.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SD\registroComenDes.aspx.designer.vb">
+      <DependentUpon>registroComenDes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\registroComenDes.aspx.vb">
+      <DependentUpon>registroComenDes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\registroComentario.aspx.designer.vb">
+      <DependentUpon>registroComentario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\registroComentario.aspx.vb">
+      <DependentUpon>registroComentario.aspx</DependentUpon>
     </Compile>
     <Compile Include="SD\registroHi.aspx.designer.vb">
       <DependentUpon>registroHi.aspx</DependentUpon>
@@ -537,6 +567,18 @@
     <Compile Include="SD\Form_BienvenidoSD.aspx.vb">
       <DependentUpon>Form_BienvenidoSD.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SD\registroPedidoV.aspx.designer.vb">
+      <DependentUpon>registroPedidoV.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\registroPedidoV.aspx.vb">
+      <DependentUpon>registroPedidoV.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\registroPedidoV22.aspx.designer.vb">
+      <DependentUpon>registroPedidoV22.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\registroPedidoV22.aspx.vb">
+      <DependentUpon>registroPedidoV22.aspx</DependentUpon>
     </Compile>
     <Compile Include="SD\Reportes\Form_ReportAcuerdoIDDescarga.aspx.designer.vb">
       <DependentUpon>Form_ReportAcuerdoIDDescarga.aspx</DependentUpon>

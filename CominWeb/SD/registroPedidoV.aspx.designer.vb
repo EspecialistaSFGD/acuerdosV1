@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class registroAc
+Partial Public Class registroPedidoV
 
     '''<summary>
     '''RadCodeBlock1 control.
@@ -32,67 +32,76 @@ Partial Public Class registroAc
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
-    '''tituloLB control.
+    '''grupoCB control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents tituloLB As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents grupoCB As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''preAcuerdoLB control.
+    '''ejeCB control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents preAcuerdoLB As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents ejeCB As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''acuerdoTB control.
+    '''intervencionCB control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents acuerdoTB As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents intervencionCB As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''clasificaCB control.
+    '''cuisTB control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents clasificaCB As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents cuisTB As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''responsableCB control.
+    '''RegExp1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents responsableCB As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents RegExp1 As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
-    '''plazoRDP control.
+    '''aspectoTB control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents plazoRDP As Global.Telerik.Web.UI.RadDatePicker
+    Protected WithEvents aspectoTB As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''buscar2 control.
+    '''ValidationSummary control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents buscar2 As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents ValidationSummary As Global.System.Web.UI.WebControls.ValidationSummary
+
+    '''<summary>
+    '''SDS_SD_P_selectTipoInt control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SDS_SD_P_selectTipoInt As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
     '''SDS_SD_P_selectGrupos control.
@@ -104,6 +113,15 @@ Partial Public Class registroAc
     Protected WithEvents SDS_SD_P_selectGrupos As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
+    '''SDS_SD_P_selectEje control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SDS_SD_P_selectEje As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
     '''ScriptManager1 control.
     '''</summary>
     '''<remarks>
@@ -111,4 +129,13 @@ Partial Public Class registroAc
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ScriptManager1 As Global.System.Web.UI.ScriptManager
+
+    '''<summary>
+    '''RadAjaxManager1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadAjaxManager1 As Global.Telerik.Web.UI.RadAjaxManager
 End Class

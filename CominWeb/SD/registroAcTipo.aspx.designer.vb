@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class registroAc
+Partial Public Class registroAcTipo
 
     '''<summary>
     '''RadCodeBlock1 control.
@@ -32,24 +32,6 @@ Partial Public Class registroAc
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
-    '''tituloLB control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents tituloLB As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''preAcuerdoLB control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents preAcuerdoLB As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''acuerdoTB control.
     '''</summary>
     '''<remarks>
@@ -57,6 +39,24 @@ Partial Public Class registroAc
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents acuerdoTB As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''enviaPreacuerdo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents enviaPreacuerdo As Global.System.Web.UI.WebControls.ImageButton
+
+    '''<summary>
+    '''acuerdoFinalTB control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents acuerdoFinalTB As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''clasificaCB control.

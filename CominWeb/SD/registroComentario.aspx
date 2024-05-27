@@ -1,5 +1,4 @@
-﻿
-<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="registroAva.aspx.vb" Inherits="CominWeb.registroAva" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="registroComentario.aspx.vb" Inherits="CominWeb.registroComentario" %>
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -129,36 +128,6 @@
                 console.log('html: ' + n.options.id);
             }
 
-<%--            function guardaJS() {
-                var avan = document.getElementById('<%= avanceTB.ClientId %>').value;
-                var plaz = document.getElementById('<%= plazoRDP.ClientId %>').value;
-                if (plaz.length == 0) {
-                    mensaje('information', 'Ingrese Fecha');
-                    return false;
-                }
-                else if (avan.length == 0) {
-                    mensaje('information', 'Ingrese Avance');
-                    return false;
-                }
-                else if (avan.length > 150) {
-                    mensaje('information', 'Máximo 150 caracteres');
-                    return false;
-                }
-                else {
-                    $find("<%= RadAjaxManager1.ClientID%>").ajaxRequest("guardar");
-                    return true;
-                }
-            }--%>
-
-            function PreviewImg(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
-                        $('#imgPreview').attr('src', e.target.result);
-                    }
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
         </script>
     </telerik:RadCodeBlock>
 </head>
@@ -168,7 +137,7 @@
           <div class="nav_menu">
               <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center; font-weight:bold;font-size:24px; padding-top:10px">
                   <%--<br />--%>
-                      Registro de Avance
+                      OBSERVACIONES Y/O COMENTARIOS
                 </div>
           </div>
         </div>
@@ -178,75 +147,25 @@
                         <table style="width:95%" border="0">
                             <tr>
                                 <td style="width:15%; padding:5px; Font-Size:14px; font-weight:500">
-                                    Fecha de Ejecución
+                                    COMENTARIO
                                 </td>
-                                <td style="padding:5px">
-                                        <telerik:raddatepicker ID="plazoRDP" runat="server" DateInput-AutoCompleteType="Disabled"
-                                                Width="100%" Culture="es-PE" MaxDate="2030-12-31"
-                                                Skin="Bootstrap">
-                                                <Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" Skin="Bootstrap"></Calendar>
-                                                <DateInput DisplayDateFormat="dd/MM/yyyy" DateFormat="dd/MM/yyyy" LabelWidth="40%" Font-Size="10" ></DateInput>
-                                                <DatePopupButton ImageUrl="" HoverImageUrl=""></DatePopupButton>
-                                        </telerik:raddatepicker>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width:15%; padding:5px; Font-Size:14px; font-weight:500">
-                                    Avance
-                                </td>
-                                <td style="padding:5px">
-                                        <asp:TextBox ID="avanceTB" Font-Size="10" runat="server" Width="100%" autocomplete="off" TabIndex="1" MaxLength="150"
-                                            placeholder="" class="form-control" Rows="3" TextMode="MultiLine" onkeypress="return checkAcuerdo(event)"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width:15%; padding:5px; Font-Size:14px; font-weight:500">
-                                    Evidencia
-                                </td>
-                                <td style="width:35%; padding:5px">
-                                        <asp:FileUpload ID="FileUpload1" runat="server" onchange="PreviewImg(this)" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="padding:5px; Font-Size:14px; font-weight:500" colspan="2">
-                                    <img id="imgPreview" runat="server" style="height:70px;"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width:15%; padding:5px; Font-Size:14px; font-weight:500">
-                                    
-                                    <asp:Label ID="labelEstadoLB" runat="server" Font-Size="8pt" >.</asp:Label>
-                                </td>
-                                <td style="padding:5px">
-                                        <asp:DropDownList ID="estadoCBv" runat="server" Width="100%" Font-Size="10pt" Height="40px"
-                                            class="form-control" TabIndex="3" AppendDataBoundItems="True">
-                                            <asp:ListItem Value="4" >DESESTIMAR ACUERDO</asp:ListItem>
-                                            <asp:ListItem Value="1" >CULMINADO</asp:ListItem>
-                                            <asp:ListItem Value="0" >EN PROCESO</asp:ListItem>
-                                        </asp:DropDownList>
+                                <td style="padding:5px" colspan="3">
+                                        <asp:TextBox ID="acuerdoTB" Font-Size="12" runat="server" Width="100%" autocomplete="on" TabIndex="1"
+                                            placeholder="" class="form-control" Rows="12" TextMode="MultiLine" onkeypress="return checkAcuerdo(event)"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
                                 <td  colspan="4">
                                     <br />
-                                    <%--<button class="styleMe1" style="Width:100%; Height:40px; font:16pt" onclick="guardaJS(); return false;">GUARDAR</button>--%>
-                                    <asp:Button ID="guardarB" runat="server" Text="GUARDAR" class="styleMe1" Width="100%" Height="40px" Font-Size="14" />
+                                    <asp:Button ID="guardaB" runat="server" Text="GUARDAR" class="styleMe1" Width="100%" Height="40px" Font-Size="13" />
                                 </td>
                             </tr>
                         </table>
                 </center>
         </div>
-        
-    
 
-
-    
-    <telerik:radajaxmanager ID="RadAjaxManager1" runat="server" DefaultLoadingPanelID="">
-    </telerik:radajaxmanager>
-        <asp:ScriptManager ID="ScriptManager1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
 </asp:ScriptManager>
-
-
 <img src="https://sesigue.com/PROFAKTOWEB/SessionActiva.aspx" name="renewSession" id="renewSession" width="1px" height="1px"/>
 
 

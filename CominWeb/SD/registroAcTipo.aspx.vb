@@ -12,14 +12,14 @@ Imports SpreadsheetLight
 Imports DocumentFormat.OpenXml
 
 
-Public Class registroAc
+Public Class registroAcTipo
     Inherits System.Web.UI.Page
 
     Dim SW_pedidoDT As New DataTable
     Dim SW_pedidoDA As New SW_pedido_DA
     Dim sw_ejecutaSQL As New SW_EjecutaSQL_DA
 
-    Private Sub registroAc_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
+    Private Sub registroAcTipo_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
         If Request.QueryString("gjXtIkEroS").ToString = "SD_SSFD" Then
             variableGlobalConexion.nombreCadenaCnx = "SD_CS"
             SDS_SD_P_selectGrupos.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
@@ -35,16 +35,6 @@ Public Class registroAc
         Thread.CurrentThread.CurrentUICulture = New CultureInfo("es-PE")
 
         If Page.IsPostBack = False Then
-
-
-            If Request.QueryString("preacuerdo") = 1 Then
-                tituloLB.Text = "GENERAR ACUERDO"
-                buscar2.Text = "GUARDAR ACUERDO"
-            Else
-                tituloLB.Text = "CREAR / EDITAR PRE-ACUERDO"
-                buscar2.Text = "GUARDAR"
-            End If
-
             If Me.Request.QueryString("codac").ToString > 0 Then
                 SW_pedidoDT = SW_pedidoDA.SD_P_selectAcuerdosV2(Me.Request.QueryString("codac").ToString, 0, "", 0, 0)
                 If SW_pedidoDT.Rows.Count > 0 Then
@@ -73,11 +63,6 @@ Public Class registroAc
                 End If
             Else
                 Me.plazoRDP.MinDate = Date.Now
-                If Request.QueryString("preacuerdo") = 1 Then
-                    preAcuerdoLB.Text = "ACUERDO"
-                Else
-                    preAcuerdoLB.Text = "PRE-ACUERDO"
-                End If
                 'Me.ultimaActualizacionLB.Text = Date.Now.ToString("dd/MM/yyyy")
                 'Me.fechacreacionRDP.SelectedDate = Date.Now
                 'tipoCambioTB.Text = "1"
@@ -104,17 +89,17 @@ Public Class registroAc
         ElseIf plazoRDP.SelectedDate.ToString.Length = 0 Then
             mensajeJSS("Ingrese Plazo")
         Else
-            guardar(Me.Request.QueryString("codac").ToString, Me.Request.QueryString("codped").ToString, acuerdoTB.Text.ToString.Trim, clasificaCB.SelectedValue, responsableCB.SelectedValue, plazoRDP.SelectedDate.Value.ToString("dd/MM/yyyy"), Me.Request.QueryString("iacp").ToString, Me.Request.QueryString("preacuerdo").ToString)
+            guardar(Me.Request.QueryString("codac").ToString, Me.Request.QueryString("codped").ToString, acuerdoTB.Text.ToString.Trim, clasificaCB.SelectedValue, responsableCB.SelectedValue, plazoRDP.SelectedDate.Value.ToString("dd/MM/yyyy"), Me.Request.QueryString("iacp").ToString)
 
         End If
 
     End Sub
 
 
-    Private Sub guardar(ByVal acuerdoid As Integer, pedidoid As Integer, acuerdo As String, clasifica As Integer, responsable As Integer, plazo As String, acceso As Integer, preacuerdo As String)
+    Private Sub guardar(ByVal acuerdoid As Integer, pedidoid As Integer, acuerdo As String, clasifica As Integer, responsable As Integer, plazo As String, acceso As Integer)
 
         Dim cad As String = ""
-        cad = " exec SD_P_crearUpdateAcuerdo " & acuerdoid.ToString & ", " & pedidoid.ToString & ", '" & acuerdo.ToString & "', " & clasifica.ToString & ", " & responsable.ToString & ", '" & plazo & "', '" & acceso & "'," & preacuerdo
+        cad = " exec SD_P_crearUpdateAcuerdo " & acuerdoid.ToString & ", " & pedidoid.ToString & ", '" & acuerdo.ToString & "', " & clasifica.ToString & ", " & responsable.ToString & ", '" & plazo & "', '" & acceso & "'"
 
         If cad.Length > 0 Then
             Try
@@ -214,4 +199,7 @@ Public Class registroAc
         'End If
     End Sub
 
+    Protected Sub enviaPreacuerdo_Click(sender As Object, e As ImageClickEventArgs) Handles enviaPreacuerdo.Click
+        acuerdoFinalTB.Text = acuerdoTB.Text
+    End Sub
 End Class

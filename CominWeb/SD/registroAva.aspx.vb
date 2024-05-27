@@ -33,6 +33,24 @@ Public Class registroAva
 
 
         If Page.IsPostBack = False Then
+            If Request.QueryString("codh").ToString = "0" Then
+                labelEstadoLB.Text = "Estado Acuerdo"
+                estadoCBv.SelectedValue = 4
+                estadoCBv.Enabled = False
+            Else
+                labelEstadoLB.Text = "Estado Hito"
+                estadoCBv.Enabled = True
+                estadoCBv.Items.Clear()
+
+
+
+                estadoCBv.Items.Insert("0", "EN PROCESO")
+                estadoCBv.Items.Insert("1", "CULMINADO")
+                estadoCBv.DataBind()
+            End If
+
+
+
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
             Thread.CurrentThread.CurrentCulture = New CultureInfo("es-PE")
             Thread.CurrentThread.CurrentUICulture = New CultureInfo("es-PE")
@@ -98,13 +116,27 @@ Public Class registroAva
             mensajeJSS("Ingrese Fecha")
         ElseIf avanceTB.Text.ToString.Length = 0 Then
             mensajeJSS("Ingrese Avance")
-        ElseIf avanceTB.Text.ToString.Length > 150 Then
-            mensajeJSS("Máximo 150 caracteres")
+        ElseIf avanceTB.Text.ToString.Length > 300 Then
+            mensajeJSS("Máximo 300 caracteres")
         ElseIf Me.Request.QueryString("tipo").ToString = 1 And FileUpload1.HasFile = False Then
             mensajeJSS("Debe adjuntar una evidencia")
         Else
             Dim path As String = Server.MapPath("~/SD/evidencia/")
             Dim fileOK As Boolean = False
+
+            Dim estadoNom As String
+
+            If estadoCBv.SelectedValue = "EN PROCESO" Then
+                estadoNom = 0
+            ElseIf estadoCBv.SelectedValue = "CULMINADO" Then
+                estadoNom = 1
+            ElseIf estadoCBv.SelectedValue = "DESESTIMAR ACUERDO" Then
+                estadoNom = 4
+            Else
+                estadoNom = estadoCBv.SelectedValue
+            End If
+
+
             If FileUpload1.HasFile Then
                 Dim fileExtension As String
                 fileExtension = System.IO.Path.GetExtension(FileUpload1.FileName).ToLower()
@@ -118,24 +150,24 @@ Public Class registroAva
                 If fileOK Then
                     Try
                         FileUpload1.PostedFile.SaveAs(path & FileUpload1.FileName)
-                        guardar(Me.Request.QueryString("codAv").ToString, Me.Request.QueryString("codh").ToString, Me.Request.QueryString("codigoid").ToString, plazoRDP.SelectedDate.Value.ToString("dd/MM/yyyy"), avanceTB.Text.ToString.Trim, FileUpload1.FileName.ToString, "", Me.Request.QueryString("tipo").ToString, estadoCBv.SelectedValue)
+                        guardarAVa(Me.Request.QueryString("codAv").ToString, Me.Request.QueryString("codh").ToString, Me.Request.QueryString("codigoid").ToString, plazoRDP.SelectedDate.Value.ToString("dd/MM/yyyy"), avanceTB.Text.ToString.Trim, FileUpload1.FileName.ToString, "", Me.Request.QueryString("tipo").ToString, estadoNom)
                     Catch ex As Exception
-                        mensajeJSS("No se puede cargar el archivo.")
+                        mensajeJSS("Error de Sistema, Comunicarse con el administrador")
                     End Try
                 Else
                     mensajeJSS("No se acepta este tipo de archivos.")
                 End If
             Else
-                guardar(Me.Request.QueryString("codAv").ToString, Me.Request.QueryString("codh").ToString, Me.Request.QueryString("codigoid").ToString, plazoRDP.SelectedDate.Value.ToString("dd/MM/yyyy"), avanceTB.Text.ToString.Trim, "", "", Me.Request.QueryString("tipo").ToString, estadoCBv.SelectedValue)
+                guardarAVa(Me.Request.QueryString("codAv").ToString, Me.Request.QueryString("codh").ToString, Me.Request.QueryString("codigoid").ToString, plazoRDP.SelectedDate.Value.ToString("dd/MM/yyyy"), avanceTB.Text.ToString.Trim, "", "", Me.Request.QueryString("tipo").ToString, estadoNom)
             End If
         End If
     End Sub
 
 
-    Private Sub guardar(ByVal avanceId As Integer, hitdoId As Integer, acuerdoID As Integer, fecha As String, avance As String, evidencia As String, comentario As String, tipo As Integer, estadoHi As Integer)
+    Private Sub guardarAVa(ByVal avanceId As Integer, hitdoId As Integer, acuerdoID As Integer, fecha As String, avance As String, evidencia As String, comentario As String, tipo As Integer, estadoHi As Integer)
 
         Dim cad As String = ""
-        cad = " exec SD_P_crearUpdateAvance " & avanceId.ToString & ", " & hitdoId.ToString & ", " & acuerdoID.ToString & ", '" & fecha.ToString & "', '" & avance.ToString & "','" & evidencia.ToString & "','" & comentario.ToString & "'," & tipo.ToString & "," & estadoHi.ToString
+        cad = " exec SD_P_crearUpdateAvance " & avanceId.ToString & ", " & hitdoId.ToString & ", " & acuerdoID.ToString & ", '" & fecha.ToString & "', '" & avance.ToString & "','" & evidencia.ToString & "','" & comentario.ToString & "'," & tipo.ToString & "," & estadoHi.ToString & ",0," & Request.QueryString("iacp").ToString
 
         If cad.Length > 0 Then
             Try

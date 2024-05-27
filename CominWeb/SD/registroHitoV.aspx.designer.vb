@@ -32,6 +32,24 @@ Partial Public Class registroHitoV
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
+    '''Img2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Img2 As Global.System.Web.UI.HtmlControls.HtmlImage
+
+    '''<summary>
+    '''titulo2LB control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents titulo2LB As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''sectorLB control.
     '''</summary>
     '''<remarks>
@@ -140,13 +158,13 @@ Partial Public Class registroHitoV
     Protected WithEvents estadoLB As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Label2 control.
+    '''fechaLB control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents fechaLB As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''hiddenField control.
@@ -158,13 +176,13 @@ Partial Public Class registroHitoV
     Protected WithEvents hiddenField As Global.System.Web.UI.HtmlControls.HtmlInputHidden
 
     '''<summary>
-    '''fechaLB control.
+    '''motivoDesLB control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents fechaLB As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents motivoDesLB As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''retornarB control.
@@ -185,6 +203,15 @@ Partial Public Class registroHitoV
     Protected WithEvents registraA As Global.System.Web.UI.HtmlControls.HtmlButton
 
     '''<summary>
+    '''registraH control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents registraH As Global.System.Web.UI.HtmlControls.HtmlButton
+
+    '''<summary>
     '''RadGrid1 control.
     '''</summary>
     '''<remarks>
@@ -192,6 +219,15 @@ Partial Public Class registroHitoV
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RadGrid1 As Global.Telerik.Web.UI.RadGrid
+
+    '''<summary>
+    '''descripcionTB control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents descripcionTB As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''RadGridImagen control.

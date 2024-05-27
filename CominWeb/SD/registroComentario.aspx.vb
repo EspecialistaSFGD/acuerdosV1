@@ -12,17 +12,16 @@ Imports SpreadsheetLight
 Imports DocumentFormat.OpenXml
 
 
-Public Class registroAc
+Public Class registroComentario
     Inherits System.Web.UI.Page
 
     Dim SW_pedidoDT As New DataTable
     Dim SW_pedidoDA As New SW_pedido_DA
     Dim sw_ejecutaSQL As New SW_EjecutaSQL_DA
 
-    Private Sub registroAc_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
+    Private Sub registroComentario_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
         If Request.QueryString("gjXtIkEroS").ToString = "SD_SSFD" Then
             variableGlobalConexion.nombreCadenaCnx = "SD_CS"
-            SDS_SD_P_selectGrupos.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
         Else
             variableGlobalConexion.nombreCadenaCnx = ""
             Response.Redirect("~/Error/Oops.aspx?Ljbq7iMESelhIUIxzrV7j78eJD/0EFUR=INTRUSO")
@@ -35,86 +34,61 @@ Public Class registroAc
         Thread.CurrentThread.CurrentUICulture = New CultureInfo("es-PE")
 
         If Page.IsPostBack = False Then
+            'If Me.Request.QueryString("codac").ToString > 0 Then
+            '    SW_pedidoDT = SW_pedidoDA.SD_P_selectAcuerdosV2(Me.Request.QueryString("codac").ToString, 0, "", 0, 0)
+            '    If SW_pedidoDT.Rows.Count > 0 Then
 
+            '        acuerdoTB.Text = SW_pedidoDT.Rows(0).Item(3)
 
-            If Request.QueryString("preacuerdo") = 1 Then
-                tituloLB.Text = "GENERAR ACUERDO"
-                buscar2.Text = "GUARDAR ACUERDO"
-            Else
-                tituloLB.Text = "CREAR / EDITAR PRE-ACUERDO"
-                buscar2.Text = "GUARDAR"
-            End If
+            '        'Me.ultimaActualizacionLB.Text = SW_ordenesTrabajoDT.Rows(0).Item(44)
+            '        'Me.txtot.Text = SW_ordenesTrabajoDT.Rows(0).Item(1).ToString.Trim
 
-            If Me.Request.QueryString("codac").ToString > 0 Then
-                SW_pedidoDT = SW_pedidoDA.SD_P_selectAcuerdosV2(Me.Request.QueryString("codac").ToString, 0, "", 0, 0)
-                If SW_pedidoDT.Rows.Count > 0 Then
+            '        'Me.cbo_turno.Selecte dValue = SW_ordenesTrabajoDT.Rows(0).Item(37).ToString
+            '        'Me.cbo_turno.DataBind()
+            '        'Me.fechacreacionRDP.SelectedDate = SW_ordenesTrabajoDT(0).Item(3).ToString.Trim
+            '        'monedaCB.SelectedValue = SW_ordenesTrabajoDT(0).Item(58)
+            '        'monedaCB.DataBind()
+            '        'tipoCambio()
+            '        'Me.txtnotas.Text = SW_ordenesTrabajoDT.Rows(0).Item(27).ToString.Trim
 
-                    acuerdoTB.Text = SW_pedidoDT.Rows(0).Item(3)
-
-                    clasificaCB.SelectedValue = SW_pedidoDT.Rows(0).Item(4)
-                    clasificaCB.DataBind()
-
-                    responsableCB.SelectedValue = SW_pedidoDT.Rows(0).Item(6)
-                    responsableCB.DataBind()
-
-                    plazoRDP.SelectedDate = SW_pedidoDT.Rows(0).Item(8).ToString.Trim
-
-                    'Me.ultimaActualizacionLB.Text = SW_ordenesTrabajoDT.Rows(0).Item(44)
-                    'Me.txtot.Text = SW_ordenesTrabajoDT.Rows(0).Item(1).ToString.Trim
-
-                    'Me.cbo_turno.Selecte dValue = SW_ordenesTrabajoDT.Rows(0).Item(37).ToString
-                    'Me.cbo_turno.DataBind()
-                    'Me.fechacreacionRDP.SelectedDate = SW_ordenesTrabajoDT(0).Item(3).ToString.Trim
-                    'monedaCB.SelectedValue = SW_ordenesTrabajoDT(0).Item(58)
-                    'monedaCB.DataBind()
-                    'tipoCambio()
-                    'Me.txtnotas.Text = SW_ordenesTrabajoDT.Rows(0).Item(27).ToString.Trim
-
-                End If
-            Else
-                Me.plazoRDP.MinDate = Date.Now
-                If Request.QueryString("preacuerdo") = 1 Then
-                    preAcuerdoLB.Text = "ACUERDO"
-                Else
-                    preAcuerdoLB.Text = "PRE-ACUERDO"
-                End If
-                'Me.ultimaActualizacionLB.Text = Date.Now.ToString("dd/MM/yyyy")
-                'Me.fechacreacionRDP.SelectedDate = Date.Now
-                'tipoCambioTB.Text = "1"
-                'valorTC3.Value = Session("tipoCambioVentaSession")
-                'Me.horaTP.SelectedTime = Date.Now.TimeOfDay
-                'generaCodigoDT = sw_ejecutaSQL.P_GeneradorCodigos(1, "COT")
-                'txtot.Text = generaCodigoDT.Rows(0).Item(0)
-                'clienteDefault = sw_ejecutaSQL.P_selectParametroByID(70)
-                'If clienteDefault.Rows(0).Item(2) = 1 Then
-                '    txtRazonSocialID.Text = clienteDefault.Rows(0).Item(3)
-                '    DatosCliente()
-                'End If
-            End If
+            '    End If
+            'Else
+            '    Me.plazoRDP.MinDate = Date.Now
+            '    'Me.ultimaActualizacionLB.Text = Date.Now.ToString("dd/MM/yyyy")
+            '    'Me.fechacreacionRDP.SelectedDate = Date.Now
+            '    'tipoCambioTB.Text = "1"
+            '    'valorTC3.Value = Session("tipoCambioVentaSession")
+            '    'Me.horaTP.SelectedTime = Date.Now.TimeOfDay
+            '    'generaCodigoDT = sw_ejecutaSQL.P_GeneradorCodigos(1, "COT")
+            '    'txtot.Text = generaCodigoDT.Rows(0).Item(0)
+            '    'clienteDefault = sw_ejecutaSQL.P_selectParametroByID(70)
+            '    'If clienteDefault.Rows(0).Item(2) = 1 Then
+            '    '    txtRazonSocialID.Text = clienteDefault.Rows(0).Item(3)
+            '    '    DatosCliente()
+            '    'End If
+            'End If
         End If
     End Sub
 
-    Protected Sub buscar2_Click(sender As Object, e As EventArgs) Handles buscar2.Click
+    Protected Sub guardaB_Click(sender As Object, e As EventArgs) Handles guardaB.Click
         If acuerdoTB.Text.ToString.Trim.Length < 5 Then
-            mensajeJSS("Ingrese Acuerdo")
-        ElseIf clasificaCB.SelectedValue = 0 Then
-            mensajeJSS("Debe Clasificar el acuerdo.")
-        ElseIf responsableCB.SelectedValue = 0 Then
-            mensajeJSS("¿Quien es el responsable?")
-        ElseIf plazoRDP.SelectedDate.ToString.Length = 0 Then
-            mensajeJSS("Ingrese Plazo")
+            mensajeJSS("Ingrese Comentario")
+        ElseIf acuerdoTB.Text.ToString.Trim.Length > 300 Then
+            mensajeJSS("El comentario no puede tener mas de 300 caracteres")
         Else
-            guardar(Me.Request.QueryString("codac").ToString, Me.Request.QueryString("codped").ToString, acuerdoTB.Text.ToString.Trim, clasificaCB.SelectedValue, responsableCB.SelectedValue, plazoRDP.SelectedDate.Value.ToString("dd/MM/yyyy"), Me.Request.QueryString("iacp").ToString, Me.Request.QueryString("preacuerdo").ToString)
-
+            guardar(Me.Request.QueryString("codAv").ToString, acuerdoTB.Text.ToString.Trim, Me.Request.QueryString("tic"))
         End If
-
     End Sub
 
 
-    Private Sub guardar(ByVal acuerdoid As Integer, pedidoid As Integer, acuerdo As String, clasifica As Integer, responsable As Integer, plazo As String, acceso As Integer, preacuerdo As String)
+    Private Sub guardar(ByVal Id As String, comentario As String, tipo As Integer)
 
         Dim cad As String = ""
-        cad = " exec SD_P_crearUpdateAcuerdo " & acuerdoid.ToString & ", " & pedidoid.ToString & ", '" & acuerdo.ToString & "', " & clasifica.ToString & ", " & responsable.ToString & ", '" & plazo & "', '" & acceso & "'," & preacuerdo
+        If Me.Request.QueryString("tipo").ToString = "PRI" Then
+            cad = " UPDATE SD_tblPrioridadAcuerdo SET comentarioPCM = '" & comentario & "', validado = 2 WHERE prioridadID = " & Id.ToString
+        ElseIf Me.Request.QueryString("tipo").ToString = "HI" Then
+            cad = " exec SD_P_crearUpdateAvance " & Id.ToString & ",0,0,'','','','" & comentario & "',0,0," & tipo.ToString & "," & Request.QueryString("iacp")
+        End If
 
         If cad.Length > 0 Then
             Try
