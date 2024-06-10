@@ -201,7 +201,7 @@
                             </tr>
                             <tr>
                                 <td style="width:15%; padding:5px; Font-Size:14px; font-weight:500">
-                                    Evidencia
+                                    Evidencia (jpg, png, pdf)
                                 </td>
                                 <td style="width:35%; padding:5px">
                                         <asp:FileUpload ID="FileUpload1" runat="server" onchange="PreviewImg(this)" />

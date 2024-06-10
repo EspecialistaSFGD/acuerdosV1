@@ -241,7 +241,8 @@
 
                                 <asp:DropDownList ID="cbo_evento" runat="server" Width="100%" Font-Size="11"
                                     DataSourceID="SDS_P_SelectEventos" DataTextField="nombre" class="form-control"
-                                    DataValueField="eventoID" TabIndex="1" >
+                                    DataValueField="eventoID" TabIndex="1" AppendDataBoundItems="True">
+                                            <asp:ListItem Selected="True" Value="0" > - Seleccione - </asp:ListItem>
                                 </asp:DropDownList>
                             </td>
                         </tr>

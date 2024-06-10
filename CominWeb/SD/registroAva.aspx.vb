@@ -58,53 +58,16 @@ Public Class registroAva
                 SW_pedidoDT = SW_pedidoDA.SD_P_selectAcuerdosV2(Me.Request.QueryString("codigoid").ToString, 0, "", 0, 0)
                 If SW_pedidoDT.Rows.Count > 0 Then
 
-                    plazoRDP.MinDate = SW_pedidoDT.Rows(0).Item(18).ToString.Trim
-                    plazoRDP.MaxDate = SW_pedidoDT.Rows(0).Item(19).ToString.Trim
+                    plazoRDP.MinDate = SW_pedidoDT.Rows(0).Item(28).ToString.Trim
+                    plazoRDP.MaxDate = Date.Now
 
-                    'Me.ultimaActualizacionLB.Text = SW_ordenesTrabajoDT.Rows(0).Item(44)
-                    'Me.txtot.Text = SW_ordenesTrabajoDT.Rows(0).Item(1).ToString.Trim
-
-                    'Me.cbo_turno.Selecte dValue = SW_ordenesTrabajoDT.Rows(0).Item(37).ToString
-                    'Me.cbo_turno.DataBind()
-                    'Me.fechacreacionRDP.SelectedDate = SW_ordenesTrabajoDT(0).Item(3).ToString.Trim
-                    'monedaCB.SelectedValue = SW_ordenesTrabajoDT(0).Item(58)
-                    'monedaCB.DataBind()
-                    'tipoCambio()
-                    'Me.txtnotas.Text = SW_ordenesTrabajoDT.Rows(0).Item(27).ToString.Trim
 
                 End If
-                'Else
-                '    Me.plazoRDP.MinDate = Date.Now
-                '    SW_pedidoDT = SW_pedidoDA.SD_P_selectAcuerdosV2(Me.Request.QueryString("codigoid").ToString, 0, "", 0, 0)
-                '    Me.plazoRDP.MaxDate = SW_pedidoDT.Rows(0).Item(8)
-                '    'Me.ultimaActualizacionLB.Text = Date.Now.ToString("dd/MM/yyyy")
-                '    'Me.fechacreacionRDP.SelectedDate = Date.Now
-                '    'tipoCambioTB.Text = "1"
-                '    'valorTC3.Value = Session("tipoCambioVentaSession")
-                '    'Me.horaTP.SelectedTime = Date.Now.TimeOfDay
-                '    'generaCodigoDT = sw_ejecutaSQL.P_GeneradorCodigos(1, "COT")
-                '    'txtot.Text = generaCodigoDT.Rows(0).Item(0)
-                '    'clienteDefault = sw_ejecutaSQL.P_selectParametroByID(70)
-                '    'If clienteDefault.Rows(0).Item(2) = 1 Then
-                '    '    txtRazonSocialID.Text = clienteDefault.Rows(0).Item(3)
-                '    '    DatosCliente()
-                '    'End If
+
             End If
         End If
     End Sub
 
-    'Protected Sub buscar2_Click(sender As Object, e As EventArgs) Handles buscar2.Click
-    '    If hitoTB.Text.ToString.Trim.Length < 5 Then
-    '        mensajeJSS("Ingrese Hito")
-    '    ElseIf responsableCB.SelectedValue = 0 Then
-    '        mensajeJSS("Seleccione Responsable")
-    '    ElseIf plazoRDP.SelectedDate.ToString.Length = 0 Then
-    '        mensajeJSS("Ingrese Plazo")
-    '    Else
-    '        guardar(Me.Request.QueryString("codac").ToString, Me.Request.QueryString("codped").ToString, hitoTB.Text.ToString.Trim, responsableCB.SelectedValue, plazoRDP.SelectedDate.Value.ToString("dd/MM/yyyy"), "")
-    '    End If
-
-    'End Sub
 
     Private Sub RadAjaxManager1_AjaxRequest(ByVal sender As Object, ByVal e As Telerik.Web.UI.AjaxRequestEventArgs) Handles RadAjaxManager1.AjaxRequest
 

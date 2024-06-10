@@ -38,7 +38,7 @@ Public Class AcuerdosListV
                 Response.Redirect("~/Error/Oops.aspx?Ljbq7iMESelhIUIxzrV7j78eJD/0EFUR=INTRUSO")
             End If
         Else
-                variableGlobalConexion.nombreCadenaCnx = ""
+            variableGlobalConexion.nombreCadenaCnx = ""
             Response.Redirect("~/Error/Oops.aspx?Ljbq7iMESelhIUIxzrV7j78eJD/0EFUR=INTRUSO")
         End If
 
@@ -295,7 +295,7 @@ Public Class AcuerdosListV
         sl.SetCellValue(2, 1, "Exportado el: " & Date.Now.ToString("dd/MM/yyyy HH:mm"))
 
 
-        SW_pedidoDT = SW_pedidoDA.SD_P_selectListAcuerdoExport(0, cbo_evento.SelectedValue, grupoCB.SelectedValue, cbo_departamento1.SelectedValue, cbo_provincia1.SelectedValue, "", 0, 0, 0, "99")
+        SW_pedidoDT = SW_pedidoDA.SD_P_selectListAcuerdoExport(0, cbo_evento.SelectedValue, grupoCB.SelectedValue, cbo_departamento1.SelectedValue, cbo_provincia1.SelectedValue, "", 0, 0, 0, Session("estadoFiltroAcuerdo").ToString)
 
         sl.SetRowStyle(1, 1, stiloTitulo)
         sl.SetRowStyle(2, 2, stiloSubTitulo)
@@ -440,8 +440,10 @@ Public Class AcuerdosListV
         sl.SetCellValue(4, 21, "AVANCE")
         sl.SetCellValue(4, 22, "FECHA DEL AVANCE")
         sl.SetCellValue(4, 23, "COMENTARIO")
-        'sl.SetCellValue(4, 23, "ESTADO")
-        'sl.SetCellValue(4, 24, "ESTADO")
+        sl.SetCellValue(4, 24, "VALIDADO SECTOR")
+        sl.SetCellValue(4, 25, "VALIDADO PCM")
+        sl.SetCellValue(4, 26, "FECHA REGISTRO AVANCE")
+        sl.SetCellValue(4, 27, "TIPO")
 
 
         'emcabezado
@@ -451,17 +453,19 @@ Public Class AcuerdosListV
         stilo.Font.Bold = True
         stilo.FormatCode = "12345.678909"
         stilo.SetHorizontalAlignment(Spreadsheet.HorizontalAlignmentValues.Center)
+        stilo.SetVerticalAlignment(Spreadsheet.VerticalAlignmentValues.Center)
         stilo.Border.LeftBorder.BorderStyle = Spreadsheet.BorderStyleValues.Thin
         stilo.Border.RightBorder.BorderStyle = Spreadsheet.BorderStyleValues.Thin
         stilo.Border.TopBorder.BorderStyle = Spreadsheet.BorderStyleValues.Thin
         stilo.Border.BottomBorder.BorderStyle = Spreadsheet.BorderStyleValues.Thin
+        stilo.SetWrapText(True)
 
         'contenido
         Dim stiloCon As SLStyle = sl.CreateStyle()
         stiloCon.Font.FontName = "Calibri"
         stiloCon.Font.FontSize = 9
         stiloCon.Font.Bold = False
-        stiloCon.FormatCode = "12345.678909"
+        'stiloCon.FormatCode = "12345.678909"
         stiloCon.SetHorizontalAlignment(Spreadsheet.HorizontalAlignmentValues.Center)
         stiloCon.SetVerticalAlignment(Spreadsheet.VerticalAlignmentValues.Center)
         stiloCon.Border.LeftBorder.BorderStyle = Spreadsheet.BorderStyleValues.Thin
@@ -473,9 +477,9 @@ Public Class AcuerdosListV
         'titulo
         Dim stiloTitulo As SLStyle = sl.CreateStyle()
         stiloTitulo.Font.FontName = "Calibri"
-        stiloTitulo.Font.FontSize = 12
+        stiloTitulo.Font.FontSize = 14
         stiloTitulo.Font.Bold = True
-        stiloTitulo.FormatCode = "12345.678909"
+        'stiloTitulo.FormatCode = "12345.678909"
         stiloTitulo.SetHorizontalAlignment(Spreadsheet.HorizontalAlignmentValues.Left)
 
         'subtitulo
@@ -483,8 +487,9 @@ Public Class AcuerdosListV
         stiloSubTitulo.Font.FontName = "Calibri"
         stiloSubTitulo.Font.FontSize = 9
         stiloSubTitulo.Font.Bold = True
-        stiloSubTitulo.FormatCode = "12345.678909"
+        'stiloSubTitulo.FormatCode = "12345.678909"
         stiloSubTitulo.SetHorizontalAlignment(Spreadsheet.HorizontalAlignmentValues.Left)
+
 
 
         sl.SetColumnWidth(5, 6, 18)
@@ -496,7 +501,7 @@ Public Class AcuerdosListV
         sl.SetColumnWidth(17, 17, 40)
         sl.SetColumnWidth(18, 20, 15)
         sl.SetColumnWidth(21, 21, 40)
-        sl.SetColumnWidth(22, 23, 15)
+        sl.SetColumnWidth(22, 27, 15)
 
         Dim rowIndex As Integer = 5
         Dim columnIndex As Integer = 1
@@ -505,6 +510,7 @@ Public Class AcuerdosListV
         sl.SetCellValue(2, 1, "Exportado el: " & Date.Now.ToString("dd/MM/yyyy HH:mm"))
 
         SW_pedidoDT = SW_pedidoDA.SD_P_selectListAcuerdoHitoExport(0, cbo_evento.SelectedValue, grupoCB.SelectedValue, cbo_departamento1.SelectedValue, cbo_provincia1.SelectedValue, codigoTB.Text.ToString.Trim, clasificaCB.SelectedValue, 0, 0, 99, Session("estadoFiltroAcuerdo").ToString)
+
 
 
         sl.SetRowStyle(1, 1, stiloTitulo)
@@ -533,6 +539,10 @@ Public Class AcuerdosListV
         sl.SetCellStyle(4, 21, stilo)
         sl.SetCellStyle(4, 22, stilo)
         sl.SetCellStyle(4, 23, stilo)
+        sl.SetCellStyle(4, 24, stilo)
+        sl.SetCellStyle(4, 25, stilo)
+        sl.SetCellStyle(4, 26, stilo)
+        sl.SetCellStyle(4, 27, stilo)
 
         'sl.SetRowStyle(rowIndex, SW_pedidoDT.Rows.Count + rowIndex - 1, stiloCon)
 
@@ -561,3 +571,4 @@ Public Class AcuerdosListV
     End Sub
 
 End Class
+

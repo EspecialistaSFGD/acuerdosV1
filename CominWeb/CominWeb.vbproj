@@ -83,174 +83,6 @@
     <Content Include="AdatosInicio\Inicio.txt" />
     <Content Include="AdatosInicio\SeguridadInicial.txt" />
     <Content Include="Bienvenida.aspx" />
-    <Content Include="bin\CominWeb.dll" />
-    <Content Include="bin\CominWeb.pdb" />
-    <Content Include="bin\de\Microsoft.ReportViewer.Common.resources.dll" />
-    <Content Include="bin\de\Microsoft.ReportViewer.DataVisualization.resources.dll" />
-    <Content Include="bin\de\Microsoft.ReportViewer.Design.resources.dll" />
-    <Content Include="bin\de\Microsoft.ReportViewer.WebDesign.resources.dll" />
-    <Content Include="bin\de\Microsoft.ReportViewer.WebForms.resources.dll" />
-    <Content Include="bin\de\Microsoft.ReportViewer.WinForms.resources.dll" />
-    <Content Include="bin\documentformat.openxml.dll" />
-    <Content Include="bin\EnvDTE.dll" />
-    <Content Include="bin\EnvDTE80.dll" />
-    <Content Include="bin\es\Microsoft.ReportViewer.Common.resources.dll" />
-    <Content Include="bin\es\Microsoft.ReportViewer.DataVisualization.resources.dll" />
-    <Content Include="bin\es\Microsoft.ReportViewer.Design.resources.dll" />
-    <Content Include="bin\es\Microsoft.ReportViewer.WebDesign.resources.dll" />
-    <Content Include="bin\es\Microsoft.ReportViewer.WebForms.resources.dll" />
-    <Content Include="bin\es\Microsoft.ReportViewer.WinForms.resources.dll" />
-    <Content Include="bin\es\Microsoft.VisualStudio.Data.Core.resources.dll" />
-    <Content Include="bin\es\Microsoft.VisualStudio.Data.Services.resources.dll" />
-    <Content Include="bin\fr\Microsoft.ReportViewer.Common.resources.dll" />
-    <Content Include="bin\fr\Microsoft.ReportViewer.DataVisualization.resources.dll" />
-    <Content Include="bin\fr\Microsoft.ReportViewer.Design.resources.dll" />
-    <Content Include="bin\fr\Microsoft.ReportViewer.WebDesign.resources.dll" />
-    <Content Include="bin\fr\Microsoft.ReportViewer.WebForms.resources.dll" />
-    <Content Include="bin\fr\Microsoft.ReportViewer.WinForms.resources.dll" />
-    <Content Include="bin\GMaps.dll" />
-    <Content Include="bin\it\Microsoft.ReportViewer.Common.resources.dll" />
-    <Content Include="bin\it\Microsoft.ReportViewer.DataVisualization.resources.dll" />
-    <Content Include="bin\it\Microsoft.ReportViewer.Design.resources.dll" />
-    <Content Include="bin\it\Microsoft.ReportViewer.WebDesign.resources.dll" />
-    <Content Include="bin\it\Microsoft.ReportViewer.WebForms.resources.dll" />
-    <Content Include="bin\it\Microsoft.ReportViewer.WinForms.resources.dll" />
-    <Content Include="bin\ja\Microsoft.ReportViewer.Common.resources.dll" />
-    <Content Include="bin\ja\Microsoft.ReportViewer.DataVisualization.resources.dll" />
-    <Content Include="bin\ja\Microsoft.ReportViewer.Design.resources.dll" />
-    <Content Include="bin\ja\Microsoft.ReportViewer.WebDesign.resources.dll" />
-    <Content Include="bin\ja\Microsoft.ReportViewer.WebForms.resources.dll" />
-    <Content Include="bin\ja\Microsoft.ReportViewer.WinForms.resources.dll" />
-    <Content Include="bin\ko\Microsoft.ReportViewer.Common.resources.dll" />
-    <Content Include="bin\ko\Microsoft.ReportViewer.DataVisualization.resources.dll" />
-    <Content Include="bin\ko\Microsoft.ReportViewer.Design.resources.dll" />
-    <Content Include="bin\ko\Microsoft.ReportViewer.WebDesign.resources.dll" />
-    <Content Include="bin\ko\Microsoft.ReportViewer.WebForms.resources.dll" />
-    <Content Include="bin\ko\Microsoft.ReportViewer.WinForms.resources.dll" />
-    <Content Include="bin\Microsoft.Build.Framework.dll" />
-    <Content Include="bin\Microsoft.Build.Tasks.Core.dll" />
-    <Content Include="bin\Microsoft.Build.Utilities.Core.dll" />
-    <Content Include="bin\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
-    <Content Include="bin\Microsoft.Practices.EnterpriseLibrary.Data.dll" />
-    <Content Include="bin\Microsoft.Practices.EnterpriseLibrary.Data.SqlCe.dll" />
-    <Content Include="bin\Microsoft.Practices.ObjectBuilder2.dll" />
-    <Content Include="bin\Microsoft.Practices.ServiceLocation.dll" />
-    <Content Include="bin\Microsoft.Practices.Unity.dll" />
-    <Content Include="bin\Microsoft.Practices.Unity.Interception.dll" />
-    <Content Include="bin\Microsoft.ReportViewer.Common.dll" />
-    <Content Include="bin\Microsoft.ReportViewer.DataVisualization.dll" />
-    <Content Include="bin\Microsoft.ReportViewer.Design.dll" />
-    <Content Include="bin\Microsoft.ReportViewer.ProcessingObjectModel.dll" />
-    <Content Include="bin\Microsoft.ReportViewer.WebDesign.dll" />
-    <Content Include="bin\Microsoft.ReportViewer.WebForms.dll" />
-    <Content Include="bin\Microsoft.ReportViewer.WinForms.dll" />
-    <Content Include="bin\Microsoft.SqlServer.Types.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.ComponentModelHost.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.Data.Core.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.Data.Services.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.Debugger.Interop.11.0.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.Debugger.InteropA.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.Designer.Interfaces.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.Designer.Interfaces.xml" />
-    <Content Include="bin\Microsoft.VisualStudio.GraphModel.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.ManagedInterfaces.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.OLE.Interop.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.ProjectAggregator.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.Shell.Immutable.10.0.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.Shell.Immutable.10.0.xml" />
-    <Content Include="bin\Microsoft.VisualStudio.Shell.Immutable.11.0.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.Shell.Immutable.11.0.xml" />
-    <Content Include="bin\Microsoft.VisualStudio.Shell.Immutable.12.0.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.Shell.Immutable.12.0.xml" />
-    <Content Include="bin\Microsoft.VisualStudio.Shell.Immutable.14.0.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.Shell.Immutable.14.0.xml" />
-    <Content Include="bin\Microsoft.VisualStudio.Shell.Interop.10.0.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.Shell.Interop.11.0.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.Shell.Interop.8.0.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.Shell.Interop.9.0.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.Shell.Interop.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.TemplateWizardInterface.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.TemplateWizardInterface.xml" />
-    <Content Include="bin\Microsoft.VisualStudio.TextManager.Interop.10.0.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.TextManager.Interop.8.0.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.TextManager.Interop.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.VSHelp.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.WCFReference.Interop.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.WCFReference.Interop.xml" />
-    <Content Include="bin\Newtonsoft.Json.dll" />
-    <Content Include="bin\pt\Microsoft.ReportViewer.Common.resources.dll" />
-    <Content Include="bin\pt\Microsoft.ReportViewer.DataVisualization.resources.dll" />
-    <Content Include="bin\pt\Microsoft.ReportViewer.Design.resources.dll" />
-    <Content Include="bin\pt\Microsoft.ReportViewer.WebDesign.resources.dll" />
-    <Content Include="bin\pt\Microsoft.ReportViewer.WebForms.resources.dll" />
-    <Content Include="bin\pt\Microsoft.ReportViewer.WinForms.resources.dll" />
-    <Content Include="bin\roslyn\csc.exe" />
-    <Content Include="bin\roslyn\csi.exe" />
-    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
-    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
-    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
-    <Content Include="bin\roslyn\System.AppContext.dll" />
-    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
-    <Content Include="bin\roslyn\System.Console.dll" />
-    <Content Include="bin\roslyn\System.Diagnostics.FileVersionInfo.dll" />
-    <Content Include="bin\roslyn\System.Diagnostics.StackTrace.dll" />
-    <Content Include="bin\roslyn\System.IO.Compression.dll" />
-    <Content Include="bin\roslyn\System.IO.FileSystem.dll" />
-    <Content Include="bin\roslyn\System.IO.FileSystem.Primitives.dll" />
-    <Content Include="bin\roslyn\System.IO.Pipes.AccessControl.dll" />
-    <Content Include="bin\roslyn\System.IO.Pipes.dll" />
-    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
-    <Content Include="bin\roslyn\System.Security.AccessControl.dll" />
-    <Content Include="bin\roslyn\System.Security.Claims.dll" />
-    <Content Include="bin\roslyn\System.Security.Cryptography.Algorithms.dll" />
-    <Content Include="bin\roslyn\System.Security.Cryptography.Encoding.dll" />
-    <Content Include="bin\roslyn\System.Security.Cryptography.Primitives.dll" />
-    <Content Include="bin\roslyn\System.Security.Cryptography.X509Certificates.dll" />
-    <Content Include="bin\roslyn\System.Security.Principal.Windows.dll" />
-    <Content Include="bin\roslyn\System.Text.Encoding.CodePages.dll" />
-    <Content Include="bin\roslyn\System.ValueTuple.dll" />
-    <Content Include="bin\roslyn\System.Xml.ReaderWriter.dll" />
-    <Content Include="bin\roslyn\System.Xml.XmlDocument.dll" />
-    <Content Include="bin\roslyn\System.Xml.XPath.dll" />
-    <Content Include="bin\roslyn\System.Xml.XPath.XDocument.dll" />
-    <Content Include="bin\roslyn\vbc.exe" />
-    <Content Include="bin\roslyn\VBCSCompiler.exe" />
-    <Content Include="bin\ru\Microsoft.ReportViewer.Common.resources.dll" />
-    <Content Include="bin\ru\Microsoft.ReportViewer.DataVisualization.resources.dll" />
-    <Content Include="bin\ru\Microsoft.ReportViewer.Design.resources.dll" />
-    <Content Include="bin\ru\Microsoft.ReportViewer.WebDesign.resources.dll" />
-    <Content Include="bin\ru\Microsoft.ReportViewer.WebForms.resources.dll" />
-    <Content Include="bin\ru\Microsoft.ReportViewer.WinForms.resources.dll" />
-    <Content Include="bin\SpreadsheetLight.dll" />
-    <Content Include="bin\SqlServerTypes\x64\msvcr120.dll" />
-    <Content Include="bin\SqlServerTypes\x64\SqlServerSpatial140.dll" />
-    <Content Include="bin\SqlServerTypes\x86\msvcr120.dll" />
-    <Content Include="bin\SqlServerTypes\x86\SqlServerSpatial140.dll" />
-    <Content Include="bin\stdole.dll" />
-    <Content Include="bin\Telerik.Web.Design.dll" />
-    <Content Include="bin\Telerik.Web.Device.Detection.dll" />
-    <Content Include="bin\Telerik.Web.UI.dll" />
-    <Content Include="bin\Telerik.Web.UI.Skins.dll" />
-    <Content Include="bin\VSLangProj.dll" />
-    <Content Include="bin\VSLangProj2.dll" />
-    <Content Include="bin\VSLangProj80.dll" />
-    <Content Include="bin\zh-CHS\Microsoft.ReportViewer.Common.resources.dll" />
-    <Content Include="bin\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll" />
-    <Content Include="bin\zh-CHS\Microsoft.ReportViewer.Design.resources.dll" />
-    <Content Include="bin\zh-CHS\Microsoft.ReportViewer.WebDesign.resources.dll" />
-    <Content Include="bin\zh-CHS\Microsoft.ReportViewer.WebForms.resources.dll" />
-    <Content Include="bin\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll" />
-    <Content Include="bin\zh-CHT\Microsoft.ReportViewer.Common.resources.dll" />
-    <Content Include="bin\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll" />
-    <Content Include="bin\zh-CHT\Microsoft.ReportViewer.Design.resources.dll" />
-    <Content Include="bin\zh-CHT\Microsoft.ReportViewer.WebDesign.resources.dll" />
-    <Content Include="bin\zh-CHT\Microsoft.ReportViewer.WebForms.resources.dll" />
-    <Content Include="bin\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll" />
     <Content Include="Ctrl_GrillaEmergente.aspx" />
     <Content Include="Ctrl_GrillaEmergenteCotiVenta.aspx" />
     <Content Include="Ctrl_GrillaEmergenteRespaldo.aspx" />
@@ -267,17 +99,6 @@
     <Content Include="DataSetReporteProcesados.xsc">
       <DependentUpon>DataSetReporteProcesados.xsd</DependentUpon>
     </Content>
-    <None Include="bin\CominWeb.dll.config" />
-    <Content Include="bin\roslyn\csc.exe.config" />
-    <Content Include="bin\roslyn\csc.rsp" />
-    <Content Include="bin\roslyn\csi.exe.config" />
-    <Content Include="bin\roslyn\csi.rsp" />
-    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
-    <Content Include="bin\roslyn\Microsoft.Managed.Core.targets" />
-    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
-    <Content Include="bin\roslyn\vbc.exe.config" />
-    <Content Include="bin\roslyn\vbc.rsp" />
-    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <None Include="DataSetReporteProcesados.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSetReporteProcesados1.Designer.vb</LastGenOutput>
@@ -341,7 +162,6 @@
     <Content Include="Mantto_DS.xsc">
       <DependentUpon>Mantto_DS.xsd</DependentUpon>
     </Content>
-    <Content Include="libman.json" />
     <None Include="Mantto_DS.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Mantto_DS.Designer.vb</LastGenOutput>
@@ -350,6 +170,7 @@
     <Content Include="Mantto_DS.xss">
       <DependentUpon>Mantto_DS.xsd</DependentUpon>
     </Content>
+    <None Include="My Project\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="SD\AcuerdosListHitoV.aspx" />
     <Content Include="SD\Form_acreditadoList.aspx" />
     <Content Include="SD\Form_asistenciaCargaMasivaDB.aspx" />
@@ -357,9 +178,11 @@
     <Content Include="SD\AcuerdosListV.aspx" />
     <Content Include="SD\Form_menuSD.aspx" />
     <Content Include="SD\registroAcTipo.aspx" />
-    <Content Include="SD\registroAva.aspx" />
+    <Content Include="SD\registroPedidoV22.aspx" />
+    <Content Include="SD\registroPedidoV.aspx" />
     <Content Include="SD\registroComenDes.aspx" />
     <Content Include="SD\registroComentario.aspx" />
+    <Content Include="SD\registroAva.aspx" />
     <Content Include="SD\registroHi.aspx" />
     <Content Include="SD\registroAc.aspx" />
     <Content Include="SD\registroHitoV.aspx" />
@@ -371,8 +194,6 @@
     <Content Include="SD\Form_asistenciaEventos.aspx" />
     <Content Include="SD\Form_asistenciaListOp.aspx" />
     <Content Include="SD\Form_BienvenidoSD.aspx" />
-    <Content Include="SD\registroPedidoV.aspx" />
-    <Content Include="SD\registroPedidoV22.aspx" />
     <Content Include="SD\Reportes\Form_ReportAcuerdoIDDescarga.aspx" />
     <Content Include="SessionActiva.aspx" />
     <Content Include="SqlServerTypes\Loader.cs" />
@@ -531,11 +352,6 @@
     <Compile Include="DBcomin_EntregaHerramienta.vb">
       <DependentUpon>DBcomin_EntregaHerramienta.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DBcomin_EntregaHerramienta1.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBcomin_EntregaHerramienta.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DBcomin_EntregaProducto1.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -649,18 +465,27 @@
     </Compile>
     <Compile Include="SD\Form_menuSD.aspx.vb">
       <DependentUpon>Form_menuSD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SD\registroAcTipo.aspx.designer.vb">
       <DependentUpon>registroAcTipo.aspx</DependentUpon>
     </Compile>
     <Compile Include="SD\registroAcTipo.aspx.vb">
       <DependentUpon>registroAcTipo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SD\registroAva.aspx.designer.vb">
-      <DependentUpon>registroAva.aspx</DependentUpon>
+    <Compile Include="SD\registroPedidoV22.aspx.designer.vb">
+      <DependentUpon>registroPedidoV22.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SD\registroAva.aspx.vb">
-      <DependentUpon>registroAva.aspx</DependentUpon>
+    <Compile Include="SD\registroPedidoV22.aspx.vb">
+      <DependentUpon>registroPedidoV22.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SD\registroPedidoV.aspx.designer.vb">
+      <DependentUpon>registroPedidoV.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\registroPedidoV.aspx.vb">
+      <DependentUpon>registroPedidoV.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SD\registroComenDes.aspx.designer.vb">
@@ -668,12 +493,21 @@
     </Compile>
     <Compile Include="SD\registroComenDes.aspx.vb">
       <DependentUpon>registroComenDes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SD\registroComentario.aspx.designer.vb">
       <DependentUpon>registroComentario.aspx</DependentUpon>
     </Compile>
     <Compile Include="SD\registroComentario.aspx.vb">
       <DependentUpon>registroComentario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SD\registroAva.aspx.designer.vb">
+      <DependentUpon>registroAva.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\registroAva.aspx.vb">
+      <DependentUpon>registroAva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SD\registroHi.aspx.designer.vb">
       <DependentUpon>registroHi.aspx</DependentUpon>
@@ -751,18 +585,6 @@
     <Compile Include="SD\Form_BienvenidoSD.aspx.vb">
       <DependentUpon>Form_BienvenidoSD.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SD\registroPedidoV.aspx.designer.vb">
-      <DependentUpon>registroPedidoV.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SD\registroPedidoV.aspx.vb">
-      <DependentUpon>registroPedidoV.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SD\registroPedidoV22.aspx.designer.vb">
-      <DependentUpon>registroPedidoV22.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SD\registroPedidoV22.aspx.vb">
-      <DependentUpon>registroPedidoV22.aspx</DependentUpon>
     </Compile>
     <Compile Include="SD\Reportes\Form_ReportAcuerdoIDDescarga.aspx.designer.vb">
       <DependentUpon>Form_ReportAcuerdoIDDescarga.aspx</DependentUpon>
@@ -918,11 +740,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="bin\zh-Hans\" />
-    <Folder Include="bin\zh-Hant\" />
     <Folder Include="DataSet\" />
     <Folder Include="Models\" />
-    <Folder Include="My Project\PublishProfiles\" />
     <Folder Include="Resources\" />
     <Folder Include="Scripts\" />
     <Folder Include="SD\evidencia\" />
@@ -935,7 +754,104 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="bin\Telerik.Web.UI.dll" />
+    <Reference Include="documentformat.openxml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\documentformat.openxml.dll</HintPath>
+    </Reference>
+    <Reference Include="GMaps, Version=4.1.0.5, Culture=neutral, PublicKeyToken=564d55b144e7aa5a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\GMaps.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.MSXML, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Microsoft.MSXML.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=e44a2bc38ed2c13c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data.SqlCe, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Practices.EnterpriseLibrary.Data.SqlCe.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder2, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Practices.ObjectBuilder2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1620.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1620.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1620.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1620.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1620.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1620.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="SpreadsheetLight, Version=3.4.9.0, Culture=neutral, PublicKeyToken=32fbb46dc1730c57, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\SpreadsheetLight.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Telerik.Web.Design, Version=2019.2.514.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Telerik.Web.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.Device.Detection, Version=2019.2.514.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Telerik.Web.Device.Detection.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI, Version=2019.2.514.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI.Skins, Version=2019.2.514.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Telerik.Web.UI.Skins.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

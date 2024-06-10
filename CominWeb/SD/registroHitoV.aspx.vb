@@ -49,6 +49,22 @@ Public Class registroHitoV
                 RadGrid1.MasterTableView.GetColumn("TemplateColumnDelete").Display = True
             End If
 
+            If Request.QueryString("sup") = 1 Or Request.QueryString("sup") = 2 Then
+                RadGrid1.MasterTableView.GetColumn("nomContacto").Display = True
+                RadGrid1.MasterTableView.GetColumn("telefContacto").Display = True
+            Else
+                RadGrid1.MasterTableView.GetColumn("nomContacto").Display = False
+                RadGrid1.MasterTableView.GetColumn("telefContacto").Display = False
+            End If
+
+
+            If Request.QueryString("sup") = 2 Then
+                RadGrid1.MasterTableView.GetColumn("reactivaHito").Display = True
+            Else
+                RadGrid1.MasterTableView.GetColumn("reactivaHito").Display = False
+            End If
+
+
             If Me.Request.QueryString("ubig") Then
                 RadGridImagen.MasterTableView.GetColumn("comentarioSector").Display = False
             End If
@@ -110,7 +126,7 @@ Public Class registroHitoV
 
     Protected Sub retornarB_Click(sender As Object, e As EventArgs) Handles retornarB.Click
         If Request.QueryString("sup") = 2 Then
-            Response.Redirect("~/SD/AcuerdosListHitoV.aspx?lkjasdliwupqwinasndlkkjasKASNDDDWILADdASKJSdwuewue=lksajdasdwWDwdwDdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD" & "&iacp=" & "&en=" & Me.Request.QueryString("en") & "&sup=" & Me.Request.QueryString("sup") & Me.Request.QueryString("iacp"))
+            Response.Redirect("~/SD/AcuerdosListHitoV.aspx?lkjasdliwupqwinasndlkkjasKASNDDDWILADdASKJSdwuewue=lksajdasdwWDwdwDdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD" & "&iacp=" & Me.Request.QueryString("iacp") & "&en=" & Me.Request.QueryString("en") & "&sup=" & Me.Request.QueryString("sup"))
         Else
             Response.Redirect("~/SD/AcuerdosListV.aspx?7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=" & Me.Request.QueryString("7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0") & "&gjXtIkEroS=SD_SSFD&ksjcmj=" & Me.Request.QueryString("ksjcmj") & "&hsndktumg=" & Me.Request.QueryString("hsndktumg") & "&tipo=" & Me.Request.QueryString("tipo") & "&ubig=" & Me.Request.QueryString("ubig") & "&de=" & Me.Request.QueryString("de") & "&en=" & Me.Request.QueryString("en") & "&sup=" & Me.Request.QueryString("sup") & "&enti=" & Me.Request.QueryString("enti") & "&iacp=" & Me.Request.QueryString("iacp"))
         End If

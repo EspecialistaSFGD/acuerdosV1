@@ -119,6 +119,31 @@
                 ajaxManager.ajaxRequest("reactivaHito,0," + id);
             }
 
+            function deleteAvan(id, est) {
+                var ubig = '<%= Me.Request.QueryString("ubig")%>';
+                var sup = '<%= Me.Request.QueryString("sup")%>';
+
+                if (ubig > 0) {
+                    mensaje('error', 'Acceso solo para el sector.');
+                }
+                else if (sup == 0) {
+                    mensaje('error', 'Acceso solo para el sector.');
+                }
+                else if (sup == 2) {
+                    mensaje('error', 'Acceso solo para el sector.');
+                }
+                else {
+                    if (est == 1) {
+                        mensaje('information', 'Hito cumplido, no se puede eliminar.');
+                    }
+                    else {
+                        var ajaxManager = $find("<%= RadAjaxManager1.ClientID %>");
+                        ajaxManager.ajaxRequest("deleteAvan," + id + ",0");
+                    }
+                }
+                return false;
+            }
+
             function frmHitoN(id) {
                 var est = '<%= Me.Request.QueryString("estReg")%>';
                 var pla = '<%= Me.Request.QueryString("pla")%>';
@@ -669,6 +694,20 @@
                         <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small"/>
                         <ItemStyle HorizontalAlign="Left" Font-Size="Small" />
                     </telerik:GridBoundColumn> 
+
+                    <telerik:GridBoundColumn DataField="nomContacto" FilterControlAltText="Filter nomContacto column" 
+                        HeaderText="CONTACTO" SortExpression="nomContacto" UniqueName="nomContacto" AutoPostBackOnFilter="true" 
+                        FilterControlWidth="100%" ShowFilterIcon="false">
+                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small"/>
+                        <ItemStyle HorizontalAlign="Left" Font-Size="Small" />
+                    </telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn DataField="telefContacto" FilterControlAltText="Filter entidad column" 
+                        HeaderText="TELEFONO" SortExpression="telefContacto" UniqueName="telefContacto" AutoPostBackOnFilter="true" 
+                        FilterControlWidth="100%" ShowFilterIcon="false">
+                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small"/>
+                        <ItemStyle HorizontalAlign="Left" Font-Size="Small" />
+                    </telerik:GridBoundColumn>
+
                     <telerik:GridTemplateColumn FilterControlAltText="Filter TCAvance column" HeaderTooltip="Crear Avance"
                         HeaderText="AV" UniqueName="TCAvance" AllowFiltering="false" >
                         <ItemTemplate>
@@ -689,8 +728,8 @@
                         <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" />
                         <ItemStyle HorizontalAlign="Center" Width="2%" />
                     </telerik:GridTemplateColumn>
-                    <telerik:GridTemplateColumn FilterControlAltText="Filter TemplateColumnEstado column" 
-                        HeaderText="REActiva" UniqueName="TemplateColumnDelete" AllowFiltering="false" >
+                    <telerik:GridTemplateColumn FilterControlAltText="Filter reactivaHito column" 
+                        HeaderText="REActiva" UniqueName="reactivaHito" AllowFiltering="false" >
                         <ItemTemplate>
                                 <asp:ImageButton ID="reactivaHito" runat="server" CssClass="cursor" 
                                     ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/activo_0.png"

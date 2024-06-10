@@ -40,7 +40,7 @@
             Response.Redirect("~/Bienvenida.aspx?gjXtIkEroS=eninPY2FEzzPYE==")
         Else
             'Response.Redirect("~/Bienvenida.aspx?gjXtIkEroS=eninPY2FEzzPYE==") '    MANNUCCI
-            Response.Redirect("~/SD/Form_BienvenidoSD.aspx?gjXtIkEroS=SD_SSFD")
+            Response.Redirect("~/SD/Form_BienvenidoSD.aspx?au=0&7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=2B6AC8BbF4ADF440005AFC42EF337555FB0008BF9770791Z&gjXtIkEroS=SD_SSFD")
         End If
     End Sub
 
