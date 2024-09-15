@@ -102,60 +102,81 @@
     </telerik:RadCodeBlock>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" style="font-family: arial, helvetica, sans-serif;">
+
+        <div class="top_nav">
+            <img id="Img2" runat="server" src="https://sesigue.com/REFERENCIASBASE/Resources/sd_cabecera_web.png" style="width:100%" />
+        </div>
+
         <div class="top_nav">
           <div class="nav_menu">
-              <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center; font-weight:bold;font-size:24px">
-                      <asp:Label ID="tituloLB" runat="server" Font-Size="44px" Font-Bold="true" Text="REGISTRO DE ACREDITADOS"> </asp:Label>
+              <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center; margin-top:10px; font-weight:bold;font-size:24px">
+                  <%--<br />--%>
+                      <asp:Label ID="tituloLB" runat="server" Font-Bold="False" Font-Size="22pt" Text="" style="font-weight: 600;"></asp:Label>
                 </div>
           </div>
         </div>
 
-        <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center; padding-top:30px">
-            
-            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                <asp:DropDownList ID="cbo_evento" runat="server" Width="90%" Font-Size="45"
-                    DataSourceID="SDS_P_SelectEventos" DataTextField="nombre" 
-                    DataValueField="eventoID" TabIndex="1">
-                </asp:DropDownList>
-            </div>
-            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                <asp:DropDownList ID="cbo_tipoDocumento" runat="server" Width="90%" Font-Size="45"
-                    DataSourceID="SDS_P_SelectDocumento" DataTextField="nombre" 
-                    DataValueField="TipoDocumentoID" TabIndex="5">
-                </asp:DropDownList>
-            </div>
-            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                <asp:TextBox ID="nroDocTB" Font-Size="45" runat="server" Width="90%" autocomplete="off" placeholder="NRO. DOCUMENTO" TextMode="Phone"></asp:TextBox>
-            </div>
 
-            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                <asp:Button ID="nuevoB" runat="server" Text="BUSCAR" class="styleMe" Width="90%" 
-                    Height="150px" Font-Size="35" />
-            </div>
 
-            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center; padding-top:10px">
+                <center>
+                        <table style="width:80%" border="0">
+                            <tr>
+                                <td style="padding:10px" >
+                                        <asp:DropDownList ID="cbo_evento" runat="server" Width="100%" Font-Size="45"
+                                            DataSourceID="SDS_P_SelectEventos" DataTextField="nombre" class="form-control" 
+                                            DataValueField="eventoID" TabIndex="1">
+                                        </asp:DropDownList>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding:10px">
+                                        <asp:TextBox ID="nroDocTB" Font-Size="45" runat="server" Width="100%" autocomplete="off" MaxLength="8"
+                                             class="form-control" placeholder="NRO. DOCUMENTO" TextMode="Phone"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <br />
+                                    <asp:Button ID="nuevoB" runat="server" Text="BUSCAR" class="styleMe" Width="100%" 
+                                        Height="150px" Font-Size="35" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="align-content:center">
+                                    <center>
+                                        <br />
+                                        <asp:Label ID="estadoLB" runat="server" Font-Size="65px" Font-Bold="true" Text="-"> </asp:Label>
+                                    </center>
+                                </td>
+                            </tr>
 
-                <asp:Label ID="estadoLB" runat="server" Font-Size="65px" Font-Bold="true" Text="-"> </asp:Label>
-
-            </div>
+                        </table>
+                </center>
         </div>
+
+
+
+
+
     
         <asp:SqlDataSource ID="SDS_P_SelectEventos" runat="server" 
             SelectCommand="SD_P_selectEventos" SelectCommandType="StoredProcedure">
             <SelectParameters>
                 <asp:Parameter DefaultValue="0" Name="eventoId" Type="Int32" />
+                <asp:Parameter DefaultValue="1" Name="tipo" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
 
-    <asp:SqlDataSource ID="SDS_P_SelectDocumento" runat="server" 
+<%--    <asp:SqlDataSource ID="SDS_P_SelectDocumento" runat="server" 
         SelectCommand="P_selectDocumento" SelectCommandType="StoredProcedure">
         <SelectParameters>
             <asp:Parameter DefaultValue="1" Name="Tipo" Type="Int32" />
             <asp:Parameter DefaultValue="0" Name="tipoSelect" Type="Int32" />
             <asp:Parameter DefaultValue="0" Name="tipoDocumentoID" Type="Int32" />
         </SelectParameters>
-    </asp:SqlDataSource>
+    </asp:SqlDataSource>--%>
         <asp:ScriptManager ID="ScriptManager1" runat="server">
             </asp:ScriptManager>
          <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" runat="server" Skin="Default">
@@ -173,4 +194,7 @@
 <script type="text/javascript" src="http://162.248.52.148/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
 
 </body>
+<%--    <footer>
+    <img src="https://sesigue.com/REFERENCIASBASE/Resources/sd_inferior_web.png" style="width:100%" />
+</footer>--%>
 </html>

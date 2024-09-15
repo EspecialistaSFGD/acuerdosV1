@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class Form_menuSD
-
+    
     '''<summary>
     '''RadCodeBlock1 control.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class Form_menuSD
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RadCodeBlock1 As Global.Telerik.Web.UI.RadCodeBlock
-
+    
     '''<summary>
     '''form1 control.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class Form_menuSD
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
-
+    
     '''<summary>
     '''Img1 control.
     '''</summary>
@@ -39,7 +39,7 @@ Partial Public Class Form_menuSD
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Img1 As Global.System.Web.UI.HtmlControls.HtmlImage
-
+    
     '''<summary>
     '''formLogin control.
     '''</summary>
@@ -48,7 +48,34 @@ Partial Public Class Form_menuSD
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents formLogin As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
+    
+    '''<summary>
+    '''acreditadoBN control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents acreditadoBN As Global.System.Web.UI.HtmlControls.HtmlAnchor
+    
+    '''<summary>
+    '''asistenciaBN control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents asistenciaBN As Global.System.Web.UI.HtmlControls.HtmlAnchor
+    
+    '''<summary>
+    '''reunionesBN control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents reunionesBN As Global.System.Web.UI.HtmlControls.HtmlAnchor
+    
     '''<summary>
     '''prioridadesBN control.
     '''</summary>
@@ -57,7 +84,7 @@ Partial Public Class Form_menuSD
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents prioridadesBN As Global.System.Web.UI.HtmlControls.HtmlAnchor
-
+    
     '''<summary>
     '''listAcuerdoB control.
     '''</summary>
@@ -66,7 +93,7 @@ Partial Public Class Form_menuSD
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents listAcuerdoB As Global.System.Web.UI.HtmlControls.HtmlAnchor
-
+    
     '''<summary>
     '''listHitosB control.
     '''</summary>
@@ -75,7 +102,7 @@ Partial Public Class Form_menuSD
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents listHitosB As Global.System.Web.UI.HtmlControls.HtmlAnchor
-
+    
     '''<summary>
     '''hiddenField control.
     '''</summary>
@@ -84,7 +111,7 @@ Partial Public Class Form_menuSD
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents hiddenField As Global.System.Web.UI.HtmlControls.HtmlInputHidden
-
+    
     '''<summary>
     '''ScriptManager1 control.
     '''</summary>
@@ -93,7 +120,7 @@ Partial Public Class Form_menuSD
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ScriptManager1 As Global.System.Web.UI.ScriptManager
-
+    
     '''<summary>
     '''RadAjaxManager1 control.
     '''</summary>

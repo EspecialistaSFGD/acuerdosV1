@@ -434,7 +434,7 @@
                             Display="false">
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="UBICA" FilterControlAltText="Filter UBICA column" 
-                            HeaderText="Ubigeo" SortExpression="UBICA" UniqueName="UBICA" AutoPostBackOnFilter="true" 
+                            HeaderText="UBICA" SortExpression="UBICA" UniqueName="UBICA" AutoPostBackOnFilter="true" 
                             FilterControlWidth="100%" ShowFilterIcon="false" >
                             <HeaderStyle HorizontalAlign="Center" Font-Bold="true" />
                             <ItemStyle HorizontalAlign="Left" />
@@ -631,6 +631,11 @@
                             <HeaderStyle HorizontalAlign="Center" Font-Bold="true" />
                             <ItemStyle HorizontalAlign="Left" />
                         </telerik:GridBoundColumn>
+                        <telerik:gridboundcolumn DataField="fechaRegistro" DataType="System.DateTime" 
+                            FilterControlAltText="Filter fechaRegistro column" HeaderText="Fecha Registro Avance" 
+                            SortExpression="fechaRegistro" UniqueName="fechaRegistro" DataFormatString="{0:dd/MM/yyyy}" AllowFiltering="False" >
+                            <HeaderStyle HorizontalAlign="Center" Width="85px" Font-Bold="true"  />
+                        </telerik:gridboundcolumn>
                         <telerik:GridTemplateColumn FilterControlAltText="Filter TCComentario column" HeaderTooltip="Crear Comentario"
                             HeaderText="PCM" UniqueName="TCComentario" AllowFiltering="false" >
                             <ItemTemplate>

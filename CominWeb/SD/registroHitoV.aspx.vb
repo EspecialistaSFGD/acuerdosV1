@@ -41,33 +41,53 @@ Public Class registroHitoV
         If Page.IsPostBack = False Then
             'hiddenField.Value = 0
             Session("sessionHitoId") = "-1"
-            If Me.Request.QueryString("estReg") = 1 Then
+            If Request.QueryString("sup") = 3 Then
                 RadGrid1.MasterTableView.GetColumn("TemplateColumnEstado").Display = False
                 RadGrid1.MasterTableView.GetColumn("TemplateColumnDelete").Display = False
-            Else
-                RadGrid1.MasterTableView.GetColumn("TemplateColumnEstado").Display = True
-                RadGrid1.MasterTableView.GetColumn("TemplateColumnDelete").Display = True
-            End If
-
-            If Request.QueryString("sup") = 1 Or Request.QueryString("sup") = 2 Then
-                RadGrid1.MasterTableView.GetColumn("nomContacto").Display = True
-                RadGrid1.MasterTableView.GetColumn("telefContacto").Display = True
-            Else
                 RadGrid1.MasterTableView.GetColumn("nomContacto").Display = False
                 RadGrid1.MasterTableView.GetColumn("telefContacto").Display = False
-            End If
-
-
-            If Request.QueryString("sup") = 2 Then
-                RadGrid1.MasterTableView.GetColumn("reactivaHito").Display = True
-            Else
                 RadGrid1.MasterTableView.GetColumn("reactivaHito").Display = False
-            End If
+                RadGrid1.MasterTableView.GetColumn("TCAvance").Display = False
 
-
-            If Me.Request.QueryString("ubig") Then
                 RadGridImagen.MasterTableView.GetColumn("comentarioSector").Display = False
+                RadGridImagen.MasterTableView.GetColumn("TCsector").Display = False
+                RadGridImagen.MasterTableView.GetColumn("TCComentario").Display = False
+                RadGridImagen.MasterTableView.GetColumn("TCValida").Display = False
+                RadGridImagen.MasterTableView.GetColumn("TemplateColumnDelete").Display = False
+            Else
+                If Me.Request.QueryString("estReg") = 1 Then
+                    RadGrid1.MasterTableView.GetColumn("TemplateColumnEstado").Display = False
+                    RadGrid1.MasterTableView.GetColumn("TemplateColumnDelete").Display = False
+                Else
+                    RadGrid1.MasterTableView.GetColumn("TemplateColumnEstado").Display = True
+                    RadGrid1.MasterTableView.GetColumn("TemplateColumnDelete").Display = True
+                End If
+
+                If Request.QueryString("sup") = 1 Or Request.QueryString("sup") = 2 Then
+                    RadGrid1.MasterTableView.GetColumn("nomContacto").Display = True
+                    RadGrid1.MasterTableView.GetColumn("telefContacto").Display = True
+                Else
+                    RadGrid1.MasterTableView.GetColumn("nomContacto").Display = False
+                    RadGrid1.MasterTableView.GetColumn("telefContacto").Display = False
+                End If
+
+
+                If Request.QueryString("sup") = 2 Then
+                    RadGrid1.MasterTableView.GetColumn("reactivaHito").Display = True
+                Else
+                    RadGrid1.MasterTableView.GetColumn("reactivaHito").Display = False
+                End If
+
+
+                If Me.Request.QueryString("ubig") Then
+                    RadGridImagen.MasterTableView.GetColumn("comentarioSector").Display = False
+                End If
             End If
+
+
+
+
+
 
             If Me.Request.QueryString("codigoid").ToString > 0 Then
                 '        Session("pedido") = Me.Request.QueryString("codigoid").ToString()

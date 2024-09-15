@@ -314,4 +314,18 @@ Friend Class SW_pedido_DA
         ds = db.ExecuteDataSet(cmd)
         Return ds.Tables(0)
     End Function
+
+
+    Public Function SD_P_selectValidaAcreditadoCant(ByVal eventoId As Integer, entidadId As Integer, tipo As Integer) As DataTable
+        Dim db As Database = DatabaseFactory.CreateDatabase(variableGlobalConexion.nombreCadenaCnx)
+        Dim cmd As DbCommand = db.GetStoredProcCommand("SD_P_selectValidaAcreditadoCant")
+        db.AddInParameter(cmd, "@eventoId", DbType.Int32, eventoId)
+        db.AddInParameter(cmd, "@entidadId", DbType.Int32, entidadId)
+        db.AddInParameter(cmd, "@tipo", DbType.Int32, tipo)
+        Dim ds As DataSet
+        ds = db.ExecuteDataSet(cmd)
+        Return ds.Tables(0)
+    End Function
+
+
 End Class

@@ -288,12 +288,15 @@
                     <table width="100%">
                         <tr>
                             <td style="width:30%">
-                                PROVINCIA&nbsp;
+                                PROVINCIA&nbsp;/ DISTRITO
                             </td>
                             <td style="width:70%">
                                 <asp:DropDownList ID="cbo_provincia1" runat="server" DataSourceID="SDS_P_selectProvincia" DataTextField="provincia" 
                                         DataValueField="provinciaID" Width="100%" TabIndex="13" class="form-control" Font-Size="11pt">
-                                    </asp:DropDownList>
+                                </asp:DropDownList>
+                                <asp:DropDownList ID="cbo_distrito" runat="server" DataSourceID="SDS_P_selectDistrito" DataTextField="DISTRITO" AutoPostBack="true"
+                                    DataValueField="distritoID" Width="100%" TabIndex="13" class="form-control" Font-Size="11pt" >
+                                </asp:DropDownList>
                             </td>
                         </tr>
                     </table>
@@ -503,7 +506,7 @@
             <asp:ControlParameter ControlID="cbo_evento" DefaultValue="0" Name="eventoId" PropertyName="Text" Type="String" />
             <asp:ControlParameter ControlID="grupoCB" DefaultValue="0" Name="grupoId" PropertyName="Text" Type="String" />
             <asp:ControlParameter ControlID="cbo_departamento1" DefaultValue="" Name="departamento" PropertyName="SelectedValue" Type="Int32" />
-            <asp:ControlParameter ControlID="cbo_provincia1" DefaultValue="" Name="ubigeo" PropertyName="SelectedValue" Type="Int32" />
+            <asp:ControlParameter ControlID="cbo_distrito" DefaultValue="" Name="ubigeo" PropertyName="SelectedValue" Type="Int32" />
              <asp:ControlParameter ControlID="codigoTB" DefaultValue="0" Name="codigo" PropertyName="Text" Type="String" />
             <asp:ControlParameter ControlID="clasificaCB" DefaultValue="" Name="clasificacion" PropertyName="SelectedValue" Type="Int32" />
             <asp:Parameter DefaultValue="0" Name="responsable" Type="Int32" />
@@ -519,6 +522,7 @@
         <SelectParameters>
             <asp:Parameter DefaultValue="0" Name="eventoId" Type="Int32" />
             <asp:Parameter DefaultValue="0" Name="tipo" Type="Int32" />
+            <asp:QueryStringParameter DefaultValue="0" Name="enti" QueryStringField="en" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDS_SD_P_selectGrupos" runat="server" 
@@ -540,6 +544,15 @@
             <asp:Parameter DefaultValue="1" Name="tipo" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
+    <asp:SqlDataSource ID="SDS_P_selectDistrito" runat="server" 
+        ProviderName="System.Data.SqlClient" SelectCommand="SD_P_selectDistritoSD" 
+        SelectCommandType="StoredProcedure">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="cbo_provincia1" DefaultValue="" Name="provincia" PropertyName="SelectedValue" Type="Int32" />
+            <asp:Parameter DefaultValue="1" Name="tipo" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+
     <asp:SqlDataSource ID="SDS_SD_P_selectClasifica" runat="server" 
         SelectCommand="SD_P_selectGrupos" SelectCommandType="StoredProcedure">
         <SelectParameters>
@@ -562,6 +575,7 @@
             <telerik:AjaxSetting AjaxControlID="cbo_departamento1">
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="cbo_provincia1" LoadingPanelID="RadAjaxLoadingPanel1" />
+                    <telerik:AjaxUpdatedControl ControlID="cbo_distrito" LoadingPanelID="RadAjaxLoadingPanel1" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
             <%--<telerik:AjaxSetting AjaxControlID="buscar2">

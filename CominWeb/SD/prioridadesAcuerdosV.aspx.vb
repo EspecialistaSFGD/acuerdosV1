@@ -25,13 +25,11 @@ Public Class prioridadesAcuerdosV
         'End If
         If Request.QueryString("gjXtIkEroS").ToString = "SD_SSFD" Then
             variableGlobalConexion.nombreCadenaCnx = "SD_CS"
+            SDS_P_selectDistrito.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
             SDS_P_selectProvincia.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
             SDS_P_selectDepartamento.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
             SDS_SD_P_selectGrupos.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
             SDS_P_SelectEventos.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
-
-
-
 
             SDS_SD_P_selectPrioridadAcuerdo.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
             SDS_SD_P_selectGrupos.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
@@ -92,14 +90,19 @@ Public Class prioridadesAcuerdosV
             If Me.Request.QueryString("codsector").ToString = 0 Then
                 cbo_departamento1.Enabled = False
                 cbo_provincia1.Enabled = False
+                cbo_distrito.Enabled = False
 
                 cbo_departamento1.SelectedValue = Me.Request.QueryString("de").ToString
                 cbo_departamento1.DataBind()
 
-                Dim ub As Integer = Right("00" & Request.QueryString("ubig"), 4)
+                Dim ub As Integer = Left(Right("00" & Request.QueryString("ubig"), 6), 4) & "01"
+
                 If ub > 0 Then
-                    cbo_provincia1.SelectedValue = Me.Request.QueryString("ubig").ToString
+                    cbo_provincia1.SelectedValue = ub 'Me.Request.QueryString("ubig").ToString
                     cbo_provincia1.DataBind()
+
+                    cbo_distrito.SelectedValue = Me.Request.QueryString("ubig").ToString
+                    cbo_distrito.DataBind()
                 End If
 
             Else
@@ -503,7 +506,7 @@ Public Class prioridadesAcuerdosV
         Dim rowIndex As Integer = 5
         Dim columnIndex As Integer = 1
 
-        sl.SetCellValue(1, 1, "REPORTE DE ACUERDOS")
+        sl.SetCellValue(1, 1, "REPORTE DE ACUERDOS " & cbo_evento.SelectedItem.Text.ToString)
         sl.SetCellValue(2, 1, "Exportado el: " & Date.Now.ToString("dd/MM/yyyy HH:mm"))
 
 

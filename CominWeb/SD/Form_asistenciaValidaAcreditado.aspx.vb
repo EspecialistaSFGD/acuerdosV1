@@ -25,7 +25,7 @@ Public Class Form_asistenciaValidaAcreditado
         If Request.QueryString("gjXtIkEroS").ToString = "SD_SSFD" Then
             variableGlobalConexion.nombreCadenaCnx = "SD_CS"
             SDS_P_SelectEventos.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
-            SDS_P_SelectDocumento.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
+            'SDS_P_SelectDocumento.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
         Else
             variableGlobalConexion.nombreCadenaCnx = ""
             Response.Redirect("~/Error/Oops.aspx?Ljbq7iMESelhIUIxzrV7j78eJD/0EFUR=INTRUSO")
@@ -47,15 +47,23 @@ Public Class Form_asistenciaValidaAcreditado
     End Sub
 
     Protected Sub nuevoB_Click(sender As Object, e As EventArgs) Handles nuevoB.Click
-        Dim cad As String = ""
-        sw_asistente_DT = sw_asistente.SD_P_selectValidaAcreditado(nroDocTB.Text.ToString, cbo_evento.SelectedValue)
-        If sw_asistente_DT.Rows.Count > 0 Then
-            estadoLB.Text = sw_asistente_DT.Rows(0).Item(5).ToString & " " & sw_asistente_DT.Rows(0).Item(3).ToString & " " & sw_asistente_DT.Rows(0).Item(4).ToString & ", CON DNI " & sw_asistente_DT.Rows(0).Item(2).ToString & ", CON CARGO " & sw_asistente_DT.Rows(0).Item(6).ToString & " - ACREDITADO ! "
-            nroDocTB.Text = ""
+
+        If nroDocTB.Text.ToString.Trim.Length > 5 Then
+            Dim cad As String = ""
+            sw_asistente_DT = sw_asistente.SD_P_selectValidaAcreditado(nroDocTB.Text.ToString, cbo_evento.SelectedValue)
+            If sw_asistente_DT.Rows.Count > 0 Then
+                estadoLB.Text = sw_asistente_DT.Rows(0).Item(0).ToString & " " & sw_asistente_DT.Rows(0).Item(1).ToString &
+                    ", CON DNI " & sw_asistente_DT.Rows(0).Item(2).ToString & ", CON CARGO " & sw_asistente_DT.Rows(0).Item(3).ToString & " - ACREDITADO ! "
+                nroDocTB.Text = ""
+            Else
+                estadoLB.Text = " ** NO ACREDITADO ** "
+                nroDocTB.Text = ""
+            End If
         Else
-            estadoLB.Text = " ** NO ACREDITADO ** "
+            estadoLB.Text = " ** INGRESE DNI VÁLIDO ** "
             nroDocTB.Text = ""
         End If
+
 
         nroDocTB.Focus()
     End Sub

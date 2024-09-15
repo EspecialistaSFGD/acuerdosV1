@@ -172,11 +172,15 @@
     </Content>
     <None Include="My Project\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="SD\AcuerdosListHitoV.aspx" />
+    <Content Include="SD\AregistroAcredita.aspx" />
+    <Content Include="SD\AregistroAsistencia.aspx" />
     <Content Include="SD\Form_acreditadoList.aspx" />
     <Content Include="SD\Form_asistenciaCargaMasivaDB.aspx" />
     <Content Include="SD\Form_asistenciaCargaMasiva.aspx" />
     <Content Include="SD\AcuerdosListV.aspx" />
     <Content Include="SD\Form_menuSD.aspx" />
+    <Content Include="SD\Form_reuniones.aspx" />
+    <Content Include="SD\Form_reunionesDet.aspx" />
     <Content Include="SD\registroAcTipo.aspx" />
     <Content Include="SD\registroPedidoV22.aspx" />
     <Content Include="SD\registroPedidoV.aspx" />
@@ -432,6 +436,20 @@
       <DependentUpon>AcuerdosListHitoV.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="SD\AregistroAcredita.aspx.designer.vb">
+      <DependentUpon>AregistroAcredita.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\AregistroAcredita.aspx.vb">
+      <DependentUpon>AregistroAcredita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SD\AregistroAsistencia.aspx.designer.vb">
+      <DependentUpon>AregistroAsistencia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\AregistroAsistencia.aspx.vb">
+      <DependentUpon>AregistroAsistencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="SD\Form_acreditadoList.aspx.designer.vb">
       <DependentUpon>Form_acreditadoList.aspx</DependentUpon>
     </Compile>
@@ -465,6 +483,20 @@
     </Compile>
     <Compile Include="SD\Form_menuSD.aspx.vb">
       <DependentUpon>Form_menuSD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SD\Form_reuniones.aspx.designer.vb">
+      <DependentUpon>Form_reuniones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\Form_reuniones.aspx.vb">
+      <DependentUpon>Form_reuniones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SD\Form_reunionesDet.aspx.designer.vb">
+      <DependentUpon>Form_reunionesDet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\Form_reunionesDet.aspx.vb">
+      <DependentUpon>Form_reunionesDet.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SD\registroAcTipo.aspx.designer.vb">

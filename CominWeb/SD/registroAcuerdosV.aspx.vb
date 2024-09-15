@@ -82,9 +82,12 @@ Public Class registroAcuerdosV
                         cbo_provincia1.Enabled = True
                         distritoCB.Enabled = False
                     ElseIf ViewState("tipoEvento").ToString = "D" Then
-                        cbo_departamento1.Enabled = True
-                        cbo_provincia1.Enabled = True
-                        distritoCB.Enabled = True
+                        cbo_departamento1.SelectedValue = SW_pedidoDT.Rows(0).Item(12)
+                        cbo_departamento1.DataBind()
+                        cbo_provincia1.SelectedValue = SW_pedidoDT.Rows(0).Item(13)
+                        cbo_provincia1.DataBind()
+                        distritoCB.SelectedValue = SW_pedidoDT.Rows(0).Item(23)
+                        distritoCB.DataBind()
                     End If
 
                     ejeCB.SelectedValue = SW_pedidoDT.Rows(0).Item(18)
@@ -99,6 +102,7 @@ Public Class registroAcuerdosV
                     'grupoCB.Enabled = False
                     cbo_departamento1.Enabled = False
                     cbo_provincia1.Enabled = False
+                    distritoCB.Enabled = False
                     ejeCB.Enabled = False
                     intervencionCB.Enabled = False
                     cuisTB.Enabled = False

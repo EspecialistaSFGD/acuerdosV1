@@ -402,11 +402,8 @@
                         DISTRITO
                     </div>
                     <div class="col-md-10 col-sm-8 col-xs-8 " style="text-align:left; ">
-                        <asp:DropDownList ID="DropDownList1" runat="server" Width="100%" Font-Size="15pt" Height="50px" AutoPostBack="true"
-                            class="form-control" TabIndex="3" AppendDataBoundItems="True" Enabled="false" >
-                            <asp:ListItem Selected="True" Value="0" > - Seleccione - </asp:ListItem>
-                            <asp:ListItem Value="1" > Gobierno Nacional </asp:ListItem>
-                            <asp:ListItem Value="2" > Gobierno Local </asp:ListItem>
+                        <asp:DropDownList ID="cbo_distrito" runat="server" DataSourceID="SDS_P_selectDistrito" DataTextField="DISTRITO" AutoPostBack="true"
+                            DataValueField="distritoID" Width="100%" TabIndex="13" class="form-control" Font-Size="15pt" Height="50px">
                         </asp:DropDownList>
                     </div>
                 </div>
@@ -542,6 +539,14 @@
                 <asp:ControlParameter ControlID="hiddenField" DefaultValue="0" Name="ubigeo" PropertyName="value" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
+        <asp:SqlDataSource ID="SDS_P_selectDistrito" runat="server" 
+            ProviderName="System.Data.SqlClient" SelectCommand="SD_P_selectDistritoSD" 
+            SelectCommandType="StoredProcedure">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="cbo_provincia1" DefaultValue="" Name="provincia" PropertyName="SelectedValue" Type="Int32" />
+                <asp:Parameter DefaultValue="1" Name="tipo" Type="Int32" />
+            </SelectParameters>
+        </asp:SqlDataSource>
 
     <asp:ScriptManager ID="ScriptManager1" runat="server">
 </asp:ScriptManager>
@@ -552,7 +557,6 @@
                     <telerik:AjaxUpdatedControl ControlID="divSec" LoadingPanelID="" />
                     <telerik:AjaxUpdatedControl ControlID="divDep" LoadingPanelID="" />
                     <telerik:AjaxUpdatedControl ControlID="divProv" LoadingPanelID="" />
-                    <%--<telerik:AjaxUpdatedControl ControlID="divDis" LoadingPanelID="" />--%>
                     <telerik:AjaxUpdatedControl ControlID="divEnti" LoadingPanelID="" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
@@ -565,16 +569,22 @@
             <telerik:AjaxSetting AjaxControlID="cbo_departamento1">
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="cbo_provincia1" LoadingPanelID="" />
+                    <telerik:AjaxUpdatedControl ControlID="cbo_distrito" LoadingPanelID="" />
                     <telerik:AjaxUpdatedControl ControlID="hiddenField" LoadingPanelID="" />
                     <telerik:AjaxUpdatedControl ControlID="entidadCB" LoadingPanelID="" />
-                    <%--<telerik:AjaxUpdatedControl ControlID="divDis" LoadingPanelID="" />--%>
                 </UpdatedControls>
             </telerik:AjaxSetting>
             <telerik:AjaxSetting AjaxControlID="cbo_provincia1">
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="hiddenField" LoadingPanelID="" />
+                    <telerik:AjaxUpdatedControl ControlID="cbo_distrito" LoadingPanelID="" />
                     <telerik:AjaxUpdatedControl ControlID="entidadCB" LoadingPanelID="" />
-                    <%--<telerik:AjaxUpdatedControl ControlID="divDis" LoadingPanelID="" />--%>
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+            <telerik:AjaxSetting AjaxControlID="cbo_distrito">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="hiddenField" LoadingPanelID="" />
+                    <telerik:AjaxUpdatedControl ControlID="entidadCB" LoadingPanelID="" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
         </AjaxSettings>

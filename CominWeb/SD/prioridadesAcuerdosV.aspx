@@ -122,38 +122,88 @@
             } 
 
             function frmnovado(id) {
+
+                var enti = '<%= Me.Request.QueryString("en")%>';
                 debugger;
-                var codsector = '<%= Me.Request.QueryString("codsector")%>';
-                if (codsector == 0) {
-                    var csec = '<%= Me.Request.QueryString("sup")%>';
-                    if (csec != 0) {
-                        mensaje('error', 'Acceso denegado');
-                        return true;
+                if (enti != 9999)
+                {
+                    var ambit = '<%= Me.Request.QueryString("amb")%>';
+                    var ubi = '<%= Me.Request.QueryString("ubig")%>';
+                    var codsector = '<%= Me.Request.QueryString("codsector")%>';
+
+                    if (codsector == 0) {
+                        var csec = '<%= Me.Request.QueryString("sup")%>';
+                        if (csec != 0) {
+                            mensaje('error', 'Acceso denegado');
+                            return true;
+                        }
+                        else {
+
+                            if (ambit == "R") {
+                                if (ubi.substr(2, 3) == "000") {
+                                    var oWnd = $find("<%= RadWindow2.ClientID %>");
+                                    var codevento = document.getElementById('<%= cbo_evento.ClientID%>').value;
+                                    var ruta_ventana_empresas = "registroPedidoV.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codigoid=" + id + "&codevento=" + codevento + "&codsector=" + +'<%= Me.Request.QueryString("codsector")%>' + "&secto=0&ubig=" + +'<%= Me.Request.QueryString("ubig")%>' + "&de=" + '<%= Me.Request.QueryString("de")%>' + "&iacp=" + '<%= Me.Request.QueryString("iacp")%>';
+                                    oWnd.setUrl(ruta_ventana_empresas);
+                                    oWnd.add_close(OnClientClose1);
+                                    oWnd.show();
+                                    return false;
+
+                                }
+                                else {
+                                    mensaje('error', 'Acceso denegado');
+                                    return true;
+                                }
+                            }
+                            else if (ambit == "D") {
+                                if (ubi.substr(2, 3) != "000") {
+                                    var oWnd = $find("<%= RadWindow2.ClientID %>");
+                                    var codevento = document.getElementById('<%= cbo_evento.ClientID%>').value;
+                                    var ruta_ventana_empresas = "registroPedidoV.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codigoid=" + id + "&codevento=" + codevento + "&codsector=" + +'<%= Me.Request.QueryString("codsector")%>' + "&secto=0&ubig=" + +'<%= Me.Request.QueryString("ubig")%>' + "&de=" + '<%= Me.Request.QueryString("de")%>' + "&iacp=" + '<%= Me.Request.QueryString("iacp")%>';
+                                    oWnd.setUrl(ruta_ventana_empresas);
+                                    oWnd.add_close(OnClientClose1);
+                                    oWnd.show();
+                                    return false;
+
+                                }
+                                else {
+                                    mensaje('error', 'Acceso denegado');
+                                    return true;
+                                }
+                            }
+                            else {
+                                var oWnd = $find("<%= RadWindow2.ClientID %>");
+                                var codevento = document.getElementById('<%= cbo_evento.ClientID%>').value;
+                                var ruta_ventana_empresas = "registroPedidoV.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codigoid=" + id + "&codevento=" + codevento + "&codsector=" + +'<%= Me.Request.QueryString("codsector")%>' + "&secto=0&ubig=" + +'<%= Me.Request.QueryString("ubig")%>' + "&de=" + '<%= Me.Request.QueryString("de")%>' + "&iacp=" + '<%= Me.Request.QueryString("iacp")%>';
+                                oWnd.setUrl(ruta_ventana_empresas);
+                                oWnd.add_close(OnClientClose1);
+                                oWnd.show();
+                                return false;
+                            }
+
+
+
+                        }
                     }
                     else {
-                        var oWnd = $find("<%= RadWindow2.ClientID %>");
-                        var codevento = document.getElementById('<%= cbo_evento.ClientID%>').value;
-                        var ruta_ventana_empresas = "registroPedidoV.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codigoid=" + id + "&codevento=" + codevento + "&codsector=" + +'<%= Me.Request.QueryString("codsector")%>' + "&secto=0&ubig=" + +'<%= Me.Request.QueryString("ubig")%>' + "&de=" + '<%= Me.Request.QueryString("de")%>' + "&iacp=" + '<%= Me.Request.QueryString("iacp")%>';
-                        oWnd.setUrl(ruta_ventana_empresas);
-                        oWnd.add_close(OnClientClose1);
-                        oWnd.show();
-                        return false;
+
+                        var csec = '<%= Me.Request.QueryString("sup")%>';
+                        if (csec == 0) {
+                            mensaje('error', 'Acceso solo para el sector');
+                            return true;
+                        }
+                        else {
+
+                            var codevento = document.getElementById('<%= cbo_evento.ClientID%>').value;
+                            location.href = "registroAcuerdosV.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codigoid=0&codevento=" + codevento + "&codsector=" + +'<%= Me.Request.QueryString("codsector")%>' + "&secto=0&enti=" + '<%= Me.Request.QueryString("enti")%>' + "&tipo=" + '<%= Me.Request.QueryString("tipo")%>' + "&ubig=" + '<%= Me.Request.QueryString("ubig")%>' + "&de=" + '<%= Me.Request.QueryString("de")%>' + "&sup=" + '<%= Me.Request.QueryString("sup")%>' + "&en=" + '<%= Me.Request.QueryString("en")%>' + "&iacp=" + '<%= Me.Request.QueryString("iacp")%>' + "&preacuerdo=" + '<%= Me.Request.QueryString("preacuerdo")%>';
+                            return false;
+                        }
                     }
                 }
                 else {
-
-                    var csec = '<%= Me.Request.QueryString("sup")%>';
-                    if (csec == 0) {
-                        mensaje('error', 'Acceso solo para el sector');
-                        return true;
-                    }
-                    else {
-
-                        var codevento = document.getElementById('<%= cbo_evento.ClientID%>').value;
-                        location.href = "registroAcuerdosV.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codigoid=0&codevento=" + codevento + "&codsector=" + +'<%= Me.Request.QueryString("codsector")%>' + "&secto=0&enti=" + '<%= Me.Request.QueryString("enti")%>' + "&tipo=" + '<%= Me.Request.QueryString("tipo")%>' + "&ubig=" + '<%= Me.Request.QueryString("ubig")%>' + "&de=" + '<%= Me.Request.QueryString("de")%>' + "&sup=" + '<%= Me.Request.QueryString("sup")%>' + "&en=" + '<%= Me.Request.QueryString("en")%>' + "&iacp=" + '<%= Me.Request.QueryString("iacp")%>' + "&preacuerdo=" + '<%= Me.Request.QueryString("preacuerdo")%>';
-                        return false;
-                    }
+                    mensaje('error', 'Acceso denegado');
                 }
+                
             }
 
             function openWindowPrint() {
@@ -282,7 +332,7 @@
         </div>
 
         <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center; padding-top:30px">
-                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
                     <table width="100%">
                         <tr>
                             <td style="width:30%">
@@ -299,7 +349,7 @@
                     </table>
                 </div>
 
-                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
                     <table width="100%">
                         <tr>
                             <td style="width:30%">
@@ -348,6 +398,21 @@
                         </tr>
                     </table>
                 </div>
+
+                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                    <table width="100%">
+                        <tr>
+                            <td style="width:30%">
+                                DISTRITO&nbsp;
+                            </td>
+                            <td style="width:70%">
+                                    <asp:DropDownList ID="cbo_distrito" runat="server" DataSourceID="SDS_P_selectDistrito" DataTextField="DISTRITO" AutoPostBack="true"
+                                        DataValueField="distritoID" Width="100%" TabIndex="13" class="form-control" Font-Size="11pt" Height="30px">
+                                    </asp:DropDownList>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
         </div>
 
         <div class="col-md-2 col-sm-12 col-xs-12 form-group" style="text-align:center">
@@ -363,7 +428,7 @@
             <asp:Button ID="exportarBAcu" runat="server" Text="EXPORTAR ACUERDOS" class="styleMe1" Width="100%" Height="50px" Font-Size="10pt" />
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 form-group" style="text-align:center">
-            <button class="styleMe" style="Width:100%; Height:50px; " onclick="frmnovado(0); return false;">NUEVO PEDIDO</button>
+            <button id="nPedido" runat="server" class="styleMe" style="Width:100%; Height:50px; " onclick="frmnovado(0); return false;">NUEVO PEDIDO</button>
         </div><%--Bootstrap Glow    MetroTouch  --%>
 
 
@@ -446,7 +511,7 @@
                         </telerik:GridBoundColumn>
 
                         <telerik:GridBoundColumn DataField="objetivoEstrategicoTerritorial" FilterControlAltText="Filter objetivoEstrategicoTerritorial column" 
-                            HeaderText="Eje Estrategico" SortExpression="objetivoEstrategicoTerritorial" UniqueName="objetivoEstrategicoTerritorial" AutoPostBackOnFilter="true" 
+                            HeaderText="Obj. Estrategico" SortExpression="objetivoEstrategicoTerritorial" UniqueName="objetivoEstrategicoTerritorial" AutoPostBackOnFilter="true" 
                             FilterControlWidth="100%" ShowFilterIcon="false">
                             <HeaderStyle HorizontalAlign="Center" Font-Bold="true"/>
                             <ItemStyle HorizontalAlign="Left" />
@@ -575,7 +640,7 @@
             <asp:ControlParameter ControlID="cbo_evento" DefaultValue="0" Name="eventoId" PropertyName="Text" Type="String" />
             <asp:ControlParameter ControlID="grupoCB" DefaultValue="" Name="grupoId" PropertyName="SelectedValue" Type="Int32" />
             <asp:ControlParameter ControlID="cbo_departamento1" DefaultValue="" Name="departamento" PropertyName="SelectedValue" Type="Int32" />
-            <asp:ControlParameter ControlID="cbo_provincia1" DefaultValue="" Name="ubigeo" PropertyName="SelectedValue" Type="Int32" />
+            <asp:ControlParameter ControlID="cbo_distrito" DefaultValue="" Name="ubigeo" PropertyName="SelectedValue" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDS_P_SelectEventos" runat="server" 
@@ -604,7 +669,14 @@
             <asp:Parameter DefaultValue="1" Name="tipo" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
-
+        <asp:SqlDataSource ID="SDS_P_selectDistrito" runat="server" 
+            ProviderName="System.Data.SqlClient" SelectCommand="SD_P_selectDistritoSD" 
+            SelectCommandType="StoredProcedure">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="cbo_provincia1" DefaultValue="" Name="provincia" PropertyName="SelectedValue" Type="Int32" />
+                <asp:Parameter DefaultValue="1" Name="tipo" Type="Int32" />
+            </SelectParameters>
+        </asp:SqlDataSource>
 
 
         <iframe id="iframereporte" width="1" height="1" frameborder="0"></iframe>
@@ -612,7 +684,7 @@
     <telerik:radwindowmanager ID="RadWindowManager1" runat="server" Skin="WebBlue">
         <Windows>
             <telerik:RadWindow ID="RadWindow2" runat="server" Behavior="Move, Close" Behaviors="Move, Close" 
-                Height="550px" InitialBehavior="Move, Close" InitialBehaviors="Move, Close" Left="" Modal="True" 
+                Height="650px" InitialBehavior="Move, Close" InitialBehaviors="Move, Close" Left="" Modal="True" 
                 ReloadOnShow="True" Skin="Metro" Style="display: none;" Top="" Title="Crear o Modificar Pedido" 
                 VisibleStatusbar="false" Width="950px" Animation="Fade">
             </telerik:RadWindow>

@@ -32,6 +32,15 @@ Partial Public Class Form_asistenciaValidaAcreditado
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
+    '''Control Img2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Img2 As Global.System.Web.UI.HtmlControls.HtmlImage
+
+    '''<summary>
     '''Control tituloLB.
     '''</summary>
     '''<remarks>
@@ -48,15 +57,6 @@ Partial Public Class Form_asistenciaValidaAcreditado
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents cbo_evento As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''Control cbo_tipoDocumento.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents cbo_tipoDocumento As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''Control nroDocTB.
@@ -93,15 +93,6 @@ Partial Public Class Form_asistenciaValidaAcreditado
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents SDS_P_SelectEventos As Global.System.Web.UI.WebControls.SqlDataSource
-
-    '''<summary>
-    '''Control SDS_P_SelectDocumento.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents SDS_P_SelectDocumento As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
     '''Control ScriptManager1.

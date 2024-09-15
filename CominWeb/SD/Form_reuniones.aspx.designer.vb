@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class AcuerdosListHitoV
+Partial Public Class Form_reuniones
     
     '''<summary>
     '''RadCodeBlock1 control.
@@ -41,40 +41,13 @@ Partial Public Class AcuerdosListHitoV
     Protected WithEvents Img2 As Global.System.Web.UI.HtmlControls.HtmlImage
     
     '''<summary>
-    '''codigoTB control.
+    '''titulo2LB control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents codigoTB As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
-    '''clasificaCB control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents clasificaCB As Global.System.Web.UI.WebControls.DropDownList
-    
-    '''<summary>
-    '''estadoCB control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents estadoCB As Global.Telerik.Web.UI.RadComboBox
-    
-    '''<summary>
-    '''estadoCBv control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents estadoCBv As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents titulo2LB As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''cbo_evento control.
@@ -84,6 +57,24 @@ Partial Public Class AcuerdosListHitoV
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents cbo_evento As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''salaCB control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents salaCB As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''estadoCB control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents estadoCB As Global.Telerik.Web.UI.RadComboBox
     
     '''<summary>
     '''grupoCB control.
@@ -113,6 +104,15 @@ Partial Public Class AcuerdosListHitoV
     Protected WithEvents cbo_provincia1 As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
+    '''cbo_distrito control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents cbo_distrito As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
     '''buscar2 control.
     '''</summary>
     '''<remarks>
@@ -120,24 +120,6 @@ Partial Public Class AcuerdosListHitoV
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents buscar2 As Global.System.Web.UI.WebControls.Button
-    
-    '''<summary>
-    '''exportarB control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents exportarB As Global.System.Web.UI.WebControls.Button
-    
-    '''<summary>
-    '''expHitoB control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents expHitoB As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
     '''RadGrid1 control.
@@ -149,13 +131,22 @@ Partial Public Class AcuerdosListHitoV
     Protected WithEvents RadGrid1 As Global.Telerik.Web.UI.RadGrid
     
     '''<summary>
-    '''SDS_SD_SD_P_selectListAcuerdoHito control.
+    '''SDS_SD_P_selectEstadoTipo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SDS_SD_SD_P_selectListAcuerdoHito As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents SDS_SD_P_selectEstadoTipo As Global.System.Web.UI.WebControls.SqlDataSource
+    
+    '''<summary>
+    '''SDS_SD_P_selectListReuniones control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SDS_SD_P_selectListReuniones As Global.System.Web.UI.WebControls.SqlDataSource
     
     '''<summary>
     '''SDS_P_SelectEventos control.
@@ -176,6 +167,15 @@ Partial Public Class AcuerdosListHitoV
     Protected WithEvents SDS_SD_P_selectGrupos As Global.System.Web.UI.WebControls.SqlDataSource
     
     '''<summary>
+    '''SDS_SD_P_selectSalas control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SDS_SD_P_selectSalas As Global.System.Web.UI.WebControls.SqlDataSource
+    
+    '''<summary>
     '''SDS_P_selectDepartamento control.
     '''</summary>
     '''<remarks>
@@ -194,40 +194,22 @@ Partial Public Class AcuerdosListHitoV
     Protected WithEvents SDS_P_selectProvincia As Global.System.Web.UI.WebControls.SqlDataSource
     
     '''<summary>
-    '''SDS_SD_P_selectClasifica control.
+    '''SDS_P_selectDistrito control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SDS_SD_P_selectClasifica As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents SDS_P_selectDistrito As Global.System.Web.UI.WebControls.SqlDataSource
     
     '''<summary>
-    '''SDS_SD_P_selectEstadoTipo control.
+    '''ScriptManager1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SDS_SD_P_selectEstadoTipo As Global.System.Web.UI.WebControls.SqlDataSource
-    
-    '''<summary>
-    '''RadWindowManager1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RadWindowManager1 As Global.Telerik.Web.UI.RadWindowManager
-    
-    '''<summary>
-    '''RadWindow2 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RadWindow2 As Global.Telerik.Web.UI.RadWindow
+    Protected WithEvents ScriptManager1 As Global.System.Web.UI.ScriptManager
     
     '''<summary>
     '''RadAjaxLoadingPanel1 control.
@@ -246,13 +228,4 @@ Partial Public Class AcuerdosListHitoV
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RadAjaxManager1 As Global.Telerik.Web.UI.RadAjaxManager
-    
-    '''<summary>
-    '''ScriptManager1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ScriptManager1 As Global.System.Web.UI.ScriptManager
 End Class

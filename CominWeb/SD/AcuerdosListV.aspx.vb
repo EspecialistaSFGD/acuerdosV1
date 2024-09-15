@@ -25,6 +25,7 @@ Public Class AcuerdosListV
             Dim validaDT As New DataTable
             validaDT = SW_pedidoDA.SD_P_selectAcceso(0, Request.QueryString("en").ToString, 9)
             If validaDT.Rows.Count = 1 Then
+                SDS_P_selectDistrito.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
                 SDS_P_selectProvincia.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
                 SDS_P_selectDepartamento.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
                 SDS_SD_P_selectGrupos.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
@@ -64,7 +65,12 @@ Public Class AcuerdosListV
                 If Me.Request.QueryString("en") = 3402 Then
                     grupoCB.Enabled = True
                 Else
-                    grupoCB.Enabled = False
+                    If Me.Request.QueryString("sup") = 3 Then
+                        grupoCB.Enabled = True
+                    Else
+                        grupoCB.Enabled = False
+                    End If
+
                 End If
 
 
@@ -76,12 +82,31 @@ Public Class AcuerdosListV
                 If ub > 0 Then
                     cbo_provincia1.Items.Clear()
                     cbo_provincia1.DataBind()
-                    cbo_provincia1.SelectedValue = Me.Request.QueryString("ubig").ToString
+                    cbo_provincia1.SelectedValue = Left(Right("00" & Request.QueryString("ubig"), 6), 4) & "01"
                     cbo_provincia1.DataBind()
+
+                    'Dim dis As Integer = Right(Request.QueryString("ubig"), 2)
+                    'If dis > 1 Then
+                    cbo_distrito.Items.Clear()
+                    cbo_distrito.DataBind()
+                    cbo_distrito.SelectedValue = Request.QueryString("ubig")
+                    cbo_distrito.DataBind()
+
+                    'End If
+
                 End If
 
-                cbo_departamento1.Enabled = False
-                cbo_provincia1.Enabled = False
+                If Me.Request.QueryString("sup") = 3 Then
+                    cbo_departamento1.Enabled = True
+                    cbo_provincia1.Enabled = True
+                    cbo_distrito.Enabled = True
+                Else
+                    cbo_departamento1.Enabled = False
+                    cbo_provincia1.Enabled = False
+                    cbo_distrito.Enabled = False
+                End If
+
+
             Else
                 grupoCB.Enabled = True
             End If
@@ -343,6 +368,8 @@ Public Class AcuerdosListV
     Protected Sub cbo_departamento1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles cbo_departamento1.SelectedIndexChanged
         cbo_provincia1.Items.Clear()
         cbo_provincia1.DataBind()
+        cbo_distrito.Items.Clear()
+        cbo_distrito.DataBind()
     End Sub
 
     Public Function GetColor(ByVal est As String) As Drawing.Color

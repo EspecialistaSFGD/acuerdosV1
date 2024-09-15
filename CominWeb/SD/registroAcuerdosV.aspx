@@ -355,7 +355,7 @@
                                     PEDIDO (*)
                                 </td>
                                 <td style="padding:5px" colspan="4">
-                                        <asp:TextBox ID="aspectoTB" Font-Size="12" runat="server" Width="100%" autocomplete="OFF" Rows="4" TextMode="MultiLine"
+                                        <asp:TextBox ID="aspectoTB" Font-Size="11" runat="server" Width="100%" autocomplete="OFF" Rows="4" TextMode="MultiLine"
                                             placeholder="" class="form-control" onkeypress="return checkAcuerdo(event)"></asp:TextBox>
                                 </td>
                             </tr>
@@ -426,7 +426,7 @@
                                                 </telerik:GridBoundColumn>
                                                 <telerik:GridBoundColumn DataField="acuerdoModificado" FilterControlAltText="Filter acuerdoModificado column" 
                                                     HeaderText="MODIFICACION" SortExpression="acuerdoModificado" UniqueName="acuerdoModificado" AutoPostBackOnFilter="true" 
-                                                    FilterControlWidth="100%" ShowFilterIcon="false">
+                                                    FilterControlWidth="100%" ShowFilterIcon="false" Display="false">
                                                     <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Large"/>
                                                     <ItemStyle HorizontalAlign="Left" Font-Size="Medium" />
                                                 </telerik:GridBoundColumn>

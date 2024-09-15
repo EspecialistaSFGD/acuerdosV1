@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Form_BienvenidoSD
+Partial Public Class AregistroAsistencia
 
     '''<summary>
     '''Control RadCodeBlock1.
@@ -32,13 +32,22 @@ Partial Public Class Form_BienvenidoSD
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
-    '''Control Img1.
+    '''Control Img2.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents Img1 As Global.System.Web.UI.HtmlControls.HtmlImage
+    Protected WithEvents Img2 As Global.System.Web.UI.HtmlControls.HtmlImage
+
+    '''<summary>
+    '''Control titulo2LB.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents titulo2LB As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Control formLogin.
@@ -48,6 +57,60 @@ Partial Public Class Form_BienvenidoSD
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents formLogin As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''Control dniTB.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents dniTB As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control nombreTB.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents nombreTB As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control apellidosTB.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents apellidosTB As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control telefonoTB.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents telefonoTB As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control correoTB.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents correoTB As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control divTip.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents divTip As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
     '''Control tipoCB.
@@ -149,40 +212,22 @@ Partial Public Class Form_BienvenidoSD
     Protected WithEvents entidadCB As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''Control nombreTB.
+    '''Control autoridadCB.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents nombreTB As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents autoridadCB As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''Control dniTB.
+    '''Control cargoTB.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents dniTB As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Control correoTB.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents correoTB As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Control telefonoTB.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents telefonoTB As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents cargoTB As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''Control generarB.
@@ -194,76 +239,40 @@ Partial Public Class Form_BienvenidoSD
     Protected WithEvents generarB As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''Control listAcuerdoB.
+    '''Control RadGrid1.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents listAcuerdoB As Global.System.Web.UI.HtmlControls.HtmlAnchor
+    Protected WithEvents RadGrid1 As Global.Telerik.Web.UI.RadGrid
 
     '''<summary>
-    '''Control listHitosB.
+    '''Control ubiH.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents listHitosB As Global.System.Web.UI.HtmlControls.HtmlAnchor
+    Protected WithEvents ubiH As Global.System.Web.UI.HtmlControls.HtmlInputHidden
 
     '''<summary>
-    '''Control validaB.
+    '''Control secH.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents validaB As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents secH As Global.System.Web.UI.HtmlControls.HtmlInputHidden
 
     '''<summary>
-    '''Control registroAsistenciaB.
+    '''Control eveH.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents registroAsistenciaB As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''Control asistenteListB.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents asistenteListB As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''Control acreditaListB.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents acreditaListB As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''Control importaAcreditadoB.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents importaAcreditadoB As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''Control hiddenField.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents hiddenField As Global.System.Web.UI.HtmlControls.HtmlInputHidden
+    Protected WithEvents eveH As Global.System.Web.UI.HtmlControls.HtmlInputHidden
 
     '''<summary>
     '''Control SDS_SD_P_selectGrupos.
@@ -293,6 +302,15 @@ Partial Public Class Form_BienvenidoSD
     Protected WithEvents SDS_P_selectProvincia As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
+    '''Control SDS_P_selectDistrito.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SDS_P_selectDistrito As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
     '''Control SDS_SD_P_selectEntidades.
     '''</summary>
     '''<remarks>
@@ -302,13 +320,22 @@ Partial Public Class Form_BienvenidoSD
     Protected WithEvents SDS_SD_P_selectEntidades As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
-    '''Control SDS_P_selectDistrito.
+    '''Control SDS_SD_P_selectAutoridad.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents SDS_P_selectDistrito As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents SDS_SD_P_selectAutoridad As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''Control SDS_SD_P_selectAsistenciaResumen.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SDS_SD_P_selectAsistenciaResumen As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
     '''Control ScriptManager1.

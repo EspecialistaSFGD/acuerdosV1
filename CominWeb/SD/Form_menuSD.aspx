@@ -226,6 +226,24 @@
             --%>
         <div style="width:70%" id="formLogin" runat="server">
                     <div class="col-md-12 col-sm-12 col-xs-12 " style="text-align:center; font-weight:bold; padding-top:20px">
+                        <a target="_blank" id="acreditadoBN" runat="server" class="styleMe" style="width:100%; height:60px; font-size:15pt; padding-top:15px">
+                            REGISTRO DE ACREDITADOS
+                        </a>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12 " style="text-align:center; font-weight:bold; padding-top:20px">
+                        <a target="_blank" id="asistenciaBN" runat="server" class="styleMe" style="width:100%; height:60px; font-size:15pt; padding-top:15px">
+                            REGISTRO DE ASISTENCIA
+                        </a>
+                    </div>
+                    
+                    <div class="col-md-12 col-sm-12 col-xs-12 " style="text-align:center; font-weight:bold; padding-top:20px">
+                        <a target="_blank" id="reunionesBN" runat="server" class="styleMe" style="width:100%; height:60px; font-size:15pt; padding-top:15px">
+                            PROGRAMA DE REUNIONES
+                        </a>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12 " style="text-align:center; font-weight:bold; padding-top:20px">
                         <a target="_blank" id="prioridadesBN" runat="server" class="styleMe" style="width:100%; height:60px; font-size:15pt; margin-top:5px; padding-top:15px">
                             LISTA DE PEDIDOS
                         </a>

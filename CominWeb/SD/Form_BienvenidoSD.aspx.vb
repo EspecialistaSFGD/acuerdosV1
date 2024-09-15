@@ -25,6 +25,7 @@ Public Class Form_BienvenidoSD
         SDS_SD_P_selectGrupos.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
         SDS_P_selectDepartamento.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
         SDS_P_selectProvincia.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
+        SDS_P_selectDistrito.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
         SDS_SD_P_selectEntidades.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
     End Sub
 
@@ -84,7 +85,7 @@ Public Class Form_BienvenidoSD
             divSec.Visible = False
             divDep.Visible = False
             divProv.Visible = False
-            divDis.Visible = False
+            'divDis.Visible = False
         End If
     End Sub
     Protected Sub tipoCB_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles tipoCB.SelectedIndexChanged
@@ -105,15 +106,29 @@ Public Class Form_BienvenidoSD
         hiddenField.Value = cbo_departamento1.SelectedValue
         cbo_provincia1.Items.Clear()
         cbo_provincia1.DataBind()
+        cbo_distrito.Items.Clear()
+        cbo_distrito.DataBind()
+
         entidadCB.Items.Clear()
         entidadCB.DataBind()
     End Sub
 
     Protected Sub cbo_provincia1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles cbo_provincia1.SelectedIndexChanged
         hiddenField.Value = cbo_provincia1.SelectedValue
+
+        cbo_distrito.Items.Clear()
+        cbo_distrito.DataBind()
+
         entidadCB.Items.Clear()
         entidadCB.DataBind()
     End Sub
+
+    Protected Sub cbo_distrito_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles cbo_distrito.SelectedIndexChanged
+        hiddenField.Value = cbo_distrito.SelectedValue
+        entidadCB.Items.Clear()
+        entidadCB.DataBind()
+    End Sub
+
 
     Protected Sub registroAsistenciaB_Click(sender As Object, e As EventArgs) Handles registroAsistenciaB.Click
         Response.Redirect("~/SD/Form_asistenciaEventos.aspx?gjXtIkEroS=SD_SSFD" +
@@ -199,7 +214,7 @@ Public Class Form_BienvenidoSD
             Dim validaDT As New DataTable
             validaDT = SW_pedidoDA.SD_P_selectAcceso(0, entidadCB.SelectedValue, 1)
 
-            If validaDT.Rows.Count > 0 Then
+            If validaDT.Rows.Count > 1 Then
                 mensajeJSSA(validaDT.Rows(0).Item(22).ToString)
             Else
                 If SW_pedidoDA.SD_P_selectParametroByID(8, 0).Rows(0).Item(3) = entidadCB.SelectedValue Then

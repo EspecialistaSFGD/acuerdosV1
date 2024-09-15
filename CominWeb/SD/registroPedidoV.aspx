@@ -109,7 +109,7 @@
                     return false;
                 }
                 else if (aspec.length < 5) {
-                    mensaje('information', 'Ingrese Aspecto crítico');
+                    mensaje('information', 'Ingrese pedido');
                     return false;
                 }
                 else {
@@ -219,13 +219,26 @@
         <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center; padding-top:10px">
 
             <div class="col-md-2 col-sm-2 col-xs-6" style="text-align:left;padding-top:10px">
+                OBJETIVO ESTRATÉGICO
+            </div>
+            <div class="col-md-10 col-sm-10 col-xs-6" style="text-align:center; ">
+                <asp:TextBox ID="ObjEstrategicoTB" Font-Size="9" runat="server" Width="100%" autocomplete="off" 
+                    placeholder="" class="form-control" onkeypress="return checkAcuerdo(event)"></asp:TextBox>
+            </div>
+
+        </div>
+
+
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center; padding-top:10px">
+
+            <div class="col-md-2 col-sm-2 col-xs-6" style="text-align:left;padding-top:10px">
                 EJE ESTRATEGICO
             </div>
             <div class="col-md-10 col-sm-10 col-xs-6" style="text-align:center; ">
                 <asp:DropDownList ID="ejeCB" runat="server" Width="100%" Font-Size="10pt"
                     DataSourceID="SDS_SD_P_selectEje" DataTextField="nombre" class="form-control"
-                    DataValueField="grupoID" TabIndex="6" AppendDataBoundItems="True" >
-                    <asp:ListItem Selected="True" Value="0" > - Seleccione - </asp:ListItem>
+                    DataValueField="grupoID" TabIndex="6" Enabled="false"> 
+                    <%--AppendDataBoundItems="True" <asp:ListItem Selected="True" Value="0" > - Seleccione - </asp:ListItem>--%>
                 </asp:DropDownList>
             </div>
 
@@ -248,7 +261,7 @@
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6" style="text-align:center; ">
                 <asp:TextBox ID="cuisTB" Font-Size="9" runat="server" Width="100%" autocomplete="off" MaxLength="7"
-                    placeholder="" class="form-control" onkeypress="return checkCui(event)"></asp:TextBox>
+                    placeholder="" class="form-control" onkeypress="return checkCui(event)" AutoPostBack="true"></asp:TextBox>
                 <asp:RegularExpressionValidator ID="RegExp1" runat="server"    
                     ErrorMessage="El CUI acepta maximo 7 dígitos máximo :: " Display="None"
                     ControlToValidate="cuisTB" ValidationExpression="^[0-9]{7,7}$" />
@@ -271,12 +284,54 @@
             Font-Bold="True" Font-Size="9pt" Font-Italic="True" />
 
         <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center; padding-top:10px">
-            <%--<div class="col-md-6 col-sm-6 col-xs-6" style="text-align:center;padding-top:10px">
-                <asp:Button ID="retornarB" runat="server" Text="RETORNA A LISTA" class="styleMe" Width="100%" Height="40px" Font-Size="9pt" />
-            </div>--%>
-            <%--<div class="col-md-6 col-sm-6 col-xs-6" style="text-align:center;padding-top:10px">--%>
                 <button class="styleMe1" style="Width:100%; Height:40px; font:16pt" onclick="frmGuardar(0); return false;">GUARDAR</button>
-            <%--</div>--%>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center; padding-top:10px; font-size:15px; text-align:left; font-weight:bold">
+            <asp:Label ID="textoCuiLB" runat="server" Font-Bold="False" Font-Size="14px" Text="" style="font-weight: 600;" ForeColor="Red" ></asp:Label>
+
+            <telerik:radgrid ID="RadGrid1" runat="server" Culture="es-ES" Width="100%"
+                    DataSourceID="SDS_SD_P_selectAcuerdoxCui" Skin="Bootstrap"  
+                    AutoGenerateColumns="False" AllowPaging="True" AllowSorting="True" GroupPanelPosition="Top">
+                    <GroupingSettings CaseSensitive="false" />
+                    <ClientSettings>
+                        <Selecting AllowRowSelect="True" />
+                    </ClientSettings>
+                    <MasterTableView DataSourceID="SDS_SD_P_selectAcuerdoxCui" NoMasterRecordsText="No existen registros." PageSize="5" Font-Size="Smaller">
+                    <CommandItemSettings ExportToPdfText="Export to PDF"></CommandItemSettings>
+                    <RowIndicatorColumn FilterControlAltText="Filter RowIndicator column" Visible="False">
+                        <HeaderStyle Width="41px" />
+                    </RowIndicatorColumn>
+                    <ExpandCollapseColumn Visible="True" 
+                        FilterControlAltText="Filter ExpandColumn column" Created="True">
+                        <HeaderStyle Width="41px" />
+                    </ExpandCollapseColumn>
+                    <Columns>
+                         <telerik:GridBoundColumn DataField="codigo" FilterControlAltText="Filter codigo column" 
+                            HeaderText="Código" SortExpression="codigo" UniqueName="codigo" AutoPostBackOnFilter="true" 
+                            FilterControlWidth="100%" ShowFilterIcon="false">
+                            <HeaderStyle HorizontalAlign="Center" Font-Bold="true" />
+                            <ItemStyle HorizontalAlign="Left" Font-Bold=""  />
+                        </telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="acuerdo" FilterControlAltText="Filter acuerdo column" 
+                            HeaderText="Acuerdo" ReadOnly="True" SortExpression="acuerdo" UniqueName="acuerdo">
+                            <HeaderStyle HorizontalAlign="Center" Font-Bold="true" />
+                            <ItemStyle HorizontalAlign="Left" />
+                        </telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="nomEstadoRegistro" FilterControlAltText="Filter nomEstadoRegistro column" 
+                            HeaderText="Estado" ReadOnly="True" SortExpression="nomEstadoRegistro" UniqueName="nomEstadoRegistro">
+                            <HeaderStyle HorizontalAlign="Center" Font-Bold="true" />
+                            <ItemStyle HorizontalAlign="Left" ForeColor="Red" />
+                        </telerik:GridBoundColumn>
+                        
+                    </Columns>
+                    <EditFormSettings>
+                    <EditColumn FilterControlAltText="Filter EditCommandColumn column"></EditColumn>
+                    </EditFormSettings>
+                    <PagerStyle PageSizeControlType="RadComboBox"></PagerStyle>
+                    </MasterTableView>
+                    <PagerStyle PageSizeControlType="RadComboBox"></PagerStyle>
+                    <FilterMenu EnableImageSprites="False"></FilterMenu>
+                </telerik:radgrid>
 
         </div>
 
@@ -291,7 +346,7 @@
             SelectCommand="SD_P_selectGrupos" SelectCommandType="StoredProcedure">
             <SelectParameters>
                 <asp:Parameter DefaultValue="0" Name="grupoId" Type="Int32" />
-                <asp:Parameter DefaultValue="2" Name="tipo" Type="Int32" />
+                <asp:Parameter DefaultValue="7" Name="tipo" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
         <asp:SqlDataSource ID="SDS_SD_P_selectEje" runat="server" 
@@ -302,14 +357,30 @@
             </SelectParameters>
         </asp:SqlDataSource>
 
+        <asp:SqlDataSource ID="SDS_SD_P_selectAcuerdoxCui" runat="server"  
+            SelectCommand="SD_P_selectAcuerdoxCui" 
+            SelectCommandType="StoredProcedure" >
+            <SelectParameters>
+                <asp:ControlParameter ControlID="cuisTB" DefaultValue="0000" Name="cui" PropertyName="Text" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+
+
     <asp:ScriptManager ID="ScriptManager1" runat="server">
 </asp:ScriptManager>
 <img src="https://sesigue.com/PROFAKTOWEB/SessionActiva.aspx" name="renewSession" id="renewSession" width="1px" height="1px"/>
 
 
 
-    <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" 
-        DefaultLoadingPanelID="RadAjaxLoadingPanel1">
+    <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" DefaultLoadingPanelID="RadAjaxLoadingPanel1">
+        <AjaxSettings>
+            <telerik:AjaxSetting AjaxControlID="cuisTB">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="textoCuiLB" LoadingPanelID="RadAjaxLoadingPanel1" />
+                    <telerik:AjaxUpdatedControl ControlID="RadGrid1" LoadingPanelID="RadAjaxLoadingPanel1" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+        </AjaxSettings>
     </telerik:RadAjaxManager>
 
 

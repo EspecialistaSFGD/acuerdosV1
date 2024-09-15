@@ -115,7 +115,7 @@
             }
 
             function reactivaHito(id) {
-                /*mensaje('error', 'procede la reactivación.' + id);*/
+                var ajaxManager = $find("<%= RadAjaxManager1.ClientID %>");
                 ajaxManager.ajaxRequest("reactivaHito,0," + id);
             }
 
@@ -150,95 +150,57 @@
                 var ubig = '<%= Me.Request.QueryString("ubig")%>';
                 var sup = '<%= Me.Request.QueryString("sup")%>';
                 var codigAcu = document.getElementById("codigoLB").innerHTML;
-                
-                if (ubig > 0) {
+                if (sup == 3) {
                     mensaje('error', 'Acceso solo para el sector.');
                 }
-                else if (sup == 2) {
-                    mensaje('error', 'Acceso solo para el Ministerio.');
-                }
-                else if (sup == 0) {
-                    mensaje('error', 'Acceso solo para el Ministerio.');
-                }
                 else {
-
-                    //if (pla == 1) {
-                    //    mensaje('information', 'Acuerdo VENCIDO, no se puede agregar nuevos hitos.');
-                    //}
-                    //else {
-
-                    if (est == 1) {
-                        mensaje('information', 'Acuerdo cumplido, no se puede agregar nuevos hitos.');
-                        return true;
+                    if (ubig > 0) {
+                        mensaje('error', 'Acceso solo para el sector.');
                     }
-                    else if (est == 3) {
-                        mensaje('information', 'Acuerdo VENCIDO, no se puede agregar nuevos hitos.');
-                        return true;
+                    else if (sup == 2) {
+                        mensaje('error', 'Acceso solo para el Ministerio.');
                     }
-                    else if (est == 4) {
-                        mensaje('information', 'Acuerdo DESESTIMADO, no se puede agregar nuevos hitos.');
-                        return true;
+                    else if (sup == 0) {
+                        mensaje('error', 'Acceso solo para el Ministerio.');
                     }
                     else {
-                        if (est == 4) {
-                            mensaje('information', 'Acuerdo desestimado.');
+
+                        //if (pla == 1) {
+                        //    mensaje('information', 'Acuerdo VENCIDO, no se puede agregar nuevos hitos.');
+                        //}
+                        //else {
+
+                        if (est == 1) {
+                            mensaje('information', 'Acuerdo cumplido, no se puede agregar nuevos hitos.');
+                            return true;
+                        }
+                        else if (est == 3) {
+                            mensaje('information', 'Acuerdo VENCIDO, no se puede agregar nuevos hitos.');
+                            return true;
+                        }
+                        else if (est == 4) {
+                            mensaje('information', 'Acuerdo DESESTIMADO, no se puede agregar nuevos hitos.');
                             return true;
                         }
                         else {
-                            var oWnd = $find("<%= RadWindow2.ClientID %>");
-                            var ruta_ventana_empresas = "registroHi.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codh=" + id + "&codigoid=" + '<%= Me.Request.QueryString("codigoid")%>' + "&tipo=" + '<%= Me.Request.QueryString("tipo")%>' + "&ubig=" + '<%= Me.Request.QueryString("ubig")%>' + "&de=" + '<%= Me.Request.QueryString("de")%>' + "&ksjcmj=" + '<%= Me.Request.QueryString("ksjcmj")%>' + "&en=" + '<%= Me.Request.QueryString("en")%>' + "&codigAcu=" + codigAcu + "&iacp=" + '<%= Me.Request.QueryString("iacp")%>';
-                            oWnd.setUrl(ruta_ventana_empresas);
-                            oWnd.add_close(OnClientClose1);
-                            oWnd.show();
-                            return false;
+                            if (est == 4) {
+                                mensaje('information', 'Acuerdo desestimado.');
+                                return true;
+                            }
+                            else {
+                                var oWnd = $find("<%= RadWindow2.ClientID %>");
+                                var ruta_ventana_empresas = "registroHi.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codh=" + id + "&codigoid=" + '<%= Me.Request.QueryString("codigoid")%>' + "&tipo=" + '<%= Me.Request.QueryString("tipo")%>' + "&ubig=" + '<%= Me.Request.QueryString("ubig")%>' + "&de=" + '<%= Me.Request.QueryString("de")%>' + "&ksjcmj=" + '<%= Me.Request.QueryString("ksjcmj")%>' + "&en=" + '<%= Me.Request.QueryString("en")%>' + "&codigAcu=" + codigAcu + "&iacp=" + '<%= Me.Request.QueryString("iacp")%>';
+                                oWnd.setUrl(ruta_ventana_empresas);
+                                oWnd.add_close(OnClientClose1);
+                                oWnd.show();
+                                return false;
+                            }
+
                         }
+                        //}-------
 
-                    }
-                    //}-------
-
-                }
-                <%--else if (sup == 0) {
-                    mensaje('error', 'Acceso solo para el sector.');
-                }
-                else if (sup == 2) {
-
-                    if (est == 1) {
-                        mensaje('information', 'Acuerdo cumplido, no se puede agregar nuevos hitos.');
-                        return true;
-                    }
-                    else if (est == 3) {
-                        mensaje('information', 'Acuerdo VENCIDO, no se puede agregar nuevos hitos.');
-                        return true;
-                    }
-                    else if (est == 4) {
-                        mensaje('information', 'Acuerdo DESESTIMADO, no se puede agregar nuevos hitos.');
-                        return true;
-                    }
-                    else {
-
-                        var oWnd = $find("<%= RadWindow2.ClientID %>");
-                        var ruta_ventana_empresas = "registroHi.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codh=" + id + "&codigoid=" + '<%= Me.Request.QueryString("codigoid")%>' + "&tipo=" + '<%= Me.Request.QueryString("tipo")%>' + "&ubig=" + '<%= Me.Request.QueryString("ubig")%>' + "&de=" + '<%= Me.Request.QueryString("de")%>' + "&ksjcmj=" + '<%= Me.Request.QueryString("ksjcmj")%>' + "&en=" + '<%= Me.Request.QueryString("en")%>';
-                        oWnd.setUrl(ruta_ventana_empresas);
-                        oWnd.add_close(OnClientClose1);
-                        oWnd.show();
-                        return false;
                     }
                 }
-                else {
-                    
-                    var mensaje = confirm("¿Desea desestimar el acuerdo?");
-                    if (mensaje) {
-                        mensaje('warning', 'Se ha enviando un email a la Secretaría de Descentralización.');
-                        $find("<%= RadAjaxManager1.ClientID%>").ajaxRequest("desestima");
-                        return false;
-                    }
-                    
-                    //if (pla == 1) {
-                    //    mensaje('information', 'Acuerdo VENCIDO, no se puede agregar nuevos hitos.');
-                    //}
-                    //else {
-                }--%>
-                //}-------
 
             }
             
@@ -261,48 +223,54 @@
                 var ubig = '<%= Me.Request.QueryString("ubig")%>';
                 var sup = '<%= Me.Request.QueryString("sup")%>';
 
-                if (ubig > 0) {
+                if (sup == 3) {
                     mensaje('error', 'Acceso solo para el sector.');
                 }
-                else if (sup == 0) {
-                    mensaje('error', 'Acceso solo para el sector.');
-                }
-                else if (sup == 2) {
-                    if (pla == 1) {
-                        mensaje('information', 'Acuerdo VENCIDO.');
+                else {
+
+                    if (ubig > 0) {
+                        mensaje('error', 'Acceso solo para el sector.');
                     }
-                    else {
-                        if (est == 1) {
-                            mensaje('information', 'Acuerdo cumplido, no se puede agregar nuevos avances.');
-                            return true;
-                        }
-                        else if (est == 4) {
-                            mensaje('information', 'Acuerdo Desestimado');
-                            return true;
+                    else if (sup == 0) {
+                        mensaje('error', 'Acceso solo para el sector.');
+                    }
+                    else if (sup == 2) {
+                        if (pla == 1) {
+                            mensaje('information', 'Acuerdo VENCIDO.');
                         }
                         else {
+                            if (est == 1) {
+                                mensaje('information', 'Acuerdo cumplido, no se puede agregar nuevos avances.');
+                                return true;
+                            }
+                            else if (est == 4) {
+                                mensaje('information', 'Acuerdo Desestimado');
+                                return true;
+                            }
+                            else {
 
+                                var oWnd = $find("<%= RadWindow2.ClientID %>");
+                                var ruta_ventana_empresas = "registroAva.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codAv=" + id + "&codh=0&codigoid=" + '<%= Me.Request.QueryString("codigoid")%>' + "&tipo=1&en=" + '<%= Me.Request.QueryString("en")%>' + "&iacp=" + '<%= Me.Request.QueryString("iacp")%>';
+                                oWnd.setUrl(ruta_ventana_empresas);
+                                oWnd.add_close(OnClientCloseAv);
+                                oWnd.show();
+                                return true;
+                            }
+
+                        }
+                    }
+                    else {
+                        var mensajex = confirm("¿Desea solicitar desestimar el acuerdo?");
+                        if (mensajex) {
                             var oWnd = $find("<%= RadWindow2.ClientID %>");
-                            var ruta_ventana_empresas = "registroAva.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codAv=" + id + "&codh=0&codigoid=" + '<%= Me.Request.QueryString("codigoid")%>' + "&tipo=1&en=" + '<%= Me.Request.QueryString("en")%>' + "&iacp=" + '<%= Me.Request.QueryString("iacp")%>';
+                            var ruta_ventana_empresas = "registroComenDes.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codAv=" + id + "&codh=0&codigoid=" + '<%= Me.Request.QueryString("codigoid")%>' + "&tipo=1&en=" + '<%= Me.Request.QueryString("en")%>' + "&codac=" + codac + "&enti=" + '<%= Me.Request.QueryString("enti")%>' + "&iacp=" + '<%= Me.Request.QueryString("iacp")%>';
                             oWnd.setUrl(ruta_ventana_empresas);
                             oWnd.add_close(OnClientCloseAv);
                             oWnd.show();
                             return true;
-                        }
-
-                    }
-                }
-                else {
-                    var mensajex = confirm("¿Desea solicitar desestimar el acuerdo?");
-                    if (mensajex) {
-                        var oWnd = $find("<%= RadWindow2.ClientID %>");
-                        var ruta_ventana_empresas = "registroComenDes.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codAv=" + id + "&codh=0&codigoid=" + '<%= Me.Request.QueryString("codigoid")%>' + "&tipo=1&en=" + '<%= Me.Request.QueryString("en")%>' + "&codac=" + codac + "&enti=" + '<%= Me.Request.QueryString("enti")%>' + "&iacp=" + '<%= Me.Request.QueryString("iacp")%>';
-                        oWnd.setUrl(ruta_ventana_empresas);
-                        oWnd.add_close(OnClientCloseAv);
-                        oWnd.show();
-                        return true;
                         <%--mensaje('warning', 'Se ha enviando un email a la Secretaría de Descentralización.');
                         $find("<%= RadAjaxManager1.ClientID%>").ajaxRequest("desestima");--%>
+                        }
                     }
                 }
             }

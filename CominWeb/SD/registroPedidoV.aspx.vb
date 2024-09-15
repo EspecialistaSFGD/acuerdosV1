@@ -19,6 +19,7 @@ Public Class registroPedidoV
     Dim SW_validaSectorDT As New DataTable
     Dim SW_validaCanSectorDT As New DataTable
     Dim SW_pedidoDA As New SW_pedido_DA
+    Dim SW_parametroDT As New DataTable
     Dim sw_ejecutaSQL As New SW_EjecutaSQL_DA
 
     Private Sub registroPedidoV_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
@@ -27,6 +28,7 @@ Public Class registroPedidoV
             SDS_SD_P_selectGrupos.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
             SDS_SD_P_selectTipoInt.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
             SDS_SD_P_selectEje.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
+            SDS_SD_P_selectAcuerdoxCui.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
         Else
             variableGlobalConexion.nombreCadenaCnx = ""
             Response.Redirect("~/Error/Oops.aspx?Ljbq7iMESelhIUIxzrV7j78eJD/0EFUR=INTRUSO")
@@ -47,7 +49,7 @@ Public Class registroPedidoV
 
                     grupoCB.SelectedValue = SW_pedidoDT.Rows(0).Item(3)
                     grupoCB.DataBind()
-
+                    grupoCB.Enabled = False
                     ejeCB.SelectedValue = SW_pedidoDT.Rows(0).Item(18)
                     ejeCB.DataBind()
 
@@ -55,6 +57,8 @@ Public Class registroPedidoV
                     intervencionCB.DataBind()
                     Me.aspectoTB.Text = SW_pedidoDT.Rows(0).Item(11)
                     Me.cuisTB.Text = SW_pedidoDT.Rows(0).Item(14)
+
+                    Me.ObjEstrategicoTB.Text = SW_pedidoDT.Rows(0).Item(9)
 
                 End If
             Else
@@ -68,7 +72,7 @@ Public Class registroPedidoV
                     grupoCB.Enabled = True
                 End If
 
-                ejeCB.Enabled = True
+                'ejeCB.Enabled = True
                 intervencionCB.Enabled = True
 
             End If
@@ -133,13 +137,15 @@ Public Class registroPedidoV
                             If SW_validaCanSectorDT.Rows(0).Item(0) < SW_validaCanSectorDT.Rows(0).Item(1) Then
                                 guardax()
                             Else
-                                mensajeJSS("Solo puede seleccionar 5 sectores como máximo")
+                                SW_parametroDT = SW_pedidoDA.SD_P_selectParametroByID(15, 2)
+
+                                mensajeJSS("Solo puede seleccionar " & SW_parametroDT.Rows(0).Item(3).ToString & " sectores como máximo")
                             End If
                         End If
 
                     End If
                 Else
-                    mensajeJSS("Límite de Pedido permitido por el Consejo de Estado Regional")
+                    mensajeJSS("Límite de Pedidos permitidos")
                 End If
 
             Else
@@ -150,7 +156,7 @@ Public Class registroPedidoV
             SW_validaSectorDT = SW_pedidoDA.SD_P_selectValidaPrioridadAcuerdoSector(Me.Request.QueryString("codevento").ToString, grupoCB.SelectedValue, Me.Request.QueryString("ubig"))
 
             If SW_validaSectorDT.Rows.Count > 0 Then
-                If SW_validaSectorDT.Rows(0).Item(0) < SW_validaSectorDT.Rows(0).Item(2) Then
+                If SW_validaSectorDT.Rows(0).Item(0) <= SW_validaSectorDT.Rows(0).Item(2) Then
 
                     SW_pedidoDT = SW_pedidoDA.SD_P_selectValidaPrioridadAcuerdo(Me.Request.QueryString("codevento").ToString, 0, Me.Request.QueryString("ubig"), ejeCB.SelectedValue)
                     If SW_pedidoDT.Rows.Count > 0 Then
@@ -164,7 +170,7 @@ Public Class registroPedidoV
                     End If
 
                 Else
-                    mensajeJSS("Límite de Pedido permitido para el Sector seleccionado")
+                    mensajeJSS("Límite de Pedidos permitidos")
                 End If
             Else
                 'AQUI IRIA'SD_P_selectValidaCantSect
@@ -175,7 +181,9 @@ Public Class registroPedidoV
                     If SW_validaCanSectorDT.Rows(0).Item(0) < SW_validaCanSectorDT.Rows(0).Item(1) Then
                         guardax()
                     Else
-                        mensajeJSS("Solo puede seleccionar 5 sectores como máximo")
+                        SW_parametroDT = SW_pedidoDA.SD_P_selectParametroByID(15, 2)
+
+                        mensajeJSS("Solo puede seleccionar " & SW_parametroDT.Rows(0).Item(3).ToString & " sectores como máximo")
                     End If
                 End If
 
@@ -189,8 +197,11 @@ Public Class registroPedidoV
         codigoid = ""
         If SW_pedidoDT.Rows(0).Item(4) = "R" Then
             codigoid = SW_pedidoDA.SD_P_crearUpdatePrioridadAcuerdo(Session("pedido"), Me.Request.QueryString("codevento").ToString,
-                grupoCB.SelectedValue, Me.Request.QueryString("de").ToString, "", ejeCB.SelectedValue.ToString, intervencionCB.SelectedValue.ToString, aspectoTB.Text.ToString.Trim, cuisTB.Text.ToString.Trim, Request.QueryString("iacp").ToString)
+                grupoCB.SelectedValue, Me.Request.QueryString("de").ToString, ObjEstrategicoTB.Text.ToString.ToUpper, ejeCB.SelectedValue.ToString, intervencionCB.SelectedValue.ToString, aspectoTB.Text.ToString.Trim, cuisTB.Text.ToString.Trim, Request.QueryString("iacp").ToString)
         ElseIf SW_pedidoDT.Rows(0).Item(4) = "P" Then
+            codigoid = SW_pedidoDA.SD_P_crearUpdatePrioridadAcuerdo(Session("pedido"), Me.Request.QueryString("codevento").ToString,
+                grupoCB.SelectedValue, Me.Request.QueryString("ubig").ToString, "", ejeCB.SelectedValue.ToString, intervencionCB.SelectedValue.ToString, aspectoTB.Text.ToString.Trim, cuisTB.Text.ToString.Trim, Request.QueryString("iacp").ToString)
+        ElseIf SW_pedidoDT.Rows(0).Item(4) = "D" Then
             codigoid = SW_pedidoDA.SD_P_crearUpdatePrioridadAcuerdo(Session("pedido"), Me.Request.QueryString("codevento").ToString,
                 grupoCB.SelectedValue, Me.Request.QueryString("ubig").ToString, "", ejeCB.SelectedValue.ToString, intervencionCB.SelectedValue.ToString, aspectoTB.Text.ToString.Trim, cuisTB.Text.ToString.Trim, Request.QueryString("iacp").ToString)
         End If
@@ -213,6 +224,17 @@ Public Class registroPedidoV
                           " mensaje('information','" & varIn.ToString & "'); " &
                           Chr(60) & "/script>"
         ScriptManager.RegisterStartupScript(Page, GetType(Page), "printMensaje", cadena_java.ToString, False)
+
+    End Sub
+
+    Protected Sub cuisTB_TextChanged(sender As Object, e As EventArgs) Handles cuisTB.TextChanged
+
+        If cuisTB.Text.ToString.Length > 4 Then
+            textoCuiLB.Text = "El CUI " & cuisTB.Text.ToString.Trim & " cuenta con acuerdo(s) en los siguientes espacios: "
+            RadGrid1.Rebind()
+        Else
+            textoCuiLB.Text = ""
+        End If
 
     End Sub
 

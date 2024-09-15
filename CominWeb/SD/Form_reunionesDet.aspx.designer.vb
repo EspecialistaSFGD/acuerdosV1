@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class registroAva
+Partial Public Class Form_reunionesDet
     
     '''<summary>
     '''RadCodeBlock1 control.
@@ -32,67 +32,103 @@ Partial Public Class registroAva
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''plazoRDP control.
+    '''Img2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents plazoRDP As Global.Telerik.Web.UI.RadDatePicker
+    Protected WithEvents Img2 As Global.System.Web.UI.HtmlControls.HtmlImage
     
     '''<summary>
-    '''avanceTB control.
+    '''titulo2LB control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents avanceTB As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents titulo2LB As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''FileUpload1 control.
+    '''codigoLB control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents FileUpload1 As Global.System.Web.UI.WebControls.FileUpload
+    Protected WithEvents codigoLB As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''imgPreview control.
+    '''clasificaLB control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents imgPreview As Global.System.Web.UI.HtmlControls.HtmlImage
+    Protected WithEvents clasificaLB As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''labelEstadoLB control.
+    '''responsableLB control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents labelEstadoLB As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents responsableLB As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''estadoCBv control.
+    '''plazoLB control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents estadoCBv As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents plazoLB As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''guardarB control.
+    '''retornarB control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents guardarB As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents retornarB As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''retornaGuardaB control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents retornaGuardaB As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''RadGrid1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadGrid1 As Global.Telerik.Web.UI.RadGrid
+    
+    '''<summary>
+    '''SDS_SD_P_selectListAsisteReuniones control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SDS_SD_P_selectListAsisteReuniones As Global.System.Web.UI.WebControls.SqlDataSource
+    
+    '''<summary>
+    '''ScriptManager1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ScriptManager1 As Global.System.Web.UI.ScriptManager
     
     '''<summary>
     '''RadAjaxManager1 control.
@@ -104,11 +140,20 @@ Partial Public Class registroAva
     Protected WithEvents RadAjaxManager1 As Global.Telerik.Web.UI.RadAjaxManager
     
     '''<summary>
-    '''ScriptManager1 control.
+    '''RadWindowManager1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ScriptManager1 As Global.System.Web.UI.ScriptManager
+    Protected WithEvents RadWindowManager1 As Global.Telerik.Web.UI.RadWindowManager
+    
+    '''<summary>
+    '''RadWindow2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadWindow2 As Global.Telerik.Web.UI.RadWindow
 End Class

@@ -90,7 +90,7 @@
                 if (tecla == 14 || tecla == 32) {
                     return true;
                 }
-                patron = /[A-Za-z.-1234567890áéíóú,-]/;
+                patron = /[A-Za-z.-1234567890áéíóúÁÉÍÓÚ()°;,-]/;
                 tecla_final = String.fromCharCode(tecla);
                 return patron.test(tecla_final);
             }
