@@ -13,6 +13,7 @@ Public Class Form_reuniones
 
     Dim SW_pedidoDT As New DataTable
     Dim SW_pedidoDA As New SW_pedido_DA
+    Dim sw_ejecutaSQL As New SW_EjecutaSQL_DA
 
     Private Sub Form_reuniones_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
         'If Session("usuarioLoginID") = Nothing Then
@@ -57,62 +58,62 @@ Public Class Form_reuniones
             'Session("entidadToken") = SW_pedidoDA.SD_P_selectEntidades(0, 0, 0, 0, SW_pedidoDA.SD_P_selectParametroByID(5).Rows(0).Item(2) & Me.Request.QueryString("7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0")).Rows(0).Item(0)
             Session("estadoFiltroReunion") = "0,1,2,3,4,"
             estadoCB.ToolTip = Session("estadoTextoAcuerdo")
-            titulo2LB.Text = "Programa de Reuniones de " & Me.Request.QueryString("enti").ToString
-            If Me.Request.QueryString("ksjcmj").ToString <> 0 Then
-                SW_pedidoDT = SW_pedidoDA.SD_P_selectGrupos(Request.QueryString("ksjcmj").ToString, 0)
-                cbo_departamento1.SelectedValue = 3
-                cbo_departamento1.DataBind()
-                cbo_departamento1.Enabled = False
-                cbo_provincia1.DataBind()
+            titulo2LB.Text = "Programa de Reuniones "
+            'If Me.Request.QueryString("ksjcmj").ToString <> 0 Then
+            '    SW_pedidoDT = SW_pedidoDA.SD_P_selectGrupos(Request.QueryString("ksjcmj").ToString, 0)
+            cbo_departamento1.SelectedValue = 3
+            cbo_departamento1.DataBind()
+            cbo_departamento1.Enabled = False
+            cbo_provincia1.DataBind()
 
-                If Me.Request.QueryString("en") = 3402 Then
+            If Me.Request.QueryString("en") = 3402 Then
+                grupoCB.Enabled = True
+            Else
+                If Me.Request.QueryString("sup") = 3 Then
                     grupoCB.Enabled = True
                 Else
-                    If Me.Request.QueryString("sup") = 3 Then
-                        grupoCB.Enabled = True
-                    Else
-                        grupoCB.Enabled = False
-                    End If
-
+                    grupoCB.Enabled = False
                 End If
 
-
-            ElseIf Me.Request.QueryString("ubig").ToString <> 0 Then
-                cbo_departamento1.SelectedValue = Me.Request.QueryString("de").ToString
-                cbo_departamento1.DataBind()
-
-                Dim ub As Integer = Right("00" & Request.QueryString("ubig"), 4)
-                If ub > 0 Then
-                    cbo_provincia1.Items.Clear()
-                    cbo_provincia1.DataBind()
-                    cbo_provincia1.SelectedValue = Left(Right("00" & Request.QueryString("ubig"), 6), 4) & "01"
-                    cbo_provincia1.DataBind()
-
-                    'Dim dis As Integer = Right(Request.QueryString("ubig"), 2)
-                    'If dis > 1 Then
-                    cbo_distrito.Items.Clear()
-                    cbo_distrito.DataBind()
-                    cbo_distrito.SelectedValue = Request.QueryString("ubig")
-                    cbo_distrito.DataBind()
-
-                    'End If
-
-                End If
-
-                If Me.Request.QueryString("sup") = 3 Then
-                    cbo_departamento1.Enabled = True
-                    cbo_provincia1.Enabled = True
-                    cbo_distrito.Enabled = True
-                Else
-                    cbo_departamento1.Enabled = False
-                    cbo_provincia1.Enabled = False
-                    cbo_distrito.Enabled = False
-                End If
-
-
-            Else
-                grupoCB.Enabled = True
             End If
+
+
+            'ElseIf Me.Request.QueryString("ubig").ToString <> 0 Then
+            'cbo_departamento1.SelectedValue = Me.Request.QueryString("de").ToString
+            '    cbo_departamento1.DataBind()
+
+            '    Dim ub As Integer = Right("00" & Request.QueryString("ubig"), 4)
+            '    If ub > 0 Then
+            '        cbo_provincia1.Items.Clear()
+            '        cbo_provincia1.DataBind()
+            '        cbo_provincia1.SelectedValue = Left(Right("00" & Request.QueryString("ubig"), 6), 4) & "01"
+            '        cbo_provincia1.DataBind()
+
+            '        'Dim dis As Integer = Right(Request.QueryString("ubig"), 2)
+            '        'If dis > 1 Then
+            '        cbo_distrito.Items.Clear()
+            '        cbo_distrito.DataBind()
+            '        cbo_distrito.SelectedValue = Request.QueryString("ubig")
+            '        cbo_distrito.DataBind()
+
+            '        'End If
+
+            '    End If
+
+            '    If Me.Request.QueryString("sup") = 3 Then
+            '        cbo_departamento1.Enabled = True
+            '        cbo_provincia1.Enabled = True
+            '        cbo_distrito.Enabled = True
+            '    Else
+            '        cbo_departamento1.Enabled = False
+            '        cbo_provincia1.Enabled = False
+            '        cbo_distrito.Enabled = False
+            '    End If
+
+
+            'Else
+            '    grupoCB.Enabled = True
+            'End If
 
             'Me.RadGrid1.Rebind()
         End If
@@ -176,13 +177,24 @@ Public Class Form_reuniones
             Dim currentRow As DataRowView = DirectCast(item.DataItem, DataRowView)
             Dim reunionID As Integer = currentRow.Row("reunionID").ToString
             Dim estadoRegistro As Integer = currentRow.Row("estadoRegistro")
+            Dim bloqueada As Integer = currentRow.Row("Bloqueada")
+            Dim valida As ImageButton = item.FindControl("TCValida")
+            If bloqueada = 1 Then
+                valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/close24.png"
+                valida.ToolTip = "Reunión Bloqueada"
+                valida.Attributes.Add("onClick", "return mensaje('error', 'Reunión Bloqueada'); return true;")
+            Else
+                valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/open24.png"
+                valida.ToolTip = "Reunión Abierta"
+                valida.Attributes.Add("onClick", "return frmBloqueaReu('" + reunionID.ToString + "'); return true;")
+            End If
 
             Dim Link As HyperLink = item.FindControl("nomEstado1Label")
             Dim est As String
             est = currentRow.Row("NomEstadoRegistro").ToString
             Link.Text = est
 
-            If est = "INICIADO" Then
+            If est = "EN PROCESO" Then
                 Link.ForeColor = Drawing.Color.Green
             ElseIf est = "NO INICIADO" Then
                 Link.ForeColor = Drawing.Color.Red
@@ -206,6 +218,13 @@ Public Class Form_reuniones
         cbo_distrito.Items.Clear()
         cbo_distrito.DataBind()
     End Sub
+
+
+    Protected Sub cbo_provincia1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles cbo_provincia1.SelectedIndexChanged
+        cbo_distrito.Items.Clear()
+        cbo_distrito.DataBind()
+    End Sub
+
 
     Public Function GetColor(ByVal est As String) As Drawing.Color
         Dim col As Drawing.Color
@@ -237,9 +256,31 @@ Public Class Form_reuniones
                 Session("estadoFiltroReunion") = "2"
             End If
 
+        Else
+            Dim i As Integer
+            Dim indicador As Integer
+            Dim param As String = ""
+            Dim a() As String = e.Argument.Split(",")
+            For i = 0 To 1
+                If i = 0 Then
+                    param = a(0)
+                ElseIf i = 1 Then
+                    indicador = a(1)
+                End If
+            Next
+            If param = "frmBloqueaReu" Then
+                Dim cad As String = ""
+                cad = " UPDATE SD_tblReuniones set bloqueada = 1, fechaModifica = getdate(), usuarioModifica_accesoID = " & Me.Request.QueryString("iacp").ToString & " where reunionID = " & indicador
 
-            Me.RadGrid1.Rebind()
+                If cad.Length > 0 Then
+                    Try
+                        Me.sw_ejecutaSQL.querySQL(cad)
+                    Catch ex As Exception
+                    End Try
+                End If
+            End If
         End If
+        Me.RadGrid1.Rebind()
     End Sub
 
 End Class

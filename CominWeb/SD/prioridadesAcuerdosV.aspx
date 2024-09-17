@@ -340,9 +340,10 @@
                             </td>
                             <td style="width:70%">
 
-                                <asp:DropDownList ID="cbo_evento" runat="server" Width="100%" Font-Size="11" Enabled="false"
+                                <asp:DropDownList ID="cbo_evento" runat="server" Width="100%" Font-Size="11" 
                                     DataSourceID="SDS_P_SelectEventos" DataTextField="nombre" class="form-control" Height="30px"
-                                    DataValueField="eventoID" TabIndex="1" >
+                                    DataValueField="eventoID" TabIndex="1" AppendDataBoundItems="True" AutoPostBack="true">
+                                        <asp:ListItem Selected="True" Value="0" > - Seleccione - </asp:ListItem>
                                 </asp:DropDownList>
                             </td>
                         </tr>
@@ -375,7 +376,7 @@
                             <td style="width:70%">
                                 <asp:DropDownList ID="cbo_departamento1" runat="server" DataSourceID="SDS_P_selectDepartamento" DataTextField="departamento" 
                                             DataValueField="departamentoID" Width="100%" TabIndex="12" class="form-control" Font-Size="11pt"
-                                            AppendDataBoundItems="True" Height="30px">
+                                            AppendDataBoundItems="True" Height="30px" AutoPostBack="true">
                                             <asp:ListItem Selected="True" Value="0" > - Seleccione - </asp:ListItem>
                                     </asp:DropDownList>
                                 
@@ -473,8 +474,8 @@
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="espacio" FilterControlAltText="Filter espacio column" 
                             HeaderText="Espacio" SortExpression="espacio" UniqueName="espacio" AutoPostBackOnFilter="true" 
-                            FilterControlWidth="100%" ShowFilterIcon="false" Display="false">
-                            <HeaderStyle HorizontalAlign="Center" />
+                            FilterControlWidth="100%" ShowFilterIcon="false">
+                            <HeaderStyle HorizontalAlign="Center" Font-Bold="true" />
                             <ItemStyle HorizontalAlign="Left" />
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="sectorid" FilterControlAltText="Filter sectorid column" 
@@ -641,6 +642,7 @@
             <asp:ControlParameter ControlID="grupoCB" DefaultValue="" Name="grupoId" PropertyName="SelectedValue" Type="Int32" />
             <asp:ControlParameter ControlID="cbo_departamento1" DefaultValue="" Name="departamento" PropertyName="SelectedValue" Type="Int32" />
             <asp:ControlParameter ControlID="cbo_distrito" DefaultValue="" Name="ubigeo" PropertyName="SelectedValue" Type="Int32" />
+            <asp:ControlParameter ControlID="cbo_provincia1" DefaultValue="" Name="prov" PropertyName="SelectedValue" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDS_P_SelectEventos" runat="server" 

@@ -21,7 +21,7 @@ Public Class registroAcuerdosV
     Private Sub registroAcuerdosV_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
         If Request.QueryString("gjXtIkEroS").ToString = "SD_SSFD" Then
             variableGlobalConexion.nombreCadenaCnx = "SD_CS"
-            'SDS_SD_P_selectGrupos.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
+            SDS_SD_P_selectGrupos.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
             SDS_SD_P_selectTipoInt.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
             SDS_SD_P_selectEje.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
             SDS_P_selectDistrito.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
@@ -40,6 +40,11 @@ Public Class registroAcuerdosV
         Thread.CurrentThread.CurrentUICulture = New CultureInfo("es-PE")
 
         If Page.IsPostBack = False Then
+            If Me.Request.QueryString("preacuerdo").ToString = 1 Then
+                tentativoLB.Text = "CREAR ACUERDO"
+            Else
+                tentativoLB.Text = "CREAR PRE-ACUERDO"
+            End If
 
             SW_pedidoDT = SW_pedidoDA.SD_P_selectEventos(Me.Request.QueryString("codevento").ToString, 0)
 
@@ -64,8 +69,8 @@ Public Class registroAcuerdosV
                 SW_pedidoDT = SW_pedidoDA.SD_P_selectPrioridadAcuerdo(Me.Request.QueryString("codigoid").ToString, 0, 0, 0, 0)
                 If SW_pedidoDT.Rows.Count > 0 Then
 
-                    'grupoCB.SelectedValue = SW_pedidoDT.Rows(0).Item(3)
-                    'grupoCB.DataBind()
+                    grupoCB.SelectedValue = SW_pedidoDT.Rows(0).Item(3)
+                    grupoCB.DataBind()
 
                     If ViewState("tipoEvento").ToString = "R" Then
                         cbo_departamento1.SelectedValue = SW_pedidoDT.Rows(0).Item(12)
@@ -99,14 +104,20 @@ Public Class registroAcuerdosV
                     intervencionCB.SelectedValue = SW_pedidoDT.Rows(0).Item(16)
                     intervencionCB.DataBind()
 
-                    'grupoCB.Enabled = False
+                    grupoCB.Enabled = False
                     cbo_departamento1.Enabled = False
                     cbo_provincia1.Enabled = False
                     distritoCB.Enabled = False
                     ejeCB.Enabled = False
                     intervencionCB.Enabled = False
                     cuisTB.Enabled = False
-                    aspectoTB.Enabled = False
+
+                    If Me.Request.QueryString("en").ToString() = "3402" Then
+                        aspectoTB.Enabled = True
+                    Else
+                        aspectoTB.Enabled = False
+                    End If
+
 
                     'Me.ultimaActualizacionLB.Text = SW_ordenesTrabajoDT.Rows(0).Item(44)
                     'Me.txtot.Text = SW_ordenesTrabajoDT.Rows(0).Item(1).ToString.Trim
@@ -127,7 +138,15 @@ Public Class registroAcuerdosV
                 '    grupoCB.DataBind()
                 '    grupoCB.Enabled = False
                 'Else
-                '    grupoCB.Enabled = True
+                grupoCB.SelectedValue = Me.Request.QueryString("codsector").ToString
+                grupoCB.DataBind()
+                If Me.Request.QueryString("en").ToString() = "3402" Then
+                    grupoCB.Enabled = True
+                Else
+                    grupoCB.Enabled = False
+                End If
+
+
                 'End If
 
 
@@ -211,9 +230,11 @@ Public Class registroAcuerdosV
             ubi = distritoCB.SelectedValue
         End If
 
+        'Dim codigoid As String = SW_pedidoDA.SD_P_crearUpdatePrioridadAcuerdo(Session("pedido"), Me.Request.QueryString("codevento").ToString,
+        'Request.QueryString("codsector"), ubi.ToString, "", ejeCB.SelectedValue.ToString, intervencionCB.SelectedValue.ToString, aspectoTB.Text.ToString.Trim, cuisTB.Text.ToString.Trim, Request.QueryString("iacp").ToString)
         Dim codigoid As String = SW_pedidoDA.SD_P_crearUpdatePrioridadAcuerdo(Session("pedido"), Me.Request.QueryString("codevento").ToString,
-        Request.QueryString("codsector"), ubi.ToString, "", ejeCB.SelectedValue.ToString, intervencionCB.SelectedValue.ToString, aspectoTB.Text.ToString.Trim, cuisTB.Text.ToString.Trim, Request.QueryString("iacp").ToString)
-        'Session("pedido") = codigoid
+        grupoCB.SelectedValue, ubi.ToString, "", ejeCB.SelectedValue.ToString, intervencionCB.SelectedValue.ToString, aspectoTB.Text.ToString.Trim, cuisTB.Text.ToString.Trim, Request.QueryString("iacp").ToString)
+
         If codigoid <> 0 Then
 
             Dim cad As String = ""
@@ -246,8 +267,12 @@ Public Class registroAcuerdosV
             ubi = distritoCB.SelectedValue
         End If
 
+        'Dim codigoid As String = SW_pedidoDA.SD_P_crearUpdatePrioridadAcuerdo(Session("pedido"), Me.Request.QueryString("codevento").ToString,
+        'Request.QueryString("codsector"), ubi.ToString, "", ejeCB.SelectedValue.ToString, intervencionCB.SelectedValue.ToString, aspectoTB.Text.ToString.Trim, cuisTB.Text.ToString.Trim, Request.QueryString("iacp").ToString)
+
         Dim codigoid As String = SW_pedidoDA.SD_P_crearUpdatePrioridadAcuerdo(Session("pedido"), Me.Request.QueryString("codevento").ToString,
-        Request.QueryString("codsector"), ubi.ToString, "", ejeCB.SelectedValue.ToString, intervencionCB.SelectedValue.ToString, aspectoTB.Text.ToString.Trim, cuisTB.Text.ToString.Trim, Request.QueryString("iacp").ToString)
+        grupoCB.SelectedValue, ubi.ToString, "", ejeCB.SelectedValue.ToString, intervencionCB.SelectedValue.ToString, aspectoTB.Text.ToString.Trim, cuisTB.Text.ToString.Trim, Request.QueryString("iacp").ToString)
+
         Session("pedido") = codigoid
         If codigoid <> 0 Then
 

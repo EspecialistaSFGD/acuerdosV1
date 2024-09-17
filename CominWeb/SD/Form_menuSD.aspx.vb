@@ -45,7 +45,7 @@ Public Class Form_menuSD
             End If
 
             eventoDT = SW_pedidoDA.SD_P_selectEventos(0, 1)
-
+            Session("espacioIDFiltro") = eventoDT.Rows(0).Item(0)
 
             prioridadesBN.HRef = "prioridadesAcuerdosV.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh" +
                                 "&gjXtIkEroS=SD_SSFD&ksjcmj=0&hsndktumg=28251814290D25D0E43403BA1CEAC908602EAE02D3A88385&tipo=" & Request.QueryString("tipo") & "&ubig=" & Request.QueryString("ubig") & "&amb=" & eventoDT.Rows(0).Item(4).ToString &
@@ -53,13 +53,13 @@ Public Class Form_menuSD
                                 "&codsector=" & Request.QueryString("codsector") & "&iacp=" & Request.QueryString("iacp") & "&preacuerdo=" & SW_pedidoDA.SD_P_selectParametroByID(16, 2).Rows(0).Item(3)
 
             listAcuerdoB.HRef = "AcuerdosListV.aspx?7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=" & Me.Request.QueryString("7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0") & "&gjXtIkEroS=" & Me.Request.QueryString("gjXtIkEroS") & "&ksjcmj=" & Me.Request.QueryString("ksjcmj") & "&hsndktumg=" & Me.Request.QueryString("hsndktumg") & "&tipo=" & Me.Request.QueryString("tipo") & "&ubig=" & Me.Request.QueryString("ubig") & "&de=" & Me.Request.QueryString("de") & "&en=" & Me.Request.QueryString("en") & "&sup=" & sup.ToString & "&enti=" & Me.Request.QueryString("enti") & "&iacp=" & Me.Request.QueryString("iacp")
-            'href=>
-            listHitosB.HRef = "AcuerdosListHitoV.aspx?lkjasdliwupqwinasndlkkjasKASNDDDWILADdASKJSdwuewue=lksajdasdwWDwdwDdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD" & "&en=" & Me.Request.QueryString("en") & "&sup=" & sup.ToString & "&iacp=" & Me.Request.QueryString("iacp")
-            'http ://localhost:55377/SD/AregistroAcredita.aspx?au=0&7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=2B6AC8BbF4ADF440005AFC42EF337555FB0008BF9770791Z&gjXtIkEroS=SD_SSFD&ubig=0&de=&en=2849&codsector=20&iacp=303&sup=1
-            acreditadoBN.HRef = "AregistroAcredita.aspx?au=0&7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=2B6AC8BbF4ADF440005AFC42EF337555FB0008BF9770791Z&gjXtIkEroS=" & Me.Request.QueryString("gjXtIkEroS") & "&codevento=" & eventoDT.Rows(0).Item(0).ToString & "&ubig=" & Me.Request.QueryString("ubig") & "&de=" & Me.Request.QueryString("de") & "&en=" & Me.Request.QueryString("en") & "&codsector=" & Request.QueryString("codsector") & "&iacp=" & Me.Request.QueryString("iacp") & "&sup=" & sup.ToString
-            'http: //localhost:55377/SD/AregistroAsistencia.aspx?au=0&7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=2B6AC8BbF4ADF440005AFC42EF337555FB0008BF9770791Z&gjXtIkEroS=SD_SSFD&ubig=0&de=&en=2884&codsector=27&iacp=301
-            asistenciaBN.HRef = "AregistroAsistencia.aspx?au=0&7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=2B6AC8BbF4ADF440005AFC42EF337555FB0008BF9770791Z&gjXtIkEroS=" & Me.Request.QueryString("gjXtIkEroS") & "&ubig=" & Me.Request.QueryString("ubig") & "&de=" & Me.Request.QueryString("de") & "&en=" & Me.Request.QueryString("en") & "&codsector=" & Request.QueryString("codsector") & "&iacp=" & Me.Request.QueryString("iacp") & "&sup=" & sup.ToString
 
+            listHitosB.HRef = "AcuerdosListHitoV.aspx?lkjasdliwupqwinasndlkkjasKASNDDDWILADdASKJSdwuewue=lksajdasdwWDwdwDdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD" & "&en=" & Me.Request.QueryString("en") & "&sup=" & sup.ToString & "&iacp=" & Me.Request.QueryString("iacp")
+
+            acreditadoBN.HRef = "AregistroAcredita.aspx?au=0&7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=2B6AC8BbF4ADF440005AFC42EF337555FB0008BF9770791Z&gjXtIkEroS=" & Me.Request.QueryString("gjXtIkEroS") & "&codevento=" & eventoDT.Rows(0).Item(0).ToString & "&ubig=" & Me.Request.QueryString("ubig") & "&de=" & Me.Request.QueryString("de") & "&en=" & Me.Request.QueryString("en") & "&codsector=" & Request.QueryString("codsector") & "&iacp=" & Me.Request.QueryString("iacp") & "&sup=" & sup.ToString
+
+            asistenciaBN.HRef = "AregistroAsistencia.aspx?au=0&7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=2B6AC8BbF4ADF440005AFC42EF337555FB0008BF9770791Z&gjXtIkEroS=" & Me.Request.QueryString("gjXtIkEroS") & "&ubig=" & Me.Request.QueryString("ubig") & "&de=" & Me.Request.QueryString("de") & "&en=" & Me.Request.QueryString("en") & "&codsector=" & Request.QueryString("codsector") & "&iacp=" & Me.Request.QueryString("iacp") & "&sup=" & sup.ToString
+            reunionesBN.HRef = "Form_reuniones.aspx?7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=2B6AC8BF14ADF446665AFC42EF337555FB6668BF9770791Z&gjXtIkEroS=" & Me.Request.QueryString("gjXtIkEroS") & "&en=" & Me.Request.QueryString("en") & "&sup=" & sup.ToString & "&iacp=" & Me.Request.QueryString("iacp")
             prioridadesBN.Visible = True
             listAcuerdoB.Visible = True
             'acreditadoBN.Visible = True

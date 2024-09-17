@@ -327,5 +327,17 @@ Friend Class SW_pedido_DA
         Return ds.Tables(0)
     End Function
 
-
+    Public Function SD_P_selectListReuniones(ByVal reunionID As Integer, eventoId As Integer, salaId As Integer, sectorIdGN As Integer, entidadIdGRGL As Integer, estadoRegistro As String) As DataTable
+        Dim db As Database = DatabaseFactory.CreateDatabase(variableGlobalConexion.nombreCadenaCnx)
+        Dim cmd As DbCommand = db.GetStoredProcCommand("SD_P_selectListReuniones")
+        db.AddInParameter(cmd, "@reunionID", DbType.Int32, reunionID)
+        db.AddInParameter(cmd, "@eventoId", DbType.Int32, eventoId)
+        db.AddInParameter(cmd, "@salaId", DbType.Int32, salaId)
+        db.AddInParameter(cmd, "@sectorIdGN", DbType.Int32, sectorIdGN)
+        db.AddInParameter(cmd, "@entidadIdGRGL", DbType.Int32, entidadIdGRGL)
+        db.AddInParameter(cmd, "@estadoRegistro", DbType.String, estadoRegistro)
+        Dim ds As DataSet
+        ds = db.ExecuteDataSet(cmd)
+        Return ds.Tables(0)
+    End Function
 End Class

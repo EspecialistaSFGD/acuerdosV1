@@ -115,7 +115,7 @@
                 <%--var preacuerdo = '<%= Me.Request.QueryString("preacuerdo")%>'
                 if (preacuerdo == 0) {--%>
                     var oWnd = $find("<%= RadWindow2.ClientID %>");
-                var ruta_ventana_empresas = "registroAc.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codac=0&codped=" + pedi + "&codclas=0&iacp=" + '<%= Me.Request.QueryString("iacp")%>' + "&preacuerdo=" + '<%= Me.Request.QueryString("preacuerdo")%>';
+                var ruta_ventana_empresas = "registroAc.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codac=0&codped=" + pedi + "&codclas=0&iacp=" + '<%= Me.Request.QueryString("iacp")%>' + "&preacuerdo=" + '<%= Me.Request.QueryString("preacuerdo")%>' + "&en=" + '<%= Me.Request.QueryString("en")%>';
                 <%--}
                 else {
                     var oWnd = $find("<%= RadWindow3.ClientID %>");
@@ -135,7 +135,7 @@
                     }
                     else {
                         var oWnd = $find("<%= RadWindow2.ClientID %>");
-                        var ruta_ventana_empresas = "registroAc.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codac=" + acuerdo + "&codped=" + pedi + "&codclas=0&iacp=" + '<%= Me.Request.QueryString("iacp")%>' + "&preacuerdo=" + preacuerdo;
+                        var ruta_ventana_empresas = "registroAc.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codac=" + acuerdo + "&codped=" + pedi + "&codclas=0&iacp=" + '<%= Me.Request.QueryString("iacp")%>' + "&preacuerdo=" + preacuerdo + "&en=" + '<%= Me.Request.QueryString("en")%>';
                         oWnd.setUrl(ruta_ventana_empresas);
                         oWnd.add_close(OnClientClose1);
                         oWnd.show();
@@ -143,7 +143,7 @@
                 }
                 else {
                     var oWnd = $find("<%= RadWindow2.ClientID %>");
-                    var ruta_ventana_empresas = "registroAc.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codac=" + acuerdo + "&codped=" + pedi + "&codclas=0&iacp=" + '<%= Me.Request.QueryString("iacp")%>' + "&preacuerdo=" + preacuerdo;
+                    var ruta_ventana_empresas = "registroAc.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codac=" + acuerdo + "&codped=" + pedi + "&codclas=0&iacp=" + '<%= Me.Request.QueryString("iacp")%>' + "&preacuerdo=" + preacuerdo + "&en=" + '<%= Me.Request.QueryString("en")%>';
                     oWnd.setUrl(ruta_ventana_empresas);
                     oWnd.add_close(OnClientClose1);
                     oWnd.show();
@@ -157,7 +157,7 @@
                 }
                 else {
                     var oWnd = $find("<%= RadWindow2.ClientID %>");
-                    var ruta_ventana_empresas = "registroAc.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codac=" + acuerdo + "&codped=" + pedi + "&codclas=0&iacp=" + '<%= Me.Request.QueryString("iacp")%>' + "&preacuerdo=" + preacuerdo;
+                    var ruta_ventana_empresas = "registroAc.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codac=" + acuerdo + "&codped=" + pedi + "&codclas=0&iacp=" + '<%= Me.Request.QueryString("iacp")%>' + "&preacuerdo=" + preacuerdo + "&en=" + '<%= Me.Request.QueryString("en")%>';
                     oWnd.setUrl(ruta_ventana_empresas);
                     oWnd.add_close(OnClientClose1);
                     oWnd.show();
@@ -277,28 +277,38 @@
                                     <td style="padding:5px" colspan="4" >
                                             <table width="100%" border="0"  style="border-right: #578533 1px solid; border-top: #578533 1px solid; border-left: #578533 1px solid; border-bottom: #578533 1px solid; width: 100%;">
                                                 <tr>
-                                                    <td style="width:15%; padding:5px; Font-Size:14px; font-weight:500">
+                                                    <td style="width:10%; padding:5px; Font-Size:14px; font-weight:500">
+                                                        SECTOR (*)
+                                                    </td>
+                                                    <td style="width:15%; padding:15px">
+                                                            <asp:DropDownList ID="grupoCB" runat="server" Width="100%" Font-Size="12pt" Height="40px"
+                                                                    DataSourceID="SDS_SD_P_selectGrupos" DataTextField="nombre" class="form-control"
+                                                                    DataValueField="grupoID" TabIndex="6" AppendDataBoundItems="True" >
+                                                                    <asp:ListItem Selected="True" Value="0" > - Seleccione - </asp:ListItem>
+                                                            </asp:DropDownList>
+                                                    </td>
+                                                    <td style="width:10%; padding:5px; Font-Size:14px; font-weight:500">
                                                         DEPARTAMENTO (*)
                                                     </td>
-                                                    <td style="padding:5px">
+                                                    <td style="width:15%; padding:5px">
                                                             <asp:DropDownList ID="cbo_departamento1" runat="server" DataSourceID="SDS_P_selectDepartamento" DataTextField="departamento" 
                                                                 DataValueField="departamentoID" AutoPostBack="true" Width="100%" TabIndex="12" class="form-control" Font-Size="12pt"
                                                                 AppendDataBoundItems="True" Height="40px" >
                                                                 <asp:ListItem Selected="True" Value="0" > - Seleccione - </asp:ListItem>
                                                             </asp:DropDownList>
                                                     </td>
-                                                    <td style="width:15%; padding:5px; Font-Size:14px; font-weight:500">
+                                                    <td style="width:10%; padding:5px; Font-Size:14px; font-weight:500">
                                                         PROVINCIA
                                                     </td>
-                                                    <td style="padding:5px">
+                                                    <td style="width:15%; padding:5px">
                                                             <asp:DropDownList ID="cbo_provincia1" runat="server" DataSourceID="SDS_P_selectProvincia" DataTextField="provincia" AutoPostBack="true"
                                                                 DataValueField="provinciaID" Width="100%" TabIndex="13" class="form-control" Font-Size="12pt" Height="40px">
                                                             </asp:DropDownList>
                                                     </td>
-                                                    <td style="width:15%; padding:5px; Font-Size:14px; font-weight:500">
+                                                    <td style="width:10%; padding:5px; Font-Size:14px; font-weight:500">
                                                         DISTRITO
                                                     </td>
-                                                    <td style="padding:5px">
+                                                    <td style="width:15%; padding:5px">
                                                             <asp:DropDownList ID="distritoCB" runat="server" Width="100%" DataSourceID="SDS_P_selectDistrito" DataTextField="DISTRITO" 
                                                                 DataValueField="distritoID" class="form-control" Font-Size="12pt" Height="40px">
                                                             </asp:DropDownList>
@@ -367,7 +377,7 @@
                                     <button class="styleMe1" style="Width:100%; Height:40px; font:16pt" onclick="frmacuerdoNuevo('R'); return false;">GUARDAR Y RETORNAR A LISTA</button>
                                 </td>
                                 <td style="padding-top:5px;padding-left:5px;" colspan="2">
-                                    <button id="acuerdoBht" runat="server" class="styleMe" style="Width:100%; Height:40px; font:16pt" onclick="frmacuerdoNuevo('A'); return false;">CREAR PRE-ACUERDO</button>
+                                    <button id="acuerdoBht" runat="server" class="styleMe" style="Width:100%; Height:40px; font:16pt" onclick="frmacuerdoNuevo('A'); return false;"><asp:Label ID="tentativoLB" runat="server"></asp:Label></button>
                                 </td>
                             </tr>
                             <tr>
@@ -546,7 +556,13 @@
                 <asp:Parameter DefaultValue="6" Name="tipo" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
-
+        <asp:SqlDataSource ID="SDS_SD_P_selectGrupos" runat="server" 
+            SelectCommand="SD_P_selectGrupos" SelectCommandType="StoredProcedure">
+            <SelectParameters>
+                <asp:Parameter DefaultValue="0" Name="grupoId" Type="Int32" />
+                <asp:Parameter DefaultValue="2" Name="tipo" Type="Int32" />
+            </SelectParameters>
+        </asp:SqlDataSource>
 
 
 
@@ -585,12 +601,12 @@
             <telerik:radwindowmanager ID="RadWindowManager1" runat="server" Skin="WebBlue">
                 <Windows>
                     <telerik:RadWindow ID="RadWindow2" runat="server" Behavior="Move, Close" Behaviors="Move, Close" 
-                        Height="600px" InitialBehavior="Move, Close" InitialBehaviors="Move, Close" Left="" Modal="True" 
+                        Height="650px" InitialBehavior="Move, Close" InitialBehaviors="Move, Close" Left="" Modal="True" 
                         ReloadOnShow="True" Skin="WebBlue" Style="display: none;" Top="" 
                         VisibleStatusbar="false" Width="750px" Animation="Fade">
                     </telerik:RadWindow>
                     <telerik:RadWindow ID="RadWindow3" runat="server" Behavior="Move, Close" Behaviors="Move, Close" 
-                        Height="600px" InitialBehavior="Move, Close" InitialBehaviors="Move, Close" Left="" Modal="True" 
+                        Height="650px" InitialBehavior="Move, Close" InitialBehaviors="Move, Close" Left="" Modal="True" 
                         ReloadOnShow="True" Skin="WebBlue" Style="display: none;" Top="" 
                         VisibleStatusbar="false" Width="1000px" Animation="Fade">
                     </telerik:RadWindow>

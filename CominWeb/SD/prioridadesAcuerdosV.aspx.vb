@@ -64,6 +64,22 @@ Public Class prioridadesAcuerdosV
         End If
 
         If Page.IsPostBack = False Then
+
+            If Session("espacioIDFiltro").ToString <> "0" Then
+                cbo_evento.SelectedValue = Session("espacioIDFiltro")
+                cbo_evento.DataBind()
+                'Else
+                '    cbo_evento.SelectedValue = Session("espacioIDFiltro")
+                '    cbo_evento.DataBind()
+            End If
+
+
+            If Me.Request.QueryString("en").ToString() = "3402" Then
+                    cbo_evento.Enabled = True
+                Else
+                    cbo_evento.Enabled = False
+            End If
+
             SW_acuerdoPreacuerdoDT = SW_pedidoDA.SD_P_selectParametroByID(16, 2)
             ViewState("acuerdoPreacuerdo") = SW_acuerdoPreacuerdoDT.Rows(0).Item(3)
 
@@ -553,6 +569,11 @@ Public Class prioridadesAcuerdosV
             End If
 
         End If
+    End Sub
+
+    Protected Sub cbo_evento_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles cbo_evento.SelectedIndexChanged
+        Session("espacioIDFiltro") = cbo_evento.SelectedValue
+
     End Sub
 
 End Class

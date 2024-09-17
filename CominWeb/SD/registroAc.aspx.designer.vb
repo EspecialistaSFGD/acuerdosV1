@@ -86,6 +86,24 @@ Partial Public Class registroAc
     Protected WithEvents plazoRDP As Global.Telerik.Web.UI.RadDatePicker
 
     '''<summary>
+    '''Control tentativoLB.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents tentativoLB As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control tentativoCB.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents tentativoCB As Global.System.Web.UI.WebControls.CheckBox
+
+    '''<summary>
     '''Control buscar2.
     '''</summary>
     '''<remarks>

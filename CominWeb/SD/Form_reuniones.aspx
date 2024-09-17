@@ -126,7 +126,7 @@
                 location.href = "Form_reunionesDet.aspx?7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=" + '<%= Me.Request.QueryString("7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0")%>' + "&gjXtIkEroS=SD_SSFD&reid=" + codigoid + "&estReg=" + estReg + "&iacp=" + '<%= Me.Request.QueryString("iacp")%>' +  "&enti=" + '<%= Me.Request.QueryString("enti")%>' + "&sup=" + '<%= Me.Request.QueryString("sup")%>' + "&en=" + '<%= Me.Request.QueryString("en")%>' + "&ksjcmj=" + '<%= Me.Request.QueryString("ksjcmj")%>'; <%-- + "&tipo=" + '<%= Me.Request.QueryString("tipo")%>' + "&ubig=" + '<%= Me.Request.QueryString("ubig")%>' + "&de=" + '<%= Me.Request.QueryString("de")%>' + "&hsndktumg=" + '<%= Me.Request.QueryString("hsndktumg")%>' + "&en=" + '<%= Me.Request.QueryString("en")%>' + "&sup=" + '<%= Me.Request.QueryString("sup")%>' + "&enti=" + '<%= Me.Request.QueryString("enti")%>' + "&iacp=" + '<%= Me.Request.QueryString("iacp")%>';--%>
                 return false;
             }
-            xxxxxxxxxxxxxxhttp://localhost:55377/SD/Form_reuniones.aspx?7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=2B6AC8BF14ADF446665AFC42EF337555FB6668BF9770791Z&gjXtIkEroS=SD_SSFD&ksjcmj=36&en=3402&sup=2&enti=Secretar%u00eda+de+Descentralizaci%u00f3n&iacp=136#
+            //xxxxxxxxxxxxxxhttp://localhost:55377/SD/Form_reuniones.aspx?7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=2B6AC8BF14ADF446665AFC42EF337555FB6668BF9770791Z&gjXtIkEroS=SD_SSFD&ksjcmj=36&en=3402&sup=2&enti=Secretar%u00eda+de+Descentralizaci%u00f3n&iacp=136#
             function actua() {
                 $find("<%= RadAjaxManager1.ClientID%>").ajaxRequest("actualiza");
                 refreshGrid();
@@ -135,6 +135,26 @@
             function refreshGrid() {
                 var masterTable = $find("<%=radGrid1.clientId%>").get_masterTableView();
                 masterTable.rebind();
+            }
+
+            function frmBloqueaReu(id) {
+                var ajaxManager = $find("<%= RadAjaxManager1.ClientID %>");
+                ajaxManager.ajaxRequest("frmBloqueaReu," + id);
+                return false;
+            }
+
+            function mensaje(tipo, texto) {
+
+                var n = noty({
+                    text: texto,
+                    type: tipo,
+                    dismissQueue: true,
+                    layout: 'center',
+                    theme: 'defaultTheme',
+                    modal: true
+                });
+                console.log('html: ' + n.options.id);
+                return false;
             }
 
         </script>
@@ -272,7 +292,7 @@
                                     </td>
                                     <td style="width:70%">
                                         <asp:DropDownList ID="cbo_provincia1" runat="server" DataSourceID="SDS_P_selectProvincia" DataTextField="provincia" 
-                                                DataValueField="provinciaID" Width="100%" TabIndex="13" class="form-control" Font-Size="11pt">
+                                                DataValueField="provinciaID" Width="100%" TabIndex="13" class="form-control" Font-Size="11pt" AutoPostBack="true">
                                         </asp:DropDownList>
                                     </td>
                                 </tr>
@@ -295,21 +315,24 @@
                         </div>
                 </div>
         </div>
-        <div class="col-md-2 col-sm-2 col-xs-2 form-group">
+        <div class="col-md-2 col-sm-2 col-xs-2">
             <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center; vertical-align:middle; align-content:center">
-                <asp:Button ID="buscar2" runat="server" Text="BUSCAR" class="styleMe" Width="100%" Height="50px" Font-Size="13" />
+                <asp:Button ID="buscar2" runat="server" Text="BUSCAR" class="styleMe" Width="100%" Height="40px" Font-Size="13" />
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center; vertical-align:middle; align-content:center">
+                <asp:Button ID="exportaB" runat="server" Text="EXPORTAR" class="styleMe1" Width="100%" Height="40px" Font-Size="13" />
             </div>
         </div>
         
         <%--Bootstrap Glow    MetroTouch  --%>
-        <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center">
+        <div class="col-md-12 col-sm-12 col-xs-12" style="text-align:center">
 
                 <telerik:radgrid ID="RadGrid1" runat="server" Culture="es-ES" Width="100%"
                     DataSourceID="SDS_SD_P_selectListReuniones" Skin="Bootstrap"  
                     AutoGenerateColumns="False" AllowPaging="True" AllowSorting="True" GroupPanelPosition="Top">
                     <GroupingSettings CaseSensitive="false" />
                     <ClientSettings>
-                        <Selecting AllowRowSelect="True" />
+                        <Selecting AllowRowSelect="false" />
                     </ClientSettings>
                     <MasterTableView DataSourceID="SDS_SD_P_selectListReuniones" NoMasterRecordsText="No existen registros." PageSize="5">
                     <CommandItemSettings ExportToPdfText="Export to PDF"></CommandItemSettings>
@@ -321,6 +344,17 @@
                         <HeaderStyle Width="41px" />
                     </ExpandCollapseColumn>
                     <Columns>
+                        <telerik:GridTemplateColumn FilterControlAltText="Filter Llave column" HeaderTooltip="Validar Pedido"
+                            HeaderText="Bloqueada" UniqueName="TCValida" AllowFiltering="false" >
+                            <ItemTemplate>
+                                    <asp:ImageButton ID="TCValida" runat="server" CssClass="cursor" 
+                                        ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/peligro_20.png"
+                                        ToolTip="Validar Acción" UseSubmitBehavior="False"
+                                        OnClientClick="javascript: if(!confirm('¿Desea bloquear la reunion y todos los pedidos vinculados?')){return false;}"/>
+                            </ItemTemplate>
+                            <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" />
+                            <ItemStyle HorizontalAlign="Center" />
+                        </telerik:GridTemplateColumn>
                         <telerik:GridBoundColumn DataField="reunionID" FilterControlAltText="Filter reunionID column" 
                             HeaderText="reunionID" ReadOnly="True" SortExpression="reunionID" UniqueName="reunionID"
                             Display="false">
@@ -386,9 +420,12 @@
                             DataFormatString="{0:dd/MM/yyyy HH:mm}" AllowFiltering="False" >
                             <HeaderStyle HorizontalAlign="Center" Font-Bold="true"  />
                         </telerik:gridboundcolumn>
-
                         <telerik:GridBoundColumn DataField="estadoRegistro" FilterControlAltText="Filter estadoRegistro column" 
                             HeaderText="estadoRegistro" ReadOnly="True" SortExpression="estadoRegistro" UniqueName="estadoRegistro"
+                            Display="false">
+                        </telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="Bloqueada" FilterControlAltText="Filter Bloqueada column" 
+                            HeaderText="Bloqueada" ReadOnly="True" SortExpression="Bloqueada" UniqueName="Bloqueada"
                             Display="false">
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="NomEstadoRegistro" FilterControlAltText="Filter NomEstadoRegistro column" 
@@ -398,9 +435,9 @@
                         <telerik:GridTemplateColumn DataField="NomEstadoRegistro1" HeaderText="Estado" SortExpression="NomEstadoRegistro1"
                             UniqueName="NomEstadoRegistro1" AllowFiltering="False">
                             <ItemTemplate>
-                                <asp:HyperLink ID="nomEstado1Label" runat="server"></asp:HyperLink>
+                                <asp:HyperLink ID="nomEstado1Label" runat="server" Font-Size="Medium"></asp:HyperLink>
                             </ItemTemplate>
-                            <HeaderStyle HorizontalAlign="Center" Width="120px" Font-Bold="true" />
+                            <HeaderStyle HorizontalAlign="Center" Width="140px" Font-Bold="true" Font-Size="Medium" />
                             <ItemStyle HorizontalAlign="Center" />
                         </telerik:GridTemplateColumn>
                         
@@ -413,6 +450,7 @@
                     <PagerStyle PageSizeControlType="RadComboBox"></PagerStyle>
                     <FilterMenu EnableImageSprites="False"></FilterMenu>
                 </telerik:radgrid>
+        <br />
         </div>
     
     <asp:SqlDataSource ID="SDS_SD_P_selectEstadoTipo" runat="server" 
@@ -504,11 +542,16 @@
                     <telerik:AjaxUpdatedControl ControlID="cbo_distrito" LoadingPanelID="RadAjaxLoadingPanel1" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
-            <%--<telerik:AjaxSetting AjaxControlID="buscar2">
+            <telerik:AjaxSetting AjaxControlID="cbo_provincia1">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="cbo_distrito" LoadingPanelID="RadAjaxLoadingPanel1" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+            <telerik:AjaxSetting AjaxControlID="RadAjaxManager1">
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="RadGrid1" LoadingPanelID="RadAjaxLoadingPanel1" />
                 </UpdatedControls>
-            </telerik:AjaxSetting>--%>
+            </telerik:AjaxSetting>
         </AjaxSettings>
     </telerik:RadAjaxManager>
 

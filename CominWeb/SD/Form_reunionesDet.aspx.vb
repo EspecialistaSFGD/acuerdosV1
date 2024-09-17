@@ -35,64 +35,85 @@ Public Class Form_reunionesDet
             'hiddenField.Value = 0
             Session("sessionHitoId") = "-1"
 
-            'If Me.Request.QueryString("codigoid").ToString > 0 Then
-            '    '        Session("pedido") = Me.Request.QueryString("codigoid").ToString()
-            '    SW_pedidoDT = SW_pedidoDA.SD_P_selectAcuerdosV2(Me.Request.QueryString("codigoid").ToString, 0, "", 0, 0)
+            If Me.Request.QueryString("reid").ToString > 0 Then
+                SW_pedidoDT = SW_pedidoDA.SD_P_selectListReuniones(Me.Request.QueryString("reid").ToString, 0, 0, 0, 0, "0,1,2,3,4")
 
-            '    If SW_pedidoDT.Rows.Count > 0 Then
-            '        sectorLB.Text = SW_pedidoDT.Rows(0).Item(12)
-            '        departamentoLB.Text = SW_pedidoDT.Rows(0).Item(13)
-            '        provinciaLB.Text = SW_pedidoDT.Rows(0).Item(14)
-            '        cuiLB.Text = SW_pedidoDT.Rows(0).Item(11)
-            '        intervencionLB.Text = SW_pedidoDT.Rows(0).Item(9)
-            '        aspectoLB.Text = SW_pedidoDT.Rows(0).Item(10)
-            '        acuerdoLB.Text = SW_pedidoDT.Rows(0).Item(3)
-            '        codigoLB.Text = SW_pedidoDT.Rows(0).Item(1)
-            '        clasificaLB.Text = SW_pedidoDT.Rows(0).Item(5)
-            '        responsableLB.Text = SW_pedidoDT.Rows(0).Item(7)
-            '        plazoLB.Text = SW_pedidoDT.Rows(0).Item(8)
-            '        If SW_pedidoDT.Rows(0).Item(17) > 0 Then
-            '            hiddenField.Value = "1"
-            '        Else
-            '            hiddenField.Value = "0"
-            '        End If
+                If SW_pedidoDT.Rows.Count > 0 Then
+                    sectorLB.Text = SW_pedidoDT.Rows(0).Item(7)
+                    '        departamentoLB.Text = SW_pedidoDT.Rows(0).Item(13)
+                    '        provinciaLB.Text = SW_pedidoDT.Rows(0).Item(14)
+                    '        cuiLB.Text = SW_pedidoDT.Rows(0).Item(11)
+                    '        intervencionLB.Text = SW_pedidoDT.Rows(0).Item(9)
+                    '        aspectoLB.Text = SW_pedidoDT.Rows(0).Item(10)
+                    '        acuerdoLB.Text = SW_pedidoDT.Rows(0).Item(3)
+                    '        codigoLB.Text = SW_pedidoDT.Rows(0).Item(1)
+                    '        clasificaLB.Text = SW_pedidoDT.Rows(0).Item(5)
+                    '        responsableLB.Text = SW_pedidoDT.Rows(0).Item(7)
+                    '        plazoLB.Text = SW_pedidoDT.Rows(0).Item(8)
+                    '        If SW_pedidoDT.Rows(0).Item(17) > 0 Then
+                    '            hiddenField.Value = "1"
+                    '        Else
+                    '            hiddenField.Value = "0"
+                    '        End If
 
-            '        estadoLB.Text = SW_pedidoDT.Rows(0).Item(23)
+                    '        estadoLB.Text = SW_pedidoDT.Rows(0).Item(23)
 
-            '        If SW_pedidoDT.Rows(0).Item(23) = "VENCIDO" Then
-            '            estadoLB.BackColor = Color.Red
-            '            estadoLB.ForeColor = Color.White
-            '            estadoLB.Font.Size = 16
-            '        End If
+                    '        If SW_pedidoDT.Rows(0).Item(23) = "VENCIDO" Then
+                    '            estadoLB.BackColor = Color.Red
+                    '            estadoLB.ForeColor = Color.White
+                    '            estadoLB.Font.Size = 16
+                    '        End If
 
-            '        If SW_pedidoDT.Rows(0).Item(23) = "CULMINADO" Then
-            '            fechaLB.Text = SW_pedidoDT.Rows(0).Item(16)
-            '        Else
-            '            fechaLB.Text = ""
-            '        End If
+                    '        If SW_pedidoDT.Rows(0).Item(23) = "CULMINADO" Then
+                    '            fechaLB.Text = SW_pedidoDT.Rows(0).Item(16)
+                    '        Else
+                    '            fechaLB.Text = ""
+                    '        End If
 
-            '        motivoDesLB.Text = SW_pedidoDT.Rows(0).Item(25)
+                    estadoCB.SelectedValue = SW_pedidoDT.Rows(0).Item(13)
+                    estadoCB.DataBind()
+                    If Me.Request.QueryString("estReg") = 4 Or Me.Request.QueryString("estReg") = 3 Then
+                        estadoCB.Enabled = False
+                    Else
+                        estadoCB.Enabled = True
+                    End If
+                End If
 
-            '    End If
-
-            'Else
-            '    SW_pedidoDT = SW_pedidoDA.SD_P_selectAcuerdosV2(Me.Request.QueryString("codigoid").ToString, 0, "", 0, 0)
-            '    If SW_pedidoDT.Rows(0).Item(17) > 0 Then
-            '        hiddenField.Value = "1"
-            '    Else
-            '        hiddenField.Value = "0"
-            '    End If
-            'End If
+                'Else
+                '    SW_pedidoDT = SW_pedidoDA.SD_P_selectAcuerdosV2(Me.Request.QueryString("codigoid").ToString, 0, "", 0, 0)
+                '    If SW_pedidoDT.Rows(0).Item(17) > 0 Then
+                '        hiddenField.Value = "1"
+                '    Else
+                '        hiddenField.Value = "0"
+                '    End If
+            End If
         End If
     End Sub
 
     Protected Sub retornarB_Click(sender As Object, e As EventArgs) Handles retornarB.Click
-        'If Request.QueryString("sup") = 2 Then
-        '    Response.Redirect("~/SD/AcuerdosListHitoV.aspx?lkjasdliwupqwinasndlkkjasKASNDDDWILADdASKJSdwuewue=lksajdasdwWDwdwDdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD" & "&iacp=" & Me.Request.QueryString("iacp") & "&en=" & Me.Request.QueryString("en") & "&sup=" & Me.Request.QueryString("sup"))
-        'Else
-        '    Response.Redirect("~/SD/AcuerdosListV.aspx?7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=" & Me.Request.QueryString("7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0") & "&gjXtIkEroS=SD_SSFD&ksjcmj=" & Me.Request.QueryString("ksjcmj") & "&hsndktumg=" & Me.Request.QueryString("hsndktumg") & "&tipo=" & Me.Request.QueryString("tipo") & "&ubig=" & Me.Request.QueryString("ubig") & "&de=" & Me.Request.QueryString("de") & "&en=" & Me.Request.QueryString("en") & "&sup=" & Me.Request.QueryString("sup") & "&enti=" & Me.Request.QueryString("enti") & "&iacp=" & Me.Request.QueryString("iacp"))
-        'End If
+        Response.Redirect("~/SD/Form_reuniones.aspx?7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=" & Request.QueryString("7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0").ToString & "&gjXtIkEroS=SD_SSFD&en=" & Request.QueryString("en").ToString & "&sup=" & Request.QueryString("sup").ToString & "&iacp=" & Request.QueryString("iacp").ToString)
+    End Sub
 
+    Protected Sub retornaGuardaB_Click(sender As Object, e As EventArgs) Handles retornaGuardaB.Click
+        Dim cad As String = ""
+        If estadoCB.SelectedValue = 2 Then
+            cad = " UPDATE SD_tblReuniones set estadoRegistro = " & estadoCB.SelectedValue.ToString & ", hora_Inicio_real = getdate(), fechaModifica = getdate(), usuarioModifica_accesoID = " & Me.Request.QueryString("iacp").ToString & " where reunionID = " & Me.Request.QueryString("reid").ToString
+        ElseIf estadoCB.SelectedValue = 3 Then
+            If Me.Request.QueryString("estReg") <> 2 Then
+                mensajeJSS("Estado no permitido, previamente debe iniciar la reunión")
+            Else
+                cad = " UPDATE SD_tblReuniones set estadoRegistro = " & estadoCB.SelectedValue.ToString & ", hora_fin_real = getdate(), fechaModifica = getdate(), usuarioModifica_accesoID = " & Me.Request.QueryString("iacp").ToString & " where reunionID = " & Me.Request.QueryString("reid").ToString
+            End If
+        ElseIf estadoCB.SelectedValue = 4 Then
+            cad = " UPDATE SD_tblReuniones set estadoRegistro = " & estadoCB.SelectedValue.ToString & ", fechaModifica = getdate(), usuarioModifica_accesoID = " & Me.Request.QueryString("iacp").ToString & " where reunionID = " & Me.Request.QueryString("reid").ToString
+        End If
+        If cad.Length > 0 Then
+            Try
+                Me.sw_ejecutaSQL.querySQL(cad)
+                Response.Redirect("~/SD/Form_reuniones.aspx?7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=" & Request.QueryString("7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0").ToString & "&gjXtIkEroS=SD_SSFD&en=" & Request.QueryString("en").ToString & "&sup=" & Request.QueryString("sup").ToString & "&iacp=" & Request.QueryString("iacp").ToString)
+            Catch ex As Exception
+            End Try
+        End If
     End Sub
 
     Private Sub RadAjaxManager1_AjaxRequest(ByVal sender As Object, ByVal e As Telerik.Web.UI.AjaxRequestEventArgs) Handles RadAjaxManager1.AjaxRequest

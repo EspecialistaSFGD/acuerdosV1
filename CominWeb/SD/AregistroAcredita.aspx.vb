@@ -234,7 +234,7 @@ Public Class AregistroAcredita
 
     Protected Sub generarB_Click(sender As Object, e As EventArgs) Handles generarB.Click
 
-        SW_pedidoDT = SW_pedidos.SD_P_selectValidaAcreditadoCant(Me.Request.QueryString("codevento").ToString, Me.Request.QueryString("en"))
+        SW_pedidoDT = SW_pedidos.SD_P_selectValidaAcreditadoCant(Me.Request.QueryString("codevento").ToString, Me.Request.QueryString("en"), 1)
 
         If SW_pedidoDT.Rows(0).Item(0) = SW_pedidoDT.Rows(0).Item(1) Then
             mensajeJSS(SW_pedidoDT.Rows(0).Item(1).ToString & " es la cantidad maxima de acreditados")

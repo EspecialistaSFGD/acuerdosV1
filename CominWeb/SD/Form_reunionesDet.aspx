@@ -211,33 +211,37 @@
         </div>
 
         <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:left; margin-right:120px; margin-left:2%; padding-top:5px; padding-bottom:3px; border-right: #578533 1px solid; border-top: #578533 1px solid; border-left: #578533 1px solid; border-bottom: #578533 1px solid; background-color: white;">
-                <div class="col-md-1 col-sm-2 col-xs-4 " style="text-align:left; font-weight:bold">
-                    CODIGO
+                <div class="col-md-1 col-sm-2 col-xs-4 " style="text-align:left; font-weight:bold; margin-top:10px">
+                    SECTOR
                 </div>
-                <div class="col-md-2 col-sm-4 col-xs-8 " style="text-align:center; ">
-                    <asp:Label ID="codigoLB" runat="server" Font-Bold="False" Font-Size="10pt" Text="." >
+                <div class="col-md-2 col-sm-4 col-xs-8 " style="text-align:center; margin-top:10px">
+                    <asp:Label ID="sectorLB" runat="server" Font-Bold="False" Font-Size="11pt" Text="." >
                     </asp:Label>
                 </div>
-                <div class="col-md-1 col-sm-2 col-xs-4 " style="text-align:left; font-weight:bold">
-                    CLASIFICACIÓN
+                <div class="col-md-1 col-sm-2 col-xs-4 " style="text-align:left; font-weight:bold; margin-top:10px">
+                    ENTIDAD
                 </div>
-                <div class="col-md-2 col-sm-4 col-xs-8 " style="text-align:center; ">
-                    <asp:Label ID="clasificaLB" runat="server" Font-Bold="False" Font-Size="10pt" Text="." >
+                <div class="col-md-5 col-sm-4 col-xs-8 " style="text-align:center;margin-top:10px">
+                    <asp:Label ID="entidadLB" runat="server" Font-Bold="False" Font-Size="10pt" Text=".">
                     </asp:Label>
                 </div>
-                <div class="col-md-1 col-sm-2 col-xs-4 " style="text-align:left; font-weight:bold">
-                    RESPONSABLE
+<%--                <div class="col-md-1 col-sm-2 col-xs-4 " style="text-align:left; font-weight:bold">
+                    
                 </div>
                 <div class="col-md-2 col-sm-4 col-xs-8 " style="text-align:center; ">
-                    <asp:Label ID="responsableLB" runat="server" Font-Bold="False" Font-Size="10pt" Text=".">
-                    </asp:Label>
-                </div>
-                <div class="col-md-1 col-sm-2 col-xs-4 " style="text-align:left; font-weight:bold">
-                    PLAZO
+                    
+                </div>--%>
+                <div class="col-md-1 col-sm-2 col-xs-4 " style="text-align:left; font-weight:bold; margin-top:10px">
+                    ESTADO
                 </div>
                 <div class="col-md-2 col-sm-4 col-xs-8 " style="text-align:center; ">
-                    <asp:Label ID="plazoLB" runat="server" Font-Bold="False" Font-Size="10pt" Text="."  >
-                    </asp:Label>
+                    <asp:DropDownList ID="estadoCB" runat="server" Width="100%" Font-Size="12pt" Height="40px"
+                            class="form-control" TabIndex="3" AppendDataBoundItems="True" Font-Bold="true">
+                            <asp:ListItem Value="0" > NO INICIADO </asp:ListItem>
+                            <asp:ListItem Value="2" > EN PROCESO </asp:ListItem>
+                            <asp:ListItem Value="3" > FINALIZADO </asp:ListItem>
+                            <asp:ListItem Value="4" > CANCELADO </asp:ListItem>
+                    </asp:DropDownList>
                 </div>
         </div>
 

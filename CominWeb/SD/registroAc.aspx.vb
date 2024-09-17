@@ -45,6 +45,17 @@ Public Class registroAc
                 buscar2.Text = "GUARDAR"
             End If
 
+            If Me.Request.QueryString("en").ToString() = "3402" Then
+                tentativoLB.Visible = True
+                tentativoCB.Visible = True
+            Else
+                tentativoLB.Visible = False
+                tentativoCB.Enabled = False
+                tentativoCB.Visible = False
+
+            End If
+
+
             If Me.Request.QueryString("codac").ToString > 0 Then
                 SW_pedidoDT = SW_pedidoDA.SD_P_selectAcuerdosV2(Me.Request.QueryString("codac").ToString, 0, "", 0, 0)
                 If SW_pedidoDT.Rows.Count > 0 Then
@@ -58,6 +69,13 @@ Public Class registroAc
                     responsableCB.DataBind()
 
                     plazoRDP.SelectedDate = SW_pedidoDT.Rows(0).Item(8).ToString.Trim
+
+                    If SW_pedidoDT.Rows(0).Item(29).ToString.Trim = 1 Then
+                        tentativoCB.Checked = True
+                    Else
+                        tentativoCB.Checked = False
+                    End If
+
 
                     'Me.ultimaActualizacionLB.Text = SW_ordenesTrabajoDT.Rows(0).Item(44)
                     'Me.txtot.Text = SW_ordenesTrabajoDT.Rows(0).Item(1).ToString.Trim
@@ -104,17 +122,25 @@ Public Class registroAc
         ElseIf plazoRDP.SelectedDate.ToString.Length = 0 Then
             mensajeJSS("Ingrese Plazo")
         Else
-            guardar(Me.Request.QueryString("codac").ToString, Me.Request.QueryString("codped").ToString, acuerdoTB.Text.ToString.Trim, clasificaCB.SelectedValue, responsableCB.SelectedValue, plazoRDP.SelectedDate.Value.ToString("dd/MM/yyyy"), Me.Request.QueryString("iacp").ToString, Me.Request.QueryString("preacuerdo").ToString)
+
+            Dim tenta As Integer
+            If tentativoCB.Checked = True Then
+                tenta = 1
+            Else
+                tenta = 0
+            End If
+
+            guardar(Me.Request.QueryString("codac").ToString, Me.Request.QueryString("codped").ToString, acuerdoTB.Text.ToString.Trim, clasificaCB.SelectedValue, responsableCB.SelectedValue, plazoRDP.SelectedDate.Value.ToString("dd/MM/yyyy"), Me.Request.QueryString("iacp").ToString, Me.Request.QueryString("preacuerdo").ToString, tenta)
 
         End If
 
     End Sub
 
 
-    Private Sub guardar(ByVal acuerdoid As Integer, pedidoid As Integer, acuerdo As String, clasifica As Integer, responsable As Integer, plazo As String, acceso As Integer, preacuerdo As String)
+    Private Sub guardar(ByVal acuerdoid As Integer, pedidoid As Integer, acuerdo As String, clasifica As Integer, responsable As Integer, plazo As String, acceso As Integer, preacuerdo As String, tentativo As Integer)
 
         Dim cad As String = ""
-        cad = " exec SD_P_crearUpdateAcuerdo " & acuerdoid.ToString & ", " & pedidoid.ToString & ", '" & acuerdo.ToString & "', " & clasifica.ToString & ", " & responsable.ToString & ", '" & plazo & "', '" & acceso & "'," & preacuerdo
+        cad = " exec SD_P_crearUpdateAcuerdo " & acuerdoid.ToString & ", " & pedidoid.ToString & ", '" & acuerdo.ToString & "', " & clasifica.ToString & ", " & responsable.ToString & ", '" & plazo & "', '" & acceso & "'," & preacuerdo & "," & tentativo
 
         If cad.Length > 0 Then
             Try

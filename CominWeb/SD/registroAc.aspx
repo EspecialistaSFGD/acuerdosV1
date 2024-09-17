@@ -192,6 +192,20 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td style="width:15%; padding:5px; Font-Size:14px; font-weight:500">
+                                    
+                                </td>
+                                <td style="width:35%; padding:5px">
+                                        
+                                </td>
+                                <td style="width:15%; padding:5px; Font-Size:14px; font-weight:500">
+                                    <center><asp:Label ID="tentativoLB" runat="server">TENTATIVO</asp:Label></center>
+                                </td>
+                                <td style="width:35%; padding:5px">
+                                    <asp:CheckBox ID="tentativoCB" runat="server" Checked="false" />
+                                </td>
+                            </tr>
+                            <tr>
                                 <td  colspan="4">
                                     <br />
                                     <asp:Button ID="buscar2" runat="server" Text="" class="styleMe1" Width="100%" Height="40px" Font-Size="13" />
