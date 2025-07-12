@@ -172,6 +172,11 @@
     </Content>
     <None Include="My Project\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="SD\AcuerdosListHitoV.aspx" />
+    <Content Include="SD\Form_confirmaParticipa.aspx" />
+    <Content Include="SD\Form_registrosInversion.aspx" />
+    <Content Include="SD\Form_registrosInversionDet.aspx" />
+    <Content Include="SD\Form_registrosList.aspx" />
+    <Content Include="SD\Form_reunionesA.aspx" />
     <Content Include="SD\AregistroAcredita.aspx" />
     <Content Include="SD\AregistroAsistencia.aspx" />
     <Content Include="SD\Form_acreditadoList.aspx" />
@@ -180,8 +185,10 @@
     <Content Include="SD\AcuerdosListV.aspx" />
     <Content Include="SD\Form_menuSD.aspx" />
     <Content Include="SD\Form_reuniones.aspx" />
+    <Content Include="SD\Form_reunionesDetA.aspx" />
     <Content Include="SD\Form_reunionesDet.aspx" />
     <Content Include="SD\registroAcTipo.aspx" />
+    <Content Include="SD\registroConfirma.aspx" />
     <Content Include="SD\registroPedidoV22.aspx" />
     <Content Include="SD\registroPedidoV.aspx" />
     <Content Include="SD\registroComenDes.aspx" />
@@ -198,6 +205,8 @@
     <Content Include="SD\Form_asistenciaEventos.aspx" />
     <Content Include="SD\Form_asistenciaListOp.aspx" />
     <Content Include="SD\Form_BienvenidoSD.aspx" />
+    <Content Include="SD\registroSituacion.aspx" />
+    <Content Include="SD\registroTareaInv.aspx" />
     <Content Include="SD\Reportes\Form_ReportAcuerdoIDDescarga.aspx" />
     <Content Include="SessionActiva.aspx" />
     <Content Include="SqlServerTypes\Loader.cs" />
@@ -436,6 +445,41 @@
       <DependentUpon>AcuerdosListHitoV.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="SD\Form_confirmaParticipa.aspx.designer.vb">
+      <DependentUpon>Form_confirmaParticipa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\Form_confirmaParticipa.aspx.vb">
+      <DependentUpon>Form_confirmaParticipa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SD\Form_registrosInversion.aspx.designer.vb">
+      <DependentUpon>Form_registrosInversion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\Form_registrosInversion.aspx.vb">
+      <DependentUpon>Form_registrosInversion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SD\Form_registrosInversionDet.aspx.designer.vb">
+      <DependentUpon>Form_registrosInversionDet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\Form_registrosInversionDet.aspx.vb">
+      <DependentUpon>Form_registrosInversionDet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SD\Form_registrosList.aspx.designer.vb">
+      <DependentUpon>Form_registrosList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\Form_registrosList.aspx.vb">
+      <DependentUpon>Form_registrosList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SD\Form_reunionesA.aspx.designer.vb">
+      <DependentUpon>Form_reunionesA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\Form_reunionesA.aspx.vb">
+      <DependentUpon>Form_reunionesA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="SD\AregistroAcredita.aspx.designer.vb">
       <DependentUpon>AregistroAcredita.aspx</DependentUpon>
     </Compile>
@@ -490,6 +534,13 @@
     </Compile>
     <Compile Include="SD\Form_reuniones.aspx.vb">
       <DependentUpon>Form_reuniones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SD\Form_reunionesDetA.aspx.designer.vb">
+      <DependentUpon>Form_reunionesDetA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\Form_reunionesDetA.aspx.vb">
+      <DependentUpon>Form_reunionesDetA.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SD\Form_reunionesDet.aspx.designer.vb">
@@ -616,6 +667,20 @@
     </Compile>
     <Compile Include="SD\Form_BienvenidoSD.aspx.vb">
       <DependentUpon>Form_BienvenidoSD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SD\registroSituacion.aspx.designer.vb">
+      <DependentUpon>registroSituacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\registroSituacion.aspx.vb">
+      <DependentUpon>registroSituacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SD\registroTareaInv.aspx.designer.vb">
+      <DependentUpon>registroTareaInv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SD\registroTareaInv.aspx.vb">
+      <DependentUpon>registroTareaInv.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SD\Reportes\Form_ReportAcuerdoIDDescarga.aspx.designer.vb">

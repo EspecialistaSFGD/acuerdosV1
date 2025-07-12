@@ -15,17 +15,35 @@ Public Class Form_menuSD
     'Dim sw_ejecutaSQL As New SW_EjecutaSQL_DA
 
     Private Sub Form_menuSD_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
+
         If Request.QueryString("gjXtIkEroS").ToString = "SD_SSFD" Then
             variableGlobalConexion.nombreCadenaCnx = "SD_CS"
+            If Request.QueryString("7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0") = "D72E58A4A3B20314C59A69BB1ED5905F88DBBDB2AE4B7DB1" Then
+                Response.Redirect("https://sesigue.miterritorio.gob.pe/sesigueold/SD/Form_menuSD.aspx?7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=2E58A4A3B20314C59A69BB1ED5905F88DBBDB2AE4B7DB1&gjXtIkEroS=" & Me.Request.QueryString("gjXtIkEroS").ToString & "&ksjcmj=" & Me.Request.QueryString("ksjcmj").ToString & "&hsndktumg=" & Me.Request.QueryString("hsndktumg").ToString & "&tipo=" & Me.Request.QueryString("tipo").ToString & "&ubig=" & Me.Request.QueryString("ubig").ToString & "&de=" & Me.Request.QueryString("de").ToString & "&en=" & Me.Request.QueryString("en").ToString & "&sup=" & Me.Request.QueryString("sup").ToString & "&enti=" & Me.Request.QueryString("enti").ToString & "&codsector=" & Me.Request.QueryString("codsector").ToString & "&iacp=" & Me.Request.QueryString("iacp").ToString)
+            End If
+
         Else
-            variableGlobalConexion.nombreCadenaCnx = ""
+                variableGlobalConexion.nombreCadenaCnx = ""
             Response.Redirect("~/Error/Oops.aspx?Ljbq7iMESelhIUIxzrV7j78eJD/0EFUR=INTRUSO")
         End If
-        'SDS_SD_P_selectGrupos.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
-        'SDS_P_selectDepartamento.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
-        'SDS_P_selectProvincia.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
-        'SDS_SD_P_selectEntidades.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
+        ''SDS_SD_P_selectGrupos.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
+        ''SDS_P_selectDepartamento.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
+        ''SDS_P_selectProvincia.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
+        ''SDS_SD_P_selectEntidades.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
     End Sub
+
+    'h ttps://sesigue.com/SESIGUE/SD/Form_menuSD.aspx?7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=D72E58A4A3B20314C59A69BB1ED5905F88DBBDB2AE4B7DB1
+    '&gjXtIkEroS=SD_SSFD
+    '&ksjcmj=16
+    '&hsndktumg=D72E58A4A3B20314C59A69BB1ED5905F88DBBDB2AE4B7DB1
+    '&tipo=1
+    '&ubig=0
+    '&de=
+    '&en=3384
+    '&sup=1
+    '&enti=Ministerio%20de%20Transportes%20y%20Comunicaciones%20(MTC)
+    '&codsector=16
+    '&iacp=700
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
@@ -36,113 +54,76 @@ Public Class Form_menuSD
         'tituloLB.Text = " :: SEGUIMIENTO DE ACUERDOS - 2024 :: "
 
         If Page.IsPostBack = False Then
-            Dim sup As Integer
+            'Dim sup As Integer
 
-            If Request.QueryString("en") = 3402 Then
-                sup = 2
-            Else
-                sup = Request.QueryString("sup")
-            End If
+            'If Request.QueryString("en") = 3402 Then
+            '    sup = 2
+            'Else
+            '    sup = Request.QueryString("sup")
+            'End If
 
-            eventoDT = SW_pedidoDA.SD_P_selectEventos(0, 1)
-            Session("espacioIDFiltro") = eventoDT.Rows(0).Item(0)
+            'eventoDT = SW_pedidoDA.SD_P_selectEventos(0, 1)
+            'Session("espacioIDFiltro") = eventoDT.Rows(0).Item(0)
 
-            prioridadesBN.HRef = "prioridadesAcuerdosV.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh" +
-                                "&gjXtIkEroS=SD_SSFD&ksjcmj=0&hsndktumg=28251814290D25D0E43403BA1CEAC908602EAE02D3A88385&tipo=" & Request.QueryString("tipo") & "&ubig=" & Request.QueryString("ubig") & "&amb=" & eventoDT.Rows(0).Item(4).ToString &
-                                "&de=" & Request.QueryString("de") & "&en=" & Request.QueryString("en") & "&sup=" & sup.ToString & "&enti=" & Request.QueryString("enti") &
-                                "&codsector=" & Request.QueryString("codsector") & "&iacp=" & Request.QueryString("iacp") & "&preacuerdo=" & SW_pedidoDA.SD_P_selectParametroByID(16, 2).Rows(0).Item(3)
+            'prioridadesBN.HRef = "prioridadesAcuerdosV.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh" +
+            '                    "&gjXtIkEroS=SD_SSFD&ksjcmj=0&hsndktumg=28251814290D25D0E43403BA1CEAC908602EAE02D3A88385&tipo=" & Request.QueryString("tipo") & "&ubig=" & Request.QueryString("ubig") & "&amb=" & eventoDT.Rows(0).Item(4).ToString &
+            '                    "&de=" & Request.QueryString("de") & "&en=" & Request.QueryString("en") & "&sup=" & sup.ToString & "&enti=" & Request.QueryString("enti") &
+            '                    "&codsector=" & Request.QueryString("codsector") & "&iacp=" & Request.QueryString("iacp") & "&preacuerdo=" & SW_pedidoDA.SD_P_selectParametroByID(16, 2).Rows(0).Item(3)
 
-            listAcuerdoB.HRef = "AcuerdosListV.aspx?7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=" & Me.Request.QueryString("7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0") & "&gjXtIkEroS=" & Me.Request.QueryString("gjXtIkEroS") & "&ksjcmj=" & Me.Request.QueryString("ksjcmj") & "&hsndktumg=" & Me.Request.QueryString("hsndktumg") & "&tipo=" & Me.Request.QueryString("tipo") & "&ubig=" & Me.Request.QueryString("ubig") & "&de=" & Me.Request.QueryString("de") & "&en=" & Me.Request.QueryString("en") & "&sup=" & sup.ToString & "&enti=" & Me.Request.QueryString("enti") & "&iacp=" & Me.Request.QueryString("iacp")
+            'listAcuerdoB.HRef = "AcuerdosListV.aspx?7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=" & Me.Request.QueryString("7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0") & "&gjXtIkEroS=" & Me.Request.QueryString("gjXtIkEroS") & "&ksjcmj=" & Me.Request.QueryString("ksjcmj") & "&hsndktumg=" & Me.Request.QueryString("hsndktumg") & "&tipo=" & Me.Request.QueryString("tipo") & "&ubig=" & Me.Request.QueryString("ubig") & "&de=" & Me.Request.QueryString("de") & "&en=" & Me.Request.QueryString("en") & "&sup=" & sup.ToString & "&enti=" & Me.Request.QueryString("enti") & "&iacp=" & Me.Request.QueryString("iacp")
 
-            listHitosB.HRef = "AcuerdosListHitoV.aspx?lkjasdliwupqwinasndlkkjasKASNDDDWILADdASKJSdwuewue=lksajdasdwWDwdwDdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD" & "&en=" & Me.Request.QueryString("en") & "&sup=" & sup.ToString & "&iacp=" & Me.Request.QueryString("iacp")
+            'listHitosB.HRef = "AcuerdosListHitoV.aspx?lkjasdliwupqwinasndlkkjasKASNDDDWILADdASKJSdwuewue=lksajdasdwWDwdwDdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD" & "&en=" & Me.Request.QueryString("en") & "&sup=" & sup.ToString & "&iacp=" & Me.Request.QueryString("iacp")
 
-            acreditadoBN.HRef = "AregistroAcredita.aspx?au=0&7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=2B6AC8BbF4ADF440005AFC42EF337555FB0008BF9770791Z&gjXtIkEroS=" & Me.Request.QueryString("gjXtIkEroS") & "&codevento=" & eventoDT.Rows(0).Item(0).ToString & "&ubig=" & Me.Request.QueryString("ubig") & "&de=" & Me.Request.QueryString("de") & "&en=" & Me.Request.QueryString("en") & "&codsector=" & Request.QueryString("codsector") & "&iacp=" & Me.Request.QueryString("iacp") & "&sup=" & sup.ToString
+            'acreditadoBN.HRef = "AregistroAcredita.aspx?au=0&7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=2B6AC8BbF4ADF440005AFC42EF337555FB0008BF9770791Z&gjXtIkEroS=" & Me.Request.QueryString("gjXtIkEroS") & "&codevento=" & eventoDT.Rows(0).Item(0).ToString & "&ubig=" & Me.Request.QueryString("ubig") & "&de=" & Me.Request.QueryString("de") & "&en=" & Me.Request.QueryString("en") & "&codsector=" & Request.QueryString("codsector") & "&iacp=" & Me.Request.QueryString("iacp") & "&sup=" & sup.ToString
 
-            asistenciaBN.HRef = "AregistroAsistencia.aspx?au=0&7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=2B6AC8BbF4ADF440005AFC42EF337555FB0008BF9770791Z&gjXtIkEroS=" & Me.Request.QueryString("gjXtIkEroS") & "&ubig=" & Me.Request.QueryString("ubig") & "&de=" & Me.Request.QueryString("de") & "&en=" & Me.Request.QueryString("en") & "&codsector=" & Request.QueryString("codsector") & "&iacp=" & Me.Request.QueryString("iacp") & "&sup=" & sup.ToString
-            reunionesBN.HRef = "Form_reuniones.aspx?7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=2B6AC8BF14ADF446665AFC42EF337555FB6668BF9770791Z&gjXtIkEroS=" & Me.Request.QueryString("gjXtIkEroS") & "&en=" & Me.Request.QueryString("en") & "&sup=" & sup.ToString & "&iacp=" & Me.Request.QueryString("iacp")
-            prioridadesBN.Visible = True
-            listAcuerdoB.Visible = True
-            'acreditadoBN.Visible = True
-            If Request.QueryString("sup") = 3 Then
-                acreditadoBN.Visible = False
-                asistenciaBN.Visible = False
-                listHitosB.Visible = False
-                prioridadesBN.Visible = False
-                reunionesBN.Visible = False
-            ElseIf Request.QueryString("sup") = 2 Then
+            'asistenciaBN.HRef = "AregistroAsistencia.aspx?au=0&7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=2B6AC8BbF4ADF440005AFC42EF337555FB0008BF9770791Z&gjXtIkEroS=" & Me.Request.QueryString("gjXtIkEroS") & "&ubig=" & Me.Request.QueryString("ubig") & "&de=" & Me.Request.QueryString("de") & "&en=" & Me.Request.QueryString("en") & "&codsector=" & Request.QueryString("codsector") & "&iacp=" & Me.Request.QueryString("iacp") & "&sup=" & sup.ToString
+            'reunionesBN.HRef = "Form_reuniones.aspx?7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=2B6AC8BF14ADF446665AFC42EF337555FB6668BF9770791Z&gjXtIkEroS=" & Me.Request.QueryString("gjXtIkEroS") & "&en=" & Me.Request.QueryString("en") & "&sup=" & sup.ToString & "&iacp=" & Me.Request.QueryString("iacp") & "&ksjcmj=" & Me.Request.QueryString("ksjcmj")
 
-                listHitosB.Visible = True
-                asistenciaBN.Visible = True
-                reunionesBN.Visible = True
-            ElseIf Request.QueryString("sup") = 1 Then
-                listHitosB.Visible = False
-                asistenciaBN.Visible = False
-                acreditadoBN.Visible = True
-                reunionesBN.Visible = False
-            Else
-                acreditadoBN.Visible = False
-                asistenciaBN.Visible = False
-                listHitosB.Visible = False
-                reunionesBN.Visible = False
-                If Request.QueryString("ubig") <> "0" Then
-                    Dim ub As Integer = Right("00" & Request.QueryString("ubig"), 6)
-                    If ub > 0 Then
-                        acreditadoBN.Visible = True
-                    Else
-                        acreditadoBN.Visible = True
-                    End If
-                End If
+            ''acreditadoBN.Visible = True
+            'If Request.QueryString("sup") = 3 Then
+            '    acreditadoBN.Visible = False
+            '    asistenciaBN.Visible = False
+            '    listHitosB.Visible = False
+            '    prioridadesBN.Visible = False
+            '    reunionesBN.Visible = False
+            '    prioridadesBN.Visible = True
+            '    listAcuerdoB.Visible = True
+            'ElseIf Request.QueryString("sup") = 2 Then
+            '    prioridadesBN.Visible = True
+            '    listAcuerdoB.Visible = True
+            '    listHitosB.Visible = True
+            '    asistenciaBN.Visible = True
+            '    reunionesBN.Visible = True
+            'ElseIf Request.QueryString("sup") = 1 Then
+            '    listHitosB.Visible = False
+            '    asistenciaBN.Visible = False
+            '    acreditadoBN.Visible = True
+            '    reunionesBN.Visible = False
+            '    prioridadesBN.Visible = False
+            '    listAcuerdoB.Visible = False
+            'Else
+            '    prioridadesBN.Visible = False
+            '    listAcuerdoB.Visible = False
+            '    acreditadoBN.Visible = True
+            '    asistenciaBN.Visible = False
+            '    listHitosB.Visible = False
+            '    reunionesBN.Visible = False
+            '    If Request.QueryString("ubig") <> "0" Then
+            '        Dim ub As Integer = Right("00" & Request.QueryString("ubig"), 6)
+            '        If ub > 0 Then
+            '            acreditadoBN.Visible = True
+            '        Else
+            '            acreditadoBN.Visible = True
+            '        End If
+            '    End If
 
 
-            End If
+            'End If
 
-            'hiddenField.Value = "0216"
         End If
     End Sub
 
 
-    'Protected Sub registroAsistenciaB_Click(sender As Object, e As EventArgs) Handles registroAsistenciaB.Click
-    '    Response.Redirect("~/SD/Form_asistenciaEventos.aspx?gjXtIkEroS=SD_SSFD" +
-    '                            "&lkjasdliwupqwinasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh")
-    'End Sub
-
-    'Protected Sub validaB_Click(sender As Object, e As EventArgs) Handles validaB.Click
-    '    Response.Redirect("~/SD/Form_asistenciaValidaAcreditado.aspx?gjXtIkEroS=SD_SSFD" +
-    '                            "&lkjasdliwupqwinasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh")
-    'End Sub
-
-    'Protected Sub acreditaListB_Click(sender As Object, e As EventArgs) Handles acreditaListB.Click
-    '    Response.Redirect("~/SD/Form_acreditadoList.aspx?gjXtIkEroS=SD_SSFD" +
-    '                            "&lkjasdliwupqwinasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh")
-    'End Sub
-
-    'Protected Sub asistenteListB_Click(sender As Object, e As EventArgs) Handles asistenteListB.Click
-    '    Response.Redirect("~/SD/Form_asistenciaListOP.aspx?gjXtIkEroS=SD_SSFD" +
-    '                            "&lkjasdliwupqwinasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh")
-    'End Sub
-
-    'Protected Sub importaAcreditadoB_Click(sender As Object, e As EventArgs) Handles importaAcreditadoB.Click
-    '    Response.Redirect("~/SD/Form_asistenciaCargaMasiva.aspx?gjXtIkEroS=SD_SSFD" +
-    '                            "&lkjasdliwupqwinasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh")
-    'End Sub
-
-    'Protected Sub prioridadesB_Click(sender As Object, e As EventArgs) Handles prioridadesB.Click
-    '    Response.Redirect("~/SD/prioridadesAcuerdosV.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh" +
-    '                            "&gjXtIkEroS=SD_SSFD&ksjcmj=0&hsndktumg=28251814290D25D0E43403BA1CEAC908602EAE02D3A88385&tipo=" & Request.QueryString("tipo") & "&ubig=" & Request.QueryString("ubig") &
-    '                            "&de=" & Request.QueryString("de") & "&en=" & Request.QueryString("en") & "&sup=" & Request.QueryString("sup") & "&enti=" & Request.QueryString("enti") &
-    '                            "&codsector=" & Request.QueryString("codsector") & "&iacp=" & Request.QueryString("iacp"))
-    'End Sub
-
-    'Protected Sub acuerdoB_Click(sender As Object, e As EventArgs) Handles acuerdoB.Click
-    '    Response.Redirect("~/SD/AcuerdosListV.aspx?lkjasdliwupqwinasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh" +
-    '                            "&gjXtIkEroS=SD_SSFD&ksjcmj=0")
-    'End Sub
-
-
-    'Protected Sub hitoB_Click(sender As Object, e As EventArgs) Handles hitoB.Click
-    '    Response.Redirect("~/SD/AcuerdosListHitoV.aspx?lkjasdliwupqwinasndlkkjasKASNDDDWILADdASKJSdwuewue=lksajdasdwWDwdwDdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh" +
-    '                            "&gjXtIkEroS=SD_SSFD")
-    'End Sub
 
     Private Sub mensajeJSS(ByVal varIn As String)
         Dim cadena_java As String
@@ -164,183 +145,5 @@ Public Class Form_menuSD
 
     End Sub
 
-    'Protected Sub generarB_Click(sender As Object, e As EventArgs) Handles generarB.Click
-    '    Dim corre As String
-    '    Dim URL As String
-    '    Dim cad As String = ""
-    '    corre = correoTB.Text.ToString.ToUpper.Trim
-
-    '    If entidadCB.SelectedValue = 0 Then
-    '        mensajeJSSA("Seleccione su entidad")
-    '    ElseIf nombreTB.Text.ToString.Length = 0 Then
-    '        mensajeJSSA("Ingrese Nombre")
-    '    ElseIf dniTB.Text.ToString.Length <> 8 Then
-    '        mensajeJSSA("Ingrese DNI válido")
-    '    ElseIf correoTB.Text.ToString.Length < 6 Or correoTB.Text.ToString.Length > 50 Then
-    '        mensajeJSSA("Ingrese Correo electrónico")
-    '    ElseIf telefonoTB.Text.ToString.Length < 6 Or telefonoTB.Text.ToString.Length > 9 Then
-    '        mensajeJSSA("Ingrese nro. de teléfono")
-    '    Else
-
-
-
-    '        Dim validaDT As New DataTable
-    '        validaDT = SW_pedidoDA.SD_P_selectAcceso(0, entidadCB.SelectedValue, 1)
-
-    '        If validaDT.Rows.Count > 0 Then
-    '            mensajeJSSA(validaDT.Rows(0).Item(22).ToString)
-    '        Else
-    '            If SW_pedidoDA.SD_P_selectParametroByID(8, 0).Rows(0).Item(3) = entidadCB.SelectedValue Then
-    '                SW_autorizadoDT = SW_pedidoDA.SD_P_selectAutorizaByDNI(dniTB.Text.ToString.Trim, "")
-    '                If SW_autorizadoDT.Rows.Count > 0 Then
-    '                    Try
-
-    '                        Dim accesoid As Integer = SW_pedidoDA.SD_P_crearUpdateAcceso(entidadCB.SelectedValue, nombreTB.Text.ToString.ToUpper.Trim, dniTB.Text.ToString.Trim, correoTB.Text.ToString.ToUpper.Trim, telefonoTB.Text.ToString, 0)
-
-
-    '                        If accesoid > 0 Then
-    '                            If SW_autorizadoDT.Rows(0).Item(1) = 0 Then
-    '                                SW_pedidoDT = SW_pedidoDA.SD_P_selectAcceso(accesoid, 0, 9)
-    '                                URL = SW_pedidoDT.Rows(0).Item(19).ToString() & SW_pedidoDT.Rows(0).Item(2).ToString() & SW_pedidoDT.Rows(0).Item(9).ToString() & SW_pedidoDT.Rows(0).Item(11).ToString() &
-    '                    "&hsndktumg=" & SW_pedidoDT.Rows(0).Item(2).ToString() &
-    '                    "&tipo=" & SW_pedidoDT.Rows(0).Item(10).ToString() &
-    '                    "&ubig=" & SW_pedidoDT.Rows(0).Item(15).ToString() & '"&enti=" & SW_pedidoDT.Rows(0).Item(16).ToString() &
-    '                    "&de=" & SW_pedidoDT.Rows(0).Item(17).ToString() & '"&enti=" & SW_pedidoDT.Rows(0).Item(16).ToString() &
-    '                    "&en=" & SW_pedidoDT.Rows(0).Item(1).ToString() &
-    '                    "&sup=" & SW_pedidoDT.Rows(0).Item(18).ToString() &
-    '                    "&enti=" & SW_pedidoDT.Rows(0).Item(16).ToString()
-
-    '                                cad = " UPDATE SD_tblAccesos SET URL = '" & URL.ToString & "' WHERE accesoID = " & accesoid.ToString
-    '                                Me.sw_ejecutaSQL.querySQL(cad)
-
-    '                                sendMailA(accesoid, 2, URL)
-    '                            Else
-
-    '                                SW_pedidoDT = SW_pedidoDA.SD_P_selectAcceso(accesoid, 0, 9)
-    '                                URL = SW_pedidoDT.Rows(0).Item(20).ToString() & SW_pedidoDT.Rows(0).Item(2).ToString() & SW_pedidoDT.Rows(0).Item(9).ToString() & SW_pedidoDT.Rows(0).Item(11).ToString() &
-    '                   "&hsndktumg=" & SW_pedidoDT.Rows(0).Item(2).ToString() &
-    '                   "&tipo=" & SW_pedidoDT.Rows(0).Item(10).ToString() &
-    '                   "&ubig=" & SW_pedidoDT.Rows(0).Item(15).ToString() & '"&enti=" & SW_pedidoDT.Rows(0).Item(16).ToString() &
-    '                   "&de=" & SW_pedidoDT.Rows(0).Item(17).ToString() & '"&enti=" & SW_pedidoDT.Rows(0).Item(16).ToString() &
-    '                   "&en=" & SW_pedidoDT.Rows(0).Item(1).ToString() &
-    '                   "&sup=" & SW_pedidoDT.Rows(0).Item(18).ToString() &
-    '                   "&enti=" & SW_pedidoDT.Rows(0).Item(16).ToString()
-
-    '                                cad = " UPDATE SD_tblAccesos SET URL = '" & URL.ToString & "' WHERE accesoID = " & accesoid.ToString
-    '                                Me.sw_ejecutaSQL.querySQL(cad)
-
-    '                                sendMailA(accesoid, 3, URL)
-    '                            End If
-
-    '                            nombreTB.Text = ""
-    '                            dniTB.Text = ""
-    '                            correoTB.Text = ""
-    '                            telefonoTB.Text = ""
-    '                            generarB.Enabled = False
-    '                            mensajeJSSA("Se envio un correo a " & corre & ", con acceso a la plataforma de Seguimiento de Acuerdos ")
-    '                        End If
-
-    '                    Catch ex As Exception
-    '                        mensajeJSS("Se genero un error, contactar con el Administrador")
-    '                    End Try
-    '                Else
-    '                    mensajeJSSA("SOLICITUD RECHAZADA, SUS DATOS FUERON REGISTRADOS PARA EVALUAR UN PROCESO ADMINISTRATIVO")
-    '                End If
-
-
-
-    '            Else
-    '                Try
-    '                    Dim accesoid As Integer = SW_pedidoDA.SD_P_crearUpdateAcceso(entidadCB.SelectedValue, nombreTB.Text.ToString.ToUpper.Trim, dniTB.Text.ToString.Trim, correoTB.Text.ToString.ToUpper.Trim, telefonoTB.Text.ToString, 0)
-
-    '                    If accesoid > 0 Then
-
-    '                        SW_pedidoDT = SW_pedidoDA.SD_P_selectAcceso(accesoid, 0, 9)
-    '                        URL = SW_pedidoDT.Rows(0).Item(8).ToString() & SW_pedidoDT.Rows(0).Item(2).ToString() & SW_pedidoDT.Rows(0).Item(9).ToString() & SW_pedidoDT.Rows(0).Item(11).ToString() &
-    '                    "&hsndktumg=" & SW_pedidoDT.Rows(0).Item(2).ToString() &
-    '                    "&tipo=" & SW_pedidoDT.Rows(0).Item(10).ToString() &
-    '                    "&ubig=" & SW_pedidoDT.Rows(0).Item(15).ToString() & '"&enti=" & SW_pedidoDT.Rows(0).Item(16).ToString() &
-    '                    "&de=" & SW_pedidoDT.Rows(0).Item(17).ToString() & '"&enti=" & SW_pedidoDT.Rows(0).Item(16).ToString() &
-    '                    "&en=" & SW_pedidoDT.Rows(0).Item(1).ToString() &
-    '                    "&sup=" & SW_pedidoDT.Rows(0).Item(18).ToString() &
-    '                    "&enti=" & SW_pedidoDT.Rows(0).Item(16).ToString()
-
-    '                        cad = " UPDATE SD_tblAccesos SET URL = '" & URL.ToString & "' WHERE accesoID = " & accesoid.ToString
-    '                        Me.sw_ejecutaSQL.querySQL(cad)
-
-    '                        sendMailA(accesoid, 1, URL)
-    '                        nombreTB.Text = ""
-    '                        dniTB.Text = ""
-    '                        correoTB.Text = ""
-    '                        telefonoTB.Text = ""
-    '                        generarB.Enabled = False
-    '                        mensajeJSSA("Se envio un correo a " & corre & ", con acceso a la plataforma de Seguimiento de Acuerdos ")
-    '                    End If
-
-    '                Catch ex As Exception
-    '                    mensajeJSS("Se genero un error, contactar con el Administrador")
-    '                End Try
-    '            End If
-    '        End If
-
-    '    End If
-
-    'End Sub
-
-
-    'Private Sub sendMailA(ByVal accesoid As Integer, tipo As Integer, URL As String)
-    '    Dim emailDT As New DataTable
-    '    'Dim claveDT As New DataTable
-    '    emailDT = SW_pedidoDA.SD_P_selectParametroByID(0, 2)
-    '    'claveDT = SW_pedidoDA.SD_P_selectParametroByID(7)
-    '    SW_pedidoDT = SW_pedidoDA.SD_P_selectAcceso(accesoid, 0, 9)
-
-
-    '    Using mm As New MailMessage(emailDT.Rows(0).Item(2).ToString(), SW_pedidoDT.Rows(0).Item(5).ToString())
-    '        Dim copy As MailAddress = New MailAddress(emailDT.Rows(3).Item(2).ToString())
-    '        'mm.CC.Add(copy)
-    '        mm.Bcc.Add(copy)
-    '        mm.Subject = emailDT.Rows(2).Item(2).ToString()
-
-    '        If tipo = 1 Then
-    '            mm.Body = "<h3>" & emailDT.Rows(2).Item(2).ToString() & "</h3>" &
-    '            "<p>Estimado " & SW_pedidoDT.Rows(0).Item(3).ToString() & " de la " & SW_pedidoDT.Rows(0).Item(7).ToString() & ", bienvenido al Sistema de Seguimiento de Acuerdos de la Secretaria de Descentralización de la PCM. Por favor ingresar al siguiente enlace para conocer el estado de los acuerdos de tu interés.</p>" &
-    '            "<p><a style='text-decoration: none; display: inline-block;' " &
-    '            "href='" & URL.ToString &
-    '            "' target='_blank'>" &
-    '            "<span style='background-color: #5bc500; line-height: 1; border-radius: 6px; padding: 14px 60px; color: white; display: inline-block; letter-spacing:  2.57px; font-weight: 300; font-family: Arial; font-size: 18px;'>INGRESE AQU&Iacute;</span></a></p>" &
-    '            "<p><b>Puedes acceder al sistema hasta el: " & SW_pedidoDT.Rows(0).Item(6).ToString() & "</b></p>" &
-    '            "<p>El sistema de correo electr&oacute;nico de la Secretaría de Descentralización de la Presidencia del Consejo de Ministros est&aacute; destinado &uacute;nicamente para fines informativos. Toda la informaci&oacute;n contenida en este mensaje es confidencial y de uso exclusivo. Su divulgaci&oacute;n, copia y/o adulteraci&oacute;n est&aacute;n prohibidas y solo debe ser conocida por la persona a quien se dirige este mensaje.</p>"
-    '        ElseIf tipo = 2 Then
-    '            mm.Body = "<h3>" & emailDT.Rows(2).Item(2).ToString() & "</h3>" &
-    '            "<p>Estimado " & SW_pedidoDT.Rows(0).Item(3).ToString() & " de " & SW_pedidoDT.Rows(0).Item(7).ToString() & ", bienvenido al Sistema de Seguimiento de Acuerdos de la Secretaria de Descentralización de la PCM. Por favor ingresar al siguiente enlace para conocer el estado de los acuerdos de tu interés.</p>" &
-    '            "<p><a style='text-decoration: none; display: inline-block;' " &
-    '            "href='" & URL.ToString() &
-    '            "' target='_blank'>" &
-    '            "<span style='background-color: #5bc500; line-height: 1; border-radius: 6px; padding: 14px 60px; color: white; display: inline-block; letter-spacing:  2.57px; font-weight: 300; font-family: Arial; font-size: 18px;'>INGRESE AQU&Iacute;</span></a></p>" &
-    '            "<p><b>Puedes acceder al sistema hasta el: " & SW_pedidoDT.Rows(0).Item(6).ToString() & "</b></p>" &
-    '            "<p>El sistema de correo electr&oacute;nico de la Secretaría de Descentralización de la Presidencia del Consejo de Ministros est&aacute; destinado &uacute;nicamente para fines informativos. Toda la informaci&oacute;n contenida en este mensaje es confidencial y de uso exclusivo. Su divulgaci&oacute;n, copia y/o adulteraci&oacute;n est&aacute;n prohibidas y solo debe ser conocida por la persona a quien se dirige este mensaje.</p>"
-    '        ElseIf tipo = 3 Then
-    '            mm.Body = "<h3>" & emailDT.Rows(2).Item(2).ToString() & "</h3>" &
-    '           "<p>Estimado " & SW_pedidoDT.Rows(0).Item(3).ToString() & " de " & SW_pedidoDT.Rows(0).Item(7).ToString() & ", bienvenido al Sistema de Seguimiento de Acuerdos de la Secretaria de Descentralización de la PCM. Por favor ingresar al siguiente enlace para conocer el estado de los acuerdos de tu interés.</p>" &
-    '           "<p><a style='text-decoration: none; display: inline-block;' " &
-    '           "href='" & URL.ToString() &
-    '           "' target='_blank'>" &
-    '           "<span style='background-color: #5bc500; line-height: 1; border-radius: 6px; padding: 14px 60px; color: white; display: inline-block; letter-spacing:  2.57px; font-weight: 300; font-family: Arial; font-size: 18px;'>INGRESE AQU&Iacute;</span></a></p>" &
-    '           "<p><b>Puedes acceder al sistema hasta el: " & SW_pedidoDT.Rows(0).Item(6).ToString() & "</b></p>" &
-    '           "<p>El sistema de correo electr&oacute;nico de la Secretaría de Descentralización de la Presidencia del Consejo de Ministros est&aacute; destinado &uacute;nicamente para fines informativos. Toda la informaci&oacute;n contenida en este mensaje es confidencial y de uso exclusivo. Su divulgaci&oacute;n, copia y/o adulteraci&oacute;n est&aacute;n prohibidas y solo debe ser conocida por la persona a quien se dirige este mensaje.</p>"
-    '        End If
-
-    '        mm.IsBodyHtml = True
-    '        Dim smtp As New SmtpClient()
-    '        smtp.Host = "smtp.gmail.com"
-    '        smtp.EnableSsl = True
-    '        Dim networkcred As New NetworkCredential(emailDT.Rows(0).Item(2).ToString(), emailDT.Rows(1).Item(2).ToString())
-    '        smtp.UseDefaultCredentials = True
-    '        smtp.Credentials = networkcred
-    '        smtp.Port = 587
-    '        smtp.Send(mm)
-    '    End Using
-    'End Sub
 
 End Class

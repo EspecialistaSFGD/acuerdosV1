@@ -77,21 +77,21 @@ Friend Class SW_SD_asistente_DA
         Return ds.Tables(0)
     End Function
 
-    Public Function SD_P_selectAcreditadosListExport(Desde As Date, Hasta As Date, ByVal asistenciaId As Integer,
-                                  ByVal DNI As String, ByVal nombre As String,
-                                  ByVal eventoId As Integer) As DataTable
-        Dim db As Database = DatabaseFactory.CreateDatabase(variableGlobalConexion.nombreCadenaCnx)
-        Dim cmd As DbCommand = db.GetStoredProcCommand("SD_P_selectAcreditadosListExport")
-        db.AddInParameter(cmd, "@Desde", DbType.String, Desde)
-        db.AddInParameter(cmd, "@Hasta", DbType.String, Hasta)
-        db.AddInParameter(cmd, "@asistenciaId", DbType.Int32, asistenciaId)
-        db.AddInParameter(cmd, "@DNI", DbType.String, DNI)
-        db.AddInParameter(cmd, "@nombre", DbType.String, nombre)
-        db.AddInParameter(cmd, "@eventoId", DbType.Int32, eventoId)
-        Dim ds As DataSet
-        ds = db.ExecuteDataSet(cmd)
-        Return ds.Tables(0)
-    End Function
+    'Public Function SD_P_selectAcreditadosListExport(Desde As Date, Hasta As Date, ByVal asistenciaId As Integer,
+    '                              ByVal DNI As String, ByVal nombre As String,
+    '                              ByVal eventoId As Integer) As DataTable
+    '    Dim db As Database = DatabaseFactory.CreateDatabase(variableGlobalConexion.nombreCadenaCnx)
+    '    Dim cmd As DbCommand = db.GetStoredProcCommand("SD_P_selectAcreditadosListExport")
+    '    db.AddInParameter(cmd, "@Desde", DbType.String, Desde)
+    '    db.AddInParameter(cmd, "@Hasta", DbType.String, Hasta)
+    '    db.AddInParameter(cmd, "@asistenciaId", DbType.Int32, asistenciaId)
+    '    db.AddInParameter(cmd, "@DNI", DbType.String, DNI)
+    '    db.AddInParameter(cmd, "@nombre", DbType.String, nombre)
+    '    db.AddInParameter(cmd, "@eventoId", DbType.Int32, eventoId)
+    '    Dim ds As DataSet
+    '    ds = db.ExecuteDataSet(cmd)
+    '    Return ds.Tables(0)
+    'End Function
 
     Public Function SD_P_selectMancomunidades(idMancomunidad As Integer, codigo As String) As DataTable
         Dim db As Database = DatabaseFactory.CreateDatabase(variableGlobalConexion.nombreCadenaCnx)
@@ -108,6 +108,28 @@ Friend Class SW_SD_asistente_DA
         Dim cmd As DbCommand = db.GetStoredProcCommand("SD_P_selectDiaEventos")
         db.AddInParameter(cmd, "@eventoId", DbType.Int32, eventoId)
         db.AddInParameter(cmd, "@fecha", DbType.String, fecha)
+        Dim ds As DataSet
+        ds = db.ExecuteDataSet(cmd)
+        Return ds.Tables(0)
+    End Function
+
+
+    Public Function SD_P_selectAcreditadosListExport(asistenciaId As Integer, nombre As String, ByVal eventoId As Integer,
+                                                     entidadId As Integer, dni As String, fecha As String, modalidad As Integer,
+                                                     grupoid As Integer, Desde As String, Hasta As String) As DataTable
+        Dim db As Database = DatabaseFactory.CreateDatabase(variableGlobalConexion.nombreCadenaCnx)
+        Dim cmd As DbCommand = db.GetStoredProcCommand("SD_P_selectAcreditadosListExport")
+        db.AddInParameter(cmd, "@asistenciaId", DbType.Int32, asistenciaId)
+        db.AddInParameter(cmd, "@nombre", DbType.String, nombre)
+        db.AddInParameter(cmd, "@eventoId", DbType.Int32, eventoId)
+        db.AddInParameter(cmd, "@entidadId", DbType.Int32, entidadId)
+        db.AddInParameter(cmd, "@dni", DbType.String, dni)
+        db.AddInParameter(cmd, "@fecha", DbType.String, fecha)
+        db.AddInParameter(cmd, "@modalidad", DbType.Int32, modalidad)
+        db.AddInParameter(cmd, "@grupoid", DbType.Int32, grupoid)
+        db.AddInParameter(cmd, "@Desde", DbType.String, Desde)
+        db.AddInParameter(cmd, "@Hasta", DbType.String, Hasta)
+
         Dim ds As DataSet
         ds = db.ExecuteDataSet(cmd)
         Return ds.Tables(0)

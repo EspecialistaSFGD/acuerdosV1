@@ -4,12 +4,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <script src="https://sesigue.com/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.css" rel="stylesheet" type="text/css" />
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/build/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/build/css/custom.min.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .divtableInterior {
 	        border:1px solid #8db2e3;
@@ -134,7 +134,7 @@
 
             function renewSession() {
                 console.log("Renovando session...");
-                document.getElementById('renewSession').src = 'https://sesigue.com/PROFAKTOWEB/SessionActiva.aspx?par=' + Math.random();
+                document.getElementById('renewSession').src = 'https://sesigue.miterritorio.gob.pe/PROFAKTOWEB/SessionActiva.aspx?par=' + Math.random();
             }
 
             function verHitos(codigoid, estReg) { 
@@ -209,7 +209,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="top_nav">
-            <img id="Img2" runat="server" src="https://sesigue.com/REFERENCIASBASE/Resources/sd_cabecera_web.png" style="width:100%" />
+            <img id="Img2" runat="server" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/sd_cabecera_web.png" style="width:100%" />
         </div>
         <div class="top_nav">
           <div class="nav_menu">
@@ -640,7 +640,7 @@
                             HeaderText="PCM" UniqueName="TCComentario" AllowFiltering="false" >
                             <ItemTemplate>
                                     <asp:ImageButton ID="TCComentario" runat="server" CssClass="cursor" ToolTip="Crear Comentario"
-                                        ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/PCM_32_n.png"/>
+                                        ImageUrl="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/PCM_32_n.png"/>
                             </ItemTemplate>
                             <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" />
                             <ItemStyle HorizontalAlign="Center" />
@@ -649,7 +649,7 @@
                             HeaderText="AV" UniqueName="TCAvance" AllowFiltering="false" Display="false">
                             <ItemTemplate>
                                     <asp:ImageButton ID="TCavance" runat="server" CssClass="cursor" ToolTip="Crear Avance"
-                                        ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/refresh_1.png"/>
+                                        ImageUrl="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/refresh_1.png"/>
                             </ItemTemplate>
                             <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" />
                             <ItemStyle HorizontalAlign="Center" />
@@ -658,7 +658,7 @@
                             HeaderText="Evi" UniqueName="TCEvidencia" AllowFiltering="false" >
                             <ItemTemplate>
                                     <asp:ImageButton ID="TCevidencia" runat="server" CssClass="cursor" ToolTip="Descargar Evidencia"
-                                        ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/tormenta_001.png"/>
+                                        ImageUrl="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/tormenta_001.png"/>
                             </ItemTemplate>
                             <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" />
                             <ItemStyle HorizontalAlign="Center" />
@@ -668,7 +668,7 @@
                             HeaderText="Valida PCM" UniqueName="TCValida" AllowFiltering="false" >
                             <ItemTemplate>
                                     <asp:ImageButton ID="TCValida" runat="server" CssClass="cursor" 
-                                        ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/close24.png"
+                                        ImageUrl="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/close24.png"
                                         UseSubmitBehavior="False"
                                         OnClientClick="javascript: if(!confirm('¿Desea validar el avance, una vez validado no podrá modificarse?')){return false;}"/>
                             </ItemTemplate>
@@ -720,7 +720,7 @@
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDS_P_selectDepartamento" runat="server" 
-        SelectCommand="SD_P_selectDepartamentoSD" SelectCommandType="StoredProcedure">
+        SelectCommand="SD_P_selectDepartamentoSD_cero" SelectCommandType="StoredProcedure">
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDS_P_selectProvincia" runat="server" 
         ProviderName="System.Data.SqlClient" SelectCommand="SD_P_selectProvinciaSD" 
@@ -787,19 +787,19 @@
     </asp:ScriptManager>
 
 
-    <img src="https://sesigue.com/PROFAKTOWEB/SessionActiva.aspx" name="renewSession" id="renewSession" width="1px" height="1px"/>
+    <img src="https://sesigue.miterritorio.gob.pe/PROFAKTOWEB/SessionActiva.aspx" name="renewSession" id="renewSession" width="1px" height="1px"/>
 
 </form>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/fastclick/lib/fastclick.js"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.js"></script>
-    <script src="https://sesigue.com/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/fastclick/lib/fastclick.js"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.js"></script>
+    <script src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
 
 </body>
 
 <footer>
-    <img src="https://sesigue.com/REFERENCIASBASE/Resources/sd_inferior_web.png" style="width:100%" />
+    <img src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/sd_inferior_web.png" style="width:100%" />
 </footer>
 </html>

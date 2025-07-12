@@ -4,12 +4,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <script src="https://sesigue.com/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.css" rel="stylesheet" type="text/css" />
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/build/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/build/css/custom.min.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .divtableInterior {
 	        border:1px solid #8db2e3;
@@ -103,7 +103,7 @@
 
             function renewSession() {
                 console.log("Renovando session...");
-                document.getElementById('renewSession').src = 'https://sesigue.com/PROFAKTOWEB/SessionActiva.aspx?par=' + Math.random();
+                document.getElementById('renewSession').src = 'https://sesigue.miterritorio.gob.pe/PROFAKTOWEB/SessionActiva.aspx?par=' + Math.random();
             }
 
             function clientLoadHandler(sender) {
@@ -117,7 +117,7 @@
             }
 
             function verOrdenServicioLog(codigo, codevento, codsector, secto, preacuerdo) {
-                location.href = "registroAcuerdosV.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD&pkASIEMVadASDkwdasdmad=jasdwdNasdJasd135&codigoid=" + codigo + "&codevento=" + codevento + "&codsector=" + codsector + "&secto=" + secto + "&enti=" + '<%= Me.Request.QueryString("enti")%>' + "&tipo=" + '<%= Me.Request.QueryString("tipo")%>' + "&ubig=" + '<%= Me.Request.QueryString("ubig")%>' + "&de=" + '<%= Me.Request.QueryString("de")%>' + "&sup=" + '<%= Me.Request.QueryString("sup")%>' + "&en=" + '<%= Me.Request.QueryString("en")%>' + "&iacp=" + '<%= Me.Request.QueryString("iacp")%>' + "&preacuerdo=" + preacuerdo;
+				location.href = "https://sesigue.miterritorio.gob.pe/sesigue";
                 return false;
             } 
 
@@ -320,7 +320,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="top_nav">
-            <img id="Img2" runat="server" src="https://sesigue.com/REFERENCIASBASE/Resources/sd_cabecera_web.png" style="width:100%" />
+            <img id="Img2" runat="server" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/sd_cabecera_web.png" style="width:100%" />
         </div>
         <div class="top_nav">
           <div class="nav_menu">
@@ -340,10 +340,9 @@
                             </td>
                             <td style="width:70%">
 
-                                <asp:DropDownList ID="cbo_evento" runat="server" Width="100%" Font-Size="11" 
+                                <asp:DropDownList ID="cbo_evento" runat="server" Width="100%" Font-Size="11" Enabled="false"
                                     DataSourceID="SDS_P_SelectEventos" DataTextField="nombre" class="form-control" Height="30px"
-                                    DataValueField="eventoID" TabIndex="1" AppendDataBoundItems="True" AutoPostBack="true">
-                                        <asp:ListItem Selected="True" Value="0" > - Seleccione - </asp:ListItem>
+                                    DataValueField="eventoID" TabIndex="1" >
                                 </asp:DropDownList>
                             </td>
                         </tr>
@@ -376,7 +375,7 @@
                             <td style="width:70%">
                                 <asp:DropDownList ID="cbo_departamento1" runat="server" DataSourceID="SDS_P_selectDepartamento" DataTextField="departamento" 
                                             DataValueField="departamentoID" Width="100%" TabIndex="12" class="form-control" Font-Size="11pt"
-                                            AppendDataBoundItems="True" Height="30px" AutoPostBack="true">
+                                            AppendDataBoundItems="True" Height="30px">
                                             <asp:ListItem Selected="True" Value="0" > - Seleccione - </asp:ListItem>
                                     </asp:DropDownList>
                                 
@@ -457,13 +456,19 @@
                             HeaderText="Edit" UniqueName="TemplateColumnEstado" AllowFiltering="false" >
                             <ItemTemplate>
                                     <asp:ImageButton ID="edita" runat="server" CssClass="cursor" ToolTip="Editar"
-                                        ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/editar_grilla.png"/>
+                                        ImageUrl="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/editar_grilla.png"/>
                             </ItemTemplate>
                             <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" />
                             <ItemStyle HorizontalAlign="Center" />
                         </telerik:GridTemplateColumn>
 
-
+						<telerik:GridBoundColumn DataField="codigo" FilterControlAltText="Filter codigo column" 
+                            HeaderText="Codigo" SortExpression="codigo" UniqueName="codigo" AutoPostBackOnFilter="true" 
+                            FilterControlWidth="100%" ShowFilterIcon="false" Display="true">
+                            <HeaderStyle HorizontalAlign="Center" Font-Bold="true" />
+                            <ItemStyle HorizontalAlign="Left" Font-Size="Small" Font-Bold="true" />
+                        </telerik:GridBoundColumn>
+						
                         <telerik:GridBoundColumn DataField="prioridadID" FilterControlAltText="Filter prioridadID column" 
                             HeaderText="prioridadID" ReadOnly="True" SortExpression="prioridadID" UniqueName="prioridadID"
                             Display="false">
@@ -474,8 +479,8 @@
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="espacio" FilterControlAltText="Filter espacio column" 
                             HeaderText="Espacio" SortExpression="espacio" UniqueName="espacio" AutoPostBackOnFilter="true" 
-                            FilterControlWidth="100%" ShowFilterIcon="false">
-                            <HeaderStyle HorizontalAlign="Center" Font-Bold="true" />
+                            FilterControlWidth="100%" ShowFilterIcon="false" Display="false">
+                            <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Left" />
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="sectorid" FilterControlAltText="Filter sectorid column" 
@@ -513,7 +518,7 @@
 
                         <telerik:GridBoundColumn DataField="objetivoEstrategicoTerritorial" FilterControlAltText="Filter objetivoEstrategicoTerritorial column" 
                             HeaderText="Obj. Estrategico" SortExpression="objetivoEstrategicoTerritorial" UniqueName="objetivoEstrategicoTerritorial" AutoPostBackOnFilter="true" 
-                            FilterControlWidth="100%" ShowFilterIcon="false">
+                            FilterControlWidth="100%" ShowFilterIcon="false" Display="false">
                             <HeaderStyle HorizontalAlign="Center" Font-Bold="true"/>
                             <ItemStyle HorizontalAlign="Left" />
                         </telerik:GridBoundColumn>
@@ -595,7 +600,7 @@
                             HeaderText="Eli" UniqueName="TemplateColumnDelete" AllowFiltering="false" >
                             <ItemTemplate>
                                     <asp:ImageButton ID="eliminaP" runat="server" CssClass="cursor" 
-                                        ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/CancelG.png"
+                                        ImageUrl="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/CancelG.png"
                                         ToolTip="Eliminar" UseSubmitBehavior="False"
                                         OnClientClick="javascript: if(!confirm('¿Desea Eliminar el Pedido?')){return false;}"/>
                             </ItemTemplate>
@@ -606,7 +611,7 @@
                             HeaderText="PCM" UniqueName="TCComentario" AllowFiltering="false" >
                             <ItemTemplate>
                                     <asp:ImageButton ID="TCComentario" runat="server" CssClass="cursor" ToolTip="Crear Comentario"
-                                        ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/PCM_32_n.png"/>
+                                        ImageUrl="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/PCM_32_n.png"/>
                             </ItemTemplate>
                             <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" />
                             <ItemStyle HorizontalAlign="Center" />
@@ -615,7 +620,7 @@
                             HeaderText="Valida PCM" UniqueName="TCValida" AllowFiltering="false" >
                             <ItemTemplate>
                                     <asp:ImageButton ID="TCValida" runat="server" CssClass="cursor" 
-                                        ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/peligro_20.png"
+                                        ImageUrl="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/peligro_20.png"
                                         ToolTip="Validar Acción" UseSubmitBehavior="False"
                                         OnClientClick="javascript: if(!confirm('¿Desea validar el pedido?')){return false;}"/>
                             </ItemTemplate>
@@ -642,7 +647,6 @@
             <asp:ControlParameter ControlID="grupoCB" DefaultValue="" Name="grupoId" PropertyName="SelectedValue" Type="Int32" />
             <asp:ControlParameter ControlID="cbo_departamento1" DefaultValue="" Name="departamento" PropertyName="SelectedValue" Type="Int32" />
             <asp:ControlParameter ControlID="cbo_distrito" DefaultValue="" Name="ubigeo" PropertyName="SelectedValue" Type="Int32" />
-            <asp:ControlParameter ControlID="cbo_provincia1" DefaultValue="" Name="prov" PropertyName="SelectedValue" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDS_P_SelectEventos" runat="server" 
@@ -660,7 +664,7 @@
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDS_P_selectDepartamento" runat="server" 
-        SelectCommand="SD_P_selectDepartamentoSD" SelectCommandType="StoredProcedure">
+        SelectCommand="SD_P_selectDepartamentoSD_cero" SelectCommandType="StoredProcedure">
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SDS_P_selectProvincia" runat="server" 
         ProviderName="System.Data.SqlClient" SelectCommand="SD_P_selectProvinciaSD" 
@@ -712,18 +716,18 @@
       </telerik:RadAjaxManager>
 
 
-<img src="https://sesigue.com/PROFAKTOWEB/SessionActiva.aspx" name="renewSession" id="renewSession" width="1px" height="1px"/>
+<img src="https://sesigue.miterritorio.gob.pe/PROFAKTOWEB/SessionActiva.aspx" name="renewSession" id="renewSession" width="1px" height="1px"/>
 
         </form>
-<%--    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/fastclick/lib/fastclick.js"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.js"></script>
-    <script src="https://sesigue.com/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>--%>
+<%--    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/fastclick/lib/fastclick.js"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.js"></script>
+    <script src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>--%>
 
 </body>
 <footer>
-    <img src="https://sesigue.com/REFERENCIASBASE/Resources/sd_inferior_web.png" style="width:100%" />
+    <img src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/sd_inferior_web.png" style="width:100%" />
 </footer>
 </html>

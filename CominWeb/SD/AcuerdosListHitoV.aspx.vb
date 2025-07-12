@@ -164,7 +164,7 @@ Public Class AcuerdosListHitoV
                         valida.Attributes.Add("onClick", "return frmValidaAvancePCM('" + avanceId.ToString + "',999); return true;")
                     Else
                         valida.Attributes.Add("onClick", "mensaje('confirm', 'El avance ya fue validado por PCM'); return false;")
-                        valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/open24.png"
+                        valida.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/open24.png"
                     End If
 
 

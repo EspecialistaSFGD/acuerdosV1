@@ -76,71 +76,71 @@ Public Class Form_acreditadoList
     '*************************** EXPORTAR **************************************************
     '***************************************************************************************
     Private Sub CreateExcelFile()
-        Dim sl As New SLDocument()
-        sl.SetCellValue(1, 1, "EVENTO")
-        sl.SetCellValue(1, 2, "DNI")
-        sl.SetCellValue(1, 3, "PATERNO")
-        sl.SetCellValue(1, 4, "MATERNO")
-        sl.SetCellValue(1, 5, "NOMBRES")
-        sl.SetCellValue(1, 6, "FECHA")
-        sl.SetCellValue(1, 7, "ENTIDAD")
-        sl.SetCellValue(1, 8, "CARGO")
-        sl.SetCellValue(1, 9, "EMAIL")
-        sl.SetCellValue(1, 10, "TELEFONO")
-        sl.SetCellValue(1, 11, "GRUPO")
+        'Dim sl As New SLDocument()
+        'sl.SetCellValue(1, 1, "EVENTO")
+        'sl.SetCellValue(1, 2, "DNI")
+        'sl.SetCellValue(1, 3, "PATERNO")
+        'sl.SetCellValue(1, 4, "MATERNO")
+        'sl.SetCellValue(1, 5, "NOMBRES")
+        'sl.SetCellValue(1, 6, "FECHA")
+        'sl.SetCellValue(1, 7, "ENTIDAD")
+        'sl.SetCellValue(1, 8, "CARGO")
+        'sl.SetCellValue(1, 9, "EMAIL")
+        'sl.SetCellValue(1, 10, "TELEFONO")
+        'sl.SetCellValue(1, 11, "GRUPO")
 
-        Dim stilo As SLStyle = sl.CreateStyle()
-        stilo.Font.FontName = "Calibri"
-        stilo.Font.FontSize = 9
-        stilo.Font.Bold = True
-        stilo.FormatCode = "12345.678909"
-        stilo.SetHorizontalAlignment(Spreadsheet.HorizontalAlignmentValues.Center)
+        'Dim stilo As SLStyle = sl.CreateStyle()
+        'stilo.Font.FontName = "Calibri"
+        'stilo.Font.FontSize = 9
+        'stilo.Font.Bold = True
+        'stilo.FormatCode = "12345.678909"
+        'stilo.SetHorizontalAlignment(Spreadsheet.HorizontalAlignmentValues.Center)
 
-        sl.SetColumnWidth(1, 11, 15)
+        'sl.SetColumnWidth(1, 11, 15)
 
-        'Dim styleNum As SLStyle = sl.CreateStyle()
-        'styleNum.SetHorizontalAlignment(Spreadsheet.HorizontalAlignmentValues.Right)
-        'styleNum.FormatCode = "#,##0.00"
-        'sl.SetColumnStyle(12, 16, styleNum)
+        ''Dim styleNum As SLStyle = sl.CreateStyle()
+        ''styleNum.SetHorizontalAlignment(Spreadsheet.HorizontalAlignmentValues.Right)
+        ''styleNum.FormatCode = "#,##0.00"
+        ''sl.SetColumnStyle(12, 16, styleNum)
 
-        Dim styleCon As SLStyle = sl.CreateStyle()
-        styleCon.Font.FontSize = 9
-        sl.SetColumnStyle(1, 12, styleCon)
+        'Dim styleCon As SLStyle = sl.CreateStyle()
+        'styleCon.Font.FontSize = 9
+        'sl.SetColumnStyle(1, 12, styleCon)
 
-        sl.SetRowStyle(1, 1, stilo)
+        'sl.SetRowStyle(1, 1, stilo)
 
-        Dim rowIndex As Integer = 2
-        Dim columnIndex As Integer = 1
+        'Dim rowIndex As Integer = 2
+        'Dim columnIndex As Integer = 1
 
 
-        sw_asistente_DT = sw_asistente.SD_P_selectAcreditadosListExport(desdeRDP.SelectedDate.Value.ToString("dd/MM/yyyy"), hastaRDP.SelectedDate.Value.ToString("dd/MM/yyyy"), 0, "", "", cbo_evento.SelectedValue)
+        'sw_asistente_DT = sw_asistente.SD_P_selectAcreditadosListExport(desdeRDP.SelectedDate.Value.ToString("dd/MM/yyyy"), hastaRDP.SelectedDate.Value.ToString("dd/MM/yyyy"), 0, "", "", cbo_evento.SelectedValue)
 
-        If sw_asistente_DT.Rows.Count > 0 Then
-            For fil As Integer = 0 To sw_asistente_DT.Rows.Count - 1
-                For i As Integer = 0 To sw_asistente_DT.Columns.Count - 1
-                    'If i > 10 Then
-                    '    sl.SetCellValue(rowIndex, columnIndex, Convert.ToDecimal(sw_asistente_DT.Rows(fil)(i)))
-                    'Else
-                    sl.SetCellValue(rowIndex, columnIndex, Convert.ToString(sw_asistente_DT.Rows(fil)(i).ToString()))
-                    'End If
-                    columnIndex += 1
-                Next
-                rowIndex += 1
-                columnIndex = 1
-            Next
-            sl.SaveAs("C:/fichas/" & cbo_evento.SelectedItem.ToString & ".xlsx")
-            Dim file As New FileInfo("C:/fichas/" & cbo_evento.SelectedItem.ToString & ".xlsx")
+        'If sw_asistente_DT.Rows.Count > 0 Then
+        '    For fil As Integer = 0 To sw_asistente_DT.Rows.Count - 1
+        '        For i As Integer = 0 To sw_asistente_DT.Columns.Count - 1
+        '            'If i > 10 Then
+        '            '    sl.SetCellValue(rowIndex, columnIndex, Convert.ToDecimal(sw_asistente_DT.Rows(fil)(i)))
+        '            'Else
+        '            sl.SetCellValue(rowIndex, columnIndex, Convert.ToString(sw_asistente_DT.Rows(fil)(i).ToString()))
+        '            'End If
+        '            columnIndex += 1
+        '        Next
+        '        rowIndex += 1
+        '        columnIndex = 1
+        '    Next
+        '    sl.SaveAs("C:/fichas/" & cbo_evento.SelectedItem.ToString & ".xlsx")
+        '    Dim file As New FileInfo("C:/fichas/" & cbo_evento.SelectedItem.ToString & ".xlsx")
 
-            ' guarda
-            If (file.Exists) Then
-                Response.Clear()
-                Response.AddHeader("Content-disposition", "attachment; filename=" & cbo_evento.SelectedItem.ToString & ".xlsx")
-                Response.ContentType = "application/vnd.ms-excel"
-                Response.WriteFile(file.ToString())
-                Response.End()
-            End If
+        '    ' guarda
+        '    If (file.Exists) Then
+        '        Response.Clear()
+        '        Response.AddHeader("Content-disposition", "attachment; filename=" & cbo_evento.SelectedItem.ToString & ".xlsx")
+        '        Response.ContentType = "application/vnd.ms-excel"
+        '        Response.WriteFile(file.ToString())
+        '        Response.End()
+        '    End If
 
-        End If
+        'End If
     End Sub
 
 End Class

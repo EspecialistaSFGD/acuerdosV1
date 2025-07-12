@@ -15,7 +15,7 @@ Imports System.Windows.Forms
 Public Class AregistroAsistencia
     Inherits System.Web.UI.Page
 
-    Dim SW_asistenciaDT, pedidoDT, validaAcreditaDT, sw_asistente_DT As New DataTable
+    Dim SW_asistenciaDT, pedidoDT, validaAcreditaDT, sw_asistente_DT, SW_pedidosDT As New DataTable
     Dim SW_Asistencia As New SW_SD_asistente_DA
     Dim SW_pedidos As New SW_pedido_DA
     Dim sw_ejecutaSQL As New SW_EjecutaSQL_DA
@@ -23,6 +23,12 @@ Public Class AregistroAsistencia
     Private Sub AregistroAcredita_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
         If Request.QueryString("gjXtIkEroS").ToString = "SD_SSFD" Then
             variableGlobalConexion.nombreCadenaCnx = "SD_CS"
+
+            SW_pedidosDT = SW_pedidos.SD_P_selectParametroByID(5, 1)
+            If SW_pedidosDT.Rows(0).Item(2) <> Me.Request.QueryString("key").ToString Then
+                variableGlobalConexion.nombreCadenaCnx = ""
+                Response.Redirect("~/Error/Oops.aspx?Ljbq7iMESelhIUIxzrV7j78eJD/0EFUR=INTRUSO")
+            End If
         Else
             variableGlobalConexion.nombreCadenaCnx = ""
             Response.Redirect("~/Error/Oops.aspx?Ljbq7iMESelhIUIxzrV7j78eJD/0EFUR=INTRUSO")
@@ -138,7 +144,7 @@ Public Class AregistroAsistencia
                 autoridadCB.Items.Clear()
                 autoridadCB.DataBind()
                 autoridadCB.SelectedValue = SW_asistenciaDT.Rows(0).Item(4)
-
+                autoridad(SW_asistenciaDT.Rows(0).Item(4))
                 entidadCB.Items.Clear()
                 entidadCB.DataBind()
                 entidadCB.SelectedValue = SW_asistenciaDT.Rows(0).Item(3)
@@ -160,6 +166,8 @@ Public Class AregistroAsistencia
                     nombreTB.Focus()
                 End If
 
+                tipoCB.SelectedValue = 0
+                tipocbSub(0)
 
             End If
         End If
@@ -195,16 +203,30 @@ Public Class AregistroAsistencia
 
     Private Sub tipocbSub(ByVal id As Integer)
         cargaIni(id)
-        If id = 2 Then
-            cbo_departamento1.Items.Clear()
-            cbo_departamento1.DataBind()
-        Else
-            grupoCB.Items.Clear()
-            grupoCB.DataBind()
-        End If
+        'If id = 2 Then
+        '    cbo_departamento1.Items.Clear()
+        '    cbo_departamento1.DataBind()
+        'ElseIf id = 1 Then
+        '    grupoCB.Items.Clear()
+        '    grupoCB.DataBind()
+        'ElseIf id = 0 Then
+        cbo_departamento1.Items.Clear()
+        cbo_departamento1.DataBind()
+        cbo_departamento1.SelectedValue = 0
+
+        grupoCB.Items.Clear()
+        grupoCB.DataBind()
+        grupoCB.SelectedValue = 0
 
         entidadCB.Items.Clear()
         entidadCB.DataBind()
+        entidadCB.SelectedValue = 0
+
+        autoridadCB.Items.Clear()
+        autoridadCB.DataBind()
+        autoridadCB.SelectedValue = 0
+        'End If
+
     End Sub
 
     Protected Sub tipoCB_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles tipoCB.SelectedIndexChanged
@@ -261,54 +283,53 @@ Public Class AregistroAsistencia
         entidadCB.DataBind()
     End Sub
 
-    Protected Sub autoridadCB_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles autoridadCB.SelectedIndexChanged
-        If autoridadCB.SelectedValue = 1 Then
+    Private Sub autoridad(ByVal id As Integer)
+        If id = 1 Then
             cargoTB.Text = "Ministro/a"
             cargoTB.Enabled = False
-        ElseIf autoridadCB.SelectedValue = 2 Then
+        ElseIf id = 2 Then
             cargoTB.Text = "Congresista"
             cargoTB.Enabled = False
-        ElseIf autoridadCB.SelectedValue = 3 Then
+        ElseIf id = 3 Then
             cargoTB.Text = "Viceministro/a"
             cargoTB.Enabled = False
-        ElseIf autoridadCB.SelectedValue = 4 Then
+        ElseIf id = 4 Then
             cargoTB.Text = "Alcalde(sa) Provincial"
             cargoTB.Enabled = False
-        ElseIf autoridadCB.SelectedValue = 5 Then
+        ElseIf id = 5 Then
             cargoTB.Text = "Alcalde(sa) Distrital"
             cargoTB.Enabled = False
-        ElseIf autoridadCB.SelectedValue = 6 Then
+        ElseIf id = 6 Then
             cargoTB.Text = "Sociedad Civil"
             cargoTB.Enabled = False
-        ElseIf autoridadCB.SelectedValue = 7 Then
+        ElseIf id = 7 Then
             cargoTB.Text = ""
             cargoTB.Enabled = True
-        ElseIf autoridadCB.SelectedValue = 8 Then
+        ElseIf id = 8 Then
             cargoTB.Text = "Prensa"
             cargoTB.Enabled = False
-        ElseIf autoridadCB.SelectedValue = 9 Then
+        ElseIf id = 9 Then
             cargoTB.Text = ""
             cargoTB.Enabled = True
-        ElseIf autoridadCB.SelectedValue = 10 Then
+        ElseIf id = 10 Then
             cargoTB.Text = ""
             cargoTB.Enabled = True
-        ElseIf autoridadCB.SelectedValue = 11 Then
+        ElseIf id = 11 Then
             cargoTB.Text = ""
             cargoTB.Enabled = True
-        ElseIf autoridadCB.SelectedValue = 12 Then
+        ElseIf id = 12 Then
             cargoTB.Text = "Gobernador(a) Regional"
             cargoTB.Enabled = False
-        ElseIf autoridadCB.SelectedValue = 13 Then
+        ElseIf id = 13 Then
             cargoTB.Text = ""
             cargoTB.Enabled = True
-        ElseIf autoridadCB.SelectedValue = 14 Then
+        ElseIf id = 14 Then
             cargoTB.Text = "Equipo Organizador"
             cargoTB.Enabled = False
-
-        ElseIf autoridadCB.SelectedValue = 15 Then
+        ElseIf id = 15 Then
             cargoTB.Text = "Apoyo Registro"
             cargoTB.Enabled = False
-        ElseIf autoridadCB.SelectedValue = 13 Then
+        ElseIf id = 13 Then
             cargoTB.Text = "Vicegobernador Regional"
             cargoTB.Enabled = False
         Else
@@ -317,36 +338,50 @@ Public Class AregistroAsistencia
         End If
     End Sub
 
+    Protected Sub autoridadCB_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles autoridadCB.SelectedIndexChanged
+        autoridad(autoridadCB.SelectedValue)
+    End Sub
+
     Protected Sub generarB_Click(sender As Object, e As EventArgs) Handles generarB.Click
         'validaAcreditaDT = SW_Asistencia.SD_P_selectAcreaditadosList(0, "", ViewState("eventoID").ToString, 0, dniTB.Text.ToString.Trim)
-        'If validaAcreditaDT.Rows.Count >= 1 Then
-        '    mensajeJSS("El DNI ingresado ya fue acreditado")
-        'Else
-        Dim cad As String = ""
-        cad = " EXEC SD_P_crearUpdateAsistencias " & ViewState("asistenciaID") & ", '" & dniTB.Text.ToString.Trim & "'" _
-        & ", '" & nombreTB.Text.ToString.Trim & "'" _
-        & ", '" & apellidosTB.Text.ToString.Trim & "'" _
-        & ", '" & telefonoTB.Text.ToString.Trim & "'" _
-        & ", '" & correoTB.Text.ToString.Trim & "'" _
-        & ", " & entidadCB.SelectedValue & ", " & autoridadCB.SelectedValue & ", '" & cargoTB.Text.ToString.Trim & "', " & ViewState("eventoID").ToString
+        If dniTB.Text.ToString.Length <> 8 Then
+            mensajeJSS("Ingrese DNI válido")
+        ElseIf nombreTB.Text.ToString.Trim.ToString.Length < 2 Then
+            mensajeJSS("Ingrese Nombre(s) válido")
+        ElseIf apellidosTB.Text.ToString.Trim.ToString.Length < 4 Then
+            mensajeJSS("Ingrese Apellidos válidos")
+        ElseIf telefonoTB.Text.ToString.Trim.ToString.Length < 6 Then
+            mensajeJSS("Ingrese Nro. de Teléfono válido")
+        ElseIf entidadCB.SelectedValue = 0 Then
+            mensajeJSS("Seleccione Entidad")
+        Else
 
+            Dim cad As String = ""
+            cad = " EXEC SD_P_crearUpdateAsistencias " & ViewState("asistenciaID") & ", '" & dniTB.Text.ToString.Trim & "'" _
+            & ", '" & nombreTB.Text.ToString.Trim & "'" _
+            & ", '" & apellidosTB.Text.ToString.Trim & "'" _
+            & ", '" & telefonoTB.Text.ToString.Trim & "'" _
+            & ", '" & correoTB.Text.ToString.Trim & "'" _
+            & ", " & entidadCB.SelectedValue & ", " & autoridadCB.SelectedValue & ", '" & cargoTB.Text.ToString.Trim & "', " _
+            & ViewState("eventoID").ToString & ", " & Me.Request.QueryString("iacp")
 
-        If cad.Length > 0 Then
-            Try
-                Me.sw_ejecutaSQL.querySQL(cad)
-                RadGrid1.Rebind()
-                dniTB.Text = ""
-                nombreTB.Text = ""
-                apellidosTB.Text = ""
-                telefonoTB.Text = ""
-                correoTB.Text = ""
-                cargoTB.Text = ""
-                cargaIni(0)
-                dniTB.Focus()
-            Catch ex As Exception
-            End Try
+            If cad.Length > 0 Then
+                Try
+                    Me.sw_ejecutaSQL.querySQL(cad)
+                    RadGrid1.Rebind()
+                    dniTB.Text = ""
+                    nombreTB.Text = ""
+                    apellidosTB.Text = ""
+                    telefonoTB.Text = ""
+                    correoTB.Text = ""
+                    cargoTB.Text = ""
+                    'cargaIni(0)
+                    dniTB.Focus()
+                    tipocbSub(3)
+                Catch ex As Exception
+                End Try
+            End If
         End If
-
     End Sub
 
     'Private Sub RadGrid1_DataBound(ByVal sender As Object, ByVal e As Telerik.Web.UI.GridItemEventArgs) Handles RadGrid1.ItemDataBound

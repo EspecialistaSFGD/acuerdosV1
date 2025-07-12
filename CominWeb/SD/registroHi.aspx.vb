@@ -109,7 +109,7 @@ Public Class registroHi
                     SW_pedidoDT = SW_pedidoDA.SD_P_selectEntidades(entidadCB.SelectedValue, 2, 0, 0, "")
                     If SW_pedidoDT.Rows.Count > 0 Then
                         If SW_pedidoDT.Rows(0).Item(8).ToString = "P" Then
-                            sendMailA(Me.Request.QueryString("codigAcu"), SW_pedidoDT.Rows(0).Item(7).ToString, 2, SW_pedidoDT.Rows(0).Item(9).ToString, "https://sesigue.com/sesigue") ' 1 existe, 2 no existe
+                            sendMailA(Me.Request.QueryString("codigAcu"), SW_pedidoDT.Rows(0).Item(7).ToString, 2, SW_pedidoDT.Rows(0).Item(9).ToString, "https://sesigue.miterritorio.gob.pe/sesigue") ' 1 existe, 2 no existe
                         End If
                     End If
                 End If

@@ -82,7 +82,7 @@ Public Class AcuerdosListV
                 If ub > 0 Then
                     cbo_provincia1.Items.Clear()
                     cbo_provincia1.DataBind()
-                    cbo_provincia1.SelectedValue = Left(Right("00" & Request.QueryString("ubig"), 6), 4) & "01"
+                    cbo_provincia1.SelectedValue = CInt(Left(Right("00" & Request.QueryString("ubig"), 6), 4) & "01")
                     cbo_provincia1.DataBind()
 
                     'Dim dis As Integer = Right(Request.QueryString("ubig"), 2)

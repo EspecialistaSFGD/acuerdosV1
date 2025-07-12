@@ -35,13 +35,13 @@ Public Class Form_reuniones
                 SDS_SD_P_selectListReuniones.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
                 SDS_SD_P_selectEstadoTipo.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
                 SDS_SD_P_selectSalas.ConnectionString = ConfigurationManager.ConnectionStrings(variableGlobalConexion.nombreCadenaCnx).ConnectionString
-            Else
-                variableGlobalConexion.nombreCadenaCnx = ""
-                Response.Redirect("~/Error/Oops.aspx?Ljbq7iMESelhIUIxzrV7j78eJD/0EFUR=INTRUSO")
+                'Else
+                '    variableGlobalConexion.nombreCadenaCnx = ""
+                '    Response.Redirect("~/Error/Oops.aspx?Ljbq7iMESelhIUIxzrV7j78eJD/0EFUR=INTRUSO")
             End If
-        Else
-            variableGlobalConexion.nombreCadenaCnx = ""
-            Response.Redirect("~/Error/Oops.aspx?Ljbq7iMESelhIUIxzrV7j78eJD/0EFUR=INTRUSO")
+            'Else
+            '    variableGlobalConexion.nombreCadenaCnx = ""
+            '    Response.Redirect("~/Error/Oops.aspx?Ljbq7iMESelhIUIxzrV7j78eJD/0EFUR=INTRUSO")
         End If
 
     End Sub
@@ -61,10 +61,10 @@ Public Class Form_reuniones
             titulo2LB.Text = "Programa de Reuniones "
             'If Me.Request.QueryString("ksjcmj").ToString <> 0 Then
             '    SW_pedidoDT = SW_pedidoDA.SD_P_selectGrupos(Request.QueryString("ksjcmj").ToString, 0)
-            cbo_departamento1.SelectedValue = 3
-            cbo_departamento1.DataBind()
-            cbo_departamento1.Enabled = False
-            cbo_provincia1.DataBind()
+            'cbo_departamento1.SelectedValue = 3
+            'cbo_departamento1.DataBind()
+            'cbo_departamento1.Enabled = False
+            'cbo_provincia1.DataBind()
 
             If Me.Request.QueryString("en") = 3402 Then
                 grupoCB.Enabled = True
@@ -180,11 +180,11 @@ Public Class Form_reuniones
             Dim bloqueada As Integer = currentRow.Row("Bloqueada")
             Dim valida As ImageButton = item.FindControl("TCValida")
             If bloqueada = 1 Then
-                valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/close24.png"
+                valida.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/close24.png"
                 valida.ToolTip = "Reunión Bloqueada"
                 valida.Attributes.Add("onClick", "return mensaje('error', 'Reunión Bloqueada'); return true;")
             Else
-                valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/open24.png"
+                valida.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/open24.png"
                 valida.ToolTip = "Reunión Abierta"
                 valida.Attributes.Add("onClick", "return frmBloqueaReu('" + reunionID.ToString + "'); return true;")
             End If

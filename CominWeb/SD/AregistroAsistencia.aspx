@@ -4,12 +4,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <script src="https://sesigue.com/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.css" rel="stylesheet" type="text/css" />
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/build/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/build/css/custom.min.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .divtableInterior {
 	        border:1px solid #8db2e3;
@@ -103,7 +103,7 @@
 
             function renewSession() {
                 console.log("Renovando session...");
-                document.getElementById('renewSession').src = 'https://sesigue.com/PROFAKTOWEB/SessionActiva.aspx?par=' + Math.random();
+                document.getElementById('renewSession').src = 'https://sesigue.miterritorio.gob.pe/PROFAKTOWEB/SessionActiva.aspx?par=' + Math.random();
             }
 
 
@@ -132,7 +132,7 @@
 <body>
     <form id="form1" runat="server" style="width:95%">
         <div class="top_nav">
-            <img id="Img2" runat="server" src="https://sesigue.com/REFERENCIASBASE/Resources/sd_cabecera_web.png" style="width:105%" />
+            <img id="Img2" runat="server" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/sd_cabecera_web.png" style="width:105%" />
         </div>
 
         <center>
@@ -203,8 +203,8 @@
                         <asp:DropDownList ID="tipoCB" runat="server" Width="100%" Font-Size="12pt" Height="35px"
                             class="form-control" TabIndex="1" AppendDataBoundItems="True" AutoPostBack="true" >
                             <asp:ListItem Selected="True" Value="0" > - Seleccione - </asp:ListItem>
-                            <asp:ListItem Value="1" > Gobierno Nacional </asp:ListItem>
-                            <asp:ListItem Value="2" > Gobierno Regional / Local </asp:ListItem>
+                            <asp:ListItem Value="1" > GOBIERNO NACIONAL </asp:ListItem>
+                            <asp:ListItem Value="2" > GOBIERNO REGIONAL / LOCAL </asp:ListItem>
                         </asp:DropDownList>
                     </div>
                 </div>
@@ -215,8 +215,7 @@
                     <div class="col-md-9 col-sm-8 col-xs-8 " style="text-align:left; ">
                             <asp:DropDownList ID="grupoCB" runat="server" Width="100%" Font-Size="12pt" Height="35px"
                                     DataSourceID="SDS_SD_P_selectGrupos" DataTextField="nombre" class="form-control"
-                                    DataValueField="grupoID" TabIndex="2" AppendDataBoundItems="True" AutoPostBack="true">
-                                    <asp:ListItem Selected="True" Value="0" > - Seleccione - </asp:ListItem>
+                                    DataValueField="grupoID" TabIndex="2" AutoPostBack="true">
                             </asp:DropDownList>
                     </div>
                 </div>
@@ -226,9 +225,7 @@
                     </div>
                     <div class="col-md-9 col-sm-8 col-xs-8 " style="text-align:left; ">
                         <asp:DropDownList ID="cbo_departamento1" runat="server" DataSourceID="SDS_P_selectDepartamento" DataTextField="departamento"
-                                DataValueField="departamentoID" AutoPostBack="true" Width="100%" TabIndex="3" class="form-control" Font-Size="12pt" Height="35px"
-                                AppendDataBoundItems="True">
-                                <asp:ListItem Selected="True" Value="0" > - Seleccione - </asp:ListItem>
+                                DataValueField="departamentoID" AutoPostBack="true" Width="100%" TabIndex="3" class="form-control" Font-Size="12pt" Height="35px">
                         </asp:DropDownList>
                     </div>
                 </div>
@@ -252,7 +249,6 @@
                         <asp:DropDownList ID="cbo_distrito" runat="server" Width="100%" Font-Size="12pt" Height="35px"
                             DataSourceID="SDS_P_selectDistrito" DataTextField="DISTRITO" DataValueField="distritoID" 
                             class="form-control" TabIndex="5" AppendDataBoundItems="True" AutoPostBack="true" >
-                            <asp:ListItem Selected="True" Value="0" > - Seleccione - </asp:ListItem>
                         </asp:DropDownList>
                     </div>
                 </div>
@@ -353,7 +349,7 @@
             </SelectParameters>
         </asp:SqlDataSource>
         <asp:SqlDataSource ID="SDS_P_selectDepartamento" runat="server" 
-            SelectCommand="SD_P_selectDepartamentoSD" SelectCommandType="StoredProcedure">
+            SelectCommand="SD_P_selectDepartamentoSD_cero" SelectCommandType="StoredProcedure">
         </asp:SqlDataSource>
         <asp:SqlDataSource ID="SDS_P_selectProvincia" runat="server" 
             ProviderName="System.Data.SqlClient" SelectCommand="SD_P_selectProvinciaSD" 
@@ -413,19 +409,19 @@
     </telerik:RadAjaxManager>
 
 
-<img src="https://sesigue.com/PROFAKTOWEB/SessionActiva.aspx" name="renewSession" id="renewSession" width="1px" height="1px"/>
+<img src="https://sesigue.miterritorio.gob.pe/PROFAKTOWEB/SessionActiva.aspx" name="renewSession" id="renewSession" width="1px" height="1px"/>
 
         </center>
     </form>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/fastclick/lib/fastclick.js"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.js"></script>
-    <script src="https://sesigue.com/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/fastclick/lib/fastclick.js"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.js"></script>
+    <script src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
     <br />
 </body>
 <footer>
-    <img src="https://sesigue.com/REFERENCIASBASE/Resources/sd_inferior_web.png" style="width:100%" />
+    <img src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/sd_inferior_web.png" style="width:100%" />
 </footer>
 </html>

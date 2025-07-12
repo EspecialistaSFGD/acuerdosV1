@@ -4,12 +4,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <script src="https://sesigue.com/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.css" rel="stylesheet" type="text/css" />
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/build/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/build/css/custom.min.css" rel="stylesheet" type="text/css" />
     
     <style type="text/css">
         .divtableInterior {
@@ -155,7 +155,7 @@
 
             function renewSession() {
                 console.log("Renovando session...");
-                document.getElementById('renewSession').src = 'https://sesigue.com/PROFAKTOWEB/SessionActiva.aspx?par=' + Math.random();
+                document.getElementById('renewSession').src = 'https://sesigue.miterritorio.gob.pe/PROFAKTOWEB/SessionActiva.aspx?par=' + Math.random();
             }
 
             
@@ -196,7 +196,7 @@
 <body>
     <form id="form1" runat="server" style="width:95%">
         <div class="top_nav">
-            <img id="Img2" runat="server" src="https://sesigue.com/REFERENCIASBASE/Resources/sd_cabecera_web.png" style="width:105%" />
+            <img id="Img2" runat="server" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/sd_cabecera_web.png" style="width:105%" />
         </div>
 
         <center>
@@ -211,37 +211,33 @@
         </div>
 
         <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:left; margin-right:120px; margin-left:2%; padding-top:5px; padding-bottom:3px; border-right: #578533 1px solid; border-top: #578533 1px solid; border-left: #578533 1px solid; border-bottom: #578533 1px solid; background-color: white;">
-                <div class="col-md-1 col-sm-2 col-xs-4 " style="text-align:left; font-weight:bold; margin-top:10px">
-                    SECTOR
-                </div>
-                <div class="col-md-2 col-sm-4 col-xs-8 " style="text-align:center; margin-top:10px">
-                    <asp:Label ID="sectorLB" runat="server" Font-Bold="False" Font-Size="11pt" Text="." >
-                    </asp:Label>
-                </div>
-                <div class="col-md-1 col-sm-2 col-xs-4 " style="text-align:left; font-weight:bold; margin-top:10px">
-                    ENTIDAD
-                </div>
-                <div class="col-md-5 col-sm-4 col-xs-8 " style="text-align:center;margin-top:10px">
-                    <asp:Label ID="entidadLB" runat="server" Font-Bold="False" Font-Size="10pt" Text=".">
-                    </asp:Label>
-                </div>
-<%--                <div class="col-md-1 col-sm-2 col-xs-4 " style="text-align:left; font-weight:bold">
-                    
+                <div class="col-md-1 col-sm-2 col-xs-4 " style="text-align:left; font-weight:bold">
+                    CODIGO
                 </div>
                 <div class="col-md-2 col-sm-4 col-xs-8 " style="text-align:center; ">
-                    
-                </div>--%>
-                <div class="col-md-1 col-sm-2 col-xs-4 " style="text-align:left; font-weight:bold; margin-top:10px">
-                    ESTADO
+                    <asp:Label ID="codigoLB" runat="server" Font-Bold="False" Font-Size="10pt" Text="." >
+                    </asp:Label>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-4 " style="text-align:left; font-weight:bold">
+                    CLASIFICACIÓN
                 </div>
                 <div class="col-md-2 col-sm-4 col-xs-8 " style="text-align:center; ">
-                    <asp:DropDownList ID="estadoCB" runat="server" Width="100%" Font-Size="12pt" Height="40px"
-                            class="form-control" TabIndex="3" AppendDataBoundItems="True" Font-Bold="true">
-                            <asp:ListItem Value="0" > NO INICIADO </asp:ListItem>
-                            <asp:ListItem Value="2" > EN PROCESO </asp:ListItem>
-                            <asp:ListItem Value="3" > FINALIZADO </asp:ListItem>
-                            <asp:ListItem Value="4" > CANCELADO </asp:ListItem>
-                    </asp:DropDownList>
+                    <asp:Label ID="clasificaLB" runat="server" Font-Bold="False" Font-Size="10pt" Text="." >
+                    </asp:Label>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-4 " style="text-align:left; font-weight:bold">
+                    RESPONSABLE
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-8 " style="text-align:center; ">
+                    <asp:Label ID="responsableLB" runat="server" Font-Bold="False" Font-Size="10pt" Text=".">
+                    </asp:Label>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-4 " style="text-align:left; font-weight:bold">
+                    PLAZO
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-8 " style="text-align:center; ">
+                    <asp:Label ID="plazoLB" runat="server" Font-Bold="False" Font-Size="10pt" Text="."  >
+                    </asp:Label>
                 </div>
         </div>
 
@@ -287,7 +283,7 @@
                             HeaderText="ASISTENCIA" UniqueName="TCValida" AllowFiltering="false" >
                             <ItemTemplate>
                                     <asp:ImageButton ID="TCValida" runat="server" CssClass="cursor" 
-                                        ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/peligro_20.png"
+                                        ImageUrl="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/peligro_20.png"
                                         UseSubmitBehavior="False"/>
                             </ItemTemplate>
                             <HeaderStyle HorizontalAlign="Center" Width="20%" Font-Bold="true" Font-Size="Small" />
@@ -344,7 +340,7 @@
         </AjaxSettings>
     </telerik:RadAjaxManager>
 
-<img src="https://sesigue.com/PROFAKTOWEB/SessionActiva.aspx" name="renewSession" id="renewSession" width="1px" height="1px"/>
+<img src="https://sesigue.miterritorio.gob.pe/PROFAKTOWEB/SessionActiva.aspx" name="renewSession" id="renewSession" width="1px" height="1px"/>
 
             <telerik:radwindowmanager ID="RadWindowManager1" runat="server" Skin="WebBlue">
                 <Windows>
@@ -362,12 +358,12 @@
 
         </center>
     </form>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/fastclick/lib/fastclick.js"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.js"></script>
-    <script src="https://sesigue.com/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/fastclick/lib/fastclick.js"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.js"></script>
+    <script src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
 
 </body>
 </html>

@@ -111,14 +111,16 @@ Public Class prioridadesAcuerdosV
                 cbo_departamento1.SelectedValue = Me.Request.QueryString("de").ToString
                 cbo_departamento1.DataBind()
 
-                Dim ub As Integer = Left(Right("00" & Request.QueryString("ubig"), 6), 4) & "01"
+                If Right(Request.QueryString("ubig"), 4) <> "0000" Then
+                    Dim ub As Integer = Left(Right("00" & Request.QueryString("ubig"), 6), 4) & "01"
 
-                If ub > 0 Then
-                    cbo_provincia1.SelectedValue = ub 'Me.Request.QueryString("ubig").ToString
-                    cbo_provincia1.DataBind()
+                    If ub > 0 Then
+                        cbo_provincia1.SelectedValue = ub 'Me.Request.QueryString("ubig").ToString
+                        cbo_provincia1.DataBind()
 
-                    cbo_distrito.SelectedValue = Me.Request.QueryString("ubig").ToString
-                    cbo_distrito.DataBind()
+                        cbo_distrito.SelectedValue = Me.Request.QueryString("ubig").ToString
+                        cbo_distrito.DataBind()
+                    End If
                 End If
 
             Else
@@ -235,14 +237,14 @@ Public Class prioridadesAcuerdosV
 
 
             If validado = 0 Or validado = 3 Then
-                valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/close24.png"
+                valida.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/close24.png"
                 If Me.Request.QueryString("sup") = 2 Then
                     valida.Attributes.Add("onClick", "return frmValidacionPed('" + prioridadID.ToString + "'); return true;")
                 Else
                     valida.Attributes.Add("onClick", "return mensaje('error', 'No corresponde a la entidad'); return true;")
                 End If
             ElseIf validado = 2 Then
-                valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/closeNaranja24.png"
+                valida.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/closeNaranja24.png"
                 valida.ToolTip = "Pedido Observado"
                 If Me.Request.QueryString("sup") = 2 Then
                     valida.Attributes.Add("onClick", "return frmValidacionPed('" + prioridadID.ToString + "'); return true;")
@@ -251,7 +253,7 @@ Public Class prioridadesAcuerdosV
                 End If
 
             Else
-                valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/open24.png"
+                valida.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/open24.png"
                 valida.ToolTip = "Pedido validado"
                 valida.Attributes.Add("onClick", "return mensaje('error', 'El Pedido ya fue validado'); return true;")
             End If
@@ -317,7 +319,7 @@ Public Class prioridadesAcuerdosV
         sl.SetCellValue(4, 4, "UBIGEO")
         sl.SetCellValue(4, 5, "DEPARTAMENTO")
         sl.SetCellValue(4, 6, "PROVINCIA")
-        sl.SetCellValue(4, 7, "EJE ESTRATÉGICO")
+        sl.SetCellValue(4, 7, "DISTRITO")
         sl.SetCellValue(4, 8, "TIPO INTERVENCION")
         sl.SetCellValue(4, 9, "PEDIDO")
         sl.SetCellValue(4, 10, "CUI")
@@ -453,7 +455,7 @@ Public Class prioridadesAcuerdosV
         sl.SetCellValue(4, 4, "UBIGEO")
         sl.SetCellValue(4, 5, "DEPARTAMENTO")
         sl.SetCellValue(4, 6, "PROVINCIA")
-        sl.SetCellValue(4, 7, "EJE ESTRATÉGICO")
+        sl.SetCellValue(4, 7, "ESTRATEGICO")
         sl.SetCellValue(4, 8, "PEDIDO")
         sl.SetCellValue(4, 9, "CUI")
         sl.SetCellValue(4, 10, "CODIGO")
@@ -464,6 +466,9 @@ Public Class prioridadesAcuerdosV
         sl.SetCellValue(4, 15, "ESTADO")
         sl.SetCellValue(4, 16, "TIPO")
         sl.SetCellValue(4, 17, "RESPONSABLE CUMPLIMIENTO")
+        sl.SetCellValue(4, 18, "REGISTRADO")
+        sl.SetCellValue(4, 19, "TENTATIVO")
+        sl.SetCellValue(4, 20, "DISTRITO")
 
         'emcabezado
         Dim stilo As SLStyle = sl.CreateStyle()
@@ -517,7 +522,7 @@ Public Class prioridadesAcuerdosV
         sl.SetColumnWidth(9, 10, 15)
         sl.SetColumnWidth(11, 11, 60)
         sl.SetColumnWidth(12, 16, 20)
-        sl.SetColumnWidth(17, 17, 30)
+        sl.SetColumnWidth(17, 20, 30)
 
         Dim rowIndex As Integer = 5
         Dim columnIndex As Integer = 1
@@ -547,6 +552,9 @@ Public Class prioridadesAcuerdosV
         sl.SetCellStyle(4, 15, stilo)
         sl.SetCellStyle(4, 16, stilo)
         sl.SetCellStyle(4, 17, stilo)
+        sl.SetCellStyle(4, 18, stilo)
+        sl.SetCellStyle(4, 19, stilo)
+        sl.SetCellStyle(4, 20, stilo)
 
         If SW_pedidoDT.Rows.Count > 0 Then
             For fil As Integer = 0 To SW_pedidoDT.Rows.Count - 1

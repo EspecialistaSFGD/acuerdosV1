@@ -237,14 +237,14 @@ Public Class registroAcuerdosV
 
         If codigoid <> 0 Then
 
-            Dim cad As String = ""
-            cad = " UPDATE SD_tblPrioridadAcuerdo set validado = 1, comentarioPCM = '' where prioridadID = " & codigoid
-            If cad.Length > 0 Then
-                Try
-                    Me.sw_ejecutaSQL.querySQL(cad)
-                Catch ex As Exception
-                End Try
-            End If
+            'Dim cad As String = ""
+            'cad = " UPDATE SD_tblPrioridadAcuerdo set validado = 1, comentarioPCM = '' where prioridadID = " & codigoid
+            'If cad.Length > 0 Then
+            '    Try
+            '        Me.sw_ejecutaSQL.querySQL(cad)
+            '    Catch ex As Exception
+            '    End Try
+            'End If
 
 
             Response.Redirect("~/SD/prioridadesAcuerdosV.aspx?lkjasdliwupqwifgdsgdfgrgdsfgdfsgdsfoiwermzxc9rurnasndlkkjasdwuewue=lksajdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh" +
@@ -276,14 +276,14 @@ Public Class registroAcuerdosV
         Session("pedido") = codigoid
         If codigoid <> 0 Then
 
-            Dim cad As String = ""
-            cad = " UPDATE SD_tblPrioridadAcuerdo set validado = 1, comentarioPCM = '' where prioridadID = " & codigoid
-            If cad.Length > 0 Then
-                Try
-                    Me.sw_ejecutaSQL.querySQL(cad)
-                Catch ex As Exception
-                End Try
-            End If
+            'Dim cad As String = ""
+            'cad = " UPDATE SD_tblPrioridadAcuerdo set validado = 1, comentarioPCM = '' where prioridadID = " & codigoid
+            'If cad.Length > 0 Then
+            '    Try
+            '        Me.sw_ejecutaSQL.querySQL(cad)
+            '    Catch ex As Exception
+            '    End Try
+            'End If
 
             Dim cadena_java As String
             cadena_java = "<script type='text/javascript'> " &

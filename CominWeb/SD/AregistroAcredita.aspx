@@ -4,12 +4,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <script src="https://sesigue.com/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.css" rel="stylesheet" type="text/css" />
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/build/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/build/css/custom.min.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .divtableInterior {
 	        border:1px solid #8db2e3;
@@ -103,7 +103,7 @@
 
             function renewSession() {
                 console.log("Renovando session...");
-                document.getElementById('renewSession').src = 'https://sesigue.com/PROFAKTOWEB/SessionActiva.aspx?par=' + Math.random();
+                document.getElementById('renewSession').src = 'https://sesigue.miterritorio.gob.pe/PROFAKTOWEB/SessionActiva.aspx?par=' + Math.random();
             }
 
 
@@ -132,7 +132,7 @@
 <body>
     <form id="form1" runat="server" style="width:95%">
         <div class="top_nav">
-            <img id="Img2" runat="server" src="https://sesigue.com/REFERENCIASBASE/Resources/sd_cabecera_web.png" style="width:105%" />
+            <img id="Img2" runat="server" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/sd_cabecera_web.png" style="width:105%" />
         </div>
 
         <center>
@@ -148,148 +148,155 @@
 
         <div style="width:90%" id="formLogin" runat="server">
 
-                <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:20px; padding-top:5px; padding-bottom:3px; border-right: #578533 1px solid; border-top: #578533 1px solid; border-left: #578533 1px solid; border-bottom: #578533 1px solid; background-color: white;">
-                    <div class="col-md-2 col-sm-4 col-xs-4 " style="text-align:left; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:11pt">
+            <div id="div1" runat="server" class="col-md-12 col-sm-12 col-xs-12" style="margin-top:2px; padding-top:5px; padding-bottom:2px; background-color: white;">
+                    <div class="col-md-2 col-sm-2 col-xs-4 " style="text-align:left; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:9pt">
+                        Espacio
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-8 " style="text-align:left; ">
+                            <asp:DropDownList ID="cbo_evento" runat="server" Width="100%" class="form-control" Font-Size="9"
+                                DataSourceID="SDS_P_SelectEventos" DataTextField="nombre" AutoPostBack="true"
+                                DataValueField="eventoID" TabIndex="1" AppendDataBoundItems="True">
+                                <asp:ListItem Selected="True" Value="0" > - SELECCIONE - </asp:ListItem>
+                            </asp:DropDownList>
+                    </div>
+
+                    <div class="col-md-2 col-sm-4 col-xs-4 " style="text-align:left; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:9pt">
                         Tipo
                     </div>
-                    <div class="col-md-10 col-sm-8 col-xs-8 " style="text-align:left; ">
-                        <asp:DropDownList ID="tipoCB" runat="server" Width="100%" Font-Size="12pt" Height="35px"
+                    <div class="col-md-4 col-sm-8 col-xs-8 " style="text-align:left; ">
+                        <asp:DropDownList ID="tipoCB" runat="server" Width="100%" Font-Size="9" Height="35px"
                             class="form-control" TabIndex="1" AppendDataBoundItems="True" AutoPostBack="true" >
-                            <asp:ListItem Selected="True" Value="0" > - Seleccione - </asp:ListItem>
-                            <asp:ListItem Value="1" > Gobierno Nacional </asp:ListItem>
-                            <asp:ListItem Value="2" > Gobierno Regional / Local </asp:ListItem>
+                            <asp:ListItem Selected="True" Value="0" > - SELECCIONE - </asp:ListItem>
+                            <asp:ListItem Value="1" > GOBIERNO NACIONAL </asp:ListItem>
+                            <asp:ListItem Value="2" > GOBIERNO REGIONAL / LOCAL </asp:ListItem>
                         </asp:DropDownList>
                     </div>
+
                 </div>
 
-                <div id="divSec" runat="server" class="col-md-12 col-sm-12 col-xs-12 " style="margin-top:2px; padding-top:5px; padding-bottom:2px; border-right: #578533 1px solid; border-top: #578533 1px solid; border-left: #578533 1px solid; border-bottom: #578533 1px solid; background-color: white;">
-                    <div class="col-md-2 col-sm-4 col-xs-4 " style="text-align:left; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:11pt">
+                <div id="divSec" runat="server" class="col-md-12 col-sm-12 col-xs-12 " style="margin-top:2px; padding-top:5px; padding-bottom:2px; background-color: white;">
+                    <div class="col-md-2 col-sm-4 col-xs-4 " style="text-align:left; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:9pt">
                         Sector / Ministerio
                     </div>
                     <div class="col-md-10 col-sm-8 col-xs-8 " style="text-align:left; ">
-                            <asp:DropDownList ID="grupoCB" runat="server" Width="100%" Font-Size="12pt" Height="35px"
+                            <asp:DropDownList ID="grupoCB" runat="server" Width="100%" Font-Size="9" Height="35px"
                                     DataSourceID="SDS_SD_P_selectGrupos" DataTextField="nombre" class="form-control"
                                     DataValueField="grupoID" TabIndex="2" AppendDataBoundItems="True" AutoPostBack="true">
-                                    <asp:ListItem Selected="True" Value="0" > - Seleccione - </asp:ListItem>
+                                    <asp:ListItem Selected="True" Value="0" > - SELECCIONE - </asp:ListItem>
                             </asp:DropDownList>
                     </div>
                 </div>
 
-                <div id="divDep" runat="server" class="col-md-12 col-sm-12 col-xs-12 " style="margin-top:2px; padding-top:5px; padding-bottom:2px; border-right: #578533 1px solid; border-top: #578533 1px solid; border-left: #578533 1px solid; border-bottom: #578533 1px solid; background-color: white;">
-                    <div class="col-md-2 col-sm-4 col-xs-4 " style="text-align:left; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:11pt">
+
+            <div id="divDep" runat="server" class="col-md-12 col-sm-12 col-xs-12" style="margin-top:2px; padding-top:5px; padding-bottom:2px; background-color: white;">
+                    <div class="col-md-2 col-sm-2 col-xs-4 " style="text-align:left; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:9pt">
                         Departamento
                     </div>
-                    <div class="col-md-10 col-sm-8 col-xs-8 " style="text-align:left; ">
-                        <asp:DropDownList ID="cbo_departamento1" runat="server" DataSourceID="SDS_P_selectDepartamento" DataTextField="departamento"
-                                DataValueField="departamentoID" AutoPostBack="true" Width="100%" TabIndex="3" class="form-control" Font-Size="12pt" Height="35px"
+                    <div class="col-md-4 col-sm-4 col-xs-8 " style="text-align:left; ">
+                            <asp:DropDownList ID="cbo_departamento1" runat="server" DataSourceID="SDS_P_selectDepartamento" DataTextField="departamento"
+                                DataValueField="departamentoID" AutoPostBack="true" Width="100%" TabIndex="3" class="form-control" Font-Size="9" Height="35px"
                                 AppendDataBoundItems="True">
-                                <asp:ListItem Selected="True" Value="0" > - Seleccione - </asp:ListItem>
+                                <asp:ListItem Selected="True" Value="0" > - SELECCIONE - </asp:ListItem>
                         </asp:DropDownList>
                     </div>
-                                </div>
 
-                <div id="divProv" runat="server" class="col-md-12 col-sm-12 col-xs-12" style="margin-top:2px; padding-top:5px; padding-bottom:2px; border-right: #578533 1px solid; border-top: #578533 1px solid; border-left: #578533 1px solid; border-bottom: #578533 1px solid; background-color: white;">
-                    <div class="col-md-2 col-sm-4 col-xs-4 " style="text-align:left; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:11pt">
+                    <div class="col-md-2 col-sm-4 col-xs-4 " style="text-align:left; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:9pt">
                         Provincia
                     </div>
-                    <div class="col-md-10 col-sm-8 col-xs-8 " style="text-align:left; ">
+                    <div class="col-md-4 col-sm-8 col-xs-8 " style="text-align:left; ">
                         <asp:DropDownList ID="cbo_provincia1" runat="server" DataSourceID="SDS_P_selectProvincia" DataTextField="provincia" AutoPostBack="true"
-                            DataValueField="provinciaID" Width="100%" TabIndex="4" class="form-control" Font-Size="12pt" Height="35px">
+                            DataValueField="provinciaID" Width="100%" TabIndex="4" class="form-control" Font-Size="9" Height="35px">
                         </asp:DropDownList>
                     </div>
-                </div>
 
-                <div id="divDis" runat="server" class="col-md-12 col-sm-12 col-xs-12" style="margin-top:2px; padding-top:5px; padding-bottom:2px; border-right: #578533 1px solid; border-top: #578533 1px solid; border-left: #578533 1px solid; border-bottom: #578533 1px solid; background-color: white;">
-                    <div class="col-md-2 col-sm-4 col-xs-4 " style="text-align:left; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:11pt">
+                </div>
+                <div id="divDis" runat="server" class="col-md-12 col-sm-12 col-xs-12" style="margin-top:2px; padding-top:5px; padding-bottom:2px; background-color: white;">
+                    <div class="col-md-2 col-sm-4 col-xs-4 " style="text-align:left; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:9pt">
                         Distrito
                     </div>
                     <div class="col-md-10 col-sm-8 col-xs-8 " style="text-align:left; ">
-                        <asp:DropDownList ID="DropDownList1" runat="server" Width="100%" Font-Size="12pt" Height="35px" AutoPostBack="true"
-                            class="form-control" TabIndex="5" AppendDataBoundItems="True" Enabled="false" >
-                            <asp:ListItem Selected="True" Value="0" > - Seleccione - </asp:ListItem>
-                            <asp:ListItem Value="1" > Gobierno Nacional </asp:ListItem>
-                            <asp:ListItem Value="2" > Gobierno Local </asp:ListItem>
-                        </asp:DropDownList>
+                            <asp:DropDownList ID="distritoCB" runat="server" Width="100%" DataSourceID="SDS_P_selectDistrito" DataTextField="DISTRITO" 
+                                DataValueField="distritoID" class="form-control" Font-Size="9" AutoPostBack="true" Height="35px">
+                            </asp:DropDownList>
                     </div>
                 </div>
 
-                <div id="divEnti" runat="server" class="col-md-12 col-sm-12 col-xs-12" style="margin-top:2px; padding-top:5px; padding-bottom:2px; border-right: #578533 1px solid; border-top: #578533 1px solid; border-left: #578533 1px solid; border-bottom: #578533 1px solid; background-color: white;">
-                    <div class="col-md-2 col-sm-2 col-xs-4 " style="text-align:left; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:11pt">
-                        Institución
+                <div id="divEnti" runat="server" class="col-md-12 col-sm-12 col-xs-12" style="margin-top:2px; padding-top:5px; padding-bottom:2px; background-color: white;">
+                    <div class="col-md-2 col-sm-2 col-xs-4 " style="text-align:left; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:9pt">
+                        Entidad
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-8 " style="text-align:left; ">
                             <asp:DropDownList ID="entidadCB" runat="server" DataSourceID="SDS_SD_P_selectEntidades" DataTextField="nombre" 
-                                    DataValueField="entidadId" Width="100%" TabIndex="6" class="form-control" Font-Size="12pt" Height="35px"
+                                    DataValueField="entidadId" Width="100%" TabIndex="6" class="form-control" Font-Size="9" Height="35px"
                                     AppendDataBoundItems="True">
                                     <asp:ListItem Selected="True" Value="0" > - Seleccione - </asp:ListItem>
                             </asp:DropDownList>
                     </div>
 
-                    <div class="col-md-2 col-sm-2 col-xs-4 " style="text-align:center; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:11pt">
+                    <div class="col-md-2 col-sm-2 col-xs-4 " style="text-align:center; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:9pt">
                         Grupo
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-8 " style="text-align:left; ">
                             <asp:DropDownList ID="autoridadCB" runat="server" DataSourceID="SDS_SD_P_selectAutoridad" DataTextField="nombre" 
-                                    DataValueField="grupoID" Width="100%" TabIndex="13" class="form-control" Font-Size="12pt" Height="35px"
-                                    AppendDataBoundItems="True" AutoPostBack="true">
-                                    <asp:ListItem Selected="True" Value="0" > - Seleccione - </asp:ListItem>
+                                    DataValueField="grupoID" Width="100%" TabIndex="13" class="form-control" Font-Size="9" 
+                                    AutoPostBack="true">
                             </asp:DropDownList>
                     </div>
 
                 </div>
 
             
-                <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:2px; padding-top:5px; padding-bottom:2px; border-right: #578533 1px solid; border-top: #578533 1px solid; border-left: #578533 1px solid; border-bottom: #578533 1px solid; background-color: white;">
-                    <div class="col-md-2 col-sm-2 col-xs-4 " style="text-align:left; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:11pt">
+                <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:2px; padding-top:5px; padding-bottom:2px; background-color: white;">
+                    <div class="col-md-2 col-sm-2 col-xs-4 " style="text-align:left; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:9pt">
                         DNI
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-8 " style="text-align:left; ">
-                        <asp:TextBox ID="dniTB" Font-Size="12" runat="server" Width="100%" autocomplete="off" TabIndex="9" MaxLength="8" Height="35px"
+                        <asp:TextBox ID="dniTB" Font-Size="9" runat="server" Width="100%" autocomplete="off" TabIndex="9" MaxLength="8" 
                                 placeholder="" class="form-control" onkeypress="return checkNum(event)" AutoPostBack="true" ></asp:TextBox>    
                     </div>
-                    <div class="col-md-2 col-sm-2 col-xs-4 " style="text-align:center; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:11pt">
+                    <div class="col-md-2 col-sm-2 col-xs-4 " style="text-align:center; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:9pt">
                         Cargo
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-8 " style="text-align:left; ">
-                        <asp:TextBox ID="cargoTB" Font-Size="14" runat="server" Width="100%" autocomplete="off" TabIndex="8" MaxLength="100" Height="35px"
+                        <asp:TextBox ID="cargoTB" Font-Size="9" runat="server" Width="100%" autocomplete="off" TabIndex="14" MaxLength="100" Height="35px"
                                 placeholder="" class="form-control" onkeypress="return checkAcuerdo(event)"></asp:TextBox>
                     </div>
 
                     
                 </div>
 
-                <div class="col-md-12 col-sm-12 col-xs-12 " style="margin-top:2px; padding-top:5px; padding-bottom:2px; border-right: #578533 1px solid; border-top: #578533 1px solid; border-left: #578533 1px solid; border-bottom: #578533 1px solid; background-color: white;">
-                    <div class="col-md-2 col-sm-2 col-xs-4 " style="text-align:left; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:11pt">
+                <div class="col-md-12 col-sm-12 col-xs-12 " style="margin-top:2px; padding-top:5px; padding-bottom:2px; background-color: white;">
+                    <div class="col-md-2 col-sm-2 col-xs-4 " style="text-align:left; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:9pt">
                         Nombres
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-8 " style="text-align:left; ">
-                        <asp:TextBox ID="nombreTB" Font-Size="12" runat="server" Width="100%" autocomplete="off" TabIndex="10" MaxLength="100" Height="35px"
+                        <asp:TextBox ID="nombreTB" Font-Size="9" runat="server" Width="100%" autocomplete="off" TabIndex="10" MaxLength="100" 
                                 placeholder="" class="form-control" onkeypress="return checkAcuerdo(event)"></asp:TextBox>        
                         
                     </div>
                     
-                    <div class="col-md-2 col-sm-2 col-xs-4 " style="text-align:center; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:11pt">
+                    <div class="col-md-2 col-sm-2 col-xs-4 " style="text-align:center; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:9pt">
                         Correo
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-8 " style="text-align:left; ">
-                        <asp:TextBox ID="correoTB" Font-Size="12" runat="server" Width="100%" autocomplete="off" TabIndex="15" MaxLength="150" Height="35px"
+                        <asp:TextBox ID="correoTB" Font-Size="9" runat="server" Width="100%" autocomplete="off" TabIndex="15" MaxLength="150" 
                                 placeholder="" class="form-control" onblur="validateEmail(); return false;"></asp:TextBox>
                     </div>
                     
                 </div>
             
-                <div class="col-md-12 col-sm-12 col-xs-12 " style="margin-top:2px; padding-top:5px; padding-bottom:2px; border-right: #578533 1px solid; border-top: #578533 1px solid; border-left: #578533 1px solid; border-bottom: #578533 1px solid; background-color: white;">
+                <div class="col-md-12 col-sm-12 col-xs-12 " style="margin-top:2px; padding-top:5px; padding-bottom:2px; background-color: white;">
                     
-                    <div class="col-md-2 col-sm-2 col-xs-4 " style="text-align:left; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:11pt">
+                    <div class="col-md-2 col-sm-2 col-xs-4 " style="text-align:left; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:9pt">
                         Apellidos
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-8 " style="text-align:left; ">
-                            <asp:TextBox ID="apellidosTB" Font-Size="12" runat="server" Width="100%" autocomplete="off" TabIndex="11" MaxLength="100" Height="35px"
+                            <asp:TextBox ID="apellidosTB" Font-Size="9" runat="server" Width="100%" autocomplete="off" TabIndex="11" MaxLength="100" 
                                 placeholder="" class="form-control" onkeypress="return checkAcuerdo(event)"></asp:TextBox>
                             
                     </div>
 
-                    <div class="col-md-2 col-sm-2 col-xs-4 " style="text-align:center; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:11pt">
+                    <div class="col-md-2 col-sm-2 col-xs-4 " style="text-align:center; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:9pt">
                         Fecha de Asist.
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-8 " style="text-align:left; ">
@@ -310,23 +317,23 @@
                     </div>
                 </div>
             
-                <div class="col-md-12 col-sm-12 col-xs-12 " style="margin-top:2px; padding-top:5px; padding-bottom:2px; border-right: #578533 1px solid; border-top: #578533 1px solid; border-left: #578533 1px solid; border-bottom: #578533 1px solid; background-color: white;">
+                <div class="col-md-12 col-sm-12 col-xs-12 " style="margin-top:2px; padding-top:5px; padding-bottom:2px; background-color: white;">
                     
                     
-                    <div class="col-md-2 col-sm-2 col-xs-4 " style="text-align:left; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:11pt">
+                    <div class="col-md-2 col-sm-2 col-xs-4 " style="text-align:left; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:9pt">
                         Teléfono
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-8 " style="text-align:left; ">
-                            <asp:TextBox ID="telefonoTB" Font-Size="12" runat="server" Width="100%" autocomplete="off" TabIndex="12" MaxLength="9" Height="35px" 
+                            <asp:TextBox ID="telefonoTB" Font-Size="9" runat="server" Width="100%" autocomplete="off" TabIndex="12" MaxLength="9" Height="35px" 
                                 placeholder="" class="form-control" onkeypress="return checkNum(event)" ></asp:TextBox>
                     </div>
 
-                    <div class="col-md-2 col-sm-2 col-xs-4 " style="text-align:center; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:11pt">
+                    <div class="col-md-2 col-sm-2 col-xs-4 " style="text-align:center; vertical-align:middle; font-weight:bold; padding-top:8px; font-size:9pt">
                         Asistente Plenaria
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-8 " style="text-align:left; ">
-                            <asp:DropDownList ID="plenariaCB" runat="server" Width="100%" Font-Size="10pt" Height="40px"
-                                class="form-control" TabIndex="3" >
+                            <asp:DropDownList ID="plenariaCB" runat="server" Width="100%" Font-Size="10pt" 
+                                class="form-control" TabIndex="17" >
                                 <asp:ListItem Value="0" > NO </asp:ListItem>
                                 <asp:ListItem Value="1" > SI </asp:ListItem>
                             </asp:DropDownList>
@@ -335,12 +342,12 @@
                 </div>
 
                 <div class="col-md-12 col-sm-12 col-xs-12 " style="text-align:center; font-weight:bold; padding-top:20px;" >
-                    <asp:Button ID="generarB" runat="server" class="styleMe" Text="GUARDAR" Width="50%" Height="50px" Font-Size="15" />
+                    <asp:Button ID="generarB" runat="server" class="styleMe" Text="GUARDAR" Width="50%" Height="50px" Font-Size="9" />
                 </div>
 
             <div class="col-md-12 col-sm-12 col-xs-12 " style="text-align:center; font-weight:bold; padding-top:20px;" >
             <telerik:radgrid ID="RadGrid1" runat="server" Width="100%" Culture="es-ES" DataSourceID="SDS_SD_P_selectAcreaditadosList" Skin="Bootstrap" 
-                AutoGenerateColumns="False" AllowPaging="True" AllowSorting="True" GroupPanelPosition="Top" Font-Bold="True">
+                AutoGenerateColumns="False" AllowPaging="True" AllowSorting="True" AllowFilteringByColumn="true" GroupPanelPosition="Top" Font-Bold="True">
                 <GroupingSettings CaseSensitive="false" />
                 <ClientSettings>
                     <Selecting AllowRowSelect="True" CellSelectionMode="None" UseClientSelectColumnOnly="True" />
@@ -358,9 +365,9 @@
                         HeaderText="Edit" UniqueName="TemplateColumnEstado" AllowFiltering="false" Display="false" >
                         <ItemTemplate>
                                 <asp:ImageButton ID="edita" runat="server" CssClass="cursor" ToolTip="Editar Hito"
-                                    ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/UpdateG.png"/>
+                                    ImageUrl="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/UpdateG.png"/>
                         </ItemTemplate>
-                        <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" />
+                        <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Smaller" />
                         <ItemStyle HorizontalAlign="Center" />
                     </telerik:GridTemplateColumn>
                     <%--
@@ -369,11 +376,11 @@
                         HeaderText="Validar" UniqueName="TCValida" AllowFiltering="false" >
                         <ItemTemplate>
                                 <asp:ImageButton ID="TCValida" runat="server" CssClass="cursor" 
-                                    ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/peligro_20.png"
+                                    ImageUrl="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/peligro_20.png"
                                     UseSubmitBehavior="False"
                                     OnClientClick="javascript: if(!confirm('¿Desea validar el HITO, una vez validado no podrá modificarse?')){return false;}"/>
                         </ItemTemplate>
-                        <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" />
+                        <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Smaller" />
                         <ItemStyle HorizontalAlign="Center" />
                     </telerik:GridTemplateColumn>--%>
 
@@ -401,106 +408,94 @@
                     <telerik:GridBoundColumn DataField="espacio" FilterControlAltText="Filter espacio column" 
                         HeaderText="espacio" SortExpression="espacio" UniqueName="espacio" AutoPostBackOnFilter="true" 
                         FilterControlWidth="100%" ShowFilterIcon="false" Display="false">
-                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small"/>
-                        <ItemStyle HorizontalAlign="Left" Font-Size="Small" />
+                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Smaller"/>
+                        <ItemStyle HorizontalAlign="Left" Font-Size="Smaller" />
                     </telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="departamento" FilterControlAltText="Filter departamento column" 
                         HeaderText="departamento" SortExpression="departamento" UniqueName="departamento" AutoPostBackOnFilter="true" 
                         FilterControlWidth="100%" ShowFilterIcon="false" Display="false">
-                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small"/>
-                        <ItemStyle HorizontalAlign="Left" Font-Size="Small" />
+                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Smaller"/>
+                        <ItemStyle HorizontalAlign="Left" Font-Size="Smaller" />
                     </telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="provincia" FilterControlAltText="Filter provincia column" 
                         HeaderText="provincia" SortExpression="provincia" UniqueName="hito" AutoPostBackOnFilter="true" 
                         FilterControlWidth="100%" ShowFilterIcon="false" Display="false">
-                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small"/>
-                        <ItemStyle HorizontalAlign="Left" Font-Size="Small" />
-                    </telerik:GridBoundColumn>
-                    <telerik:GridBoundColumn DataField="provincia" FilterControlAltText="Filter provincia column" 
-                        HeaderText="provincia" SortExpression="provincia" UniqueName="hito" AutoPostBackOnFilter="true" 
-                        FilterControlWidth="100%" ShowFilterIcon="false" Display="false">
-                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small"/>
-                        <ItemStyle HorizontalAlign="Left" Font-Size="Small" />
-                    </telerik:GridBoundColumn>
-                    <telerik:GridBoundColumn DataField="provincia" FilterControlAltText="Filter provincia column" 
-                        HeaderText="provincia" SortExpression="provincia" UniqueName="hito" AutoPostBackOnFilter="true" 
-                        FilterControlWidth="100%" ShowFilterIcon="false" Display="false">
-                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small"/>
-                        <ItemStyle HorizontalAlign="Left" Font-Size="Small" />
+                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Smaller"/>
+                        <ItemStyle HorizontalAlign="Left" Font-Size="Smaller" />
                     </telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="entidad" FilterControlAltText="Filter entidad column" 
                         HeaderText="ENTIDAD" SortExpression="entidad" UniqueName="entidad" AutoPostBackOnFilter="true" 
                         FilterControlWidth="100%" ShowFilterIcon="false">
-                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small" Width="20%"/>
-                        <ItemStyle HorizontalAlign="Left" Font-Size="Small" />
+                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Smaller" Width="20%"/>
+                        <ItemStyle HorizontalAlign="Left" Font-Size="Smaller" />
                     </telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="nombre" FilterControlAltText="Filter nombre column" 
                         HeaderText="GRUPO" SortExpression="nombre" UniqueName="nombre" AutoPostBackOnFilter="true" 
-                        FilterControlWidth="100%" ShowFilterIcon="false">
-                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small" Width="20%"/>
-                        <ItemStyle HorizontalAlign="Left" Font-Size="Small" />
+                        FilterControlWidth="100%" ShowFilterIcon="false" AllowFiltering="false">
+                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Smaller" Width="20%"/>
+                        <ItemStyle HorizontalAlign="Left" Font-Size="Smaller" />
                     </telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="cargo" FilterControlAltText="Filter cargo column" 
-                        HeaderText="cargo" SortExpression="cargo" UniqueName="hito" AutoPostBackOnFilter="true" 
+                        HeaderText="cargo" SortExpression="cargo" UniqueName="cargo" AutoPostBackOnFilter="true" 
                         FilterControlWidth="100%" ShowFilterIcon="false" Display="false">
-                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small"/>
-                        <ItemStyle HorizontalAlign="Left" Font-Size="Small" />
+                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Smaller"/>
+                        <ItemStyle HorizontalAlign="Left" Font-Size="Smaller" />
                     </telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="DNI" FilterControlAltText="Filter DNI column" 
                         HeaderText="DNI" SortExpression="DNI" UniqueName="DNI" AutoPostBackOnFilter="true" 
-                        FilterControlWidth="100%" ShowFilterIcon="false">
-                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small"/>
-                        <ItemStyle HorizontalAlign="Left" Font-Size="Small" />
+                        FilterControlWidth="100%" ShowFilterIcon="false" AllowFiltering="false">
+                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Smaller"/>
+                        <ItemStyle HorizontalAlign="Left" Font-Size="Smaller" />
                     </telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="acreditado" FilterControlAltText="Filter acreditado column" 
                         HeaderText="ACREDITADO" SortExpression="acreditado" UniqueName="acreditado" AutoPostBackOnFilter="true" 
                         FilterControlWidth="100%" ShowFilterIcon="false">
-                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small"/>
-                        <ItemStyle HorizontalAlign="Left" Font-Size="Small" />
+                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Smaller"/>
+                        <ItemStyle HorizontalAlign="Left" Font-Size="Smaller" />
                     </telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="telefono" FilterControlAltText="Filter telefono column" 
                         HeaderText="TELEFONO" SortExpression="telefono" UniqueName="telefono" AutoPostBackOnFilter="true" 
-                        FilterControlWidth="100%" ShowFilterIcon="false">
-                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small"/>
-                        <ItemStyle HorizontalAlign="Left" Font-Size="Small" />
+                        FilterControlWidth="100%" ShowFilterIcon="false" AllowFiltering="false">
+                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Smaller"/>
+                        <ItemStyle HorizontalAlign="Left" Font-Size="Smaller" />
                     </telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="email" FilterControlAltText="Filter email column" 
                         HeaderText="CORREO" SortExpression="email" UniqueName="email" AutoPostBackOnFilter="true" 
-                        FilterControlWidth="100%" ShowFilterIcon="false">
-                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small"/>
-                        <ItemStyle HorizontalAlign="Left" Font-Size="Small" />
+                        FilterControlWidth="100%" ShowFilterIcon="false" AllowFiltering="false">
+                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Smaller"/>
+                        <ItemStyle HorizontalAlign="Left" Font-Size="Smaller" />
                     </telerik:GridBoundColumn>
                     <telerik:gridboundcolumn DataField="dia_evento" DataType="System.DateTime" 
                         FilterControlAltText="Filter dia_evento column" HeaderText="FECHA" 
                         SortExpression="dia_evento" UniqueName="dia_evento"
                         DataFormatString="{0:dd/MM/yyyy}" AllowFiltering="False" >
-                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small"/>
-                        <ItemStyle HorizontalAlign="Center" Font-Size="Small"/>
+                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Smaller"/>
+                        <ItemStyle HorizontalAlign="Center" Font-Size="Smaller"/>
                     </telerik:gridboundcolumn>
                     <telerik:GridBoundColumn DataField="asi_plenaria" FilterControlAltText="Filter asi_plenaria column" 
                         HeaderText="PLENARIA" SortExpression="asi_plenaria" UniqueName="asi_plenaria" AutoPostBackOnFilter="true" 
                         FilterControlWidth="100%" ShowFilterIcon="false">
-                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Small" Width="90px"/>
-                        <ItemStyle HorizontalAlign="Center" Font-Size="Small" />
+                        <HeaderStyle HorizontalAlign="Center" Font-Bold="true" Font-Size="Smaller" Width="90px"/>
+                        <ItemStyle HorizontalAlign="Center" Font-Size="Smaller" />
                     </telerik:GridBoundColumn>
                     <telerik:GridTemplateColumn FilterControlAltText="Filter TemplateColumnEstado column"
                         HeaderText="ELI" UniqueName="TemplateColumnDelete" AllowFiltering="false" >
                         <ItemTemplate>
                                 <asp:ImageButton ID="eliminaAcreditado" runat="server" CssClass="cursor" 
-                                    ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/CancelG.png"
+                                    ImageUrl="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/CancelG.png"
                                     ToolTip="Eliminar Acreditado" UseSubmitBehavior="False"
                                     OnClientClick="javascript: if(!confirm('¿Desea Eliminar el acreditado?')){return false;}"/>
                         </ItemTemplate>
-                        <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" />
+                        <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Smaller" />
                         <ItemStyle HorizontalAlign="Center" Width="2%" />
                     </telerik:GridTemplateColumn>
 <%--                    <telerik:GridTemplateColumn FilterControlAltText="Filter TCAvance column" HeaderTooltip="Crear Avance"
                         HeaderText="AV" UniqueName="TCAvance" AllowFiltering="false" >
                         <ItemTemplate>
                                 <asp:ImageButton ID="TCavance" runat="server" CssClass="cursor" ToolTip="Crear Avance"
-                                    ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/refresh_1.png"/>
+                                    ImageUrl="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/refresh_1.png"/>
                         </ItemTemplate>
-                        <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" />
+                        <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Smaller" />
                         <ItemStyle HorizontalAlign="Center" />
                     </telerik:GridTemplateColumn>
                     
@@ -508,11 +503,11 @@
                         HeaderText="REActiva" UniqueName="reactivaHito" AllowFiltering="false" >
                         <ItemTemplate>
                                 <asp:ImageButton ID="reactivaHito" runat="server" CssClass="cursor" 
-                                    ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/activo_0.png"
+                                    ImageUrl="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/activo_0.png"
                                     ToolTip="Estado del Hito" UseSubmitBehavior="False"
                                     OnClientClick="javascript: if(!confirm('¿Desea retornar el estado del hito a: EN PROCESO?')){return false;}"/>
                         </ItemTemplate>
-                        <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Small" />
+                        <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Smaller" />
                         <ItemStyle HorizontalAlign="Center" Width="2%" />
                     </telerik:GridTemplateColumn>--%>
                 </Columns>
@@ -524,8 +519,19 @@
             </div>
 
        </div>
-            <%--<input id="hiddenField" runat="server" type="hidden" value="0" />--%>
+            <input id="hiddenFieldUbigeo" runat="server" type="hidden" value="0" />
+            <input id="hiddenFieldSector" runat="server" type="hidden" value="0" />
 
+
+        <asp:SqlDataSource ID="SDS_P_SelectEventos" runat="server" 
+            SelectCommand="SD_P_selectEventos" SelectCommandType="StoredProcedure">
+            <SelectParameters>
+                <asp:Parameter DefaultValue="0" Name="eventoId" Type="Int32" />
+                <asp:Parameter DefaultValue="1" Name="tipo" Type="Int32" />
+                <asp:ControlParameter ControlID="entidadCB" DefaultValue="0" Name="enti" PropertyName="SelectedValue" Type="Int32" />
+                <asp:Parameter DefaultValue="1" Name="new" Type="Int32" />
+            </SelectParameters>
+        </asp:SqlDataSource>
 
         <asp:SqlDataSource ID="SDS_SD_P_selectGrupos" runat="server" 
             SelectCommand="SD_P_selectGrupos" SelectCommandType="StoredProcedure">
@@ -535,7 +541,7 @@
             </SelectParameters>
         </asp:SqlDataSource>
         <asp:SqlDataSource ID="SDS_P_selectDepartamento" runat="server" 
-            SelectCommand="SD_P_selectDepartamentoSD" SelectCommandType="StoredProcedure">
+            SelectCommand="SD_P_selectDepartamentoSD_cero" SelectCommandType="StoredProcedure">
         </asp:SqlDataSource>
         <asp:SqlDataSource ID="SDS_P_selectProvincia" runat="server" 
             ProviderName="System.Data.SqlClient" SelectCommand="SD_P_selectProvinciaSD" 
@@ -545,13 +551,15 @@
                 <asp:Parameter DefaultValue="1" Name="tipo" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
+        
         <asp:SqlDataSource ID="SDS_SD_P_selectEntidades" runat="server" 
             SelectCommand="SD_P_selectEntidades" SelectCommandType="StoredProcedure">
             <SelectParameters>
                 <asp:Parameter DefaultValue="0" Name="entidadId" Type="Int32" />
                 <asp:ControlParameter ControlID="tipoCB" DefaultValue="3" Name="tipo" PropertyName="SelectedValue" Type="Int32" />
-                <asp:QueryStringParameter DefaultValue="0" Name="sectorId" QueryStringField="codsector" Type="Int32" />
-                <asp:QueryStringParameter DefaultValue="0" Name="ubigeo" QueryStringField="ubig" Type="Int32" />
+                <asp:ControlParameter ControlID="hiddenFieldSector" DefaultValue="0" Name="sectorId" PropertyName="value" Type="Int32" />
+                <%--<asp:QueryStringParameter DefaultValue="0" Name="ubigeo" QueryStringField="ubig" Type="Int32" />--%>
+                <asp:ControlParameter ControlID="hiddenFieldUbigeo" DefaultValue="0" Name="ubigeo" PropertyName="value" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
         <asp:SqlDataSource ID="SDS_SD_P_selectAutoridad" runat="server" 
@@ -567,13 +575,22 @@
             <SelectParameters>
                 <asp:Parameter DefaultValue="0" Name="asistenciaId" Type="Int32" />
                 <asp:Parameter DefaultValue="0" Name="nombre" Type="String" />
-                <asp:QueryStringParameter DefaultValue="0" Name="eventoId" QueryStringField="codevento" Type="Int32" />
-                <asp:QueryStringParameter DefaultValue="0" Name="entidadId" QueryStringField="en" Type="Int32" />
+                <asp:ControlParameter ControlID="cbo_evento" DefaultValue="0" Name="eventoId" PropertyName="SelectedValue" Type="Int32" />
+                <%--<asp:QueryStringParameter DefaultValue="0" Name="entidadId" QueryStringField="en" Type="Int32" /> --%>
+                <asp:ControlParameter ControlID="entidadCB" DefaultValue="0" Name="entidadId" PropertyName="SelectedValue" Type="Int32" />
                 <asp:Parameter DefaultValue="0" Name="dni" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>
 
-
+        <asp:SqlDataSource ID="SDS_P_selectDistrito" runat="server" 
+            ProviderName="System.Data.SqlClient" SelectCommand="SD_P_selectDistritoSD" 
+            SelectCommandType="StoredProcedure">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="cbo_provincia1" DefaultValue="" 
+                    Name="provincia" PropertyName="SelectedValue" Type="Int32" />
+                <asp:Parameter DefaultValue="1" Name="tipo" Type="Int32" />
+            </SelectParameters>
+        </asp:SqlDataSource>
             
 
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -590,19 +607,19 @@
     </telerik:RadAjaxManager>
 
 
-<img src="https://sesigue.com/PROFAKTOWEB/SessionActiva.aspx" name="renewSession" id="renewSession" width="1px" height="1px"/>
+<img src="https://sesigue.miterritorio.gob.pe/PROFAKTOWEB/SessionActiva.aspx" name="renewSession" id="renewSession" width="1px" height="1px"/>
 
         </center>
     </form>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/fastclick/lib/fastclick.js"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.js"></script>
-    <script src="https://sesigue.com/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/fastclick/lib/fastclick.js"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.js"></script>
+    <script src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
     <br />
 </body>
 <footer>
-    <img src="https://sesigue.com/REFERENCIASBASE/Resources/sd_inferior_web.png" style="width:100%" />
+    <img src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/sd_inferior_web.png" style="width:100%" />
 </footer>
 </html>

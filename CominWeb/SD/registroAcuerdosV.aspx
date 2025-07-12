@@ -5,12 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <script src="https://sesigue.com/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.css" rel="stylesheet" type="text/css" />
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/build/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/build/css/custom.min.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .divtableInterior {
 	        border:1px solid #8db2e3;
@@ -67,7 +67,7 @@
         }
         
         .btn {
-            background-image: url('https://sesigue.com/REFERENCIASBASE/Resources/12b.png');
+            background-image: url('https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/12b.png');
             background-repeat: no-repeat;
             height: 40px;
             width: 40px;
@@ -92,7 +92,7 @@
 
             function renewSession() {
                 console.log("Renovando session...");
-                document.getElementById('renewSession').src = 'https://sesigue.com/PROFAKTOWEB/SessionActiva.aspx?par=' + Math.random();
+                document.getElementById('renewSession').src = 'https://sesigue.miterritorio.gob.pe/PROFAKTOWEB/SessionActiva.aspx?par=' + Math.random();
             }
 
             function OnClientClose1(oWnd, eventArgs) {
@@ -260,7 +260,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="top_nav">
-            <img id="Img2" runat="server" src="https://sesigue.com/REFERENCIASBASE/Resources/sd_cabecera_web.png" style="width:100%" />
+            <img id="Img2" runat="server" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/sd_cabecera_web.png" style="width:100%" />
         </div>
 
         <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center; padding-top:10px">
@@ -402,7 +402,7 @@
                                                     HeaderText="Edit" UniqueName="TemplateColumnEstado" AllowFiltering="false" >
                                                     <ItemTemplate>
                                                             <asp:ImageButton ID="edita" runat="server" CssClass="cursor" ToolTip="Editar Acuerdo"
-                                                                ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/editar_grilla.png"/>
+                                                                ImageUrl="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/editar_grilla.png"/>
                                                     </ItemTemplate>
                                                     <HeaderStyle HorizontalAlign="Center" Width="2%" Font-Bold="true" Font-Size="Large" />
                                                     <ItemStyle HorizontalAlign="Center" />
@@ -485,7 +485,7 @@
                                                     HeaderText="Eli" UniqueName="TemplateColumnEstado" AllowFiltering="false" >
                                                     <ItemTemplate>
                                                             <asp:ImageButton ID="estadoAcuerdob" runat="server" CssClass="cursor" 
-                                                                ImageUrl="https://sesigue.com/REFERENCIASBASE/Resources/CancelG.png"
+                                                                ImageUrl="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/CancelG.png"
                                                                 ToolTip="Eliminar Acuerdo" UseSubmitBehavior="False"
                                                                 OnClientClick="javascript: if(!confirm('¿Desea Eliminar el acuerdo?')){return false;}"/>
                                                     </ItemTemplate>
@@ -509,7 +509,7 @@
 
 
         <asp:SqlDataSource ID="SDS_P_selectDepartamento" runat="server" 
-            SelectCommand="SD_P_selectDepartamentoSD" SelectCommandType="StoredProcedure">
+            SelectCommand="SD_P_selectDepartamentoSD_cero" SelectCommandType="StoredProcedure">
         </asp:SqlDataSource>
         <asp:SqlDataSource ID="SDS_P_selectProvincia" runat="server" 
             ProviderName="System.Data.SqlClient" SelectCommand="SD_P_selectProvinciaSD" 
@@ -596,7 +596,7 @@
         </asp:SqlDataSource>--%>
     <asp:ScriptManager ID="ScriptManager1" runat="server">
 </asp:ScriptManager>
-<img src="https://sesigue.com/PROFAKTOWEB/SessionActiva.aspx" name="renewSession" id="renewSession" width="1px" height="1px"/>
+<img src="https://sesigue.miterritorio.gob.pe/PROFAKTOWEB/SessionActiva.aspx" name="renewSession" id="renewSession" width="1px" height="1px"/>
 
             <telerik:radwindowmanager ID="RadWindowManager1" runat="server" Skin="WebBlue">
                 <Windows>
@@ -639,15 +639,15 @@
 
 
         </form>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/fastclick/lib/fastclick.js"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.js"></script>
-    <script src="https://sesigue.com/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/fastclick/lib/fastclick.js"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.js"></script>
+    <script src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
 
 </body>
 <footer>
-    <img src="https://sesigue.com/REFERENCIASBASE/Resources/sd_inferior_web.png" style="width:100%" />
+    <img src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/sd_inferior_web.png" style="width:100%" />
 </footer>
 </html>

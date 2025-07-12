@@ -105,7 +105,7 @@
     <form id="form1" runat="server" style="font-family: arial, helvetica, sans-serif;">
 
         <div class="top_nav">
-            <img id="Img2" runat="server" src="https://sesigue.com/REFERENCIASBASE/Resources/sd_cabecera_web.png" style="width:100%" />
+            <img id="Img2" runat="server" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/sd_cabecera_web.png" style="width:100%" />
         </div>
 
         <div class="top_nav">
@@ -132,7 +132,7 @@
                             </tr>
                             <tr>
                                 <td style="padding:10px">
-                                        <asp:TextBox ID="nroDocTB" Font-Size="45" runat="server" Width="100%" autocomplete="off" MaxLength="8"
+                                        <asp:TextBox ID="nroDocTB" Font-Size="45" runat="server" Width="100%" autocomplete="off" 
                                              class="form-control" placeholder="NRO. DOCUMENTO" TextMode="Phone"></asp:TextBox>
                                 </td>
                             </tr>
@@ -195,6 +195,6 @@
 
 </body>
 <%--    <footer>
-    <img src="https://sesigue.com/REFERENCIASBASE/Resources/sd_inferior_web.png" style="width:100%" />
+    <img src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/sd_inferior_web.png" style="width:100%" />
 </footer>--%>
 </html>

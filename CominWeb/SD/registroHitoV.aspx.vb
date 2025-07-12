@@ -335,13 +335,13 @@ Public Class registroHitoV
     '            valida.Attributes.Add("onClick", "return mensaje('error', 'Hito desestimado'); return true;")
     '            avance.Attributes.Add("onClick", "return mensaje('error', 'Hito desestimado'); return true;")
     '            reactivaHito.Attributes.Add("onClick", "return mensaje('error', 'Hito desestimado'); return true;")
-    '            reactivaHito.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/rojo_24.png"
+    '            reactivaHito.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/rojo_24.png"
     '        Else
 
     '            If estadoRegistro = 0 Then
-    '                reactivaHito.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/plomo_23.png"
+    '                reactivaHito.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/plomo_23.png"
     '            Else
-    '                reactivaHito.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/verde_24.png"
+    '                reactivaHito.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/verde_24.png"
     '            End If
 
     '            If validado = 0 Then
@@ -356,10 +356,10 @@ Public Class registroHitoV
     '                If validado = 0 Then
     '                    'If Request.QueryString("estReg") = 4
     '                    valida.ToolTip = "Hito pendiente de validación"
-    '                    valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/close24.png"
+    '                    valida.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/close24.png"
     '                    valida.Attributes.Add("onClick", "return frmValidacionHito('" + hitdoId.ToString + "',999); return true;")
     '                Else
-    '                    valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/open24.png"
+    '                    valida.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/open24.png"
     '                    valida.ToolTip = "Hito validado"
     '                    valida.Attributes.Add("onClick", "return mensaje('error', 'El Hito ya fue validado'); return true;")
     '                    If estadoRegistro = 1 Then
@@ -385,7 +385,7 @@ Public Class registroHitoV
     '                    valida.ToolTip = "Hito pendiente de validación"
     '                    avance.Attributes.Add("onClick", "return mensaje('error', 'Hito pendiente de validación'); return true;")
     '                Else
-    '                    valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/open24.png"
+    '                    valida.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/open24.png"
     '                    valida.ToolTip = "Hito validado"
     '                    avance.Attributes.Add("onClick", "return frmAvanceN2('" + acuerdoIDg.ToString + "','" + hitdoId.ToString + "','" + estadoRegistro.ToString + "'); return true;")
     '                End If
@@ -396,7 +396,7 @@ Public Class registroHitoV
     '                If validado = 0 Then
     '                    valida.ToolTip = "Hito pendiente de validación"
     '                Else
-    '                    valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/open24.png"
+    '                    valida.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/open24.png"
     '                    valida.ToolTip = "Hito validado"
     '                End If
 
@@ -427,13 +427,13 @@ Public Class registroHitoV
                 valida.Attributes.Add("onClick", "return mensaje('error', 'Hito desestimado'); return true;")
                 avance.Attributes.Add("onClick", "return mensaje('error', 'Hito desestimado'); return true;")
                 reactivaHito.Attributes.Add("onClick", "return mensaje('error', 'Hito desestimado'); return true;")
-                reactivaHito.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/rojo_24.png"
+                reactivaHito.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/rojo_24.png"
             Else
 
                 If estadoRegistro = 0 Then
-                    reactivaHito.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/plomo_23.png"
+                    reactivaHito.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/plomo_23.png"
                 Else
-                    reactivaHito.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/verde_24.png"
+                    reactivaHito.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/verde_24.png"
                 End If
 
                 If validado = 0 Then
@@ -448,10 +448,10 @@ Public Class registroHitoV
                     If validado = 0 Then
                         'If Request.QueryString("estReg") = 4
                         valida.ToolTip = "Hito pendiente de validación"
-                        valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/close24.png"
+                        valida.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/close24.png"
                         valida.Attributes.Add("onClick", "return frmValidacionHito('" + hitdoId.ToString + "',999); return true;")
                     Else
-                        valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/open24.png"
+                        valida.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/open24.png"
                         valida.ToolTip = "Hito validado"
                         valida.Attributes.Add("onClick", "return mensaje('error', 'El Hito ya fue validado'); return true;")
                         If Request.QueryString("en") = 3402 Then
@@ -481,7 +481,7 @@ Public Class registroHitoV
                         valida.ToolTip = "Hito pendiente de validación"
                         avance.Attributes.Add("onClick", "return mensaje('error', 'Hito pendiente de validación'); return true;")
                     Else
-                        valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/open24.png"
+                        valida.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/open24.png"
                         valida.ToolTip = "Hito validado"
                         avance.Attributes.Add("onClick", "return frmAvanceN2('" + acuerdoIDg.ToString + "','" + hitdoId.ToString + "','" + estadoRegistro.ToString + "'); return true;")
                     End If
@@ -492,7 +492,7 @@ Public Class registroHitoV
                     If validado = 0 Then
                         valida.ToolTip = "Hito pendiente de validación"
                     Else
-                        valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/open24.png"
+                        valida.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/open24.png"
                         valida.ToolTip = "Hito validado"
                     End If
 
@@ -524,11 +524,11 @@ Public Class registroHitoV
     '            sector.Attributes.Add("onClick", "return frmComentario('" + avanceId.ToString + "',1); return true;")
     '            comentario.Attributes.Add("onClick", "return mensaje('error', 'No corresponde a la entidad'); return true;")
     '            If validado = 0 Then
-    '                valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/close24.png"
+    '                valida.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/close24.png"
     '                valida.ToolTip = "Avance pendiente de validación"
     '                valida.Attributes.Add("onClick", "return frmValidacion('" + avanceId.ToString + "',999); return true;")
     '            Else
-    '                valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/open24.png"
+    '                valida.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/open24.png"
     '                valida.ToolTip = "Avance VALIDADO"
     '                'valida.Attributes.Add("onClick", "return frmValidacion('" + avanceId.ToString + "',888); return true;")
     '                valida.Attributes.Add("onClick", "return mensaje('error', 'El avance ya fue validado'); return true;")
@@ -536,7 +536,7 @@ Public Class registroHitoV
 
     '        ElseIf Request.QueryString("sup") = 0 Then
     '            If validado = 1 Then
-    '                valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/open24.png"
+    '                valida.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/open24.png"
     '            End If
 
     '            sector.Attributes.Add("onClick", "return mensaje('error', 'No corresponde a la entidad'); return true;")
@@ -561,7 +561,7 @@ Public Class registroHitoV
     '            End If
     '        ElseIf Request.QueryString("sup") = 2 Then
     '            If validado = 1 Then
-    '                valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/open24.png"
+    '                valida.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/open24.png"
     '            End If
     '            valida.Attributes.Add("onClick", "return mensaje('error', 'No corresponde a la entidad'); return true;")
     '            sector.Attributes.Add("onClick", "return mensaje('error', 'No corresponde a la entidad'); return true;")
@@ -592,12 +592,12 @@ Public Class registroHitoV
                 sector.Attributes.Add("onClick", "return frmComentario('" + avanceId.ToString + "',1); return true;")
                 comentario.Attributes.Add("onClick", "return mensaje('error', 'No corresponde a la entidad'); return true;")
                 If validado = 0 Then
-                    valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/close24.png"
+                    valida.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/close24.png"
                     valida.ToolTip = "Avance pendiente de validación"
                     valida.Attributes.Add("onClick", "return frmValidacion('" + avanceId.ToString + "',999); return true;")
                     eliminaHito.Attributes.Add("onClick", "return eliminaAvance('" + avanceId.ToString + "','" + validado.ToString + "','" + enti.ToString + "');")
                 Else
-                    valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/open24.png"
+                    valida.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/open24.png"
                     valida.ToolTip = "Avance VALIDADO"
                     'valida.Attributes.Add("onClick", "return frmValidacion('" + avanceId.ToString + "',888); return true;")
                     valida.Attributes.Add("onClick", "return mensaje('error', 'El avance ya fue validado'); return true;")
@@ -606,7 +606,7 @@ Public Class registroHitoV
 
             ElseIf Request.QueryString("sup") = 0 Then
                 If validado = 1 Then
-                    valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/open24.png"
+                    valida.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/open24.png"
                 End If
 
                 sector.Attributes.Add("onClick", "return mensaje('error', 'No corresponde a la entidad'); return true;")
@@ -635,7 +635,7 @@ Public Class registroHitoV
                 End If
             ElseIf Request.QueryString("sup") = 2 Then
                 If validado = 1 Then
-                    valida.ImageUrl = "https://sesigue.com/REFERENCIASBASE/Resources/open24.png"
+                    valida.ImageUrl = "https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/open24.png"
                     eliminaHito.Attributes.Add("onClick", "return mensaje('error', 'No puede eliminar un avance validado'); return true;")
                 End If
                 eliminaHito.Attributes.Add("onClick", "return mensaje('error', 'No corresponde a la entidad'); return true;")

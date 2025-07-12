@@ -4,12 +4,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <script src="https://sesigue.com/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="https://sesigue.com/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.css" rel="stylesheet" type="text/css" />
-    <link href="https://sesigue.com/REFERENCIASBASE/Scripts/new2019/build/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/vendors/nprogress/nprogress.css" rel="stylesheet" type="text/css" />
+    <link href="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Scripts/new2019/build/css/custom.min.css" rel="stylesheet" type="text/css" />
 
     <style type="text/css">
         .styleMe{
@@ -182,7 +182,7 @@
 
             function renewSession() {
                 console.log("Renovando session...");
-                document.getElementById('renewSession').src = 'https://sesigue.com/PROFAKTOWEB/SessionActiva.aspx?par=' + Math.random();
+                document.getElementById('renewSession').src = 'https://sesigue.miterritorio.gob.pe/PROFAKTOWEB/SessionActiva.aspx?par=' + Math.random();
             }
 
             function GetRadWindow() {
@@ -218,14 +218,27 @@
 <body>
     <form id="form1" runat="server">
         <div class="top_nav">
-            <img id="Img1" runat="server" src="https://sesigue.com/REFERENCIASBASE/Resources/sd_home_cab.png" style="width:100%" />
+            <img id="Img1" runat="server" src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/sd_home_cab.png" style="width:100%" />
         </div>
     <center>
-        <%--<asp:Button ID="prioridadesB" runat="server" class="styleMe" Text="LISTA DE PEDIDOS" Width="100%" Height="60px" Font-Size="15" target="_blank" />
-            href="AcuerdosListV.aspx?7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=D72E58A4A3B20314C59A69BB1ED5905F88DBBDB2AE4B7DB1&gjXtIkEroS=SD_SSFD&ksjcmj=0&hsndktumg=D72E58A4A3B20314C59A69BB1ED5905F88DBBDB2AE4B7DB1&tipo=1&ubig=0&de=&en=3384&sup=2&enti=Vista+General"
-            --%>
+        <br />
+        <div class="top_nav">
+          <div class="nav_menu">
+              <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center; font-weight:bold;font-size:24px">
+                  
+                        <asp:Label ID="titulo2LB" runat="server" Font-Bold="False" Font-Size="17pt" Text="" style="font-weight: 600;">
+                            ACTUALMENTE REDIRIGIDO A:
+                        </asp:Label>
+                </div>
+          </div>
+        </div>
         <div style="width:70%" id="formLogin" runat="server">
-                    <div class="col-md-12 col-sm-12 col-xs-12 " style="text-align:center; font-weight:bold; padding-top:20px">
+            <div class="col-md-12 col-sm-12 col-xs-12 " style="text-align:center; font-weight:bold; padding-top:20px">
+                <a id="asesigueBN" runat="server" class="styleMe" style="width:100%; height:60px; font-size:15pt; padding-top:15px" href="https://sesigue.miterritorio.gob.pe/sesigue">
+                    sesigue.miterritorio.gob.pe/sesigue
+                </a>
+            </div>
+<%--                    <div class="col-md-12 col-sm-12 col-xs-12 " style="text-align:center; font-weight:bold; padding-top:20px">
                         <a target="_blank" id="acreditadoBN" runat="server" class="styleMe" style="width:100%; height:60px; font-size:15pt; padding-top:15px">
                             REGISTRO DE ACREDITADOS
                         </a>
@@ -260,73 +273,17 @@
                         <a target="_blank" id="listHitosB" runat="server" class="styleMe" style="width:100%; height:60px; font-size:15pt; padding-top:15px">
                             LISTA DE HITOS
                         </a>
-                    </div>
+                    </div>--%>
                     
         </div>
-             <%--    <div style="width:70%">
-           <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="padding-top:30px">
-                    <a target="_blank" id="listAcuerdoB" runat="server" class="styleMe" style="width:100%; height:100px; font-size:20pt; margin-top:10px; padding-top:30px"
-                        href="AcuerdosListV.aspx?7B611A09B990B80849DBE7AF822D63E466D552839D9EC6E0=D72E58A4A3B20314C59A69BB1ED5905F88DBBDB2AE4B7DB1&gjXtIkEroS=SD_SSFD&ksjcmj=0&hsndktumg=D72E58A4A3B20314C59A69BB1ED5905F88DBBDB2AE4B7DB1&tipo=1&ubig=0&de=&en=3384&sup=2&enti=Vista+General">                
-                        LISTA DE ACUERDOS
-                    </a>
-                </div>
-                <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="padding-top:30px">
-                    <a target="_blank" id="listHitosB" runat="server" class="styleMe" style="width:100%; height:100px; font-size:20pt; padding-top:30px"
-                        href="AcuerdosListHitoV.aspx?lkjasdliwupqwinasndlkkjasKASNDDDWILADdASKJSdwuewue=lksajdasdwWDwdwDdlaksjdlnlnkj34lkjlk324nkjn2l3k4k567lk5786666lk76nwnbmnkjhkjh&gjXtIkEroS=SD_SSFD">
-                        LISTA DE HITOS
-                    </a>
-                </div>
-        </div>--%>
+
 
     </center>
 
 
-       <%-- <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="padding-top:30px">
-            <asp:Button ID="validaB" runat="server" class="styleMe1" Text="VALIDA ACREDITADO" Width="100%" Height="100px" Font-Size="20" Visible="false"/>
-        </div>
-        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-            <asp:Button ID="registroAsistenciaB" runat="server" class="styleMe1" Text="REGISTRO DE ASISTENCIA" Width="100%" Height="100px" Font-Size="20" Visible="false"/>
-        </div>
-        <div class="col-md-12 col-sm-12 col-xs-12 form-group">  
-            <asp:Button ID="asistenteListB" runat="server" class="styleMe" Text="LISTA DE ASISTENTES" Width="100%" Height="100px" Font-Size="20" Visible="false"/>
-        </div>
-        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-            <asp:Button ID="acreditaListB" runat="server" class="styleMe1" Text="LISTA DE ACREDITADOS" Width="100%" Height="100px" Font-Size="20" Visible="false"/>
-        </div>
-        <div class="col-md-12 col-sm-12 col-xs-12 form-group">  
-            <asp:Button ID="importaAcreditadoB" runat="server" class="styleMe" Text="IMPORTAR ACREDITADOS" Width="100%" Height="100px" Font-Size="20" Visible="false"/>
-        </div>--%>
         <input id="hiddenField" runat="server" type="hidden" value="0" />
         
-        
-<%--        <asp:SqlDataSource ID="SDS_SD_P_selectGrupos" runat="server" 
-            SelectCommand="SD_P_selectGrupos" SelectCommandType="StoredProcedure">
-            <SelectParameters>
-                <asp:Parameter DefaultValue="0" Name="grupoId" Type="Int32" />
-                <asp:Parameter DefaultValue="2" Name="tipo" Type="Int32" />
-            </SelectParameters>
-        </asp:SqlDataSource>
-        <asp:SqlDataSource ID="SDS_P_selectDepartamento" runat="server" 
-            SelectCommand="SD_P_selectDepartamentoSD" SelectCommandType="StoredProcedure">
-        </asp:SqlDataSource>
-        <asp:SqlDataSource ID="SDS_P_selectProvincia" runat="server" 
-            ProviderName="System.Data.SqlClient" SelectCommand="SD_P_selectProvinciaSD" 
-            SelectCommandType="StoredProcedure">
-            <SelectParameters>
-                <asp:ControlParameter ControlID="cbo_departamento1" DefaultValue="" 
-                    Name="departamento" PropertyName="SelectedValue" Type="Int32" />
-                <asp:Parameter DefaultValue="1" Name="tipo" Type="Int32" />
-            </SelectParameters>
-        </asp:SqlDataSource>
-        <asp:SqlDataSource ID="SDS_SD_P_selectEntidades" runat="server" 
-            SelectCommand="SD_P_selectEntidades" SelectCommandType="StoredProcedure">
-            <SelectParameters>
-                <asp:Parameter DefaultValue="0" Name="entidadId" Type="Int32" />
-                <asp:ControlParameter ControlID="tipoCB" DefaultValue="3" Name="tipo" PropertyName="SelectedValue" Type="Int32" />
-                <asp:ControlParameter ControlID="grupoCB" DefaultValue="-1" Name="sectorId" PropertyName="SelectedValue" Type="Int32" />
-                <asp:ControlParameter ControlID="hiddenField" DefaultValue="0" Name="ubigeo" PropertyName="value" Type="Int32" />
-            </SelectParameters>
-        </asp:SqlDataSource>--%>
+
 
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
@@ -341,7 +298,7 @@
     </body>
 
 <footer>
-    <img src="https://sesigue.com/REFERENCIASBASE/Resources/sd_inferior_web.png" style="width:100%" />
+    <img src="https://sesigue.miterritorio.gob.pe/REFERENCIASBASE/Resources/sd_inferior_web.png" style="width:100%" />
 </footer>
     
 </html>
